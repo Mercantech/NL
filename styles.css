@@ -3046,6 +3046,402 @@ body.nav-open .menu-bars::after {
   }
 }
 
+/* —— Previous years / gallery —— */
+.page-years {
+  background:
+    radial-gradient(ellipse 50% 35% at 100% 0%, rgba(200, 16, 46, 0.1), transparent 55%),
+    radial-gradient(ellipse 45% 30% at 0% 8%, rgba(227, 111, 30, 0.1), transparent 50%),
+    linear-gradient(180deg, #f6fafc 0%, #eef4f8 100%);
+}
+
+.years-hero {
+  position: relative;
+  padding: 2rem 0 1.25rem;
+  overflow: hidden;
+}
+
+.years-hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 40% 50% at 85% 10%, rgba(200, 16, 46, 0.12), transparent 60%),
+    radial-gradient(ellipse 35% 40% at 10% 60%, rgba(227, 111, 30, 0.1), transparent 55%);
+}
+
+.years-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 40rem;
+}
+
+.years-hero h1 {
+  margin: 0 0 0.7rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.35rem, 5.8vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+
+.years-hero .section-lead {
+  margin-bottom: 1.25rem;
+}
+
+.years-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.years-jump a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1.5px solid rgba(20, 33, 43, 0.1);
+  border-radius: 999px;
+  transition: transform 0.2s var(--ease), border-color 0.2s, box-shadow 0.2s;
+}
+
+.years-jump a:hover,
+.years-jump a:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(227, 111, 30, 0.45);
+  box-shadow: 0 8px 20px rgba(12, 59, 92, 0.08);
+}
+
+.years-section {
+  padding-top: 1rem;
+  padding-bottom: 1.75rem;
+}
+
+.years-section-alt {
+  background:
+    linear-gradient(180deg, rgba(200, 16, 46, 0.03), transparent 40%);
+}
+
+.years-year-head {
+  margin-bottom: 1rem;
+  max-width: 36rem;
+  scroll-margin-top: calc(var(--header-h) + 1rem);
+}
+
+.years-year-label {
+  margin: 0 0 0.15rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--nl-orange);
+}
+
+.years-section-alt .years-year-label {
+  color: var(--dk-red);
+}
+
+.years-year-head h2 {
+  margin: 0 0 0.3rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.years-year-lead {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.years-gallery {
+  columns: 1;
+  column-gap: 0.65rem;
+}
+
+@media (min-width: 640px) {
+  .years-gallery {
+    columns: 2;
+  }
+}
+
+@media (min-width: 960px) {
+  .years-gallery {
+    columns: 3;
+  }
+}
+
+.years-item {
+  margin: 0 0 0.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+  width: 100%;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  animation: pack-rise 0.45s var(--ease) both;
+}
+
+.years-item:nth-child(2) { animation-delay: 0.03s; }
+.years-item:nth-child(3) { animation-delay: 0.06s; }
+.years-item:nth-child(4) { animation-delay: 0.09s; }
+.years-item:nth-child(5) { animation-delay: 0.12s; }
+.years-item:nth-child(6) { animation-delay: 0.15s; }
+
+.years-item figcaption {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.3;
+  padding: 0 0.1rem;
+}
+
+.years-item figcaption code {
+  font-size: 0.78em;
+  padding: 0.05rem 0.3rem;
+  border-radius: 4px;
+  background: rgba(20, 33, 43, 0.06);
+}
+
+.years-media {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: rgba(20, 33, 43, 0.08);
+  aspect-ratio: 4 / 3;
+  position: relative;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s;
+}
+
+.years-media:hover,
+.years-media:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(12, 59, 92, 0.14);
+}
+
+.years-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.years-item-featured .years-media,
+.years-item-wide .years-media {
+  aspect-ratio: 4 / 3;
+}
+
+.years-item-tall .years-media {
+  aspect-ratio: 3 / 4;
+}
+
+.years-item-video {
+  position: relative;
+}
+
+.years-video-frame {
+  --ar: 16 / 9;
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--ar);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0a1a24;
+}
+
+.years-video-frame video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  object-fit: contain;
+  object-position: center;
+  background: #0a1a24;
+}
+
+.years-item-video-native {
+  max-width: none;
+}
+
+.years-video-frame::after {
+  content: "Video";
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 2;
+  pointer-events: none;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.45rem;
+  border-radius: 5px;
+  color: #fff;
+  background: rgba(18, 140, 70, 0.88);
+}
+
+.years-placeholder .years-placeholder-inner {
+  display: grid;
+  place-content: center;
+  gap: 0.65rem;
+  text-align: center;
+  min-height: 11rem;
+  padding: 1.5rem 1rem;
+  border-radius: 14px;
+  border: 1.5px dashed rgba(20, 33, 43, 0.18);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(232, 242, 247, 0.9));
+}
+
+.years-item-wide.years-placeholder .years-placeholder-inner {
+  min-height: 13rem;
+}
+
+.years-placeholder-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: rgba(227, 111, 30, 0.12);
+  position: relative;
+}
+
+.years-placeholder-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 1.15rem;
+  height: 0.9rem;
+  border: 2px solid var(--nl-orange);
+  border-radius: 3px;
+  box-shadow: 0.35rem -0.3rem 0 -0.15rem rgba(227, 111, 30, 0.45);
+}
+
+.years-placeholder-video {
+  background: rgba(200, 16, 46, 0.1);
+}
+
+.years-placeholder-video::before {
+  width: 0;
+  height: 0;
+  border: none;
+  box-shadow: none;
+  border-style: solid;
+  border-width: 0.4rem 0 0.4rem 0.7rem;
+  border-color: transparent transparent transparent var(--dk-red);
+  border-radius: 0;
+  left: 0.15rem;
+}
+
+.years-placeholder figcaption {
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+}
+
+.years-note-section {
+  padding-top: 0.25rem;
+  padding-bottom: 2rem;
+}
+
+.years-upload-note {
+  max-width: 40rem;
+  padding: 1.25rem 1.35rem;
+  margin-bottom: 1.5rem;
+  border-radius: 16px;
+  border: 1.5px solid rgba(227, 111, 30, 0.28);
+  background: linear-gradient(135deg, rgba(227, 111, 30, 0.1), rgba(255, 255, 255, 0.92));
+}
+
+.years-upload-note h2 {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.years-upload-note p {
+  margin: 0 0 0.55rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.years-upload-note p:last-child {
+  margin-bottom: 0;
+}
+
+.years-upload-note code {
+  font-size: 0.88em;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  background: rgba(20, 33, 43, 0.06);
+  color: var(--ink);
+}
+
+.years-upload-tip {
+  font-size: 0.88rem !important;
+}
+
+.years-lightbox {
+  border: none;
+  padding: 0;
+  max-width: min(96vw, 1100px);
+  max-height: 92vh;
+  background: transparent;
+}
+
+.years-lightbox::backdrop {
+  background: rgba(8, 20, 30, 0.78);
+  backdrop-filter: blur(4px);
+}
+
+.years-lightbox img {
+  display: block;
+  max-width: 96vw;
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.years-lightbox-close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.years-lightbox-close:hover {
+  background: #fff;
+}
+
 /* —— Contact —— */
 .contact-section {
   background:

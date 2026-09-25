@@ -227,4 +227,26 @@
     });
     update();
   }
+
+  // Previous years lightbox
+  const yearsDialog = document.querySelector("[data-years-dialog]");
+  const yearsDialogImg = document.querySelector("[data-years-dialog-img]");
+  if (yearsDialog && yearsDialogImg) {
+    document.querySelectorAll("[data-years-lightbox]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const full = btn.getAttribute("data-full") || btn.querySelector("img")?.src;
+        const alt = btn.querySelector("img")?.alt || "";
+        if (!full) return;
+        yearsDialogImg.src = full;
+        yearsDialogImg.alt = alt;
+        yearsDialog.showModal();
+      });
+    });
+    yearsDialog.querySelector("[data-years-close]")?.addEventListener("click", () => {
+      yearsDialog.close();
+    });
+    yearsDialog.addEventListener("click", (e) => {
+      if (e.target === yearsDialog) yearsDialog.close();
+    });
+  }
 })();
