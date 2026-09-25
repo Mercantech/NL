@@ -2176,15 +2176,9 @@ body.nav-open .menu-bars::after {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: center;
-}
-
-@media (min-width: 860px) {
-  .pack-hero-grid {
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 2.5rem;
-  }
+  max-width: 40rem;
 }
 
 .pack-hero-copy .eyebrow {
@@ -2225,26 +2219,36 @@ body.nav-open .menu-bars::after {
   }
 }
 
+.pack-sticky-rail {
+  position: sticky;
+  top: calc(var(--header-h) + 0.4rem);
+  z-index: 30;
+  display: grid;
+  gap: 0.55rem;
+  margin-bottom: 1.35rem;
+  max-width: 44rem;
+}
+
 .pack-status-card {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
-  padding: 1.35rem 1.4rem;
-  background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.82));
+  gap: 0.95rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.9);
   border: 1.5px solid rgba(20, 33, 43, 0.08);
-  border-radius: 20px;
+  border-radius: 16px;
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.8) inset,
-    0 18px 40px rgba(12, 59, 92, 0.08);
-  animation: pack-rise 0.75s var(--ease) 0.12s both;
+    0 1px 0 rgba(255, 255, 255, 0.85) inset,
+    0 12px 28px rgba(12, 59, 92, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .pack-ring {
   --pct: 0;
   position: relative;
-  width: 7.25rem;
-  height: 7.25rem;
+  width: 4.35rem;
+  height: 4.35rem;
   flex-shrink: 0;
 }
 
@@ -2257,13 +2261,13 @@ body.nav-open .menu-bars::after {
 .pack-ring-track {
   fill: none;
   stroke: rgba(20, 33, 43, 0.08);
-  stroke-width: 9;
+  stroke-width: 10;
 }
 
 .pack-ring-value {
   fill: none;
   stroke: url(#pack-ring-grad);
-  stroke-width: 9;
+  stroke-width: 10;
   stroke-linecap: round;
   stroke-dasharray: 327;
   stroke-dashoffset: calc(327 - (327 * var(--pct) / 100));
@@ -2280,19 +2284,19 @@ body.nav-open .menu-bars::after {
   display: grid;
   place-content: center;
   text-align: center;
-  line-height: 1.15;
+  line-height: 1.1;
 }
 
 .pack-ring-label strong {
   font-family: var(--font-display);
-  font-size: 1.55rem;
+  font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--ink);
 }
 
 .pack-ring-label span {
-  font-size: 0.72rem;
+  font-size: 0.58rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -2305,23 +2309,26 @@ body.nav-open .menu-bars::after {
 }
 
 .pack-status-count {
-  margin: 0 0 0.2rem;
+  margin: 0 0 0.1rem;
   font-family: var(--font-display);
-  font-size: 1.65rem;
+  font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
 
 .pack-status-hint {
-  margin: 0 0 0.85rem;
-  font-size: 0.9rem;
+  margin: 0 0 0.5rem;
+  font-size: 0.82rem;
   color: var(--muted);
-  line-height: 1.4;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .pack-progress-bar {
-  height: 0.45rem;
+  height: 0.4rem;
   border-radius: 999px;
   background: rgba(20, 33, 43, 0.08);
   overflow: hidden;
@@ -2337,32 +2344,30 @@ body.nav-open .menu-bars::after {
 }
 
 .pack-section {
-  padding-top: 0.5rem;
+  padding-top: 0.25rem;
   padding-bottom: 3.5rem;
 }
 
 .pack-jump {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-bottom: 1.5rem;
-  padding: 0.35rem;
-  background: rgba(255, 255, 255, 0.65);
+  gap: 0.35rem;
+  padding: 0.3rem;
+  background: rgba(255, 255, 255, 0.88);
   border: 1px solid rgba(20, 33, 43, 0.07);
   border-radius: 999px;
-  backdrop-filter: blur(8px);
-  position: sticky;
-  top: calc(var(--header-h) + 0.5rem);
-  z-index: 20;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   width: fit-content;
   max-width: 100%;
+  box-shadow: 0 8px 20px rgba(12, 59, 92, 0.06);
 }
 
 .pack-jump a {
   display: inline-flex;
   align-items: center;
-  padding: 0.45rem 0.9rem;
-  font-size: 0.82rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
   font-weight: 600;
   text-decoration: none;
   color: var(--muted);
@@ -2464,7 +2469,7 @@ body.nav-open .menu-bars::after {
   background: rgba(255, 255, 255, 0.88);
   box-shadow: 0 8px 24px rgba(12, 59, 92, 0.04);
   overflow: hidden;
-  scroll-margin-top: calc(var(--header-h) + 3.5rem);
+  scroll-margin-top: calc(var(--header-h) + 9.5rem);
   transition: border-color 0.25s, box-shadow 0.25s;
 }
 
@@ -3014,13 +3019,12 @@ body.nav-open .menu-bars::after {
 
 @media (max-width: 640px) {
   .pack-status-card {
-    flex-direction: column;
-    align-items: stretch;
-    text-align: center;
+    gap: 0.75rem;
+    padding: 0.7rem 0.85rem;
   }
 
-  .pack-ring {
-    margin: 0 auto;
+  .pack-status-hint {
+    white-space: normal;
   }
 
   .pack-jump {

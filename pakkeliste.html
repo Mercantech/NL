@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260925b" />
+  <link rel="stylesheet" href="styles.css?v=20260925c" />
 </head>
 <body class="page-pack">
   <a class="skip-link" href="#content">Spring til indhold</a>
@@ -59,44 +59,46 @@
             <a class="btn btn-ghost-dark" href="qa.html">Q&amp;A</a>
           </div>
         </div>
-
-        <div class="pack-status-card" aria-live="polite">
-          <div class="pack-ring" data-pack-ring style="--pct: 0">
-            <svg viewBox="0 0 120 120" aria-hidden="true">
-              <defs>
-                <linearGradient id="pack-ring-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#e36f1e" />
-                  <stop offset="100%" stop-color="#c8102e" />
-                </linearGradient>
-              </defs>
-              <circle class="pack-ring-track" cx="60" cy="60" r="52" />
-              <circle class="pack-ring-value" cx="60" cy="60" r="52" data-pack-ring-circle />
-            </svg>
-            <div class="pack-ring-label">
-              <strong data-pack-pct>0%</strong>
-              <span>færdig</span>
-            </div>
-          </div>
-          <div class="pack-status-meta">
-            <p class="pack-status-count"><span data-pack-done>0</span> / <span data-pack-total>0</span></p>
-            <p class="pack-status-hint" data-pack-hint>Ingen ting pakket endnu</p>
-            <div class="pack-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-pack-bar>
-              <span data-pack-fill></span>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
     <section class="section pack-section" id="pack-list">
       <div class="section-inner">
-        <nav class="pack-jump" aria-label="Hop til kategori">
-          <a href="#cat-papirer">Papirer</a>
-          <a href="#cat-toej">Tøj</a>
-          <a href="#cat-toilet">Toilet</a>
-          <a href="#cat-ekstra">Ekstra</a>
-          <a href="#cat-skip">Lad ligge</a>
-        </nav>
+        <div class="pack-sticky-rail">
+          <div class="pack-status-card" aria-live="polite">
+            <div class="pack-ring" data-pack-ring style="--pct: 0">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <defs>
+                  <linearGradient id="pack-ring-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#e36f1e" />
+                    <stop offset="100%" stop-color="#c8102e" />
+                  </linearGradient>
+                </defs>
+                <circle class="pack-ring-track" cx="60" cy="60" r="52" />
+                <circle class="pack-ring-value" cx="60" cy="60" r="52" data-pack-ring-circle />
+              </svg>
+              <div class="pack-ring-label">
+                <strong data-pack-pct>0%</strong>
+                <span>færdig</span>
+              </div>
+            </div>
+            <div class="pack-status-meta">
+              <p class="pack-status-count"><span data-pack-done>0</span> / <span data-pack-total>0</span></p>
+              <p class="pack-status-hint" data-pack-hint>Ingen ting pakket endnu</p>
+              <div class="pack-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-pack-bar>
+                <span data-pack-fill></span>
+              </div>
+            </div>
+          </div>
+
+          <nav class="pack-jump" aria-label="Hop til kategori">
+            <a href="#cat-papirer">Papirer</a>
+            <a href="#cat-toej">Tøj</a>
+            <a href="#cat-toilet">Toilet</a>
+            <a href="#cat-ekstra">Ekstra</a>
+            <a href="#cat-skip">Lad ligge</a>
+          </nav>
+        </div>
 
         <aside class="pack-note" role="note">
           <div class="pack-note-icon" aria-hidden="true">
@@ -276,6 +278,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260925b"></script>
+  <script src="script.js?v=20260925c"></script>
 </body>
 </html>
