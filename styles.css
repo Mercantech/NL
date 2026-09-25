@@ -2221,21 +2221,21 @@ body.nav-open .menu-bars::after {
 
 .pack-sticky-bar {
   position: sticky;
-  top: calc(var(--header-h) + 0.4rem);
+  top: calc(var(--header-h) + 0.35rem);
   z-index: 30;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: 0.75rem 1.1rem;
-  margin-bottom: 1.35rem;
+  gap: 0.65rem;
+  margin-bottom: 1.15rem;
   max-width: 44rem;
-  padding: 0.65rem 0.75rem 0.65rem 0.7rem;
-  background: rgba(255, 255, 255, 0.92);
+  padding: 0.4rem 0.45rem 0.4rem 0.5rem;
+  background: rgba(255, 255, 255, 0.94);
   border: 1.5px solid rgba(20, 33, 43, 0.08);
-  border-radius: 16px;
+  border-radius: 999px;
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.85) inset,
-    0 12px 28px rgba(12, 59, 92, 0.1);
+    0 10px 24px rgba(12, 59, 92, 0.09);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
@@ -2243,16 +2243,17 @@ body.nav-open .menu-bars::after {
 .pack-bar-status {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  flex: 1 1 12rem;
+  gap: 0.55rem;
+  flex: 0 1 auto;
   min-width: 0;
+  max-width: 13.5rem;
 }
 
 .pack-ring {
   --pct: 0;
   position: relative;
-  width: 3.6rem;
-  height: 3.6rem;
+  width: 2.55rem;
+  height: 2.55rem;
   flex-shrink: 0;
 }
 
@@ -2264,14 +2265,14 @@ body.nav-open .menu-bars::after {
 
 .pack-ring-track {
   fill: none;
-  stroke: rgba(20, 33, 43, 0.08);
-  stroke-width: 11;
+  stroke: rgba(20, 33, 43, 0.1);
+  stroke-width: 12;
 }
 
 .pack-ring-value {
   fill: none;
   stroke: url(#pack-ring-grad);
-  stroke-width: 11;
+  stroke-width: 12;
   stroke-linecap: round;
   stroke-dasharray: 327;
   stroke-dashoffset: calc(327 - (327 * var(--pct) / 100));
@@ -2288,23 +2289,15 @@ body.nav-open .menu-bars::after {
   display: grid;
   place-content: center;
   text-align: center;
-  line-height: 1.05;
+  line-height: 1;
 }
 
 .pack-ring-label strong {
   font-family: var(--font-display);
-  font-size: 0.92rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--ink);
-}
-
-.pack-ring-label span {
-  font-size: 0.5rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--muted);
 }
 
 .pack-status-meta {
@@ -2313,39 +2306,22 @@ body.nav-open .menu-bars::after {
 }
 
 .pack-status-count {
-  margin: 0 0 0.05rem;
+  margin: 0;
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 0.98rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
 
 .pack-status-hint {
-  margin: 0 0 0.4rem;
-  font-size: 0.78rem;
+  margin: 0.05rem 0 0;
+  font-size: 0.68rem;
   color: var(--muted);
-  line-height: 1.25;
+  line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.pack-progress-bar {
-  height: 0.35rem;
-  border-radius: 999px;
-  background: rgba(20, 33, 43, 0.08);
-  overflow: hidden;
-  max-width: 11rem;
-}
-
-.pack-progress-bar span {
-  display: block;
-  height: 100%;
-  width: 0%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, var(--nl-orange), var(--dk-red));
-  transition: width 0.45s var(--ease);
 }
 
 .pack-section {
@@ -2355,31 +2331,40 @@ body.nav-open .menu-bars::after {
 
 .pack-jump {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem;
-  padding: 0.2rem;
-  background: rgba(20, 33, 43, 0.04);
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.15rem;
+  background: rgba(20, 33, 43, 0.045);
   border-radius: 999px;
-  width: fit-content;
-  max-width: 100%;
   margin-left: auto;
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.pack-jump::-webkit-scrollbar {
+  display: none;
 }
 
 .pack-jump a {
   display: inline-flex;
   align-items: center;
-  padding: 0.38rem 0.7rem;
-  font-size: 0.76rem;
+  flex-shrink: 0;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.72rem;
   font-weight: 600;
   text-decoration: none;
   color: var(--muted);
   border-radius: 999px;
   transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
 }
 
 .pack-jump a:hover,
 .pack-jump a:focus-visible {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   color: var(--ink);
   box-shadow: 0 1px 4px rgba(12, 59, 92, 0.08);
 }
@@ -2472,7 +2457,7 @@ body.nav-open .menu-bars::after {
   background: rgba(255, 255, 255, 0.88);
   box-shadow: 0 8px 24px rgba(12, 59, 92, 0.04);
   overflow: hidden;
-  scroll-margin-top: calc(var(--header-h) + 6.5rem);
+  scroll-margin-top: calc(var(--header-h) + 4.25rem);
   transition: border-color 0.25s, box-shadow 0.25s;
 }
 
@@ -3022,28 +3007,25 @@ body.nav-open .menu-bars::after {
 
 @media (max-width: 640px) {
   .pack-sticky-bar {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.55rem;
-    padding: 0.65rem;
+    border-radius: 14px;
+    padding: 0.45rem 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.4rem;
   }
 
   .pack-bar-status {
-    width: 100%;
+    max-width: none;
+    flex: 1 1 auto;
   }
 
   .pack-status-hint {
-    white-space: normal;
-  }
-
-  .pack-progress-bar {
-    max-width: none;
+    max-width: 11rem;
   }
 
   .pack-jump {
     margin-left: 0;
     width: 100%;
-    border-radius: 12px;
+    order: 2;
   }
 
   .wa-card {
