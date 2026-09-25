@@ -145,7 +145,28 @@
     const totalEl = document.querySelector("[data-pack-total]");
     const fillEl = document.querySelector("[data-pack-fill]");
     const barEl = document.querySelector("[data-pack-bar]");
+    const pctEl = document.querySelector("[data-pack-pct]");
+    const hintEl = document.querySelector("[data-pack-hint]");
+    const ringEl = document.querySelector("[data-pack-ring]");
+    const doneBanner = document.querySelector("[data-pack-done-banner]");
     const resetBtn = document.querySelector("[data-pack-reset]");
+    const groups = [...packForm.querySelectorAll("[data-pack-group]")];
+
+    const hints = [
+      { max: 0, text: "Ingen ting pakket endnu" },
+      { max: 25, text: "God start — tag papirerne først" },
+      { max: 50, text: "Halvvejs — tøj og toilet næste" },
+      { max: 75, text: "Næsten klar — check det sidste" },
+      { max: 99, text: "Sidste punkt — så er du klar" },
+      { max: 100, text: "Alt er checked — god tur!" },
+    ];
+
+    const hintFor = (pct) => {
+      for (const h of hints) {
+        if (pct <= h.max) return h.text;
+      }
+      return hints[hints.length - 1].text;
+    };
 
     const saved = (() => {
       try {
@@ -159,6 +180,18 @@
       if (saved[box.value]) box.checked = true;
     });
 
+    const updateGroups = () => {
+      groups.forEach((group) => {
+        const groupBoxes = [...group.querySelectorAll('input[type="checkbox"]:not(:disabled)')];
+        const done = groupBoxes.filter((b) => b.checked).length;
+        const countEl = group.querySelector("[data-group-count]");
+        if (countEl) {
+          countEl.textContent = `${done} / ${groupBoxes.length}`;
+        }
+        group.classList.toggle("is-group-done", groupBoxes.length > 0 && done === groupBoxes.length);
+      });
+    };
+
     const update = () => {
       const state = {};
       let done = 0;
@@ -170,10 +203,19 @@
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
       const total = boxes.length;
       const pct = total ? Math.round((done / total) * 100) : 0;
+
       if (doneEl) doneEl.textContent = String(done);
       if (totalEl) totalEl.textContent = String(total);
       if (fillEl) fillEl.style.width = `${pct}%`;
       if (barEl) barEl.setAttribute("aria-valuenow", String(pct));
+      if (pctEl) pctEl.textContent = `${pct}%`;
+      if (hintEl) hintEl.textContent = hintFor(pct);
+      if (ringEl) {
+        ringEl.style.setProperty("--pct", String(pct));
+        ringEl.classList.toggle("is-complete", pct === 100);
+      }
+      if (doneBanner) doneBanner.hidden = pct !== 100;
+      updateGroups();
     };
 
     packForm.addEventListener("change", update);

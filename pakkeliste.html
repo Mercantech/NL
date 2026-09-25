@@ -40,94 +40,191 @@
 
   <main id="content">
     <section class="pack-hero" aria-labelledby="pack-title">
-      <div class="pack-hero-bg" aria-hidden="true"></div>
-      <div class="section-inner pack-hero-inner">
-        <div class="qa-hero-flags" aria-hidden="true">
-          <div class="flag flag-dk flag-lg"><span class="dk-cross-h"></span><span class="dk-cross-v"></span></div>
-          <span class="qa-hero-swap">↔</span>
-          <div class="flag flag-nl flag-lg"><span></span><span></span><span></span></div>
-        </div>
-        <p class="eyebrow">Til danske elever</p>
-        <h1 id="pack-title">Pakkeliste</h1>
-        <p class="section-lead">Check af, mens du pakker. Din fremgang gemmes i browseren, så du kan vende tilbage senere.</p>
-
-        <div class="pack-progress" aria-live="polite">
-          <div class="pack-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-pack-bar>
-            <span data-pack-fill></span>
+      <div class="pack-hero-bg" aria-hidden="true">
+        <div class="pack-blob pack-blob-a"></div>
+        <div class="pack-blob pack-blob-b"></div>
+      </div>
+      <div class="section-inner pack-hero-grid">
+        <div class="pack-hero-copy">
+          <div class="qa-hero-flags" aria-hidden="true">
+            <div class="flag flag-dk flag-md"><span class="dk-cross-h"></span><span class="dk-cross-v"></span></div>
+            <span class="qa-hero-swap">↔</span>
+            <div class="flag flag-nl flag-md"><span></span><span></span><span></span></div>
           </div>
-          <p class="pack-progress-label"><span data-pack-done>0</span> / <span data-pack-total>0</span> pakket</p>
+          <p class="eyebrow">Til danske elever · Helmond</p>
+          <h1 id="pack-title">Klar til at pakke?</h1>
+          <p class="section-lead">Check af punkt for punkt. Fremgangen gemmes automatisk i din browser — så du kan lukke og fortsætte senere.</p>
+          <div class="pack-hero-actions">
+            <a class="btn btn-primary" href="#pack-list">Start listen</a>
+            <a class="btn btn-ghost-dark" href="qa.html">Q&amp;A</a>
+          </div>
+        </div>
+
+        <div class="pack-status-card" aria-live="polite">
+          <div class="pack-ring" data-pack-ring style="--pct: 0">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <defs>
+                <linearGradient id="pack-ring-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#e36f1e" />
+                  <stop offset="100%" stop-color="#c8102e" />
+                </linearGradient>
+              </defs>
+              <circle class="pack-ring-track" cx="60" cy="60" r="52" />
+              <circle class="pack-ring-value" cx="60" cy="60" r="52" data-pack-ring-circle />
+            </svg>
+            <div class="pack-ring-label">
+              <strong data-pack-pct>0%</strong>
+              <span>færdig</span>
+            </div>
+          </div>
+          <div class="pack-status-meta">
+            <p class="pack-status-count"><span data-pack-done>0</span> / <span data-pack-total>0</span></p>
+            <p class="pack-status-hint" data-pack-hint>Ingen ting pakket endnu</p>
+            <div class="pack-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-pack-bar>
+              <span data-pack-fill></span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section pack-section">
+    <section class="section pack-section" id="pack-list">
       <div class="section-inner">
+        <nav class="pack-jump" aria-label="Hop til kategori">
+          <a href="#cat-papirer">Papirer</a>
+          <a href="#cat-toej">Tøj</a>
+          <a href="#cat-toilet">Toilet</a>
+          <a href="#cat-ekstra">Ekstra</a>
+          <a href="#cat-skip">Lad ligge</a>
+        </nav>
+
         <aside class="pack-note" role="note">
-          <div class="pack-note-flag" aria-hidden="true">
-            <div class="flag flag-nl flag-sm"><span></span><span></span><span></span></div>
+          <div class="pack-note-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" width="48" height="48">
+              <rect x="6" y="16" width="36" height="24" rx="4" fill="currentColor" opacity="0.9"/>
+              <rect x="6" y="16" width="36" height="8" fill="currentColor"/>
+              <rect x="14" y="28" width="8" height="6" rx="1" fill="#fff" opacity="0.85"/>
+              <rect x="26" y="28" width="8" height="6" rx="1" fill="#fff" opacity="0.85"/>
+              <path d="M18 16V10h12v6" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            </svg>
           </div>
           <div>
-            <h2>Hotellet har det meste</h2>
-            <p>På <strong>Golden Tulip West Ende</strong> er der <strong>håndklæder</strong> og <strong>sengetøj</strong>. Det behøver du <em>ikke</em> at tage med.</p>
+            <p class="pack-note-kicker">Golden Tulip West Ende</p>
+            <h2>Hotellet har håndklæder &amp; sengetøj</h2>
+            <p>Du skal <strong>ikke</strong> pakke håndklæde eller sengetøj — det er der allerede på hotellet i Helmond.</p>
           </div>
         </aside>
 
+        <div class="pack-done-banner" data-pack-done-banner hidden>
+          <strong>Du er klar!</strong>
+          <span>Alle punkter er checked — god tur til Helmond.</span>
+        </div>
+
         <form class="pack-form" data-pack-form>
-          <fieldset class="pack-group">
-            <legend>Papirer &amp; vigtigt</legend>
-            <label class="pack-item"><input type="checkbox" name="pack" value="pas" /><span>Pas</span></label>
-            <label class="pack-item"><input type="checkbox" name="pack" value="eu-sygesikring" /><span>EU-sygesikringskort</span></label>
-            <label class="pack-item"><input type="checkbox" name="pack" value="penge-kort" /><span>Kontanter / betalingskort (lommepenge)</span></label>
-            <label class="pack-item"><input type="checkbox" name="pack" value="telefon" /><span>Telefon + oplader</span></label>
-            <label class="pack-item"><input type="checkbox" name="pack" value="whatsapp-dk" /><span>Med i WhatsApp: danske elever + ansatte (intern)</span></label>
-            <label class="pack-item"><input type="checkbox" name="pack" value="whatsapp-all" /><span>Med i WhatsApp: NL ↔️ DK – 2026 (fælles)</span></label>
+          <fieldset class="pack-group" id="cat-papirer" data-pack-group>
+            <legend>
+              <span class="pack-group-icon pack-ico-docs" aria-hidden="true"></span>
+              <span class="pack-group-text">
+                <span class="pack-group-title">Papirer &amp; vigtigt</span>
+                <span class="pack-group-count" data-group-count></span>
+              </span>
+            </legend>
+            <div class="pack-items">
+              <label class="pack-item"><input type="checkbox" name="pack" value="pas" /><span class="pack-check" aria-hidden="true"></span><span class="pack-label"><strong>Pas</strong><small>Obligatorisk</small></span></label>
+              <label class="pack-item"><input type="checkbox" name="pack" value="eu-sygesikring" /><span class="pack-check" aria-hidden="true"></span><span class="pack-label"><strong>EU-sygesikringskort</strong><small>Tag med selvom skolen forsikrer</small></span></label>
+              <label class="pack-item"><input type="checkbox" name="pack" value="penge-kort" /><span class="pack-check" aria-hidden="true"></span><span class="pack-label"><strong>Kontanter / betalingskort</strong><small>Lommepenge til mad &amp; snacks</small></span></label>
+              <label class="pack-item"><input type="checkbox" name="pack" value="telefon" /><span class="pack-check" aria-hidden="true"></span><span class="pack-label"><strong>Telefon + oplader</strong><small>Samme stik som i DK</small></span></label>
+              <label class="pack-item"><input type="checkbox" name="pack" value="whatsapp-dk" /><span class="pack-check" aria-hidden="true"></span><span class="pack-label"><strong>WhatsApp — DK intern</strong><small>Danske elever + ansatte</small></span></label>
+              <label class="pack-item"><input type="checkbox" name="pack" value="whatsapp-all" /><span class="pack-check" aria-hidden="true"></span><span class="pack-label"><strong>WhatsApp — NL ↔️ DK</strong><small>Fælles gruppe 2026</small></span></label>
+            </div>
+            <div class="wa-groups pack-wa">
+              <a class="wa-card wa-dk" href="https://chat.whatsapp.com/GAnPFL2f2xc3s7g0xnEQ4P" target="_blank" rel="noopener noreferrer">
+                <span class="wa-badge">DK</span>
+                <strong>Danske elever + ansatte</strong>
+                <span>Intern kommunikation</span>
+                <span class="wa-join">Join →</span>
+              </a>
+              <a class="wa-card wa-all" href="https://chat.whatsapp.com/BrpeAFXah7117wUYEoHNgH" target="_blank" rel="noopener noreferrer">
+                <span class="wa-badge">NL ↔ DK</span>
+                <strong>NL ↔️ DK – 2026</strong>
+                <span>Fælles for begge lande</span>
+                <span class="wa-join">Join →</span>
+              </a>
+            </div>
           </fieldset>
 
-          <div class="wa-groups pack-wa">
-            <a class="wa-card wa-dk" href="https://chat.whatsapp.com/GAnPFL2f2xc3s7g0xnEQ4P" target="_blank" rel="noopener noreferrer">
-              <span class="wa-badge">DK</span>
-              <strong>Danske elever + ansatte</strong>
-              <span>Intern kommunikation</span>
-              <span class="wa-join">Join →</span>
-            </a>
-            <a class="wa-card wa-all" href="https://chat.whatsapp.com/BrpeAFXah7117wUYEoHNgH" target="_blank" rel="noopener noreferrer">
-              <span class="wa-badge">NL ↔ DK</span>
-              <strong>NL ↔️ DK – 2026</strong>
-              <span>Fælles for begge lande</span>
-              <span class="wa-join">Join →</span>
-            </a>
-          </div>
-
-          <fieldset class="pack-group">
-            <legend>Tøj</legend>
-            <label class="pack-item"><input type="checkbox" name="pack" value="skoletoej" /><span>Tøj til skoledage</span></label>
-            <label class="pack-item"><input type="checkbox" name="pack" value="fritid" /><span>Fritidstøj / aftentøj</span></label>
-            <label class="pack-item"><input type="checkbox" name="pack" value="undertoej" /><span>Undertøj og sokker til hele turen</span></label>
-            <label class="pack-item"><input type="checkbox" name="pack" value="regntoej" /><span>Regntøj / jakke (november-vejr)</span></label>
-            <label class="pack-item"><input type="checkbox" name="pack" value="sko" /><span>Gode sko til gang / by</span></label>
-            <label class="pack-item"><input type="checkbox" name="pack" value="nattur" /><span>Bekvemt tøj til natbussen (14. nov. kl. 23:05)</span></label>
+          <fieldset class="pack-group" id="cat-toej" data-pack-group>
+            <legend>
+              <span class="pack-group-icon pack-ico-clothes" aria-hidden="true"></span>
+              <span class="pack-group-text">
+                <span class="pack-group-title">Tøj</span>
+                <span class="pack-group-count" data-group-count></span>
+              </span>
+            </legend>
+            <div class="pack-items">
+              <label class="pack-item"><input type="checkbox" name="pack" value="skoletoej" /><span class="pack-check" aria-hidden="true"></span><span class="pack-label"><strong>Tøj til skoledage</strong><small>Hverdags-look til Ter AA</small></span></label>
+              <label class="pack-item"><input type="checkbox" name="pack" value="fritid" /><span class="pack-check" aria-hidden="true"></span><span class="pack-label"><strong>Fritidstøj / aftentøj</strong><small>Aftenerne er frie</small></span></label>
+              <label class="pack-item"><input type="checkbox" name="pack" value="undertoej" /><span class="pack-check" aria-hidden="true"></span><span class="pack-label"><strong>Undertøj &amp; sokker</strong><small>Til hele turen</small></span></label>
+              <label class="pack-item"><input type="checkbox" name="pack" value="regntoej" /><span class="pack-check" aria-hidden="true"></span><span class="pack-label"><strong>Regntøj / jakke</strong><small>November-vejr i NL</small></span></label>
+              <label class="pack-item"><input type="checkbox" name="pack" value="sko" /><span class="pack-check" aria-hidden="true"></span><span class="pack-label"><strong>Gode sko</strong><small>Til gang og by</small></span></label>
+              <label class="pack-item"><input type="checkbox" name="pack" value="nattur" /><span class="pack-check" aria-hidden="true"></span><span class="pack-label"><strong>Bekvemt tøj til natbus</strong><small>Afgang 14. nov. kl. 23:05</small></span></label>
+            </div>
           </fieldset>
 
-          <fieldset class="pack-group">
-            <legend>Toiletartikler</legend>
-            <label class="pack-item"><input type="checkbox" name="pack" value="tandboerste" /><span>Tandbørste og tandpasta</span></label>
-            <label class="pack-item"><input type="checkbox" name="pack" value="shampoo" /><span>Shampoo / sæbe / deodorant</span></label>
-            <label class="pack-item"><input type="checkbox" name="pack" value="haarfön" /><span>Evt. hårtørrer / styling (hvis du bruger det)</span></label>
-            <label class="pack-item pack-item-skip"><input type="checkbox" name="pack" value="haandklaede" disabled /><span>Håndklæde — <em>har hotellet</em></span></label>
-            <label class="pack-item pack-item-skip"><input type="checkbox" name="pack" value="sengetoej" disabled /><span>Sengetøj — <em>har hotellet</em></span></label>
+          <fieldset class="pack-group" id="cat-toilet" data-pack-group>
+            <legend>
+              <span class="pack-group-icon pack-ico-toilet" aria-hidden="true"></span>
+              <span class="pack-group-text">
+                <span class="pack-group-title">Toiletartikler</span>
+                <span class="pack-group-count" data-group-count></span>
+              </span>
+            </legend>
+            <div class="pack-items">
+              <label class="pack-item"><input type="checkbox" name="pack" value="tandboerste" /><span class="pack-check" aria-hidden="true"></span><span class="pack-label"><strong>Tandbørste &amp; tandpasta</strong></span></label>
+              <label class="pack-item"><input type="checkbox" name="pack" value="shampoo" /><span class="pack-check" aria-hidden="true"></span><span class="pack-label"><strong>Shampoo / sæbe / deodorant</strong></span></label>
+              <label class="pack-item"><input type="checkbox" name="pack" value="haarfön" /><span class="pack-check" aria-hidden="true"></span><span class="pack-label"><strong>Evt. hårtørrer / styling</strong><small>Kun hvis du bruger det</small></span></label>
+            </div>
           </fieldset>
 
-          <fieldset class="pack-group">
-            <legend>Helbred &amp; ekstra</legend>
-            <label class="pack-item"><input type="checkbox" name="pack" value="medicin" /><span>Medicin du skal bruge (evt. recept)</span></label>
-            <label class="pack-item"><input type="checkbox" name="pack" value="ørepropper" /><span>Evt. ørepropper / sovemaske til bussen</span></label>
-            <label class="pack-item"><input type="checkbox" name="pack" value="rygsaek" /><span>Lille taske / rygsæk til skoledagen</span></label>
-            <label class="pack-item"><input type="checkbox" name="pack" value="notes" /><span>Notesblok / pen (hvis I skal arbejde)</span></label>
+          <fieldset class="pack-group pack-group-skip" id="cat-skip">
+            <legend>
+              <span class="pack-group-icon pack-ico-hotel" aria-hidden="true"></span>
+              <span class="pack-group-text">
+                <span class="pack-group-title">Lad ligge derhjemme</span>
+                <span class="pack-group-count">Hotellet klarer det</span>
+              </span>
+            </legend>
+            <div class="pack-items">
+              <div class="pack-item pack-item-skip">
+                <span class="pack-skip-x" aria-hidden="true">×</span>
+                <span class="pack-label"><strong>Håndklæde</strong><small>Har Golden Tulip</small></span>
+              </div>
+              <div class="pack-item pack-item-skip">
+                <span class="pack-skip-x" aria-hidden="true">×</span>
+                <span class="pack-label"><strong>Sengetøj</strong><small>Har Golden Tulip</small></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="pack-group" id="cat-ekstra" data-pack-group>
+            <legend>
+              <span class="pack-group-icon pack-ico-extra" aria-hidden="true"></span>
+              <span class="pack-group-text">
+                <span class="pack-group-title">Helbred &amp; ekstra</span>
+                <span class="pack-group-count" data-group-count></span>
+              </span>
+            </legend>
+            <div class="pack-items">
+              <label class="pack-item"><input type="checkbox" name="pack" value="medicin" /><span class="pack-check" aria-hidden="true"></span><span class="pack-label"><strong>Medicin</strong><small>Evt. recept med</small></span></label>
+              <label class="pack-item"><input type="checkbox" name="pack" value="ørepropper" /><span class="pack-check" aria-hidden="true"></span><span class="pack-label"><strong>Ørepropper / sovemaske</strong><small>Til natbussen</small></span></label>
+              <label class="pack-item"><input type="checkbox" name="pack" value="rygsaek" /><span class="pack-check" aria-hidden="true"></span><span class="pack-label"><strong>Lille taske / rygsæk</strong><small>Til skoledagen</small></span></label>
+              <label class="pack-item"><input type="checkbox" name="pack" value="notes" /><span class="pack-check" aria-hidden="true"></span><span class="pack-label"><strong>Notesblok / pen</strong><small>Hvis I skal arbejde</small></span></label>
+            </div>
           </fieldset>
 
           <div class="pack-actions">
             <button type="button" class="btn btn-ghost-dark" data-pack-reset>Nulstil liste</button>
-            <a class="btn btn-primary" href="qa.html">Se Q&amp;A</a>
+            <a class="btn btn-primary" href="qa.html">Videre til Q&amp;A</a>
           </div>
         </form>
 
