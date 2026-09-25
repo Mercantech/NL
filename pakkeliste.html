@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pakkeliste — NL ↔ DK Udveksling</title>
+  <meta name="description" content="Pakkeliste / checkliste til danske Mercantec-elever før Helmond-turen." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-pack">
+  <a class="skip-link" href="#content">Spring til indhold</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="NL DK udveksling — forsiden">
+        <span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="logo-nl">NL</span>
+        <span class="logo-arrow" aria-hidden="true">↔</span>
+        <span class="logo-dk">DK</span>
+        <span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>
+      </a>
+      <nav class="nav" id="main-nav" aria-label="Hovednavigation">
+        <a href="index.html#overview">Overview</a>
+        <a href="index.html#program-nl"><span class="nav-flag flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span> Netherlands</a>
+        <a href="index.html#program-dk"><span class="nav-flag flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span> Denmark</a>
+        <a href="qa.html">Q&amp;A</a>
+        <a href="pakkeliste.html" class="is-active">Pakkeliste</a>
+        <a href="index.html#practical">Practical</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-menu-toggle>
+        <span class="menu-bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="pack-hero" aria-labelledby="pack-title">
+      <div class="pack-hero-bg" aria-hidden="true"></div>
+      <div class="section-inner pack-hero-inner">
+        <div class="qa-hero-flags" aria-hidden="true">
+          <div class="flag flag-dk flag-lg"><span class="dk-cross-h"></span><span class="dk-cross-v"></span></div>
+          <span class="qa-hero-swap">↔</span>
+          <div class="flag flag-nl flag-lg"><span></span><span></span><span></span></div>
+        </div>
+        <p class="eyebrow">Til danske elever</p>
+        <h1 id="pack-title">Pakkeliste</h1>
+        <p class="section-lead">Check af, mens du pakker. Din fremgang gemmes i browseren, så du kan vende tilbage senere.</p>
+
+        <div class="pack-progress" aria-live="polite">
+          <div class="pack-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-pack-bar>
+            <span data-pack-fill></span>
+          </div>
+          <p class="pack-progress-label"><span data-pack-done>0</span> / <span data-pack-total>0</span> pakket</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pack-section">
+      <div class="section-inner">
+        <aside class="pack-note" role="note">
+          <div class="pack-note-flag" aria-hidden="true">
+            <div class="flag flag-nl flag-sm"><span></span><span></span><span></span></div>
+          </div>
+          <div>
+            <h2>Hotellet har det meste</h2>
+            <p>På <strong>Golden Tulip West Ende</strong> er der <strong>håndklæder</strong> og <strong>sengetøj</strong>. Det behøver du <em>ikke</em> at tage med.</p>
+          </div>
+        </aside>
+
+        <form class="pack-form" data-pack-form>
+          <fieldset class="pack-group">
+            <legend>Papirer &amp; vigtigt</legend>
+            <label class="pack-item"><input type="checkbox" name="pack" value="pas" /><span>Pas</span></label>
+            <label class="pack-item"><input type="checkbox" name="pack" value="eu-sygesikring" /><span>EU-sygesikringskort</span></label>
+            <label class="pack-item"><input type="checkbox" name="pack" value="penge-kort" /><span>Kontanter / betalingskort (lommepenge)</span></label>
+            <label class="pack-item"><input type="checkbox" name="pack" value="telefon" /><span>Telefon + oplader</span></label>
+            <label class="pack-item"><input type="checkbox" name="pack" value="whatsapp" /><span>WhatsApp installeret og med i tur-gruppen</span></label>
+          </fieldset>
+
+          <fieldset class="pack-group">
+            <legend>Tøj</legend>
+            <label class="pack-item"><input type="checkbox" name="pack" value="skoletoej" /><span>Tøj til skoledage</span></label>
+            <label class="pack-item"><input type="checkbox" name="pack" value="fritid" /><span>Fritidstøj / aftentøj</span></label>
+            <label class="pack-item"><input type="checkbox" name="pack" value="undertoej" /><span>Undertøj og sokker til hele turen</span></label>
+            <label class="pack-item"><input type="checkbox" name="pack" value="regntoej" /><span>Regntøj / jakke (november-vejr)</span></label>
+            <label class="pack-item"><input type="checkbox" name="pack" value="sko" /><span>Gode sko til gang / by</span></label>
+            <label class="pack-item"><input type="checkbox" name="pack" value="nattur" /><span>Bekvemt tøj til natbussen (14. nov. kl. 23:05)</span></label>
+          </fieldset>
+
+          <fieldset class="pack-group">
+            <legend>Toiletartikler</legend>
+            <label class="pack-item"><input type="checkbox" name="pack" value="tandboerste" /><span>Tandbørste og tandpasta</span></label>
+            <label class="pack-item"><input type="checkbox" name="pack" value="shampoo" /><span>Shampoo / sæbe / deodorant</span></label>
+            <label class="pack-item"><input type="checkbox" name="pack" value="haarfön" /><span>Evt. hårtørrer / styling (hvis du bruger det)</span></label>
+            <label class="pack-item pack-item-skip"><input type="checkbox" name="pack" value="haandklaede" disabled /><span>Håndklæde — <em>har hotellet</em></span></label>
+            <label class="pack-item pack-item-skip"><input type="checkbox" name="pack" value="sengetoej" disabled /><span>Sengetøj — <em>har hotellet</em></span></label>
+          </fieldset>
+
+          <fieldset class="pack-group">
+            <legend>Helbred &amp; ekstra</legend>
+            <label class="pack-item"><input type="checkbox" name="pack" value="medicin" /><span>Medicin du skal bruge (evt. recept)</span></label>
+            <label class="pack-item"><input type="checkbox" name="pack" value="ørepropper" /><span>Evt. ørepropper / sovemaske til bussen</span></label>
+            <label class="pack-item"><input type="checkbox" name="pack" value="rygsaek" /><span>Lille taske / rygsæk til skoledagen</span></label>
+            <label class="pack-item"><input type="checkbox" name="pack" value="notes" /><span>Notesblok / pen (hvis I skal arbejde)</span></label>
+          </fieldset>
+
+          <div class="pack-actions">
+            <button type="button" class="btn btn-ghost-dark" data-pack-reset>Nulstil liste</button>
+            <a class="btn btn-primary" href="qa.html">Se Q&amp;A</a>
+          </div>
+        </form>
+
+        <p class="qa-back">
+          <a href="index.html">← Tilbage til programmet</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-brand">
+        <span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>
+        NL ↔ DK
+        <span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>
+      </p>
+      <p>Udveksling · Helmond &amp; Danmark · TerAA × Mercantec Colab</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

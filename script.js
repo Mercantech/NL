@@ -135,4 +135,54 @@
       });
     });
   }
+
+  // Packing checklist (localStorage)
+  const packForm = document.querySelector("[data-pack-form]");
+  if (packForm) {
+    const STORAGE_KEY = "nl-pack-checklist-v1";
+    const boxes = [...packForm.querySelectorAll('input[type="checkbox"]:not(:disabled)')];
+    const doneEl = document.querySelector("[data-pack-done]");
+    const totalEl = document.querySelector("[data-pack-total]");
+    const fillEl = document.querySelector("[data-pack-fill]");
+    const barEl = document.querySelector("[data-pack-bar]");
+    const resetBtn = document.querySelector("[data-pack-reset]");
+
+    const saved = (() => {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+      } catch {
+        return {};
+      }
+    })();
+
+    boxes.forEach((box) => {
+      if (saved[box.value]) box.checked = true;
+    });
+
+    const update = () => {
+      const state = {};
+      let done = 0;
+      boxes.forEach((box) => {
+        state[box.value] = box.checked;
+        if (box.checked) done += 1;
+        box.closest(".pack-item")?.classList.toggle("is-checked", box.checked);
+      });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      const total = boxes.length;
+      const pct = total ? Math.round((done / total) * 100) : 0;
+      if (doneEl) doneEl.textContent = String(done);
+      if (totalEl) totalEl.textContent = String(total);
+      if (fillEl) fillEl.style.width = `${pct}%`;
+      if (barEl) barEl.setAttribute("aria-valuenow", String(pct));
+    };
+
+    packForm.addEventListener("change", update);
+    resetBtn?.addEventListener("click", () => {
+      boxes.forEach((box) => {
+        box.checked = false;
+      });
+      update();
+    });
+    update();
+  }
 })();

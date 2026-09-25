@@ -6,6 +6,7 @@ Info- og programsite for Helmond–Viborg-udvekslingen. Live: **https://nl.merca
 
 - `index.html` — program, steder, praktisk info, kontakt
 - `qa.html` — Q&A til danske elever (dansk)
+- `pakkeliste.html` — pakke-checkliste til danske elever
 
 ## Lokal uden Docker
 

@@ -1,7 +1,7 @@
 FROM nginx:1.27-alpine
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY index.html qa.html styles.css script.js /usr/share/nginx/html/
+COPY index.html qa.html pakkeliste.html styles.css script.js /usr/share/nginx/html/
 
 # wget is available in alpine nginx image for healthchecks
 RUN apk add --no-cache wget
