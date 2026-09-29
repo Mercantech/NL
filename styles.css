@@ -1362,6 +1362,75 @@ body.nav-open .menu-bars::after {
   }
 }
 
+.program-nl .section-lead {
+  margin-bottom: 1.25rem;
+}
+
+.staff-weeks {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0 0 1.5rem;
+  max-width: 40rem;
+}
+
+@media (min-width: 640px) {
+  .staff-weeks {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.staff-week {
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  border: 1.5px solid rgba(227, 111, 30, 0.28);
+  background: linear-gradient(150deg, rgba(227, 111, 30, 0.1), rgba(255, 255, 255, 0.92));
+}
+
+.staff-week-kicker {
+  margin: 0 0 0.2rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #b45812;
+}
+
+.staff-week-title {
+  margin: 0 0 0.55rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.staff-week-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.staff-week-list li {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--ink);
+  padding-left: 0.85rem;
+  position: relative;
+}
+
+.staff-week-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--nl-orange);
+}
+
 /* —— Practical —— */
 .stay-block {
   margin-bottom: 3rem;
@@ -3508,6 +3577,12 @@ body.nav-open .menu-bars::after {
   flex-direction: column;
   gap: 0.1rem;
   font-size: 0.98rem;
+}
+
+.contact-meta {
+  font-size: 0.78rem;
+  opacity: 0.7;
+  font-weight: 500;
 }
 
 .contact-list strong {
