@@ -3511,6 +3511,178 @@ body.nav-open .menu-bars::after {
   background: #fff;
 }
 
+/* —— Learning objectives —— */
+.page-lo {
+  background:
+    radial-gradient(ellipse 50% 35% at 0% 0%, rgba(227, 111, 30, 0.1), transparent 55%),
+    radial-gradient(ellipse 45% 30% at 100% 5%, rgba(200, 16, 46, 0.09), transparent 50%),
+    linear-gradient(180deg, #f6fafc 0%, #eef4f8 100%);
+}
+
+.lo-hero {
+  position: relative;
+  padding: 2.5rem 0 1.75rem;
+  overflow: hidden;
+}
+
+.lo-hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 40% 50% at 90% 0%, rgba(200, 16, 46, 0.1), transparent 60%),
+    radial-gradient(ellipse 35% 40% at 8% 50%, rgba(227, 111, 30, 0.09), transparent 55%);
+}
+
+.lo-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 40rem;
+}
+
+.lo-hero-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.lo-lang {
+  display: inline-flex;
+  padding: 0.2rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(20, 33, 43, 0.1);
+  gap: 0.15rem;
+}
+
+.lo-lang-btn {
+  border: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.lo-lang-btn:hover {
+  color: var(--ink);
+}
+
+.lo-lang-btn.is-active {
+  background: var(--ink);
+  color: #fff;
+}
+
+.lo-hero h1 {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5.5vw, 3.25rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+
+.lo-section {
+  padding-top: 0.75rem;
+  padding-bottom: 2rem;
+}
+
+.lo-section-alt {
+  background: linear-gradient(180deg, rgba(227, 111, 30, 0.04), transparent 55%);
+}
+
+.lo-block-head {
+  margin-bottom: 1.15rem;
+  max-width: 36rem;
+}
+
+.lo-kicker {
+  margin: 0 0 0.2rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--nl-orange);
+}
+
+.lo-section-alt .lo-kicker {
+  color: var(--dk-red);
+}
+
+.lo-block-head h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 3vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.lo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+  max-width: 44rem;
+}
+
+.lo-list li {
+  position: relative;
+  padding: 1rem 1.15rem 1rem 2.75rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1.5px solid rgba(20, 33, 43, 0.08);
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--ink);
+  box-shadow: 0 6px 18px rgba(12, 59, 92, 0.04);
+}
+
+.lo-list li::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 1.15rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 4px;
+  background: linear-gradient(145deg, var(--nl-orange), var(--dk-red));
+}
+
+.lo-note {
+  margin: 1.75rem 0 0;
+  max-width: 44rem;
+  padding: 1.15rem 1.25rem;
+  border-radius: 14px;
+  border: 1.5px solid rgba(227, 111, 30, 0.28);
+  background: linear-gradient(135deg, rgba(227, 111, 30, 0.1), rgba(255, 255, 255, 0.92));
+}
+
+.lo-note p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+  font-size: 0.98rem;
+}
+
+.lo-note strong {
+  color: var(--ink);
+}
+
+.page-lo [data-lo-da][hidden],
+.page-lo [data-lo-en][hidden] {
+  display: none !important;
+}
+
 /* —— Contact —— */
 .contact-section {
   background:

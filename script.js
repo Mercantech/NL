@@ -249,4 +249,39 @@
       if (e.target === yearsDialog) yearsDialog.close();
     });
   }
+
+  // Learning objectives language toggle
+  const loPage = document.querySelector(".page-lo");
+  if (loPage) {
+    const setLang = (lang) => {
+      loPage.dataset.loLang = lang;
+      loPage.querySelectorAll("[data-lo-en]").forEach((el) => {
+        el.hidden = lang !== "en";
+      });
+      loPage.querySelectorAll("[data-lo-da]").forEach((el) => {
+        el.hidden = lang !== "da";
+      });
+      loPage.querySelectorAll("[data-lo-set]").forEach((btn) => {
+        btn.classList.toggle("is-active", btn.getAttribute("data-lo-set") === lang);
+      });
+      document.documentElement.lang = lang === "da" ? "da" : "en";
+      try {
+        sessionStorage.setItem("nl-lo-lang", lang);
+      } catch {
+        /* ignore */
+      }
+    };
+
+    loPage.querySelectorAll("[data-lo-set]").forEach((btn) => {
+      btn.addEventListener("click", () => setLang(btn.getAttribute("data-lo-set") || "en"));
+    });
+
+    let saved = "en";
+    try {
+      saved = sessionStorage.getItem("nl-lo-lang") || "en";
+    } catch {
+      saved = "en";
+    }
+    setLang(saved === "da" ? "da" : "en");
+  }
 })();
