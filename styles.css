@@ -367,6 +367,171 @@ body.nav-open .menu-bars::after {
   }
 }
 
+[id="overview"],
+[id="program-nl"],
+[id="program-dk"],
+[id="practical"],
+[id="contact"],
+[id="staff"],
+[id="students"],
+[id="year-2024"],
+[id="year-2023"],
+[id="lo-purpose"],
+[id="lo-activities"],
+[id="lo-outcomes"],
+[id^="cat-"] {
+  scroll-margin-top: calc(var(--header-h) + 0.75rem);
+}
+
+@media (max-width: 859px) {
+  body:has(.side-nav) {
+    padding-bottom: 4.5rem;
+  }
+}
+
+/* —— Floating side nav (page sections) —— */
+.side-nav {
+  position: fixed;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.45rem;
+  background: rgba(245, 249, 252, 0.92);
+  backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(20, 33, 43, 0.1);
+  border-radius: 18px;
+  box-shadow: 0 10px 36px rgba(12, 59, 92, 0.12);
+}
+
+@media (max-width: 859px) {
+  .side-nav {
+    left: 50%;
+    bottom: max(0.85rem, env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    flex-direction: row;
+    max-width: calc(100vw - 1.5rem);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .side-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .side-nav-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+}
+
+@media (min-width: 860px) {
+  .side-nav {
+    top: 50%;
+    right: max(0.85rem, calc((100vw - var(--max)) / 2 - 4.75rem));
+    transform: translateY(-50%);
+  }
+}
+
+@media (min-width: 1200px) {
+  .side-nav {
+    right: max(1.25rem, calc((100vw - var(--max)) / 2 - 5.5rem));
+  }
+}
+
+.side-nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--muted);
+  transition: background 0.2s var(--ease), color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.side-nav-link:hover,
+.side-nav-link:focus-visible {
+  color: var(--ink);
+  background: rgba(12, 59, 92, 0.07);
+}
+
+.side-nav-link.is-active {
+  color: var(--ink);
+  background: rgba(12, 59, 92, 0.12);
+}
+
+.side-nav-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  flex-shrink: 0;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(20, 33, 43, 0.08);
+  color: var(--sea);
+}
+
+.side-nav-link.is-active .side-nav-icon {
+  background: var(--sea);
+  border-color: transparent;
+  color: var(--white);
+}
+
+.side-nav-icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.side-nav-flag {
+  background: transparent;
+  border: none;
+}
+
+.side-nav-flag .flag-mark {
+  width: 1.15rem;
+  height: 0.78rem;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(20, 33, 43, 0.12);
+}
+
+.side-nav-link.is-active .side-nav-flag {
+  background: transparent;
+}
+
+.side-nav-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-width 0.25s var(--ease), opacity 0.2s var(--ease), margin 0.2s;
+  margin-right: 0;
+}
+
+@media (min-width: 860px) {
+  .side-nav:hover .side-nav-label,
+  .side-nav:focus-within .side-nav-label,
+  .side-nav-link.is-active .side-nav-label {
+    max-width: 8rem;
+    opacity: 1;
+    margin-right: 0.15rem;
+  }
+}
+
 /* —— Hero —— */
 .hero {
   position: relative;

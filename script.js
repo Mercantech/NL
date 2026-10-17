@@ -63,27 +63,32 @@
     });
   });
 
-  // Active nav on scroll
-  const sections = ["overview", "program-nl", "program-dk", "practical", "contact"]
-    .map((id) => document.getElementById(id))
-    .filter(Boolean);
+  // Floating side-nav: active section on scroll
+  const sideNav = document.querySelector("[data-side-nav]");
+  if (sideNav) {
+    const sideLinks = [...sideNav.querySelectorAll("[data-side-link]")];
+    const sideSections = sideLinks
+      .map((link) => {
+        const id = link.getAttribute("href")?.replace(/^#/, "");
+        return id ? document.getElementById(id) : null;
+      })
+      .filter(Boolean);
 
-  const navLinks = [...(nav?.querySelectorAll("a") || [])];
+    const setSideActive = () => {
+      const y = window.scrollY + window.innerHeight * 0.28;
+      let current = sideSections[0]?.id;
+      sideSections.forEach((sec) => {
+        if (sec.offsetTop <= y) current = sec.id;
+      });
+      sideLinks.forEach((link) => {
+        const id = link.getAttribute("href")?.replace(/^#/, "");
+        link.classList.toggle("is-active", id === current);
+      });
+    };
 
-  const setActive = () => {
-    const y = window.scrollY + 120;
-    let current = sections[0]?.id;
-    sections.forEach((sec) => {
-      if (sec.offsetTop <= y) current = sec.id;
-    });
-    navLinks.forEach((link) => {
-      const href = link.getAttribute("href")?.slice(1);
-      link.classList.toggle("is-active", href === current);
-    });
-  };
-
-  window.addEventListener("scroll", setActive, { passive: true });
-  setActive();
+    window.addEventListener("scroll", setSideActive, { passive: true });
+    setSideActive();
+  }
 
   // Q&A page: search + category filters
   const qaList = document.querySelector("[data-qa-list]");
