@@ -3805,17 +3805,20 @@ body.nav-open .menu-bars::after {
   color: #0c3b5c;
 }
 
+.y26-table-wrap {
+  overflow-x: auto;
+  margin: 0.35rem 0 0;
+  border-radius: 12px;
+  border: 1.5px solid rgba(20, 33, 43, 0.08);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 4px 14px rgba(12, 59, 92, 0.04);
+}
+
 .y26-table {
   width: 100%;
-  max-width: 28rem;
-  border-collapse: separate;
-  border-spacing: 0;
-  margin: 0.35rem 0 0;
-  background: rgba(255, 255, 255, 0.88);
-  border: 1.5px solid rgba(20, 33, 43, 0.08);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 14px rgba(12, 59, 92, 0.04);
+  min-width: 36rem;
+  border-collapse: collapse;
+  margin: 0;
 }
 
 .y26-table th,
@@ -3823,6 +3826,7 @@ body.nav-open .menu-bars::after {
   padding: 0.75rem 1rem;
   text-align: left;
   border-bottom: 1px solid rgba(20, 33, 43, 0.07);
+  vertical-align: top;
 }
 
 .y26-table th {
@@ -3833,14 +3837,34 @@ body.nav-open .menu-bars::after {
   text-transform: uppercase;
   color: var(--muted);
   background: rgba(12, 59, 92, 0.04);
+  white-space: nowrap;
 }
 
 .y26-table td {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.y26-table td:first-child {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--ink);
+  white-space: nowrap;
+}
+
+.y26-table a {
+  color: var(--nl-orange);
+  text-decoration: none;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.y26-table a:hover,
+.y26-table a:focus-visible {
+  text-decoration: underline;
 }
 
 .y26-table tbody tr:last-child td {
