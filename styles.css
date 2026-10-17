@@ -3853,12 +3853,68 @@ body.nav-open .menu-bars::after {
   color: var(--ink);
 }
 
-.y26-table td:first-child {
+.y26-table td:nth-child(2) {
   font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  white-space: nowrap;
+}
+
+.y26-count-note {
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.45;
+  background: rgba(12, 59, 92, 0.05);
+  border-left: 3px solid var(--sea-mid);
+  border-radius: 0 10px 10px 0;
+}
+
+.y26-count-note strong {
+  color: var(--ink);
+}
+
+.y26-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.65rem;
+  height: 1.65rem;
+  padding: 0 0.3rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  background: var(--sea);
+  border-radius: 8px;
+  line-height: 1;
+}
+
+.y26-members .y26-num {
+  flex-shrink: 0;
+}
+
+.y26-handover {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--nl-orange);
+}
+
+.y26-handover-mail {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.y26-handover-mail a {
+  font-weight: 600;
 }
 
 .y26-table a {
