@@ -11,53 +11,58 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261017j" />
+  <link rel="stylesheet" href="styles.css?v=20261017k" />
 </head>
-<body class="page-lo" data-lo-lang="en">
-  <a class="skip-link" href="#content">Skip to content</a>
+<body class="page-lo">
+  <a class="skip-link" href="#content" data-i18n="shared.skipLink">Skip to content</a>
 
   <header class="site-header">
     <div class="header-inner">
-      <a class="logo" href="index.html" aria-label="NL DK exchange — home">
+      <a class="logo" href="index.html" data-i18n-attr="aria-label:shared.logo.ariaHome" aria-label="NL DK exchange — home">
         <span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>
         <span class="logo-nl">NL</span>
         <span class="logo-arrow" aria-hidden="true">↔</span>
         <span class="logo-dk">DK</span>
         <span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>
       </a>
-      <nav class="nav" id="main-nav" aria-label="Main">
-        <a href="index.html">Home</a>
-        <a href="2026.html">2026</a>
-        <a href="qa.html">Q&amp;A</a>
-        <a href="pakkeliste.html">Packing</a>
-        <a href="previous-years.html">Years</a>
-        <a href="learning-objectives.html" class="is-active">Objectives</a>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-set-lang="en" lang="en">EN</button>
+        <button type="button" data-set-lang="da" lang="da">DA</button>
+        <button type="button" data-set-lang="nl" lang="nl">NL</button>
+      </div>
+      <nav class="nav" id="main-nav" data-i18n-attr="aria-label:shared.nav.ariaMain" aria-label="Main">
+        <a href="index.html" data-i18n="shared.nav.home">Home</a>
+        <a href="2026.html" data-i18n="shared.nav.2026">2026</a>
+        <a href="qa.html" data-i18n="shared.nav.qa">Q&amp;A</a>
+        <a href="pakkeliste.html" data-i18n="shared.nav.packing">Packing</a>
+        <a href="previous-years.html" data-i18n="shared.nav.years">Years</a>
+        <a href="learning-objectives.html" class="is-active" data-i18n="shared.nav.objectives">Objectives</a>
       </nav>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-menu-toggle>
         <span class="menu-bars" aria-hidden="true"></span>
-        <span class="visually-hidden">Menu</span>
+        <span class="visually-hidden" data-i18n="shared.nav.menu">Menu</span>
       </button>
     </div>
   </header>
 
-  <nav class="side-nav" aria-label="On this page" data-side-nav>
+  <nav class="side-nav" data-i18n-attr="aria-label:shared.sideNav.onThisPage" aria-label="On this page" data-side-nav>
     <a href="#lo-purpose" class="side-nav-link" data-side-link>
       <span class="side-nav-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
       </span>
-      <span class="side-nav-label">Purpose</span>
+      <span class="side-nav-label" data-i18n="lo.sideNav.purpose">Purpose</span>
     </a>
     <a href="#lo-activities" class="side-nav-link" data-side-link>
       <span class="side-nav-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 15l3-3 2 2 5-5"/></svg>
       </span>
-      <span class="side-nav-label">Activities</span>
+      <span class="side-nav-label" data-i18n="lo.sideNav.activities">Activities</span>
     </a>
     <a href="#lo-outcomes" class="side-nav-link" data-side-link>
       <span class="side-nav-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg>
       </span>
-      <span class="side-nav-label">Outcomes</span>
+      <span class="side-nav-label" data-i18n="lo.sideNav.outcomes">Outcomes</span>
     </a>
   </nav>
 
@@ -71,46 +76,24 @@
             <span class="qa-hero-swap">↔</span>
             <div class="flag flag-nl flag-md"><span></span><span></span><span></span></div>
           </div>
-          <div class="lo-lang" role="group" aria-label="Language">
-            <button type="button" class="lo-lang-btn is-active" data-lo-set="en" lang="en">English</button>
-            <button type="button" class="lo-lang-btn" data-lo-set="da" lang="da">Dansk</button>
-          </div>
         </div>
-        <p class="eyebrow" data-lo-en>For Danish students · TerAA × Mercantec Colab</p>
-        <p class="eyebrow" data-lo-da hidden>Til danske elever · TerAA × Mercantec Colab</p>
-        <h1 id="lo-title">
-          <span data-lo-en>Learning objectives</span>
-          <span data-lo-da hidden>Læringsmål</span>
-        </h1>
-        <p class="section-lead" data-lo-en>What you are expected to learn and do during the exchange — in international teams, with IoT and real project work in both countries.</p>
-        <p class="section-lead" data-lo-da hidden>Det, du forventes at lære og gøre under udvekslingen — i internationale teams, med IoT og rigtigt projektarbejde i begge lande.</p>
+        <p class="eyebrow" data-i18n="lo.hero.eyebrow">For Danish students · TerAA × Mercantec Colab</p>
+        <h1 id="lo-title" data-i18n="lo.hero.title">Learning objectives</h1>
+        <p class="section-lead" data-i18n="lo.hero.lead">What you are expected to learn and do during the exchange — in international teams, with IoT and real project work in both countries.</p>
       </div>
     </section>
 
     <section class="section lo-section" id="lo-purpose" aria-labelledby="lo-purpose-title">
       <div class="section-inner">
         <header class="lo-block-head">
-          <p class="lo-kicker" data-lo-en>Purpose</p>
-          <p class="lo-kicker" data-lo-da hidden>Formål</p>
-          <h2 id="lo-purpose-title">
-            <span data-lo-en>What the programme is for</span>
-            <span data-lo-da hidden>Hvad programmet går ud på</span>
-          </h2>
+          <p class="lo-kicker" data-i18n="lo.purpose.kicker">Purpose</p>
+          <h2 id="lo-purpose-title" data-i18n="lo.purpose.title">What the programme is for</h2>
         </header>
 
         <ul class="lo-list">
-          <li>
-            <span data-lo-en>Work in international teams and develop IoT projects together with Dutch students.</span>
-            <span data-lo-da hidden>Arbejde i internationale teams og udvikle IoT-projekter sammen med hollandske elever.</span>
-          </li>
-          <li>
-            <span data-lo-en>Apply your skills in programming, web development, API technologies and database systems.</span>
-            <span data-lo-da hidden>Anvende dine kompetencer inden for programmering, webudvikling, API-teknologier og databasesystemer.</span>
-          </li>
-          <li>
-            <span data-lo-en>Use Arduino for IoT projects and integrate it with other technologies.</span>
-            <span data-lo-da hidden>Bruge Arduino til IoT-projekter og integrere det med andre teknologier.</span>
-          </li>
+          <li data-i18n="lo.purpose.item1">Work in international teams and develop IoT projects together with Dutch students.</li>
+          <li data-i18n="lo.purpose.item2">Apply your skills in programming, web development, API technologies and database systems.</li>
+          <li data-i18n="lo.purpose.item3">Use Arduino for IoT projects and integrate it with other technologies.</li>
         </ul>
       </div>
     </section>
@@ -118,31 +101,15 @@
     <section class="section lo-section lo-section-alt" id="lo-activities" aria-labelledby="lo-activities-title">
       <div class="section-inner">
         <header class="lo-block-head">
-          <p class="lo-kicker" data-lo-en>Activities</p>
-          <p class="lo-kicker" data-lo-da hidden>Aktiviteter</p>
-          <h2 id="lo-activities-title">
-            <span data-lo-en>How you will work</span>
-            <span data-lo-da hidden>Sådan arbejder I</span>
-          </h2>
+          <p class="lo-kicker" data-i18n="lo.activities.kicker">Activities</p>
+          <h2 id="lo-activities-title" data-i18n="lo.activities.title">How you will work</h2>
         </header>
 
         <ul class="lo-list">
-          <li>
-            <span data-lo-en>You are placed in mixed groups of about 2–3 Danish and 2–3 Dutch students.</span>
-            <span data-lo-da hidden>I sættes i blandede grupper med ca. 2–3 danske og 2–3 hollandske elever.</span>
-          </li>
-          <li>
-            <span data-lo-en>Each group collaborates on developing an IoT project.</span>
-            <span data-lo-da hidden>Hver gruppe samarbejder om at udvikle et IoT-projekt.</span>
-          </li>
-          <li>
-            <span data-lo-en>You use GitHub for collaboration and apply elements from SCRUM in the project work.</span>
-            <span data-lo-da hidden>I bruger GitHub til samarbejde og anvender elementer fra SCRUM i projektarbejdet.</span>
-          </li>
-          <li>
-            <span data-lo-en>The programme includes time in both the Netherlands and Denmark.</span>
-            <span data-lo-da hidden>Programmet omfatter tid både i Holland og i Danmark.</span>
-          </li>
+          <li data-i18n="lo.activities.item1">You are placed in mixed groups of about 2–3 Danish and 2–3 Dutch students.</li>
+          <li data-i18n="lo.activities.item2">Each group collaborates on developing an IoT project.</li>
+          <li data-i18n="lo.activities.item3">You use GitHub for collaboration and apply elements from SCRUM in the project work.</li>
+          <li data-i18n="lo.activities.item4">The programme includes time in both the Netherlands and Denmark.</li>
         </ul>
       </div>
     </section>
@@ -150,37 +117,22 @@
     <section class="section lo-section" id="lo-outcomes" aria-labelledby="lo-outcomes-title">
       <div class="section-inner">
         <header class="lo-block-head">
-          <p class="lo-kicker" data-lo-en>Expected outcomes</p>
-          <p class="lo-kicker" data-lo-da hidden>Forventede resultater</p>
-          <h2 id="lo-outcomes-title">
-            <span data-lo-en>What you take with you</span>
-            <span data-lo-da hidden>Det, du tager med dig</span>
-          </h2>
+          <p class="lo-kicker" data-i18n="lo.outcomes.kicker">Expected outcomes</p>
+          <h2 id="lo-outcomes-title" data-i18n="lo.outcomes.title">What you take with you</h2>
         </header>
 
         <ul class="lo-list">
-          <li>
-            <span data-lo-en>Experience in international collaboration and cross-cultural communication.</span>
-            <span data-lo-da hidden>Erfaring med internationalt samarbejde og tværkulturel kommunikation.</span>
-          </li>
-          <li>
-            <span data-lo-en>Practical skills in IoT and programming from real project work.</span>
-            <span data-lo-da hidden>Praktiske færdigheder inden for IoT og programmering fra rigtigt projektarbejde.</span>
-          </li>
-          <li>
-            <span data-lo-en>The chance to shape the programme and give input for future exchanges — the goal is for this to become an annual event, potentially across all H3 courses.</span>
-            <span data-lo-da hidden>Mulighed for at præge programmet og give input til fremtidige udvekslinger — målet er, at det bliver en årlig begivenhed, evt. på tværs af alle H3-forløb.</span>
-          </li>
+          <li data-i18n="lo.outcomes.item1">Experience in international collaboration and cross-cultural communication.</li>
+          <li data-i18n="lo.outcomes.item2">Practical skills in IoT and programming from real project work.</li>
+          <li data-i18n="lo.outcomes.item3">The chance to shape the programme and give input for future exchanges — the goal is for this to become an annual event, potentially across all H3 courses.</li>
         </ul>
 
         <aside class="lo-note" role="note">
-          <p data-lo-en><strong>Follow these objectives</strong> throughout the exchange — in Helmond, in Viborg, and in your group’s IoT project.</p>
-          <p data-lo-da hidden><strong>Følg disse læringsmål</strong> gennem hele udvekslingen — i Helmond, i Viborg og i jeres IoT-projekt.</p>
+          <p data-i18n-html="lo.note"><strong>Follow these objectives</strong> throughout the exchange — in Helmond, in Viborg, and in your group's IoT project.</p>
         </aside>
 
         <p class="qa-back">
-          <a href="index.html" data-lo-en>← Back to the programme</a>
-          <a href="index.html" data-lo-da hidden>← Tilbage til programmet</a>
+          <a href="index.html" data-i18n="lo.back">← Back to the programme</a>
         </p>
       </div>
     </section>
@@ -193,10 +145,11 @@
         NL ↔ DK
         <span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>
       </p>
-      <p>Exchange · Helmond &amp; Denmark · TerAA × Mercantec Colab</p>
+      <p data-i18n="shared.footer.line">Exchange · Helmond &amp; Denmark · TerAA × Mercantec Colab</p>
     </div>
   </footer>
 
-  <script src="script.js?v=20261017j"></script>
+  <script src="i18n.js?v=20261017k"></script>
+  <script src="script.js?v=20261017k"></script>
 </body>
 </html>

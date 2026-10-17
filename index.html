@@ -11,10 +11,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261017j" />
+  <link rel="stylesheet" href="styles.css?v=20261017k" />
 </head>
 <body>
-  <a class="skip-link" href="#content">Skip to content</a>
+  <a class="skip-link" href="#content" data-i18n="shared.skipLink">Skip to content</a>
 
   <!-- Reusable flag SVGs via <use> would need defs; inline components below -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
@@ -39,58 +39,63 @@
 
   <header class="site-header">
     <div class="header-inner">
-      <a class="logo" href="#top" aria-label="NL DK exchange — home">
+      <a class="logo" href="#top" data-i18n-attr="aria-label:shared.logo.ariaHome" aria-label="NL DK exchange — home">
         <span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>
         <span class="logo-nl">NL</span>
         <span class="logo-arrow" aria-hidden="true">↔</span>
         <span class="logo-dk">DK</span>
         <span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>
       </a>
-      <nav class="nav" id="main-nav" aria-label="Main">
-        <a href="index.html" class="is-active">Home</a>
-        <a href="2026.html">2026</a>
-        <a href="qa.html">Q&amp;A</a>
-        <a href="pakkeliste.html">Packing</a>
-        <a href="previous-years.html">Years</a>
-        <a href="learning-objectives.html">Objectives</a>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-set-lang="en" lang="en">EN</button>
+        <button type="button" data-set-lang="da" lang="da">DA</button>
+        <button type="button" data-set-lang="nl" lang="nl">NL</button>
+      </div>
+      <nav class="nav" id="main-nav" data-i18n-attr="aria-label:shared.nav.ariaMain" aria-label="Main">
+        <a href="index.html" class="is-active" data-i18n="shared.nav.home">Home</a>
+        <a href="2026.html" data-i18n="shared.nav.2026">2026</a>
+        <a href="qa.html" data-i18n="shared.nav.qa">Q&amp;A</a>
+        <a href="pakkeliste.html" data-i18n="shared.nav.packing">Packing</a>
+        <a href="previous-years.html" data-i18n="shared.nav.years">Years</a>
+        <a href="learning-objectives.html" data-i18n="shared.nav.objectives">Objectives</a>
       </nav>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-menu-toggle>
         <span class="menu-bars" aria-hidden="true"></span>
-        <span class="visually-hidden">Menu</span>
+        <span class="visually-hidden" data-i18n="shared.nav.menu">Menu</span>
       </button>
     </div>
   </header>
 
-  <nav class="side-nav" aria-label="On this page" data-side-nav>
+  <nav class="side-nav" data-i18n-attr="aria-label:shared.sideNav.onThisPage" aria-label="On this page" data-side-nav>
     <a href="#overview" class="side-nav-link" data-side-link>
       <span class="side-nav-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="7" height="7" rx="1"/><rect x="14" y="4" width="7" height="7" rx="1"/><rect x="3" y="13" width="7" height="7" rx="1"/><rect x="14" y="13" width="7" height="7" rx="1"/></svg>
       </span>
-      <span class="side-nav-label">Overview</span>
+      <span class="side-nav-label" data-i18n="index.sideNav.overview">Overview</span>
     </a>
     <a href="#program-nl" class="side-nav-link" data-side-link>
       <span class="side-nav-icon side-nav-flag" aria-hidden="true">
         <span class="flag-mark flag-mark-nl"><span></span><span></span><span></span></span>
       </span>
-      <span class="side-nav-label">Netherlands</span>
+      <span class="side-nav-label" data-i18n="index.sideNav.netherlands">Netherlands</span>
     </a>
     <a href="#program-dk" class="side-nav-link" data-side-link>
       <span class="side-nav-icon side-nav-flag" aria-hidden="true">
         <span class="flag-mark flag-mark-dk"><i></i><i></i></span>
       </span>
-      <span class="side-nav-label">Denmark</span>
+      <span class="side-nav-label" data-i18n="index.sideNav.denmark">Denmark</span>
     </a>
     <a href="#practical" class="side-nav-link" data-side-link>
       <span class="side-nav-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
       </span>
-      <span class="side-nav-label">Practical</span>
+      <span class="side-nav-label" data-i18n="index.sideNav.practical">Practical</span>
     </a>
     <a href="#contact" class="side-nav-link" data-side-link>
       <span class="side-nav-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg>
       </span>
-      <span class="side-nav-label">Contact</span>
+      <span class="side-nav-label" data-i18n="index.sideNav.contact">Contact</span>
     </a>
   </nav>
 
@@ -227,15 +232,15 @@
       </div>
 
       <div class="hero-copy">
-        <p class="brand">NL ↔ DK Exchange</p>
-        <h1 id="hero-title">Across the North Sea</h1>
-        <p class="hero-lead">Two weeks in Helmond, two weeks in Denmark — school, hotel &amp; dorm stays and overnight buses connecting both shores.</p>
+        <p class="brand" data-i18n="index.hero.brand">NL ↔ DK Exchange</p>
+        <h1 id="hero-title" data-i18n="index.hero.title">Across the North Sea</h1>
+        <p class="hero-lead" data-i18n="index.hero.lead">Two weeks in Helmond, two weeks in Denmark — school, hotel &amp; dorm stays and overnight buses connecting both shores.</p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#program-nl">See the programme</a>
-          <a class="btn btn-ghost" href="2026.html">2026</a>
-          <a class="btn btn-ghost" href="learning-objectives.html">Learning objectives</a>
-          <a class="btn btn-ghost" href="previous-years.html">Previous years</a>
-          <a class="btn btn-ghost" href="pakkeliste.html">Pakkeliste</a>
+          <a class="btn btn-primary" href="#program-nl" data-i18n="index.hero.cta.programme">See the programme</a>
+          <a class="btn btn-ghost" href="2026.html" data-i18n="index.hero.cta.2026">2026</a>
+          <a class="btn btn-ghost" href="learning-objectives.html" data-i18n="index.hero.cta.objectives">Learning objectives</a>
+          <a class="btn btn-ghost" href="previous-years.html" data-i18n="index.hero.cta.previousYears">Previous years</a>
+          <a class="btn btn-ghost" href="pakkeliste.html" data-i18n="index.hero.cta.packingList">Pakkeliste</a>
         </div>
       </div>
     </section>
@@ -243,8 +248,8 @@
     <div id="content">
       <section class="section timeline-section" id="overview" aria-labelledby="overview-title">
         <div class="section-inner">
-          <p class="eyebrow">Overview</p>
-          <h2 id="overview-title">Four weeks, two countries</h2>
+          <p class="eyebrow" data-i18n="index.overview.eyebrow">Overview</p>
+          <h2 id="overview-title" data-i18n="index.overview.title">Four weeks, two countries</h2>
 
           <div class="journey" role="list">
             <a class="journey-leg journey-nl" href="#program-nl" role="listitem">
@@ -252,10 +257,10 @@
                 <div class="flag flag-nl flag-lg"><span></span><span></span><span></span></div>
               </div>
               <div class="journey-body">
-                <span class="journey-meta">14–27 November · Weeks 46–48</span>
-                <strong>Denmark → Helmond</strong>
-                <p>Night bus Saturday evening, Amsterdam Sunday morning — school weeks in Helmond, return Friday 27 Nov.</p>
-                <span class="journey-cta">Open NL programme →</span>
+                <span class="journey-meta" data-i18n="index.overview.journey.nl.meta">14–27 November · Weeks 46–48</span>
+                <strong data-i18n="index.overview.journey.nl.heading">Denmark → Helmond</strong>
+                <p data-i18n="index.overview.journey.nl.body">Night bus Saturday evening, Amsterdam Sunday morning — school weeks in Helmond, return Friday 27 Nov.</p>
+                <span class="journey-cta" data-i18n="index.overview.journey.nl.cta">Open NL programme →</span>
               </div>
               <div class="journey-deco" aria-hidden="true">
                 <svg class="deco-tulip" viewBox="0 0 40 56" width="40" height="56">
@@ -276,10 +281,10 @@
                 <div class="flag flag-dk flag-lg"><span class="dk-cross-h"></span><span class="dk-cross-v"></span></div>
               </div>
               <div class="journey-body">
-                <span class="journey-meta">28 Nov – 11 Dec · Weeks 49–50</span>
-                <strong>Netherlands → Denmark</strong>
-                <p>Dutch guests arrive — school weeks with dorm accommodation, weekend plans and farewell.</p>
-                <span class="journey-cta">Open DK programme →</span>
+                <span class="journey-meta" data-i18n="index.overview.journey.dk.meta">28 Nov – 11 Dec · Weeks 49–50</span>
+                <strong data-i18n="index.overview.journey.dk.heading">Netherlands → Denmark</strong>
+                <p data-i18n="index.overview.journey.dk.body">Dutch guests arrive — school weeks with dorm accommodation, weekend plans and farewell.</p>
+                <span class="journey-cta" data-i18n="index.overview.journey.dk.cta">Open DK programme →</span>
               </div>
               <div class="journey-deco" aria-hidden="true">
                 <svg class="deco-bike" viewBox="0 0 48 32" width="48" height="32">
@@ -289,27 +294,27 @@
             </a>
           </div>
 
-          <div class="legend" aria-label="Programme legend">
+          <div class="legend" data-i18n-attr="aria-label:index.overview.legend.aria" aria-label="Programme legend">
             <span class="legend-item">
               <span class="place-badge place-bus">
                 <svg width="18" height="12"><use href="#icon-bus"/></svg>
                 BUS
               </span>
-              Overnight bus
+              <span data-i18n="shared.legend.overnightBus">Overnight bus</span>
             </span>
             <span class="legend-item">
               <span class="place-badge place-nl">
                 <span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>
                 NL
               </span>
-              Netherlands / Helmond
+              <span data-i18n="shared.legend.nlHelmond">Netherlands / Helmond</span>
             </span>
             <span class="legend-item">
               <span class="place-badge place-dk">
                 <span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>
                 DK
               </span>
-              Denmark
+              <span data-i18n="shared.legend.denmark">Denmark</span>
             </span>
           </div>
         </div>
@@ -322,18 +327,18 @@
             <div class="program-title-row">
               <div class="flag flag-nl flag-md" aria-hidden="true"><span></span><span></span><span></span></div>
               <div>
-                <span class="country-tag tag-nl">Ter AA · Helmond</span>
-                <p class="eyebrow">14–27 November</p>
-                <h2 id="nl-title">Programme in the Netherlands</h2>
+                <span class="country-tag tag-nl" data-i18n="index.program.nl.countryTag">Ter AA · Helmond</span>
+                <p class="eyebrow" data-i18n="index.program.nl.eyebrow">14–27 November</p>
+                <h2 id="nl-title" data-i18n="index.program.nl.title">Programme in the Netherlands</h2>
               </div>
             </div>
-            <p class="section-lead">Night bus from Denmark, arrival in Amsterdam, hotel stay in Helmond with school days, a weekend and the trip home. Daily meeting times in Helmond: <strong>TBA</strong>.</p>
+            <p class="section-lead" data-i18n-html="index.program.nl.lead">Night bus from Denmark, arrival in Amsterdam, hotel stay in Helmond with school days, a weekend and the trip home. Daily meeting times in Helmond: <strong>TBA</strong>.</p>
           </div>
 
-          <div class="staff-weeks" aria-label="Danish teachers in Helmond">
+          <div class="staff-weeks" data-i18n-attr="aria-label:shared.staffWeek.aria" aria-label="Danish teachers in Helmond">
             <article class="staff-week">
-              <p class="staff-week-kicker">Week 1 · 14–20 Nov</p>
-              <h3 class="staff-week-title">DK teachers on site</h3>
+              <p class="staff-week-kicker" data-i18n="shared.staffWeek.kicker1">Week 1 · 14–20 Nov</p>
+              <h3 class="staff-week-title" data-i18n="shared.staffWeek.title">DK teachers on site</h3>
               <ul class="staff-week-list">
                 <li>Mathias Gaardsdal Steenberg</li>
                 <li>Jeanette Romvig</li>
@@ -341,8 +346,8 @@
               </ul>
             </article>
             <article class="staff-week">
-              <p class="staff-week-kicker">Week 2 · 21–27 Nov</p>
-              <h3 class="staff-week-title">DK teachers on site</h3>
+              <p class="staff-week-kicker" data-i18n="shared.staffWeek.kicker2">Week 2 · 21–27 Nov</p>
+              <h3 class="staff-week-title" data-i18n="shared.staffWeek.title">DK teachers on site</h3>
               <ul class="staff-week-list">
                 <li>Mathias Gaardsdal Steenberg</li>
                 <li>Bjarne Rasmussen</li>
@@ -350,119 +355,119 @@
             </article>
           </div>
 
-          <div class="filter-chips" role="group" aria-label="Highlight days" data-filter-group="nl">
-            <button type="button" class="chip is-active" data-filter="all">All days</button>
-            <button type="button" class="chip" data-filter="bus">Bus</button>
-            <button type="button" class="chip" data-filter="school">School</button>
-            <button type="button" class="chip" data-filter="weekend">Weekend</button>
+          <div class="filter-chips" role="group" data-i18n-attr="aria-label:shared.schedule.filter.aria" aria-label="Highlight days" data-filter-group="nl">
+            <button type="button" class="chip is-active" data-filter="all" data-i18n="shared.schedule.chip.all">All days</button>
+            <button type="button" class="chip" data-filter="bus" data-i18n="shared.schedule.chip.bus">Bus</button>
+            <button type="button" class="chip" data-filter="school" data-i18n="shared.schedule.chip.school">School</button>
+            <button type="button" class="chip" data-filter="weekend" data-i18n="shared.schedule.chip.weekend">Weekend</button>
           </div>
 
-          <div class="schedule" role="table" aria-label="Netherlands programme" data-schedule="nl">
+          <div class="schedule" role="table" data-i18n-attr="aria-label:index.program.nl.schedule.aria" aria-label="Netherlands programme" data-schedule="nl">
             <div class="schedule-head" role="row">
-              <span role="columnheader">Where</span>
-              <span role="columnheader">Day</span>
-              <span role="columnheader">Date</span>
-              <span role="columnheader">Weekday</span>
-              <span role="columnheader">Programme</span>
+              <span role="columnheader" data-i18n="shared.schedule.col.where">Where</span>
+              <span role="columnheader" data-i18n="shared.schedule.col.day">Day</span>
+              <span role="columnheader" data-i18n="shared.schedule.col.date">Date</span>
+              <span role="columnheader" data-i18n="shared.schedule.col.weekday">Weekday</span>
+              <span role="columnheader" data-i18n="shared.schedule.col.programme">Programme</span>
             </div>
 
             <div class="schedule-row is-bus" role="row" data-type="bus">
               <span class="sch-place" role="cell"><span class="place-badge place-bus"><svg width="18" height="12"><use href="#icon-bus"/></svg>BUS</span></span>
-              <span class="sch-day" role="cell">Travel</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.travel">Travel</span>
               <span class="sch-date" role="cell">14 Nov</span>
-              <span class="sch-weekday" role="cell">Saturday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-bus">Bus</span> Departure Denmark 23:05</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.saturday">Saturday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.travel.programme"><span class="type-pill type-bus">Bus</span> Departure Denmark 23:05</span>
             </div>
             <div class="schedule-row is-nl is-arrive" role="row" data-type="arrive">
               <span class="sch-place" role="cell"><span class="place-badge place-nl"><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>NL</span></span>
-              <span class="sch-day" role="cell">Day 1</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="1">Day 1</span>
               <span class="sch-date" role="cell">15 Nov</span>
-              <span class="sch-weekday" role="cell">Sunday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-arrive">Arrive</span> Amsterdam 09:35 → Helmond / Golden Tulip West Ende</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.sunday">Sunday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.d1.programme"><span class="type-pill type-arrive">Arrive</span> Amsterdam 09:35 → Helmond / Golden Tulip West Ende</span>
             </div>
             <div class="schedule-row is-nl" role="row" data-type="school">
               <span class="sch-place" role="cell"><span class="place-badge place-nl"><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>NL</span></span>
-              <span class="sch-day" role="cell">Day 2</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="2">Day 2</span>
               <span class="sch-date" role="cell">16 Nov</span>
-              <span class="sch-weekday" role="cell">Monday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-school">School</span> Ter AA — school · times TBA</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.monday">Monday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.d2.programme"><span class="type-pill type-school">School</span> Ter AA — school · times TBA</span>
             </div>
             <div class="schedule-row is-nl" role="row" data-type="school">
               <span class="sch-place" role="cell"><span class="place-badge place-nl"><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>NL</span></span>
-              <span class="sch-day" role="cell">Day 3</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="3">Day 3</span>
               <span class="sch-date" role="cell">17 Nov</span>
-              <span class="sch-weekday" role="cell">Tuesday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-school">School</span> Ter AA — school · times TBA</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.tuesday">Tuesday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.d3.programme"><span class="type-pill type-school">School</span> Ter AA — school · times TBA</span>
             </div>
             <div class="schedule-row is-nl" role="row" data-type="school">
               <span class="sch-place" role="cell"><span class="place-badge place-nl"><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>NL</span></span>
-              <span class="sch-day" role="cell">Day 4</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="4">Day 4</span>
               <span class="sch-date" role="cell">18 Nov</span>
-              <span class="sch-weekday" role="cell">Wednesday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-school">School</span> Ter AA — school · times TBA</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.wednesday">Wednesday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.d4.programme"><span class="type-pill type-school">School</span> Ter AA — school · times TBA</span>
             </div>
             <div class="schedule-row is-nl" role="row" data-type="school">
               <span class="sch-place" role="cell"><span class="place-badge place-nl"><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>NL</span></span>
-              <span class="sch-day" role="cell">Day 5</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="5">Day 5</span>
               <span class="sch-date" role="cell">19 Nov</span>
-              <span class="sch-weekday" role="cell">Thursday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-school">School</span> Ter AA — school · times TBA</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.thursday">Thursday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.d5.programme"><span class="type-pill type-school">School</span> Ter AA — school · times TBA</span>
             </div>
             <div class="schedule-row is-nl" role="row" data-type="school">
               <span class="sch-place" role="cell"><span class="place-badge place-nl"><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>NL</span></span>
-              <span class="sch-day" role="cell">Day 6</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="6">Day 6</span>
               <span class="sch-date" role="cell">20 Nov</span>
-              <span class="sch-weekday" role="cell">Friday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-school">School</span> Ter AA — school · times TBA</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.friday">Friday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.d6.programme"><span class="type-pill type-school">School</span> Ter AA — school · times TBA</span>
             </div>
             <div class="schedule-row is-nl is-weekend" role="row" data-type="weekend">
               <span class="sch-place" role="cell"><span class="place-badge place-nl"><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>NL</span></span>
-              <span class="sch-day" role="cell">Day 7</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="7">Day 7</span>
               <span class="sch-date" role="cell">21 Nov</span>
-              <span class="sch-weekday" role="cell">Saturday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-weekend">Weekend</span> Planned weekend activity</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.saturday">Saturday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.d7.programme"><span class="type-pill type-weekend">Weekend</span> Planned weekend activity</span>
             </div>
             <div class="schedule-row is-nl is-weekend" role="row" data-type="weekend">
               <span class="sch-place" role="cell"><span class="place-badge place-nl"><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>NL</span></span>
-              <span class="sch-day" role="cell">Day 8</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="8">Day 8</span>
               <span class="sch-date" role="cell">22 Nov</span>
-              <span class="sch-weekday" role="cell">Sunday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-weekend">Weekend</span> Free weekend day</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.sunday">Sunday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.d8.programme"><span class="type-pill type-weekend">Weekend</span> Free weekend day</span>
             </div>
             <div class="schedule-row is-nl" role="row" data-type="school">
               <span class="sch-place" role="cell"><span class="place-badge place-nl"><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>NL</span></span>
-              <span class="sch-day" role="cell">Day 9</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="9">Day 9</span>
               <span class="sch-date" role="cell">23 Nov</span>
-              <span class="sch-weekday" role="cell">Monday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-school">School</span> Ter AA — school · times TBA</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.monday">Monday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.d9.programme"><span class="type-pill type-school">School</span> Ter AA — school · times TBA</span>
             </div>
             <div class="schedule-row is-nl" role="row" data-type="school">
               <span class="sch-place" role="cell"><span class="place-badge place-nl"><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>NL</span></span>
-              <span class="sch-day" role="cell">Day 10</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="10">Day 10</span>
               <span class="sch-date" role="cell">24 Nov</span>
-              <span class="sch-weekday" role="cell">Tuesday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-school">School</span> Ter AA — school · times TBA</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.tuesday">Tuesday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.d10.programme"><span class="type-pill type-school">School</span> Ter AA — school · times TBA</span>
             </div>
             <div class="schedule-row is-nl" role="row" data-type="school">
               <span class="sch-place" role="cell"><span class="place-badge place-nl"><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>NL</span></span>
-              <span class="sch-day" role="cell">Day 11</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="11">Day 11</span>
               <span class="sch-date" role="cell">25 Nov</span>
-              <span class="sch-weekday" role="cell">Wednesday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-school">School</span> Ter AA — school · times TBA</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.wednesday">Wednesday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.d11.programme"><span class="type-pill type-school">School</span> Ter AA — school · times TBA</span>
             </div>
             <div class="schedule-row is-nl is-highlight" role="row" data-type="school">
               <span class="sch-place" role="cell"><span class="place-badge place-nl"><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>NL</span></span>
-              <span class="sch-day" role="cell">Day 12</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="12">Day 12</span>
               <span class="sch-date" role="cell">26 Nov</span>
-              <span class="sch-weekday" role="cell">Thursday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-school">School</span> Ter AA — last school day / closing · times TBA</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.thursday">Thursday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.d12.programme"><span class="type-pill type-school">School</span> Ter AA — last school day / closing · times TBA</span>
             </div>
             <div class="schedule-row is-bus" role="row" data-type="bus">
               <span class="sch-place" role="cell"><span class="place-badge place-bus"><svg width="18" height="12"><use href="#icon-bus"/></svg>BUS</span></span>
-              <span class="sch-day" role="cell">Day 13</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="13">Day 13</span>
               <span class="sch-date" role="cell">27 Nov</span>
-              <span class="sch-weekday" role="cell">Friday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-bus">Bus</span> Return journey to Denmark</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.friday">Friday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.d13.programme"><span class="type-pill type-bus">Bus</span> Return journey to Denmark</span>
             </div>
           </div>
         </div>
@@ -475,12 +480,12 @@
             <div class="program-title-row">
               <div class="flag flag-dk flag-md" aria-hidden="true"><span class="dk-cross-h"></span><span class="dk-cross-v"></span></div>
               <div>
-                <span class="country-tag tag-dk">Viborg · Denmark</span>
-                <p class="eyebrow">28 Nov – 11 Dec · Weeks 49 &amp; 50</p>
-                <h2 id="dk-title">Programme in Denmark</h2>
+                <span class="country-tag tag-dk" data-i18n="index.program.dk.countryTag">Viborg · Denmark</span>
+                <p class="eyebrow" data-i18n="index.program.dk.eyebrow">28 Nov – 11 Dec · Weeks 49 &amp; 50</p>
+                <h2 id="dk-title" data-i18n="index.program.dk.title">Programme in Denmark</h2>
               </div>
             </div>
-            <p class="section-lead">Our Dutch partners travel north. Same rhythm as Helmond — dorm accommodation, school days, weekend and farewell. Standard school hours in Viborg: <strong>08:30–14:30</strong>.</p>
+            <p class="section-lead" data-i18n-html="index.program.dk.lead">Our Dutch partners travel north. Same rhythm as Helmond — dorm accommodation, school days, weekend and farewell. Standard school hours in Viborg: <strong>08:30–14:30</strong>.</p>
           </div>
 
           <div class="filter-chips" role="group" aria-label="Highlight days" data-filter-group="dk">
@@ -490,112 +495,112 @@
             <button type="button" class="chip" data-filter="weekend">Weekend</button>
           </div>
 
-          <div class="schedule" role="table" aria-label="Denmark programme" data-schedule="dk">
+          <div class="schedule" role="table" data-i18n-attr="aria-label:index.program.dk.schedule.aria" aria-label="Denmark programme" data-schedule="dk">
             <div class="schedule-head" role="row">
-              <span role="columnheader">Where</span>
-              <span role="columnheader">Day</span>
-              <span role="columnheader">Date</span>
-              <span role="columnheader">Weekday</span>
-              <span role="columnheader">Programme</span>
+              <span role="columnheader" data-i18n="shared.schedule.col.where">Where</span>
+              <span role="columnheader" data-i18n="shared.schedule.col.day">Day</span>
+              <span role="columnheader" data-i18n="shared.schedule.col.date">Date</span>
+              <span role="columnheader" data-i18n="shared.schedule.col.weekday">Weekday</span>
+              <span role="columnheader" data-i18n="shared.schedule.col.programme">Programme</span>
             </div>
 
             <div class="schedule-row is-bus" role="row" data-type="bus">
               <span class="sch-place" role="cell"><span class="place-badge place-bus"><svg width="18" height="12"><use href="#icon-bus"/></svg>BUS</span></span>
-              <span class="sch-day" role="cell">Travel</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.travel">Travel</span>
               <span class="sch-date" role="cell">28 Nov</span>
-              <span class="sch-weekday" role="cell">Saturday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-bus">Bus</span> Departure Netherlands (overnight bus)</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.saturday">Saturday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.travel.programme"><span class="type-pill type-bus">Bus</span> Departure Netherlands (overnight bus)</span>
             </div>
             <div class="schedule-row is-dk is-arrive" role="row" data-type="arrive">
               <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
-              <span class="sch-day" role="cell">Day 1</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="1">Day 1</span>
               <span class="sch-date" role="cell">29 Nov</span>
-              <span class="sch-weekday" role="cell">Sunday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-arrive">Arrive</span> Arrival Viborg → Mercantec Kollegiet</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.sunday">Sunday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d1.programme"><span class="type-pill type-arrive">Arrive</span> Arrival Viborg → Mercantec Kollegiet</span>
             </div>
             <div class="schedule-row is-dk" role="row" data-type="school">
               <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
-              <span class="sch-day" role="cell">Day 2</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="2">Day 2</span>
               <span class="sch-date" role="cell">30 Nov</span>
-              <span class="sch-weekday" role="cell">Monday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-school">School</span> Datahouse Mercantec — school · 08:30–14:30</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.monday">Monday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d2.programme"><span class="type-pill type-school">School</span> Datahouse Mercantec — school · 08:30–14:30</span>
             </div>
             <div class="schedule-row is-dk" role="row" data-type="school">
               <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
-              <span class="sch-day" role="cell">Day 3</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="3">Day 3</span>
               <span class="sch-date" role="cell">1 Dec</span>
-              <span class="sch-weekday" role="cell">Tuesday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-school">School</span> Datahouse Mercantec — school · 08:30–14:30</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.tuesday">Tuesday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d3.programme"><span class="type-pill type-school">School</span> Datahouse Mercantec — school · 08:30–14:30</span>
             </div>
             <div class="schedule-row is-dk" role="row" data-type="school">
               <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
-              <span class="sch-day" role="cell">Day 4</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="4">Day 4</span>
               <span class="sch-date" role="cell">2 Dec</span>
-              <span class="sch-weekday" role="cell">Wednesday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-school">School</span> Datahouse Mercantec — school · 08:30–14:30</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.wednesday">Wednesday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d4.programme"><span class="type-pill type-school">School</span> Datahouse Mercantec — school · 08:30–14:30</span>
             </div>
             <div class="schedule-row is-dk" role="row" data-type="school">
               <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
-              <span class="sch-day" role="cell">Day 5</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="5">Day 5</span>
               <span class="sch-date" role="cell">3 Dec</span>
-              <span class="sch-weekday" role="cell">Thursday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-school">School</span> Datahouse Mercantec — school · 08:30–14:30</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.thursday">Thursday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d5.programme"><span class="type-pill type-school">School</span> Datahouse Mercantec — school · 08:30–14:30</span>
             </div>
             <div class="schedule-row is-dk" role="row" data-type="school">
               <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
-              <span class="sch-day" role="cell">Day 6</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="6">Day 6</span>
               <span class="sch-date" role="cell">4 Dec</span>
-              <span class="sch-weekday" role="cell">Friday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-school">School</span> Datahouse Mercantec — school · 08:30–14:30</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.friday">Friday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d6.programme"><span class="type-pill type-school">School</span> Datahouse Mercantec — school · 08:30–14:30</span>
             </div>
             <div class="schedule-row is-dk is-weekend" role="row" data-type="weekend">
               <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
-              <span class="sch-day" role="cell">Day 7</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="7">Day 7</span>
               <span class="sch-date" role="cell">5 Dec</span>
-              <span class="sch-weekday" role="cell">Saturday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-weekend">Weekend</span> Planned weekend activity</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.saturday">Saturday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d7.programme"><span class="type-pill type-weekend">Weekend</span> Planned weekend activity</span>
             </div>
             <div class="schedule-row is-dk is-weekend" role="row" data-type="weekend">
               <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
-              <span class="sch-day" role="cell">Day 8</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="8">Day 8</span>
               <span class="sch-date" role="cell">6 Dec</span>
-              <span class="sch-weekday" role="cell">Sunday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-weekend">Weekend</span> Free weekend day</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.sunday">Sunday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d8.programme"><span class="type-pill type-weekend">Weekend</span> Free weekend day</span>
             </div>
             <div class="schedule-row is-dk" role="row" data-type="school">
               <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
-              <span class="sch-day" role="cell">Day 9</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="9">Day 9</span>
               <span class="sch-date" role="cell">7 Dec</span>
-              <span class="sch-weekday" role="cell">Monday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-school">School</span> Datahouse Mercantec — school · 08:30–14:30</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.monday">Monday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d9.programme"><span class="type-pill type-school">School</span> Datahouse Mercantec — school · 08:30–14:30</span>
             </div>
             <div class="schedule-row is-dk" role="row" data-type="school">
               <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
-              <span class="sch-day" role="cell">Day 10</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="10">Day 10</span>
               <span class="sch-date" role="cell">8 Dec</span>
-              <span class="sch-weekday" role="cell">Tuesday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-school">School</span> Datahouse Mercantec — school · 08:30–14:30</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.tuesday">Tuesday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d10.programme"><span class="type-pill type-school">School</span> Datahouse Mercantec — school · 08:30–14:30</span>
             </div>
             <div class="schedule-row is-dk" role="row" data-type="school">
               <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
-              <span class="sch-day" role="cell">Day 11</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="11">Day 11</span>
               <span class="sch-date" role="cell">9 Dec</span>
-              <span class="sch-weekday" role="cell">Wednesday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-school">School</span> Datahouse Mercantec — school · 08:30–14:30</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.wednesday">Wednesday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d11.programme"><span class="type-pill type-school">School</span> Datahouse Mercantec — school · 08:30–14:30</span>
             </div>
             <div class="schedule-row is-dk is-highlight" role="row" data-type="school">
               <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
-              <span class="sch-day" role="cell">Day 12</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="12">Day 12</span>
               <span class="sch-date" role="cell">10 Dec</span>
-              <span class="sch-weekday" role="cell">Thursday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-school">School</span> Datahouse Mercantec — last school day / closing · 08:30–14:30</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.thursday">Thursday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d12.programme"><span class="type-pill type-school">School</span> Datahouse Mercantec — last school day / closing · 08:30–14:30</span>
             </div>
             <div class="schedule-row is-bus" role="row" data-type="bus">
               <span class="sch-place" role="cell"><span class="place-badge place-bus"><svg width="18" height="12"><use href="#icon-bus"/></svg>BUS</span></span>
-              <span class="sch-day" role="cell">Day 13</span>
+              <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="13">Day 13</span>
               <span class="sch-date" role="cell">11 Dec</span>
-              <span class="sch-weekday" role="cell">Friday</span>
-              <span class="sch-what" role="cell"><span class="type-pill type-bus">Bus</span> Return journey to the Netherlands</span>
+              <span class="sch-weekday" role="cell" data-i18n="shared.weekday.friday">Friday</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d13.programme"><span class="type-pill type-bus">Bus</span> Return journey to the Netherlands</span>
             </div>
           </div>
         </div>
@@ -603,12 +608,12 @@
 
       <section class="section practical-section" id="practical" aria-labelledby="practical-title">
         <div class="section-inner">
-          <p class="eyebrow">Good to know</p>
-          <h2 id="practical-title">Practical information</h2>
+          <p class="eyebrow" data-i18n="index.practical.eyebrow">Good to know</p>
+          <h2 id="practical-title" data-i18n="index.practical.title">Practical information</h2>
 
           <div class="stay-block" aria-labelledby="stay-title">
             <div class="stay-intro">
-              <h3 id="stay-title">Where we sleep</h3>
+              <h3 id="stay-title" data-i18n="index.practical.sleep.title">Where we sleep</h3>
             </div>
             <div class="stay-grid">
               <article class="stay-card stay-nl">
@@ -631,9 +636,9 @@
                   </svg>
                 </div>
                 <h4>Golden Tulip West Ende</h4>
-                <p class="stay-type">Hotel · Helmond</p>
+                <p class="stay-type" data-i18n="shared.stayType.hotel">Hotel · Helmond</p>
                 <p class="stay-address">Steenweg 1, 5707 CD Helmond, Netherlands</p>
-                <a class="map-link" href="https://maps.app.goo.gl/St2P5bMcmDqKWEaH8" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                <a class="map-link" href="https://maps.app.goo.gl/St2P5bMcmDqKWEaH8" target="_blank" rel="noopener noreferrer" data-i18n="shared.map.openGoogleMaps">Open in Google Maps</a>
               </article>
               <article class="stay-card stay-dk">
                 <div class="stay-flag">
@@ -654,16 +659,16 @@
                   </svg>
                 </div>
                 <h4>Mercantec Kollegiet</h4>
-                <p class="stay-type">Student dormitory · Viborg</p>
+                <p class="stay-type" data-i18n="shared.stayType.dorm">Student dormitory · Viborg</p>
                 <p class="stay-address">H. C. Andersens Vej 7B, 8800 Viborg</p>
-                <a class="map-link" href="https://maps.app.goo.gl/rQypDLh8qF4tXtZXA" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                <a class="map-link" href="https://maps.app.goo.gl/rQypDLh8qF4tXtZXA" target="_blank" rel="noopener noreferrer" data-i18n="shared.map.openGoogleMaps">Open in Google Maps</a>
               </article>
             </div>
           </div>
 
           <div class="stay-block schools-block" aria-labelledby="schools-title">
             <div class="stay-intro">
-              <h3 id="schools-title">Where we go to school</h3>
+              <h3 id="schools-title" data-i18n="index.practical.schools.title">Where we go to school</h3>
             </div>
             <div class="stay-grid">
               <article class="stay-card stay-nl stay-school">
@@ -675,9 +680,9 @@
                   </span>
                 </div>
                 <h4>Ter AA</h4>
-                <p class="stay-type">School · Helmond</p>
+                <p class="stay-type" data-i18n="shared.stayType.school">School · Helmond</p>
                 <p class="stay-address">Keizerin Marialaan 2, 5702 NR Helmond, Netherlands</p>
-                <a class="map-link" href="https://maps.app.goo.gl/1ncfxazFCgdP1Tob7" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                <a class="map-link" href="https://maps.app.goo.gl/1ncfxazFCgdP1Tob7" target="_blank" rel="noopener noreferrer" data-i18n="shared.map.openGoogleMaps">Open in Google Maps</a>
               </article>
               <article class="stay-card stay-dk stay-school">
                 <div class="stay-flag">
@@ -688,9 +693,9 @@
                   </span>
                 </div>
                 <h4>Datahouse Mercantec</h4>
-                <p class="stay-type">School · Viborg</p>
+                <p class="stay-type" data-i18n="shared.stayType.schoolDk">School · Viborg</p>
                 <p class="stay-address">H. C. Andersens Vej 9, 8800 Viborg</p>
-                <a class="map-link" href="https://maps.app.goo.gl/RLo7yGLakAiXaxRr7" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                <a class="map-link" href="https://maps.app.goo.gl/RLo7yGLakAiXaxRr7" target="_blank" rel="noopener noreferrer" data-i18n="shared.map.openGoogleMaps">Open in Google Maps</a>
               </article>
             </div>
           </div>
@@ -700,22 +705,22 @@
               <span class="practical-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M6 7V6a6 6 0 0112 0v1h2a1 1 0 011 1v12a2 2 0 01-2 2H5a2 2 0 01-2-2V8a1 1 0 011-1h2zm2 0h8V6a4 4 0 00-8 0v1zm1 4v2h2v-2H9zm6 0v2h2v-2h-2z"/></svg>
               </span>
-              <h3>Packing</h3>
-              <p>Clothes for school and trips, rain jacket, medicine, <strong>passport</strong> and EU health insurance card. The hotel provides towels and bedding — no need to pack those. <a href="pakkeliste.html">Danish packing checklist →</a></p>
+              <h3 data-i18n="index.practical.packing.title">Packing</h3>
+              <p data-i18n-html="index.practical.packing.body">Clothes for school and trips, rain jacket, medicine, <strong>passport</strong> and EU health insurance card. The hotel provides towels and bedding — no need to pack those. Danish packing checklist →</p>
             </div>
             <div class="practical-item">
               <span class="practical-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M17 4H7a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3zm-1 9H8v-2h8v2z"/></svg>
               </span>
-              <h3>Money &amp; phone</h3>
-              <p>The school covers transport, hotel, hotel breakfast and entrance fees for planned activities. Bring pocket money for lunch, dinner and personal spending. EU roaming usually applies — check your plan.</p>
+              <h3 data-i18n="index.practical.money.title">Money &amp; phone</h3>
+              <p data-i18n="index.practical.money.body">The school covers transport, hotel, hotel breakfast and entrance fees for planned activities. Bring pocket money for lunch, dinner and personal spending. EU roaming usually applies — check your plan.</p>
             </div>
             <div class="practical-item">
               <span class="practical-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12 12a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 0114 0v1H5v-1zm14.5-9.5l1.4-1.4-1.4-1.4-1.4 1.4 1.4 1.4zm-15 0L5.9 9.1 4.5 7.7 3.1 9.1l1.4 1.4z"/></svg>
               </span>
-              <h3>Expectations</h3>
-              <p>Join in, stay open to language and culture, and follow the teachers’ guidance. Evenings are free — tell the group on WhatsApp if you go further away. At gatherings we count aloud in order (tællerække): 1, then 2, then 3… so nobody is missing.</p>
+              <h3 data-i18n="index.practical.expectations.title">Expectations</h3>
+              <p data-i18n="index.practical.expectations.body">Join in, stay open to language and culture, and follow the teachers' guidance. Evenings are free — tell the group on WhatsApp if you go further away. At gatherings we count aloud in order (tællerække): 1, then 2, then 3… so nobody is missing.</p>
             </div>
           </div>
 
@@ -726,9 +731,9 @@
                   <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                 </span>
                 <div>
-                  <p class="wa-panel-kicker">Join before departure</p>
-                  <h3 class="wa-panel-title" id="wa-title">WhatsApp groups</h3>
-                  <p class="wa-panel-lead">You need to be in <strong>both</strong> groups.</p>
+                  <p class="wa-panel-kicker" data-i18n="shared.wa.kicker">Join before departure</p>
+                  <h3 class="wa-panel-title" id="wa-title" data-i18n="shared.wa.title">WhatsApp groups</h3>
+                  <p class="wa-panel-lead" data-i18n-html="shared.wa.leadBoth">You need to be in <strong>both</strong> groups.</p>
                 </div>
               </div>
               <div class="wa-groups">
@@ -739,12 +744,12 @@
                   <span class="wa-body">
                     <span class="wa-badge">
                       <span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>
-                      DK internal
+                      <span data-i18n="shared.wa.badge.dkInternal">DK internal</span>
                     </span>
-                    <strong>Danish students + staff</strong>
-                    <span class="wa-desc">Internal (DK only)</span>
+                    <strong data-i18n="shared.wa.card.dkTitle">Danish students + staff</strong>
+                    <span class="wa-desc" data-i18n="shared.wa.card.dkDesc">Internal (DK only)</span>
                   </span>
-                  <span class="wa-join">Open invite <span aria-hidden="true">→</span></span>
+                  <span class="wa-join"><span data-i18n="shared.wa.join.openInvite">Open invite</span> <span aria-hidden="true">→</span></span>
                 </a>
                 <a class="wa-card wa-all" href="https://chat.whatsapp.com/BrpeAFXah7117wUYEoHNgH" target="_blank" rel="noopener noreferrer">
                   <span class="wa-icon" aria-hidden="true">
@@ -755,12 +760,12 @@
                       <span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>
                       <span class="wa-badge-swap" aria-hidden="true">↔</span>
                       <span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>
-                      Shared 2026
+                      <span data-i18n="shared.wa.badge.shared2026">Shared 2026</span>
                     </span>
-                    <strong>NL ↔️ DK – 2026</strong>
-                    <span class="wa-desc">Shared group for NL and DK</span>
+                    <strong data-i18n="shared.wa.card.allTitle">NL ↔️ DK – 2026</strong>
+                    <span class="wa-desc" data-i18n="shared.wa.card.allDesc">Shared group for NL and DK</span>
                   </span>
-                  <span class="wa-join">Open invite <span aria-hidden="true">→</span></span>
+                  <span class="wa-join"><span data-i18n="shared.wa.join.openInvite">Open invite</span> <span aria-hidden="true">→</span></span>
                 </a>
               </div>
             </div>
@@ -770,36 +775,36 @@
 
       <section class="section contact-section" id="contact" aria-labelledby="contact-title">
         <div class="section-inner contact-inner">
-          <p class="eyebrow">Questions?</p>
-          <h2 id="contact-title">Contact</h2>
-          <p class="section-lead">Need help before or during the trip? Reach the coordinators below.</p>
+          <p class="eyebrow" data-i18n="index.contact.eyebrow">Questions?</p>
+          <h2 id="contact-title" data-i18n="index.contact.title">Contact</h2>
+          <p class="section-lead" data-i18n="index.contact.lead">Need help before or during the trip? Reach the coordinators below.</p>
           <div class="contact-rows">
             <div class="contact-card">
               <div class="flag flag-dk flag-sm" aria-hidden="true"><span class="dk-cross-h"></span><span class="dk-cross-v"></span></div>
               <div class="contact-people">
-                <span class="contact-label">Denmark · Mercantec</span>
+                <span class="contact-label" data-i18n="shared.contact.label.dk">Denmark · Mercantec</span>
                 <ul class="contact-list">
                   <li>
                     <strong>Mathias Gaardsdal Steenberg</strong>
                     <a href="mailto:MAGS@mercantec.dk">MAGS@mercantec.dk</a>
-                    <span class="contact-meta">Both weeks in Helmond</span>
+                    <span class="contact-meta" data-i18n="shared.contact.weekBothHelmond">Both weeks in Helmond</span>
                   </li>
                   <li>
                     <strong>Jeanette Romvig</strong>
                     <a href="mailto:jere@mercantec.dk">jere@mercantec.dk</a>
-                    <span class="contact-meta">Week 1 · 14–20 Nov</span>
+                    <span class="contact-meta" data-i18n="shared.contact.week1">Week 1 · 14–20 Nov</span>
                   </li>
                   <li>
                     <strong>Jan Møller Jensen</strong>
                     <a href="mailto:janj@mercantec.dk">janj@mercantec.dk</a>
                     <a href="tel:+4540280807">+45 40 28 08 07</a>
-                    <span class="contact-meta">Week 1 · 14–20 Nov</span>
+                    <span class="contact-meta" data-i18n="shared.contact.week1">Week 1 · 14–20 Nov</span>
                   </li>
                   <li>
                     <strong>Bjarne Rasmussen</strong>
                     <a href="mailto:bjra@mercantec.dk">bjra@mercantec.dk</a>
                     <a href="tel:+4521655075">+45 21 65 50 75</a>
-                    <span class="contact-meta">Week 2 · 21–27 Nov</span>
+                    <span class="contact-meta" data-i18n="shared.contact.week2">Week 2 · 21–27 Nov</span>
                   </li>
                 </ul>
               </div>
@@ -807,7 +812,7 @@
             <div class="contact-card">
               <div class="flag flag-nl flag-sm" aria-hidden="true"><span></span><span></span><span></span></div>
               <div class="contact-people">
-                <span class="contact-label">Netherlands · Ter AA</span>
+                <span class="contact-label" data-i18n="shared.contact.label.nl">Netherlands · Ter AA</span>
                 <ul class="contact-list">
                   <li>
                     <strong>Benjamin Porobic</strong>
@@ -833,10 +838,11 @@
         NL ↔ DK
         <span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>
       </p>
-      <p>Exchange · Helmond &amp; Denmark · TerAA × Mercantec Colab</p>
+      <p data-i18n="shared.footer.line">Exchange · Helmond &amp; Denmark · TerAA × Mercantec Colab</p>
     </div>
   </footer>
 
-  <script src="script.js?v=20261017j"></script>
+  <script src="i18n.js?v=20261017k"></script>
+  <script src="script.js?v=20261017k"></script>
 </body>
 </html>

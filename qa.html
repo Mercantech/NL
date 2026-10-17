@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="da">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,31 +11,36 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261017j" />
+  <link rel="stylesheet" href="styles.css?v=20261017k" />
 </head>
 <body class="page-qa">
-  <a class="skip-link" href="#content">Spring til indhold</a>
+  <a class="skip-link" href="#content" data-i18n="shared.skipLink">Skip to content</a>
 
   <header class="site-header">
     <div class="header-inner">
-      <a class="logo" href="index.html" aria-label="NL DK udveksling — forsiden">
+      <a class="logo" href="index.html" data-i18n-attr="aria-label:shared.logo.ariaHome" aria-label="NL DK exchange — home">
         <span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>
         <span class="logo-nl">NL</span>
         <span class="logo-arrow" aria-hidden="true">↔</span>
         <span class="logo-dk">DK</span>
         <span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>
       </a>
-      <nav class="nav" id="main-nav" aria-label="Main">
-        <a href="index.html">Home</a>
-        <a href="2026.html">2026</a>
-        <a href="qa.html" class="is-active">Q&amp;A</a>
-        <a href="pakkeliste.html">Packing</a>
-        <a href="previous-years.html">Years</a>
-        <a href="learning-objectives.html">Objectives</a>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-set-lang="en" lang="en">EN</button>
+        <button type="button" data-set-lang="da" lang="da">DA</button>
+        <button type="button" data-set-lang="nl" lang="nl">NL</button>
+      </div>
+      <nav class="nav" id="main-nav" data-i18n-attr="aria-label:shared.nav.ariaMain" aria-label="Main">
+        <a href="index.html" data-i18n="shared.nav.home">Home</a>
+        <a href="2026.html" data-i18n="shared.nav.2026">2026</a>
+        <a href="qa.html" class="is-active" data-i18n="shared.nav.qa">Q&amp;A</a>
+        <a href="pakkeliste.html" data-i18n="shared.nav.packing">Packing</a>
+        <a href="previous-years.html" data-i18n="shared.nav.years">Years</a>
+        <a href="learning-objectives.html" data-i18n="shared.nav.objectives">Objectives</a>
       </nav>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-menu-toggle>
         <span class="menu-bars" aria-hidden="true"></span>
-        <span class="visually-hidden">Menu</span>
+        <span class="visually-hidden" data-i18n="shared.nav.menu">Menu</span>
       </button>
     </div>
   </header>
@@ -54,278 +59,226 @@
             <span class="qa-hero-swap">↔</span>
             <div class="flag flag-nl flag-lg"><span></span><span></span><span></span></div>
           </div>
-          <p class="qa-count" data-qa-count>19 spørgsmål</p>
+          <p class="qa-count" data-qa-count data-i18n="qa.hero.count">19 questions</p>
         </div>
-        <p class="eyebrow">Til danske elever</p>
-        <h1 id="qa-title">Spørgsmål &amp; svar</h1>
-        <p class="section-lead qa-lead">Alt du skal vide før Helmond og når gæsterne kommer til Viborg — TerAA × Mercantec Colab. Tryk på et spørgsmål for at se svaret.</p>
+        <p class="eyebrow" data-i18n="qa.hero.eyebrow">For Danish students</p>
+        <h1 id="qa-title" data-i18n="qa.hero.title">Questions &amp; answers</h1>
+        <p class="section-lead qa-lead" data-i18n="qa.hero.lead">Everything you need to know before Helmond and when guests arrive in Viborg — TerAA × Mercantec Colab. Tap a question to see the answer.</p>
 
         <label class="qa-search" for="qa-search">
-          <span class="visually-hidden">Søg i spørgsmål</span>
+          <span class="visually-hidden" data-i18n="qa.search.label">Search questions</span>
           <svg class="qa-search-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
             <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
             <path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
-          <input id="qa-search" type="search" placeholder="Søg f.eks. hotel, bus, penge…" autocomplete="off" data-qa-search />
+          <input id="qa-search" type="search" placeholder="Search e.g. hotel, bus, money…" autocomplete="off" data-qa-search data-i18n-attr="placeholder:qa.search.placeholder" />
         </label>
       </div>
     </section>
 
-    <section class="section qa-section" aria-label="Spørgsmål og svar">
+    <section class="section qa-section" data-i18n-attr="aria-label:qa.section.aria" aria-label="Questions and answers">
       <div class="section-inner">
-        <div class="qa-filters" role="group" aria-label="Filtrer spørgsmål" data-qa-filters>
-          <button type="button" class="qa-chip is-active" data-qa-filter="all">Alle</button>
-          <button type="button" class="qa-chip" data-qa-filter="rejse">
-            <span class="qa-chip-dot chip-bus" aria-hidden="true"></span> Rejse
-          </button>
-          <button type="button" class="qa-chip" data-qa-filter="bolig">
-            <span class="qa-chip-dot chip-stay" aria-hidden="true"></span> Bolig
-          </button>
-          <button type="button" class="qa-chip" data-qa-filter="skole">
-            <span class="qa-chip-dot chip-school" aria-hidden="true"></span> Skole
-          </button>
-          <button type="button" class="qa-chip" data-qa-filter="okonomi">
-            <span class="qa-chip-dot chip-money" aria-hidden="true"></span> Økonomi
-          </button>
-          <button type="button" class="qa-chip" data-qa-filter="praktisk">
-            <span class="qa-chip-dot chip-pack" aria-hidden="true"></span> Praktisk
-          </button>
+        <div class="qa-filters" role="group" data-i18n-attr="aria-label:qa.filters.aria" aria-label="Filter questions" data-qa-filters>
+          <button type="button" class="qa-chip is-active" data-qa-filter="all" data-i18n="qa.filter.all">All</button>
+          <button type="button" class="qa-chip" data-qa-filter="rejse"><span class="qa-chip-dot chip-bus" aria-hidden="true"></span> <span data-i18n="qa.filter.rejse">Travel</span></button>
+          <button type="button" class="qa-chip" data-qa-filter="bolig"><span class="qa-chip-dot chip-stay" aria-hidden="true"></span> <span data-i18n="qa.filter.bolig">Accommodation</span></button>
+          <button type="button" class="qa-chip" data-qa-filter="skole"><span class="qa-chip-dot chip-school" aria-hidden="true"></span> <span data-i18n="qa.filter.skole">School</span></button>
+          <button type="button" class="qa-chip" data-qa-filter="okonomi"><span class="qa-chip-dot chip-money" aria-hidden="true"></span> <span data-i18n="qa.filter.okonomi">Money</span></button>
+          <button type="button" class="qa-chip" data-qa-filter="praktisk"><span class="qa-chip-dot chip-pack" aria-hidden="true"></span> <span data-i18n="qa.filter.praktisk">Practical</span></button>
         </div>
 
         <div class="qa-list" data-qa-list>
           <details class="qa-item" data-cat="rejse" data-qa-item>
             <summary>
               <span class="qa-num">01</span>
-              <span class="qa-q">Hvornår tager vi afsted til Holland?</span>
-              <span class="qa-tag tag-rejse">Rejse</span>
+              <span class="qa-q" data-i18n="qa.01.q">When do we leave for the Netherlands?</span>
+              <span class="qa-tag tag-rejse" data-i18n="qa.filter.rejse">Travel</span>
             </summary>
             <div class="qa-answer">
-              <p>Lørdag d. <strong>14. november</strong> kl. <strong>23:05</strong> — natbus fra Danmark.</p>
+              <p data-i18n-html="qa.01.a">Saturday <strong>14 November</strong> at <strong>23:05</strong> — overnight bus from Denmark.</p>
             </div>
           </details>
 
           <details class="qa-item" data-cat="rejse" data-qa-item>
             <summary>
               <span class="qa-num">02</span>
-              <span class="qa-q">Hvornår ankommer vi til Helmond?</span>
-              <span class="qa-tag tag-rejse">Rejse</span>
+              <span class="qa-q" data-i18n="qa.02.q">When do we arrive in Helmond?</span>
+              <span class="qa-tag tag-rejse" data-i18n="qa.filter.rejse">Travel</span>
             </summary>
             <div class="qa-answer">
-              <p>Søndag d. <strong>15. november</strong>. Ankomst til Amsterdam kl. <strong>09:35</strong>, derefter videre til Helmond og check-in på hotellet.</p>
+              <p data-i18n-html="qa.02.a">Sunday <strong>15 November</strong>. Arrival in Amsterdam at <strong>09:35</strong>, then on to Helmond and hotel check-in.</p>
             </div>
           </details>
 
           <details class="qa-item" data-cat="bolig" data-qa-item>
             <summary>
               <span class="qa-num">03</span>
-              <span class="qa-q">Hvor bor vi i Helmond?</span>
-              <span class="qa-tag tag-bolig">Bolig</span>
+              <span class="qa-q" data-i18n="qa.03.q">Where do we stay in Helmond?</span>
+              <span class="qa-tag tag-bolig" data-i18n="qa.filter.bolig">Accommodation</span>
             </summary>
             <div class="qa-answer">
-              <div class="qa-place">
-                <span class="place-badge place-nl"><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>NL</span>
-                <div>
-                  <strong>Golden Tulip West Ende</strong>
-                  <p>Steenweg 1, 5707 CD Helmond</p>
-                  <a class="map-link" href="https://maps.app.goo.gl/St2P5bMcmDqKWEaH8" target="_blank" rel="noopener noreferrer">Åbn i Google Maps</a>
-                </div>
-              </div>
+              <div class="qa-place"><span class="place-badge place-nl"><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>NL</span><div data-i18n-html="qa.03.a"><strong>Golden Tulip West Ende</strong> — Steenweg 1, 5707 CD Helmond. Open in Google Maps.</div></div>
             </div>
           </details>
 
           <details class="qa-item" data-cat="skole" data-qa-item>
             <summary>
               <span class="qa-num">04</span>
-              <span class="qa-q">Hvilken skole besøger vi i Holland?</span>
-              <span class="qa-tag tag-skole">Skole</span>
+              <span class="qa-q" data-i18n="qa.04.q">Which school do we visit in the Netherlands?</span>
+              <span class="qa-tag tag-skole" data-i18n="qa.filter.skole">School</span>
             </summary>
             <div class="qa-answer">
-              <div class="qa-place">
-                <span class="place-badge place-nl"><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>NL</span>
-                <div>
-                  <strong>Ter AA</strong>
-                  <p>Keizerin Marialaan 2, 5702 NR Helmond</p>
-                  <a class="map-link" href="https://maps.app.goo.gl/1ncfxazFCgdP1Tob7" target="_blank" rel="noopener noreferrer">Åbn i Google Maps</a>
-                </div>
-              </div>
+              <div class="qa-place"><span class="place-badge place-nl"><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>NL</span><div data-i18n-html="qa.04.a"><strong>Ter AA</strong> — Keizerin Marialaan 2, 5702 NR Helmond. Open in Google Maps.</div></div>
             </div>
           </details>
 
           <details class="qa-item" data-cat="rejse" data-qa-item>
             <summary>
               <span class="qa-num">05</span>
-              <span class="qa-q">Hvornår kører vi hjem til Danmark?</span>
-              <span class="qa-tag tag-rejse">Rejse</span>
+              <span class="qa-q" data-i18n="qa.05.q">When do we travel home to Denmark?</span>
+              <span class="qa-tag tag-rejse" data-i18n="qa.filter.rejse">Travel</span>
             </summary>
             <div class="qa-answer">
-              <p>Fredag d. <strong>27. november</strong> — hjemrejse med bus.</p>
+              <p data-i18n-html="qa.05.a">Friday <strong>27 November</strong> — return journey by bus.</p>
             </div>
           </details>
 
           <details class="qa-item" data-cat="skole" data-qa-item>
             <summary>
               <span class="qa-num">06</span>
-              <span class="qa-q">Hvad sker der i uge 49–50?</span>
-              <span class="qa-tag tag-skole">Skole</span>
+              <span class="qa-q" data-i18n="qa.06.q">What happens in weeks 49–50?</span>
+              <span class="qa-tag tag-skole" data-i18n="qa.filter.skole">School</span>
             </summary>
             <div class="qa-answer">
-              <p>Den hollandske gruppe kommer til <strong>Viborg</strong>. De bor på <strong>Mercantec Kollegiet</strong> og går i skole på <strong>Datahouse Mercantec</strong>.</p>
-              <p>Periode: <strong>28. november – 11. december</strong>.</p>
+              <p data-i18n-html="qa.06.a">The Dutch group comes to <strong>Viborg</strong>. They stay at <strong>Mercantec Kollegiet</strong> and attend <strong>Datahouse Mercantec</strong>. Period: <strong>28 November – 11 December</strong>.</p>
             </div>
           </details>
 
           <details class="qa-item" data-cat="bolig" data-qa-item>
             <summary>
               <span class="qa-num">07</span>
-              <span class="qa-q">Hvor bor de hollandske elever i Viborg?</span>
-              <span class="qa-tag tag-bolig">Bolig</span>
+              <span class="qa-q" data-i18n="qa.07.q">Where do the Dutch students stay in Viborg?</span>
+              <span class="qa-tag tag-bolig" data-i18n="qa.filter.bolig">Accommodation</span>
             </summary>
             <div class="qa-answer">
-              <div class="qa-place">
-                <span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span>
-                <div>
-                  <strong>Mercantec Kollegiet</strong>
-                  <p>H. C. Andersens Vej 7B, 8800 Viborg — ikke hos værtsfamilier.</p>
-                  <a class="map-link" href="https://maps.app.goo.gl/rQypDLh8qF4tXtZXA" target="_blank" rel="noopener noreferrer">Åbn i Google Maps</a>
-                </div>
-              </div>
+              <div class="qa-place"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span><div data-i18n-html="qa.07.a"><strong>Mercantec Kollegiet</strong> — H. C. Andersens Vej 7B, 8800 Viborg — not with host families. Open in Google Maps.</div></div>
             </div>
           </details>
 
           <details class="qa-item" data-cat="skole" data-qa-item>
             <summary>
               <span class="qa-num">08</span>
-              <span class="qa-q">Hvor er skolen under Viborg-ugerne?</span>
-              <span class="qa-tag tag-skole">Skole</span>
+              <span class="qa-q" data-i18n="qa.08.q">Where is school during the Viborg weeks?</span>
+              <span class="qa-tag tag-skole" data-i18n="qa.filter.skole">School</span>
             </summary>
             <div class="qa-answer">
-              <div class="qa-place">
-                <span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span>
-                <div>
-                  <strong>Datahouse Mercantec</strong>
-                  <p>H. C. Andersens Vej 9, 8800 Viborg</p>
-                  <a class="map-link" href="https://maps.app.goo.gl/RLo7yGLakAiXaxRr7" target="_blank" rel="noopener noreferrer">Åbn i Google Maps</a>
-                </div>
-              </div>
+              <div class="qa-place"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span><div data-i18n-html="qa.08.a"><strong>Datahouse Mercantec</strong> — H. C. Andersens Vej 9, 8800 Viborg. Open in Google Maps.</div></div>
             </div>
           </details>
 
           <details class="qa-item qa-item-money" data-cat="okonomi" data-qa-item open>
             <summary>
               <span class="qa-num">09</span>
-              <span class="qa-q">Hvad betaler skolen — og hvad skal jeg selv?</span>
-              <span class="qa-tag tag-okonomi">Økonomi</span>
+              <span class="qa-q" data-i18n="qa.09.q">What does the school pay — and what do I pay myself?</span>
+              <span class="qa-tag tag-okonomi" data-i18n="qa.filter.okonomi">Money</span>
             </summary>
             <div class="qa-answer">
               <div class="qa-money">
-                <div class="qa-money-col covered">
-                  <h3>Skolen betaler</h3>
-                  <ul>
-                    <li>Transport (bus)</li>
-                    <li>Hotel</li>
-                    <li>Morgenmad på hotellet</li>
-                    <li>Entre til planlagte aktiviteter</li>
-                  </ul>
-                </div>
-                <div class="qa-money-col own">
-                  <h3>Du betaler selv</h3>
-                  <ul>
-                    <li>Frokost</li>
-                    <li>Aftensmad</li>
-                    <li>Snacks</li>
-                    <li>Egne indkøb / lommepenge</li>
-                  </ul>
-                </div>
+              <div class="qa-money-col covered">
+                <h3 data-i18n="qa.09.covered.title">School pays</h3>
+                <p data-i18n="qa.09.covered.items">Transport (bus); Hotel; Hotel breakfast; Entry to planned activities</p>
               </div>
+              <div class="qa-money-col own">
+                <h3 data-i18n="qa.09.own.title">You pay yourself</h3>
+                <p data-i18n="qa.09.own.items">Lunch; Dinner; Snacks; Personal purchases / pocket money</p>
+              </div>
+            </div>
             </div>
           </details>
 
           <details class="qa-item" data-cat="praktisk" data-qa-item>
             <summary>
               <span class="qa-num">10</span>
-              <span class="qa-q">Skal jeg bruge en særlig stikadapter?</span>
-              <span class="qa-tag tag-praktisk">Praktisk</span>
+              <span class="qa-q" data-i18n="qa.10.q">Do I need a special plug adapter?</span>
+              <span class="qa-tag tag-praktisk" data-i18n="qa.filter.praktisk">Practical</span>
             </summary>
             <div class="qa-answer">
-              <p>Nej. Danmark og Holland bruger samme stik — du behøver ingen adapter.</p>
+              <p data-i18n-html="qa.10.a">No. Denmark and the Netherlands use the same plugs — you don't need an adapter.</p>
             </div>
           </details>
 
           <details class="qa-item" data-cat="praktisk" data-qa-item>
             <summary>
               <span class="qa-num">11</span>
-              <span class="qa-q">Skal jeg have pas med?</span>
-              <span class="qa-tag tag-praktisk">Praktisk</span>
+              <span class="qa-q" data-i18n="qa.11.q">Do I need to bring my passport?</span>
+              <span class="qa-tag tag-praktisk" data-i18n="qa.filter.praktisk">Practical</span>
             </summary>
             <div class="qa-answer">
-              <p>Ja. Du <strong>skal have pas</strong> med på turen.</p>
+              <p data-i18n-html="qa.11.a">Yes. You <strong>must bring your passport</strong> on the trip.</p>
             </div>
           </details>
 
           <details class="qa-item" data-cat="praktisk" data-qa-item>
             <summary>
               <span class="qa-num">12</span>
-              <span class="qa-q">Er jeg forsikret — og skal jeg have EU-sygesikring med?</span>
-              <span class="qa-tag tag-praktisk">Praktisk</span>
+              <span class="qa-q" data-i18n="qa.12.q">Am I insured — and do I need my EU health card?</span>
+              <span class="qa-tag tag-praktisk" data-i18n="qa.filter.praktisk">Practical</span>
             </summary>
             <div class="qa-answer">
-              <p>Ja, I er <strong>forsikret gennem skolen</strong>. Du skal alligevel have dit <strong>EU-sygesikringskort</strong> med.</p>
+              <p data-i18n-html="qa.12.a">Yes, you are <strong>insured through the school</strong>. You still need to bring your <strong>EU health insurance card</strong>.</p>
             </div>
           </details>
 
           <details class="qa-item" data-cat="skole" data-qa-item>
             <summary>
               <span class="qa-num">13</span>
-              <span class="qa-q">Hvornår møder vi ind til skole?</span>
-              <span class="qa-tag tag-skole">Skole</span>
+              <span class="qa-q" data-i18n="qa.13.q">When do we meet for school?</span>
+              <span class="qa-tag tag-skole" data-i18n="qa.filter.skole">School</span>
             </summary>
             <div class="qa-answer">
-              <p><strong>Holland / Helmond:</strong> Mødetider er <strong>TBA</strong> (kommer snart) — følg med her og på WhatsApp.</p>
-              <p><strong>Danmark / Viborg:</strong> Standard skoledag er <strong>08:30–14:30</strong>.</p>
+              <p data-i18n-html="qa.13.a"><strong>Netherlands / Helmond:</strong> Meeting times are <strong>TBA</strong> (coming soon) — follow updates here and on WhatsApp. <strong>Denmark / Viborg:</strong> Standard school day is <strong>08:30–14:30</strong>.</p>
             </div>
           </details>
 
           <details class="qa-item" data-cat="praktisk" data-qa-item>
             <summary>
               <span class="qa-num">14</span>
-              <span class="qa-q">Hvad skal jeg pakke?</span>
-              <span class="qa-tag tag-praktisk">Praktisk</span>
+              <span class="qa-q" data-i18n="qa.14.q">What should I pack?</span>
+              <span class="qa-tag tag-praktisk" data-i18n="qa.filter.praktisk">Practical</span>
             </summary>
             <div class="qa-answer">
-              <p>Tøj til skole og udflugter, regntøj, den medicin du skal bruge, <strong>pas</strong> og <strong>EU-sygesikringskort</strong>. Afgang d. 14. nov. er sent om aftenen — klæd dig på til natrejse.</p>
-              <p>Hotellet har håndklæder og sengetøj — det behøver du ikke at tage med.</p>
-              <p><a href="pakkeliste.html">Åbn den fulde pakkeliste (checkliste) →</a></p>
+              <p data-i18n-html="qa.14.a">Clothes for school and outings, rain gear, any medicine you need, <strong>passport</strong> and <strong>EU health insurance card</strong>. Departure 14 Nov is late evening — dress for an overnight journey. The hotel provides towels and bedding — you don't need to pack those. Open the full packing checklist →</p>
             </div>
           </details>
 
           <details class="qa-item" data-cat="praktisk" data-qa-item>
             <summary>
               <span class="qa-num">15</span>
-              <span class="qa-q">Må vi gå ud om aftenen?</span>
-              <span class="qa-tag tag-praktisk">Praktisk</span>
+              <span class="qa-q" data-i18n="qa.15.q">Can we go out in the evenings?</span>
+              <span class="qa-tag tag-praktisk" data-i18n="qa.filter.praktisk">Practical</span>
             </summary>
             <div class="qa-answer">
-              <p>Ja — aftenerne er <strong>frie</strong>. Hvis I går længere væk, skal det <strong>kommunikeres til gruppen</strong> (WhatsApp), så alle ved hvor I er.</p>
+              <p data-i18n-html="qa.15.a">Yes — evenings are <strong>free</strong>. If you go farther away, <strong>tell the group</strong> (WhatsApp) so everyone knows where you are.</p>
             </div>
           </details>
 
           <details class="qa-item" data-cat="praktisk" data-qa-item>
             <summary>
               <span class="qa-num">16</span>
-              <span class="qa-q">Hvordan kommunikerer vi på turen?</span>
-              <span class="qa-tag tag-praktisk">Praktisk</span>
+              <span class="qa-q" data-i18n="qa.16.q">How do we communicate on the trip?</span>
+              <span class="qa-tag tag-praktisk" data-i18n="qa.filter.praktisk">Practical</span>
             </summary>
             <div class="qa-answer">
-              <p>Vi bruger <strong>WhatsApp</strong>. Der er <strong>to grupper</strong> — sørg for at være med i dem, før I tager afsted:</p>
+              <p data-i18n-html="qa.16.a.intro">We use <strong>WhatsApp</strong>. There are <strong>two groups</strong> — join them before you leave:</p>
               <div class="wa-panel">
                 <div class="wa-panel-head">
                   <span class="wa-panel-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                   </span>
                   <div>
-                    <p class="wa-panel-kicker">Join før afgang</p>
-                    <h3 class="wa-panel-title">WhatsApp-grupper</h3>
-                    <p class="wa-panel-lead">Du skal være med i <strong>begge</strong> grupper.</p>
+                    <p class="wa-panel-kicker"><span data-i18n="shared.wa.kicker">Join before departure</span></p>
+                    <h3 class="wa-panel-title"><span data-i18n="shared.wa.title">WhatsApp groups</span></h3>
+                    <p class="wa-panel-lead"><span data-i18n-html="shared.wa.leadBoth">You need to be in <strong>both</strong> groups.</span></p>
                   </div>
                 </div>
                 <div class="wa-groups">
@@ -338,10 +291,10 @@
                         <span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>
                         DK intern
                       </span>
-                      <strong>Danske elever + ansatte</strong>
-                      <span class="wa-desc">Intern kommunikation (kun DK)</span>
+                      <strong data-i18n="shared.wa.card.dkTitle">Danish students + staff</strong>
+                      <span class="wa-desc" data-i18n="shared.wa.card.dkDesc">Internal (DK only)</span>
                     </span>
-                    <span class="wa-join">Åbn invite <span aria-hidden="true">→</span></span>
+                    <span class="wa-join"><span data-i18n="shared.wa.join.openInvite">Open invite</span> <span aria-hidden="true">→</span></span>
                   </a>
                   <a class="wa-card wa-all" href="https://chat.whatsapp.com/BrpeAFXah7117wUYEoHNgH" target="_blank" rel="noopener noreferrer">
                     <span class="wa-icon" aria-hidden="true">
@@ -355,9 +308,9 @@
                         Fælles 2026
                       </span>
                       <strong>NL ↔️ DK – 2026</strong>
-                      <span class="wa-desc">Fælles gruppe for Holland og Danmark</span>
+                      <span class="wa-desc" data-i18n="shared.wa.card.allDesc">Shared group for NL and DK</span>
                     </span>
-                    <span class="wa-join">Åbn invite <span aria-hidden="true">→</span></span>
+                    <span class="wa-join"><span data-i18n="shared.wa.join.openInvite">Open invite</span> <span aria-hidden="true">→</span></span>
                   </a>
                 </div>
               </div>
@@ -367,52 +320,47 @@
           <details class="qa-item" data-cat="praktisk" data-qa-item>
             <summary>
               <span class="qa-num">17</span>
-              <span class="qa-q">Hvad er tællerække-reglen?</span>
-              <span class="qa-tag tag-praktisk">Praktisk</span>
+              <span class="qa-q" data-i18n="qa.17.q">What is the roll-call (tællerække) rule?</span>
+              <span class="qa-tag tag-praktisk" data-i18n="qa.filter.praktisk">Practical</span>
             </summary>
             <div class="qa-answer">
-              <p>Tællerækken er vores måde at sikre, at <strong>ingen bliver væk</strong>. Når vi er samlet, tæller vi højt i rækkefølge — så hører alle med det samme, hvis nogen mangler.</p>
+              <p data-i18n-html="qa.17.a.intro">Roll-call is how we make sure <strong>nobody is missing</strong>. When we're gathered, we count aloud in order — so everyone hears immediately if someone is absent.</p>
               <div class="buddy-chain" aria-hidden="true">
                 <div class="buddy-node is-speak">
                   <span class="buddy-num">1</span>
-                  <span class="buddy-label">«Én!»</span>
+                  <span class="buddy-label" data-i18n="qa.17.buddy.1">“One!”</span>
                 </div>
                 <span class="buddy-arrow">→</span>
                 <div class="buddy-node is-speak">
                   <span class="buddy-num">2</span>
-                  <span class="buddy-label">«To!»</span>
+                  <span class="buddy-label" data-i18n="qa.17.buddy.2">“Two!”</span>
                 </div>
                 <span class="buddy-arrow">→</span>
                 <div class="buddy-node is-speak">
                   <span class="buddy-num">3</span>
-                  <span class="buddy-label">«Tre!»</span>
+                  <span class="buddy-label" data-i18n="qa.17.buddy.3">“Three!”</span>
                 </div>
                 <span class="buddy-arrow">→</span>
                 <div class="buddy-node is-speak">
                   <span class="buddy-num">4</span>
-                  <span class="buddy-label">«Fire!»</span>
+                  <span class="buddy-label" data-i18n="qa.17.buddy.4">“Four!”</span>
                 </div>
                 <span class="buddy-arrow">→</span>
                 <div class="buddy-node buddy-end">
                   <span class="buddy-num">n</span>
-                  <span class="buddy-label">…sidste</span>
+                  <span class="buddy-label" data-i18n="qa.17.buddy.last">…last</span>
                 </div>
               </div>
-              <ul class="buddy-rules">
-                <li>Når vi er samlet, siger elev <strong>1</strong> sit nummer højt</li>
-                <li>Derefter siger elev <strong>2</strong>, så <strong>3</strong>, så <strong>4</strong> — og så videre</li>
-                <li>Går tællingen i stå, mangler den næste person — så venter vi / finder vedkommende</li>
-                <li>Når sidste nummer er sagt, er hele gruppen komplet</li>
-              </ul>
-              <p>I får jeres nummer, før vi tager afsted. Husk det, og vær klar til at sige det, når vi samles.</p>
+              <p data-i18n-html="qa.17.rules">When we're gathered, student <strong>1</strong> says their number aloud; then <strong>2</strong>, <strong>3</strong>, <strong>4</strong> — and so on. If counting stops, the next person is missing — we wait or find them. When the last number is called, the whole group is complete.</p>
+              <p data-i18n="qa.17.outro">You'll get your number before we leave. Remember it and be ready to call it when we gather.</p>
             </div>
           </details>
 
           <details class="qa-item" data-cat="praktisk" data-qa-item>
             <summary>
               <span class="qa-num">18</span>
-              <span class="qa-q">Hvem kan jeg kontakte, hvis der er problemer?</span>
-              <span class="qa-tag tag-praktisk">Praktisk</span>
+              <span class="qa-q" data-i18n="qa.18.q">Who can I contact if there are problems?</span>
+              <span class="qa-tag tag-praktisk" data-i18n="qa.filter.praktisk">Practical</span>
             </summary>
             <div class="qa-answer">
               <div class="qa-contacts">
@@ -439,28 +387,28 @@
                   </div>
                 </div>
               </div>
-              <p>Under turen: skriv i WhatsApp — <a href="https://chat.whatsapp.com/GAnPFL2f2xc3s7g0xnEQ4P" target="_blank" rel="noopener noreferrer">DK-intern gruppe</a> eller <a href="https://chat.whatsapp.com/BrpeAFXah7117wUYEoHNgH" target="_blank" rel="noopener noreferrer">NL ↔️ DK – 2026</a>.</p>
+              <p data-i18n-html="qa.18.a.wa">During the trip: write on WhatsApp — DK internal group or NL ↔️ DK – 2026.</p>
             </div>
           </details>
 
           <details class="qa-item" data-cat="praktisk" data-qa-item>
             <summary>
               <span class="qa-num">19</span>
-              <span class="qa-q">Hvad forventes der af mig som elev?</span>
-              <span class="qa-tag tag-praktisk">Praktisk</span>
+              <span class="qa-q" data-i18n="qa.19.q">What is expected of me as a student?</span>
+              <span class="qa-tag tag-praktisk" data-i18n="qa.filter.praktisk">Practical</span>
             </summary>
             <div class="qa-answer">
-              <p>Deltag aktivt i skoledage og aktiviteter, vær åben over for sprog og kultur, følg lærernes anvisninger, og respektér reglerne på hotel og kollegie.</p>
-              <p>Hold dit nummer i <strong>tællerækken</strong>, vær med i <strong>WhatsApp</strong>, og sig til gruppen hvis du går længere væk om aftenen. Når vi er samlet, siger vi numrene højt efter hinanden.</p>
+              <p data-i18n-html="qa.19.a.p1">Take part actively in school days and activities, stay open to language and culture, follow teachers' instructions, and respect rules at the hotel and dorm.</p>
+              <p data-i18n-html="qa.19.a.p2">Keep your <strong>roll-call</strong> number, stay in <strong>WhatsApp</strong>, and tell the group if you go farther away in the evening. When we're gathered, we call numbers aloud in order.</p>
             </div>
           </details>
         </div>
 
-        <p class="qa-empty" data-qa-empty hidden>Ingen spørgsmål matcher din søgning. Prøv et andet ord eller vælg <strong>Alle</strong>.</p>
+        <p class="qa-empty" data-qa-empty hidden data-i18n-html="qa.empty">No questions match your search. Try another word or choose <strong>All</strong>.</p>
 
         <div class="qa-footer-nav">
-          <a class="btn btn-ghost-dark" href="index.html">← Tilbage til programmet</a>
-          <a class="btn btn-primary" href="index.html#contact">Kontakt lærerne</a>
+          <a class="btn btn-ghost-dark" href="index.html" data-i18n="qa.footer.back">← Back to the programme</a>
+          <a class="btn btn-primary" href="index.html#contact" data-i18n="qa.footer.contact">Contact the teachers</a>
         </div>
       </div>
     </section>
@@ -473,10 +421,11 @@
         NL ↔ DK
         <span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>
       </p>
-      <p>Udveksling · Helmond &amp; Danmark · TerAA × Mercantec Colab</p>
+      <p data-i18n="shared.footer.line">Exchange · Helmond &amp; Denmark · TerAA × Mercantec Colab</p>
     </div>
   </footer>
 
-  <script src="script.js?v=20261017j"></script>
+  <script src="i18n.js?v=20261017k"></script>
+  <script src="script.js?v=20261017k"></script>
 </body>
 </html>

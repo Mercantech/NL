@@ -11,47 +11,52 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261017j" />
+  <link rel="stylesheet" href="styles.css?v=20261017k" />
 </head>
 <body class="page-years">
-  <a class="skip-link" href="#content">Skip to content</a>
+  <a class="skip-link" href="#content" data-i18n="shared.skipLink">Skip to content</a>
 
   <header class="site-header">
     <div class="header-inner">
-      <a class="logo" href="index.html" aria-label="NL DK exchange — home">
+      <a class="logo" href="index.html" data-i18n-attr="aria-label:shared.logo.ariaHome" aria-label="NL DK exchange — home">
         <span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>
         <span class="logo-nl">NL</span>
         <span class="logo-arrow" aria-hidden="true">↔</span>
         <span class="logo-dk">DK</span>
         <span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>
       </a>
-      <nav class="nav" id="main-nav" aria-label="Main">
-        <a href="index.html">Home</a>
-        <a href="2026.html">2026</a>
-        <a href="qa.html">Q&amp;A</a>
-        <a href="pakkeliste.html">Packing</a>
-        <a href="previous-years.html" class="is-active">Years</a>
-        <a href="learning-objectives.html">Objectives</a>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-set-lang="en" lang="en">EN</button>
+        <button type="button" data-set-lang="da" lang="da">DA</button>
+        <button type="button" data-set-lang="nl" lang="nl">NL</button>
+      </div>
+      <nav class="nav" id="main-nav" data-i18n-attr="aria-label:shared.nav.ariaMain" aria-label="Main">
+        <a href="index.html" data-i18n="shared.nav.home">Home</a>
+        <a href="2026.html" data-i18n="shared.nav.2026">2026</a>
+        <a href="qa.html" data-i18n="shared.nav.qa">Q&amp;A</a>
+        <a href="pakkeliste.html" data-i18n="shared.nav.packing">Packing</a>
+        <a href="previous-years.html" class="is-active" data-i18n="shared.nav.years">Years</a>
+        <a href="learning-objectives.html" data-i18n="shared.nav.objectives">Objectives</a>
       </nav>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-menu-toggle>
         <span class="menu-bars" aria-hidden="true"></span>
-        <span class="visually-hidden">Menu</span>
+        <span class="visually-hidden" data-i18n="shared.nav.menu">Menu</span>
       </button>
     </div>
   </header>
 
-  <nav class="side-nav" aria-label="On this page" data-side-nav>
+  <nav class="side-nav" data-i18n-attr="aria-label:shared.sideNav.onThisPage" aria-label="On this page" data-side-nav>
     <a href="#year-2024" class="side-nav-link" data-side-link>
       <span class="side-nav-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
       </span>
-      <span class="side-nav-label">2024</span>
+      <span class="side-nav-label" data-i18n="years.sideNav.2024">2024</span>
     </a>
     <a href="#year-2023" class="side-nav-link" data-side-link>
       <span class="side-nav-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
       </span>
-      <span class="side-nav-label">2023</span>
+      <span class="side-nav-label" data-i18n="years.sideNav.2023">2023</span>
     </a>
   </nav>
 
@@ -64,10 +69,10 @@
           <span class="qa-hero-swap">↔</span>
           <div class="flag flag-dk flag-md"><span class="dk-cross-h"></span><span class="dk-cross-v"></span></div>
         </div>
-        <p class="eyebrow">From past trips</p>
-        <h1 id="years-title">What it looks like</h1>
-        <p class="section-lead">Real moments from previous exchanges — school days, city nights, the overnight bus, and everything in between.</p>
-        <nav class="years-jump" aria-label="Jump to year">
+        <p class="eyebrow" data-i18n="years.hero.eyebrow">From past trips</p>
+        <h1 id="years-title" data-i18n="years.hero.title">What it looks like</h1>
+        <p class="section-lead" data-i18n="years.hero.lead">Real moments from previous exchanges — school days, city nights, the overnight bus, and everything in between.</p>
+        <nav class="years-jump" data-i18n-attr="aria-label:years.hero.jump.aria" aria-label="Jump to year">
           <a href="#year-2024">2024</a>
           <a href="#year-2023">2023</a>
         </nav>
@@ -77,9 +82,9 @@
     <section class="section years-section" id="year-2024" aria-labelledby="year-2024-title">
       <div class="section-inner">
         <header class="years-year-head">
-          <p class="years-year-label">Exchange</p>
-          <h2 id="year-2024-title">2024</h2>
-          <p class="years-year-lead">School, snow, Amsterdam nights, light festivals — and the journey home.</p>
+          <p class="years-year-label" data-i18n="years.year.label">Exchange</p>
+          <h2 id="year-2024-title" data-i18n="years.2024.title">2024</h2>
+          <p class="years-year-lead" data-i18n="years.2024.lead">School, snow, Amsterdam nights, light festivals — and the journey home.</p>
         </header>
 
         <div class="years-gallery" data-years-gallery>
@@ -87,21 +92,21 @@
             <button type="button" class="years-media" data-years-lightbox data-full="media/2024/photo-13.webp">
               <img src="media/2024/photo-13.webp" alt="Dutch students arriving in Viborg with their luggage" loading="lazy" />
             </button>
-            <figcaption>Dutch students arrive in Viborg</figcaption>
+            <figcaption data-i18n="years.2024.caption.01">Dutch students arrive in Viborg</figcaption>
           </figure>
 
           <figure class="years-item">
             <button type="button" class="years-media" data-years-lightbox data-full="media/2024/photo-11.webp">
               <img src="media/2024/photo-11.webp" alt="Students working on laptops in a computer lab" loading="lazy" />
             </button>
-            <figcaption>School days in the lab</figcaption>
+            <figcaption data-i18n="years.2024.caption.02">School days in the lab</figcaption>
           </figure>
 
           <figure class="years-item years-item-tall">
             <button type="button" class="years-media" data-years-lightbox data-full="media/2024/photo-01.webp">
               <img src="media/2024/photo-01.webp" alt="View of the town square from the hotel" loading="lazy" />
             </button>
-            <figcaption>View from the hotel</figcaption>
+            <figcaption data-i18n="years.2024.caption.03">View from the hotel</figcaption>
           </figure>
 
           <figure class="years-item years-item-video years-item-wide">
@@ -110,21 +115,21 @@
                 <source src="media/2024/video-05.mp4" type="video/mp4" />
               </video>
             </div>
-            <figcaption>Clip from the 2024 trip</figcaption>
+            <figcaption data-i18n="years.2024.caption.04">Clip from the 2024 trip</figcaption>
           </figure>
 
           <figure class="years-item">
             <button type="button" class="years-media" data-years-lightbox data-full="media/2024/photo-04.webp">
               <img src="media/2024/photo-04.webp" alt="Snowstorm over the town square seen from a window" loading="lazy" />
             </button>
-            <figcaption>November snow over the square</figcaption>
+            <figcaption data-i18n="years.2024.caption.05">November snow over the square</figcaption>
           </figure>
 
           <figure class="years-item">
             <button type="button" class="years-media" data-years-lightbox data-full="media/2024/photo-03.webp">
               <img src="media/2024/photo-03.webp" alt="Snowy rooftops and church towers through a wet window" loading="lazy" />
             </button>
-            <figcaption>Winter rooftops from the hotel</figcaption>
+            <figcaption data-i18n="years.2024.caption.06">Winter rooftops from the hotel</figcaption>
           </figure>
 
           <figure class="years-item years-item-video">
@@ -133,28 +138,28 @@
                 <source src="media/2024/video-06.mp4" type="video/mp4" />
               </video>
             </div>
-            <figcaption>More from Helmond</figcaption>
+            <figcaption data-i18n="years.2024.caption.07">More from Helmond</figcaption>
           </figure>
 
           <figure class="years-item">
             <button type="button" class="years-media" data-years-lightbox data-full="media/2024/photo-02.webp">
               <img src="media/2024/photo-02.webp" alt="The Pinball Club arcade with neon lights and players" loading="lazy" />
             </button>
-            <figcaption>Evening out — The Pinball Club</figcaption>
+            <figcaption data-i18n="years.2024.caption.08">Evening out — The Pinball Club</figcaption>
           </figure>
 
           <figure class="years-item years-item-wide">
             <button type="button" class="years-media" data-years-lightbox data-full="media/2024/photo-07.webp">
               <img src="media/2024/photo-07.webp" alt="Large illuminated Earth Moon Mars and Sun spheres at a night exhibition" loading="lazy" />
             </button>
-            <figcaption>Light festival — glowing planets</figcaption>
+            <figcaption data-i18n="years.2024.caption.09">Light festival — glowing planets</figcaption>
           </figure>
 
           <figure class="years-item">
             <button type="button" class="years-media" data-years-lightbox data-full="media/2024/photo-08.webp">
               <img src="media/2024/photo-08.webp" alt="Clock tower with cartoon light projection at night" loading="lazy" />
             </button>
-            <figcaption>Light projection on the tower</figcaption>
+            <figcaption data-i18n="years.2024.caption.10">Light projection on the tower</figcaption>
           </figure>
 
           <figure class="years-item years-item-video">
@@ -163,21 +168,21 @@
                 <source src="media/2024/video-01.mp4" type="video/mp4" />
               </video>
             </div>
-            <figcaption>Light Festival in Eindhoven</figcaption>
+            <figcaption data-i18n="years.2024.caption.11">Light Festival in Eindhoven</figcaption>
           </figure>
 
           <figure class="years-item years-item-tall">
             <button type="button" class="years-media" data-years-lightbox data-full="media/2024/photo-05.webp">
               <img src="media/2024/photo-05.webp" alt="Amsterdam canal at night with neon reflections from a bridge" loading="lazy" />
             </button>
-            <figcaption>Amsterdam canals by night</figcaption>
+            <figcaption data-i18n="years.2024.caption.12">Amsterdam canals by night</figcaption>
           </figure>
 
           <figure class="years-item">
             <button type="button" class="years-media" data-years-lightbox data-full="media/2024/photo-09.webp">
               <img src="media/2024/photo-09.webp" alt="Two travellers eating street food with a suitcase at a station" loading="lazy" />
             </button>
-            <figcaption>Travel snack stop</figcaption>
+            <figcaption data-i18n="years.2024.caption.13">Travel snack stop</figcaption>
           </figure>
 
           <figure class="years-item years-item-video years-item-video-native">
@@ -186,28 +191,28 @@
                 <source src="media/2024/video-02.mp4" type="video/mp4" />
               </video>
             </div>
-            <figcaption>Trip moments</figcaption>
+            <figcaption data-i18n="years.2024.caption.14">Trip moments</figcaption>
           </figure>
 
           <figure class="years-item">
             <button type="button" class="years-media" data-years-lightbox data-full="media/2024/photo-06.webp">
               <img src="media/2024/photo-06.webp" alt="Busy square with Bavaria sign and cafe umbrellas" loading="lazy" />
             </button>
-            <figcaption>Afternoon in the square</figcaption>
+            <figcaption data-i18n="years.2024.caption.15">Afternoon in the square</figcaption>
           </figure>
 
           <figure class="years-item">
             <button type="button" class="years-media" data-years-lightbox data-full="media/2024/photo-10.webp">
               <img src="media/2024/photo-10.webp" alt="Exchange moment from 2024" loading="lazy" />
             </button>
-            <figcaption>Group life on the trip</figcaption>
+            <figcaption data-i18n="years.2024.caption.16">Group life on the trip</figcaption>
           </figure>
 
           <figure class="years-item">
             <button type="button" class="years-media" data-years-lightbox data-full="media/2024/photo-12.webp">
               <img src="media/2024/photo-12.webp" alt="Danish Christmas lunch in Aarhus" loading="lazy" />
             </button>
-            <figcaption>Danish Christmas lunch in Aarhus</figcaption>
+            <figcaption data-i18n="years.2024.caption.17">Danish Christmas lunch in Aarhus</figcaption>
           </figure>
         </div>
       </div>
@@ -216,9 +221,9 @@
     <section class="section years-section years-section-alt" id="year-2023" aria-labelledby="year-2023-title">
       <div class="section-inner">
         <header class="years-year-head">
-          <p class="years-year-label">Exchange</p>
-          <h2 id="year-2023-title">2023</h2>
-          <p class="years-year-lead">Company visits, Laser Magic, compressed-air rockets, the night bus — and Aarhus nights.</p>
+          <p class="years-year-label" data-i18n="years.year.label">Exchange</p>
+          <h2 id="year-2023-title" data-i18n="years.2023.title">2023</h2>
+          <p class="years-year-lead" data-i18n="years.2023.lead">Company visits, Laser Magic, compressed-air rockets, the night bus — and Aarhus nights.</p>
         </header>
 
         <div class="years-gallery" data-years-gallery>
@@ -226,14 +231,14 @@
             <button type="button" class="years-media" data-years-lightbox data-full="media/2023/photo-04.webp">
               <img src="media/2023/photo-04.webp" alt="Modern open makerspace with workbenches seen from above" loading="lazy" />
             </button>
-            <figcaption>Company Visit</figcaption>
+            <figcaption data-i18n="years.2023.caption.01">Company Visit</figcaption>
           </figure>
 
           <figure class="years-item">
             <button type="button" class="years-media" data-years-lightbox data-full="media/2023/photo-02.webp">
               <img src="media/2023/photo-02.webp" alt="Students filming in an ICT college hallway" loading="lazy" />
             </button>
-            <figcaption>Hands-on at ICT college — Laser Magic</figcaption>
+            <figcaption data-i18n="years.2023.caption.02">Hands-on at ICT college — Laser Magic</figcaption>
           </figure>
 
           <figure class="years-item years-item-video years-item-video-native">
@@ -242,7 +247,7 @@
                 <source src="media/2023/video-04.mp4" type="video/mp4" />
               </video>
             </div>
-            <figcaption>Compressed-air rocket project</figcaption>
+            <figcaption data-i18n="years.2023.caption.03">Compressed-air rocket project</figcaption>
           </figure>
 
           <figure class="years-item years-item-video years-item-video-native">
@@ -251,21 +256,21 @@
                 <source src="media/2023/video-05.mp4" type="video/mp4" />
               </video>
             </div>
-            <figcaption>Compressed-air rocket — second launch</figcaption>
+            <figcaption data-i18n="years.2023.caption.04">Compressed-air rocket — second launch</figcaption>
           </figure>
 
           <figure class="years-item years-item-tall">
             <button type="button" class="years-media" data-years-lightbox data-full="media/2023/photo-05.webp">
               <img src="media/2023/photo-05.webp" alt="Night bus interior with green LED aisle lighting" loading="lazy" />
             </button>
-            <figcaption>Overnight bus — green glow edition</figcaption>
+            <figcaption data-i18n="years.2023.caption.05">Overnight bus — green glow edition</figcaption>
           </figure>
 
           <figure class="years-item">
             <button type="button" class="years-media" data-years-lightbox data-full="media/2023/photo-08.webp">
               <img src="media/2023/photo-08.webp" alt="Student giving thumbs up in a festive pub" loading="lazy" />
             </button>
-            <figcaption>Evenings off — good energy</figcaption>
+            <figcaption data-i18n="years.2023.caption.06">Evenings off — good energy</figcaption>
           </figure>
 
 
@@ -279,7 +284,7 @@
             <button type="button" class="years-media" data-years-lightbox data-full="media/2023/photo-03.webp">
               <img src="media/2023/photo-03.webp" alt="Students being interviewed by Dutch local news about the exchange" loading="lazy" />
             </button>
-            <figcaption>Interviewed by Dutch local news about the exchange</figcaption>
+            <figcaption data-i18n="years.2023.caption.07">Interviewed by Dutch local news about the exchange</figcaption>
           </figure>
 
           <figure class="years-item years-item-video years-item-video-native">
@@ -288,28 +293,28 @@
                 <source src="media/2023/video-02.mp4" type="video/mp4" />
               </video>
             </div>
-            <figcaption>Table tennis at a bar in Aarhus</figcaption>
+            <figcaption data-i18n="years.2023.caption.08">Table tennis at a bar in Aarhus</figcaption>
           </figure>
 
           <figure class="years-item">
             <button type="button" class="years-media" data-years-lightbox data-full="media/2023/photo-06.webp">
               <img src="media/2023/photo-06.webp" alt="Hostel stay in Aarhus city centre during the exchange" loading="lazy" />
             </button>
-            <figcaption>Staying at a hostel in Aarhus city centre</figcaption>
+            <figcaption data-i18n="years.2023.caption.09">Staying at a hostel in Aarhus city centre</figcaption>
           </figure>
 
           <figure class="years-item">
             <button type="button" class="years-media" data-years-lightbox data-full="media/2023/photo-07.webp">
               <img src="media/2023/photo-07.webp" alt="Shared Christmas lunch in Aarhus city centre" loading="lazy" />
             </button>
-            <figcaption>Shared Christmas lunch in Aarhus city centre</figcaption>
+            <figcaption data-i18n="years.2023.caption.10">Shared Christmas lunch in Aarhus city centre</figcaption>
           </figure>
 
           <figure class="years-item years-item-wide">
             <button type="button" class="years-media" data-years-lightbox data-full="media/2023/photo-09.webp">
               <img src="media/2023/photo-09.webp" alt="Dutch students on a beer walk meeting locals at Mathias’ basement" loading="lazy" />
             </button>
-            <figcaption>Beer walk — meeting locals at Mathias’ basement</figcaption>
+            <figcaption data-i18n="years.2023.caption.11">Beer walk — meeting locals at Mathias’ basement</figcaption>
           </figure>
 
           <figure class="years-item">
@@ -330,14 +335,14 @@
     <section class="section years-note-section">
       <div class="section-inner">
         <p class="qa-back">
-          <a href="index.html">← Back to the programme</a>
+          <a href="index.html" data-i18n="shared.back.programme">← Back to the programme</a>
         </p>
       </div>
     </section>
   </main>
 
-  <dialog class="years-lightbox" data-years-dialog aria-label="Large image">
-    <button type="button" class="years-lightbox-close" data-years-close aria-label="Close">×</button>
+  <dialog class="years-lightbox" data-years-dialog data-i18n-attr="aria-label:years.lightbox.aria" aria-label="Large image">
+    <button type="button" class="years-lightbox-close" data-years-close data-i18n-attr="aria-label:years.lightbox.close" aria-label="Close">×</button>
     <img src="" alt="" data-years-dialog-img />
   </dialog>
 
@@ -348,10 +353,11 @@
         NL ↔ DK
         <span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>
       </p>
-      <p>Exchange · Helmond &amp; Denmark · TerAA × Mercantec Colab</p>
+      <p data-i18n="shared.footer.line">Exchange · Helmond &amp; Denmark · TerAA × Mercantec Colab</p>
     </div>
   </footer>
 
-  <script src="script.js?v=20261017j"></script>
+  <script src="i18n.js?v=20261017k"></script>
+  <script src="script.js?v=20261017k"></script>
 </body>
 </html>

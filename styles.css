@@ -216,8 +216,9 @@ a {
   min-height: var(--header-h);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
+  justify-content: flex-start;
+  gap: 0.55rem;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -280,6 +281,65 @@ a {
 
 .nav-flag {
   display: none;
+}
+
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 0.15rem;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1.5px solid rgba(20, 33, 43, 0.1);
+  border-radius: 999px;
+}
+
+.header-inner .lang-switch {
+  order: 2;
+}
+
+.header-inner .menu-toggle {
+  order: 3;
+}
+
+@media (min-width: 860px) {
+  .header-inner .nav {
+    order: 1;
+    margin-left: 0.5rem;
+  }
+
+  .header-inner .lang-switch {
+    order: 2;
+    margin-left: 0.35rem;
+  }
+}
+
+.lang-switch button {
+  appearance: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  padding: 0.35rem 0.5rem;
+  border-radius: 999px;
+  line-height: 1;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.lang-switch button:hover,
+.lang-switch button:focus-visible {
+  color: var(--ink);
+  background: rgba(12, 59, 92, 0.08);
+}
+
+.lang-switch button.is-active {
+  color: var(--white);
+  background: var(--sea);
 }
 
 .menu-toggle {
@@ -402,6 +462,13 @@ body.nav-open .menu-bars::after {
   border: 1.5px solid rgba(20, 33, 43, 0.1);
   border-radius: 18px;
   box-shadow: 0 10px 36px rgba(12, 59, 92, 0.12);
+  transition: opacity 0.28s var(--ease), visibility 0.28s var(--ease), transform 0.28s var(--ease);
+}
+
+.side-nav.is-hero-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 @media (max-width: 859px) {
@@ -414,6 +481,10 @@ body.nav-open .menu-bars::after {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+  }
+
+  .side-nav.is-hero-hidden {
+    transform: translateX(-50%) translateY(0.75rem);
   }
 
   .side-nav::-webkit-scrollbar {
@@ -435,14 +506,38 @@ body.nav-open .menu-bars::after {
 @media (min-width: 860px) {
   .side-nav {
     top: 50%;
-    right: max(0.85rem, calc((100vw - var(--max)) / 2 - 4.75rem));
+    left: 0.65rem;
+    right: auto;
     transform: translateY(-50%);
+  }
+
+  .side-nav.is-hero-hidden {
+    transform: translateY(-50%) translateX(-0.5rem);
+  }
+
+  /* Keep content clear of the left rail */
+  body:has(.side-nav) .section > .section-inner,
+  body:has(.side-nav) .y26-section > .section-inner,
+  body:has(.side-nav) .years-section > .section-inner,
+  body:has(.side-nav) .lo-section > .section-inner,
+  body:has(.side-nav) .pack-section > .section-inner,
+  body:has(.side-nav) .qa-section > .section-inner {
+    padding-left: max(1.25rem, 4.35rem);
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
   .side-nav {
-    right: max(1.25rem, calc((100vw - var(--max)) / 2 - 5.5rem));
+    left: max(0.85rem, calc((100vw - var(--max)) / 2 - 5.25rem));
+  }
+
+  body:has(.side-nav) .section > .section-inner,
+  body:has(.side-nav) .y26-section > .section-inner,
+  body:has(.side-nav) .years-section > .section-inner,
+  body:has(.side-nav) .lo-section > .section-inner,
+  body:has(.side-nav) .pack-section > .section-inner,
+  body:has(.side-nav) .qa-section > .section-inner {
+    padding-left: 1.25rem;
   }
 }
 
@@ -3720,38 +3815,6 @@ body.nav-open .menu-bars::after {
   margin-bottom: 1rem;
 }
 
-.lo-lang {
-  display: inline-flex;
-  padding: 0.2rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(20, 33, 43, 0.1);
-  gap: 0.15rem;
-}
-
-.lo-lang-btn {
-  border: none;
-  background: transparent;
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  padding: 0.4rem 0.85rem;
-  border-radius: 999px;
-  color: var(--muted);
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-}
-
-.lo-lang-btn:hover {
-  color: var(--ink);
-}
-
-.lo-lang-btn.is-active {
-  background: var(--ink);
-  color: #fff;
-}
-
 .lo-hero h1 {
   margin: 0 0 0.65rem;
   font-family: var(--font-display);
@@ -3847,11 +3910,6 @@ body.nav-open .menu-bars::after {
 
 .lo-note strong {
   color: var(--ink);
-}
-
-.page-lo [data-lo-da][hidden],
-.page-lo [data-lo-en][hidden] {
-  display: none !important;
 }
 
 /* —— Year 2026 page —— */

@@ -63,7 +63,7 @@
     });
   });
 
-  // Floating side-nav: active section on scroll
+  // Floating side-nav: active section on scroll + hide over hero
   const sideNav = document.querySelector("[data-side-nav]");
   if (sideNav) {
     const sideLinks = [...sideNav.querySelectorAll("[data-side-link]")];
@@ -88,6 +88,28 @@
 
     window.addEventListener("scroll", setSideActive, { passive: true });
     setSideActive();
+
+    const hero = document.querySelector(
+      ".hero, .y26-hero, .qa-hero, .pack-hero, .years-hero, .lo-hero"
+    );
+    if (hero && "IntersectionObserver" in window) {
+      const heroIo = new IntersectionObserver(
+        ([entry]) => {
+          sideNav.classList.toggle("is-hero-hidden", entry.isIntersecting);
+        },
+        { threshold: 0.2, rootMargin: "-8% 0px -40% 0px" }
+      );
+      heroIo.observe(hero);
+      sideNav.classList.add("is-hero-hidden");
+    } else if (hero) {
+      const syncHero = () => {
+        const rect = hero.getBoundingClientRect();
+        const visible = rect.bottom > 80 && rect.top < window.innerHeight * 0.55;
+        sideNav.classList.toggle("is-hero-hidden", visible);
+      };
+      window.addEventListener("scroll", syncHero, { passive: true });
+      syncHero();
+    }
   }
 
   // Q&A page: search + category filters
@@ -114,10 +136,19 @@
       });
       if (empty) empty.hidden = visible > 0;
       if (countEl) {
-        countEl.textContent =
-          visible === 1 ? "1 spørgsmål" : `${visible} spørgsmål`;
+        const i18n = window.SiteI18n;
+        if (visible === 1) {
+          countEl.textContent = i18n?.t("script.qa.count.one") || "1 question";
+        } else {
+          countEl.textContent = (
+            i18n?.t("script.qa.count.many", { n: visible }) ||
+            `${visible} questions`
+          );
+        }
       }
     };
+
+    document.addEventListener("site:langchange", applyQaFilter);
 
     chips.forEach((chip) => {
       chip.addEventListener("click", () => {
@@ -157,20 +188,23 @@
     const resetBtn = document.querySelector("[data-pack-reset]");
     const groups = [...packForm.querySelectorAll("[data-pack-group]")];
 
-    const hints = [
-      { max: 0, text: "Ingen ting pakket endnu" },
-      { max: 25, text: "God start — tag papirerne først" },
-      { max: 50, text: "Halvvejs — tøj og toilet næste" },
-      { max: 75, text: "Næsten klar — check det sidste" },
-      { max: 99, text: "Sidste punkt — så er du klar" },
-      { max: 100, text: "Alt er checked — god tur!" },
+    const hintKeys = [
+      { max: 0, key: "script.pack.hint.0" },
+      { max: 25, key: "script.pack.hint.25" },
+      { max: 50, key: "script.pack.hint.50" },
+      { max: 75, key: "script.pack.hint.75" },
+      { max: 99, key: "script.pack.hint.99" },
+      { max: 100, key: "script.pack.hint.100" },
     ];
 
     const hintFor = (pct) => {
-      for (const h of hints) {
-        if (pct <= h.max) return h.text;
+      const i18n = window.SiteI18n;
+      for (const h of hintKeys) {
+        if (pct <= h.max) {
+          return i18n?.t(h.key) || h.key;
+        }
       }
-      return hints[hints.length - 1].text;
+      return i18n?.t("script.pack.hint.100") || "";
     };
 
     const saved = (() => {
@@ -230,6 +264,7 @@
       });
       update();
     });
+    document.addEventListener("site:langchange", update);
     update();
   }
 
@@ -255,38 +290,4 @@
     });
   }
 
-  // Learning objectives language toggle
-  const loPage = document.querySelector(".page-lo");
-  if (loPage) {
-    const setLang = (lang) => {
-      loPage.dataset.loLang = lang;
-      loPage.querySelectorAll("[data-lo-en]").forEach((el) => {
-        el.hidden = lang !== "en";
-      });
-      loPage.querySelectorAll("[data-lo-da]").forEach((el) => {
-        el.hidden = lang !== "da";
-      });
-      loPage.querySelectorAll("[data-lo-set]").forEach((btn) => {
-        btn.classList.toggle("is-active", btn.getAttribute("data-lo-set") === lang);
-      });
-      document.documentElement.lang = lang === "da" ? "da" : "en";
-      try {
-        sessionStorage.setItem("nl-lo-lang", lang);
-      } catch {
-        /* ignore */
-      }
-    };
-
-    loPage.querySelectorAll("[data-lo-set]").forEach((btn) => {
-      btn.addEventListener("click", () => setLang(btn.getAttribute("data-lo-set") || "en"));
-    });
-
-    let saved = "en";
-    try {
-      saved = sessionStorage.getItem("nl-lo-lang") || "en";
-    } catch {
-      saved = "en";
-    }
-    setLang(saved === "da" ? "da" : "en");
-  }
 })();
