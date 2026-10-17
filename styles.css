@@ -3817,33 +3817,16 @@ body.nav-open .menu-bars::after {
 
 .y26-tracks {
   display: grid;
-  gap: 1.35rem;
+  gap: 1.75rem;
   margin-bottom: 2rem;
 }
 
-@media (min-width: 720px) {
-  .y26-tracks {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .y26-track-wide {
-    grid-column: 1 / -1;
-  }
-}
-
 .y26-track h3 {
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.55rem;
   font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-}
-
-.y26-track-note {
-  margin: 0 0 0.65rem;
-  font-size: 0.88rem;
-  color: var(--muted);
-  line-height: 1.4;
 }
 
 .y26-members {
@@ -3855,38 +3838,71 @@ body.nav-open .menu-bars::after {
   grid-template-columns: repeat(2, 1fr);
 }
 
-.y26-track-wide .y26-members {
-  grid-template-columns: repeat(2, 1fr);
-}
-
 @media (min-width: 560px) {
   .y26-members {
     grid-template-columns: repeat(3, 1fr);
   }
-
-  .y26-track-wide .y26-members {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
 
 @media (min-width: 860px) {
-  .y26-track-wide .y26-members {
-    grid-template-columns: repeat(5, 1fr);
+  .y26-members {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 .y26-members li {
   margin: 0;
-  padding: 0.8rem 0.95rem;
+  padding: 0.75rem 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.5rem;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1.5px solid rgba(20, 33, 43, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(12, 59, 92, 0.04);
+}
+
+.y26-name {
   font-family: var(--font-display);
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--ink);
-  background: rgba(255, 255, 255, 0.88);
-  border: 1.5px solid rgba(20, 33, 43, 0.08);
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(12, 59, 92, 0.04);
+}
+
+.y26-tag {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.45rem;
+  border-radius: 6px;
+  line-height: 1.2;
+}
+
+.y26-tag-prog {
+  color: #0c3b5c;
+  background: rgba(12, 59, 92, 0.1);
+}
+
+.y26-tag-infra {
+  color: #8a4500;
+  background: rgba(227, 111, 30, 0.14);
+}
+
+.y26-tag-biz {
+  color: #8a1028;
+  background: rgba(200, 16, 46, 0.12);
+}
+
+.y26-tag-note {
+  flex-basis: 100%;
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.3;
+  font-weight: 500;
 }
 
 /* —— Contact —— */
