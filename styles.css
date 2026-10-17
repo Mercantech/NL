@@ -3773,6 +3773,38 @@ body.nav-open .menu-bars::after {
   color: var(--muted);
 }
 
+.y26-student-count {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.45rem;
+  margin: 0 0 0.85rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.y26-student-count strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.y26-stat-sep {
+  color: rgba(20, 33, 43, 0.28);
+}
+
+.y26-stat-biz strong {
+  color: #8a1028;
+}
+
+.y26-stat-infra strong {
+  color: #8a4500;
+}
+
+.y26-stat-prog strong {
+  color: #0c3b5c;
+}
+
 .y26-table {
   width: 100%;
   max-width: 28rem;
