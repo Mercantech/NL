@@ -3773,6 +3773,48 @@ body.nav-open .menu-bars::after {
   color: var(--muted);
 }
 
+.y26-table {
+  width: 100%;
+  max-width: 28rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0.35rem 0 0;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1.5px solid rgba(20, 33, 43, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(12, 59, 92, 0.04);
+}
+
+.y26-table th,
+.y26-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(20, 33, 43, 0.07);
+}
+
+.y26-table th {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: rgba(12, 59, 92, 0.04);
+}
+
+.y26-table td {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.y26-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
 .y26-tracks {
   display: grid;
   gap: 1.35rem;
