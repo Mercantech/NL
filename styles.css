@@ -10,7 +10,7 @@
   --muted: #4a5c6a;
   --white: #ffffff;
   --bus: #2c3d4f;
-  --header-h: 4.25rem;
+  --header-h: 3.5rem;
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "Sora", system-ui, sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -212,23 +212,28 @@ a {
 .header-inner {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 0.75rem 1.25rem;
+  padding: 0.45rem 1.15rem;
   min-height: var(--header-h);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.28rem;
   text-decoration: none;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+
+.logo .flag-mark {
+  display: none;
 }
 
 .logo-nl {
@@ -248,20 +253,22 @@ a {
 .nav {
   display: none;
   align-items: center;
-  gap: 0.35rem 1.15rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.15rem 0.85rem;
 }
 
 .nav a {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
   text-decoration: none;
-  font-size: 0.88rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: var(--muted);
-  padding: 0.35rem 0;
+  padding: 0.2rem 0;
   border-bottom: 2px solid transparent;
   transition: color 0.2s var(--ease), border-color 0.2s;
+  white-space: nowrap;
 }
 
 .nav a:hover,
@@ -272,8 +279,7 @@ a {
 }
 
 .nav-flag {
-  width: 1rem;
-  height: 0.68rem;
+  display: none;
 }
 
 .menu-toggle {
