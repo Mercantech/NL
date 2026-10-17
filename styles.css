@@ -578,13 +578,40 @@ body.nav-open .menu-bars::after {
 
 .side-nav-link:hover,
 .side-nav-link:focus-visible {
-  color: var(--ink);
+  color: var(--sea);
   background: rgba(12, 59, 92, 0.07);
 }
 
 .side-nav-link.is-active {
-  color: var(--ink);
+  color: var(--sea);
   background: rgba(12, 59, 92, 0.12);
+}
+
+.side-nav-link.is-active .side-nav-label {
+  color: var(--sea);
+  font-weight: 700;
+}
+
+.side-nav-link[href="#program-nl"]:hover,
+.side-nav-link[href="#program-nl"]:focus-visible,
+.side-nav-link[href="#program-nl"].is-active {
+  color: var(--nl-orange);
+  background: rgba(227, 111, 30, 0.12);
+}
+
+.side-nav-link[href="#program-nl"].is-active .side-nav-label {
+  color: var(--nl-orange);
+}
+
+.side-nav-link[href="#program-dk"]:hover,
+.side-nav-link[href="#program-dk"]:focus-visible,
+.side-nav-link[href="#program-dk"].is-active {
+  color: var(--dk-red);
+  background: rgba(200, 16, 46, 0.1);
+}
+
+.side-nav-link[href="#program-dk"].is-active .side-nav-label {
+  color: var(--dk-red);
 }
 
 .side-nav-icon {
@@ -604,6 +631,14 @@ body.nav-open .menu-bars::after {
   background: var(--sea);
   border-color: transparent;
   color: var(--white);
+}
+
+.side-nav-link[href="#program-nl"].is-active .side-nav-icon:not(.side-nav-flag) {
+  background: var(--nl-orange);
+}
+
+.side-nav-link[href="#program-dk"].is-active .side-nav-icon:not(.side-nav-flag) {
+  background: var(--dk-red);
 }
 
 .side-nav-icon svg {
