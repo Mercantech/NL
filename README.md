@@ -9,6 +9,7 @@ Info- og programsite for Helmond–Viborg-udvekslingen. Live: **https://nl.merca
 - `pakkeliste.html` — pakke-checkliste til danske elever
 - `previous-years.html` — photos & videos from 2023 and 2024
 - `learning-objectives.html` — learning objectives (EN/DA toggle)
+- `2026.html` — year-specific info for the 2026 exchange
 - `media/2023/` and `media/2024/` — drop files here, update HTML placeholders
 - `qa.html` / `pakkeliste.html` — Danish pages for DK students
 
