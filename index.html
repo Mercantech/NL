@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261031c" />
+  <link rel="stylesheet" href="styles.css?v=20261031d" />
 </head>
 <body>
   <a class="skip-link" href="#content" data-i18n="shared.skipLink">Skip to content</a>
@@ -277,7 +277,13 @@
                 <span class="journey-cta" data-i18n="index.overview.journey.nl.cta">Open NL programme →</span>
               </div>
               <div class="journey-deco" aria-hidden="true">
-                <svg class="deco-tulip" viewBox="0 0 40 56" width="40" height="56">
+                <svg class="deco-mill" viewBox="0 0 48 64" width="36" height="48">
+                  <rect x="20" y="30" width="8" height="32" fill="#6b5644"/>
+                  <circle cx="24" cy="28" r="5" fill="#3d3228"/>
+                  <rect x="22" y="4" width="4" height="48" rx="1" fill="#2c241c" transform="rotate(25 24 28)"/>
+                  <rect x="22" y="4" width="4" height="48" rx="1" fill="#2c241c" transform="rotate(115 24 28)"/>
+                </svg>
+                <svg class="deco-tulip" viewBox="0 0 40 56" width="28" height="40">
                   <path fill="#e36f1e" d="M20 2c-6 8-12 14-12 22a12 12 0 0024 0c0-8-6-14-12-22z"/>
                   <path fill="#3d7a4a" d="M18 34h4v22h-4z"/>
                 </svg>
@@ -286,7 +292,8 @@
 
             <div class="journey-connector" aria-hidden="true">
               <span class="connector-bus">
-                <svg width="28" height="18"><use href="#icon-bus"/></svg>
+                <svg width="22" height="14"><use href="#icon-train"/></svg>
+                <svg width="22" height="14"><use href="#icon-bus"/></svg>
               </span>
             </div>
 
@@ -301,8 +308,13 @@
                 <span class="journey-cta" data-i18n="index.overview.journey.dk.cta">Open DK programme →</span>
               </div>
               <div class="journey-deco" aria-hidden="true">
-                <svg class="deco-bike" viewBox="0 0 48 32" width="48" height="32">
+                <svg class="deco-bike" viewBox="0 0 48 32" width="44" height="30">
                   <use href="#icon-bike"/>
+                </svg>
+                <svg class="deco-tower" viewBox="0 0 36 56" width="26" height="40">
+                  <path fill="#c8102e" d="M8 56V16l10-10 10 10v40H8z"/>
+                  <rect x="16" y="2" width="4" height="10" fill="#c8102e"/>
+                  <polygon points="18,0 13,6 23,6" fill="#c8102e"/>
                 </svg>
               </div>
             </a>
@@ -336,6 +348,32 @@
 
       <section class="section program-section program-nl" id="program-nl" aria-labelledby="nl-title">
         <div class="section-pattern pattern-nl" aria-hidden="true"></div>
+        <div class="program-landmarks program-landmarks-nl" aria-hidden="true">
+          <svg class="landmark landmark-mill" viewBox="0 0 80 110" width="72" height="99">
+            <rect x="35" y="48" width="10" height="58" fill="#6b5644"/>
+            <polygon points="32,48 48,48 52,38 28,38" fill="#5c4a3a"/>
+            <circle cx="40" cy="40" r="7" fill="#3d3228"/>
+            <g class="landmark-blades">
+              <rect x="37" y="6" width="6" height="68" rx="2" fill="#2c241c" transform="rotate(20 40 40)"/>
+              <rect x="37" y="6" width="6" height="68" rx="2" fill="#2c241c" transform="rotate(110 40 40)"/>
+            </g>
+          </svg>
+          <div class="landmark-tulips">
+            <span class="lm-tulip lm-t1"></span>
+            <span class="lm-tulip lm-t2"></span>
+            <span class="lm-tulip lm-t3"></span>
+          </div>
+          <svg class="landmark landmark-canal" viewBox="0 0 120 70" width="110" height="64">
+            <path fill="#c45a2c" d="M4 70V36l14-18 14 18v34H4z"/>
+            <path fill="#21468b" d="M30 70V28l12-16 12 16v42H30z"/>
+            <path fill="#ae1c28" d="M52 70V32l14-20 14 20v38H52z"/>
+            <path fill="#e36f1e" d="M78 70V38l12-14 12 14v32H78z"/>
+            <rect x="10" y="48" width="6" height="8" fill="#f5e6c8"/>
+            <rect x="36" y="44" width="6" height="8" fill="#f5e6c8"/>
+            <rect x="60" y="46" width="6" height="8" fill="#f5e6c8"/>
+            <rect x="86" y="50" width="6" height="7" fill="#f5e6c8"/>
+          </svg>
+        </div>
         <div class="section-inner">
           <div class="program-header">
             <div class="program-title-row">
@@ -478,12 +516,21 @@
               <span role="columnheader" data-i18n="shared.schedule.col.programme">Programme</span>
             </div>
 
-            <div class="schedule-row is-bus" role="row" data-type="bus">
+            <div class="schedule-row is-bus is-travel-day is-travel-out" role="row" data-type="bus">
               <span class="sch-place" role="cell"><span class="place-badge place-bus place-travel"><svg width="14" height="14"><use href="#icon-train"/></svg><svg width="16" height="10"><use href="#icon-bus"/></svg></span></span>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.travel">Travel</span>
               <span class="sch-date" role="cell">14 Nov</span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.saturday">Saturday</span>
-              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.travel.programme"><span class="type-pill type-bus">Travel</span> Meet <a href="https://maps.app.goo.gl/iVmWjbJtJS8Xv3MV6" target="_blank" rel="noopener noreferrer">here</a> <strong>20:45</strong> · train Aarhus · Kolding · FlixBus → Sloterdijk <strong>09:35</strong></span>
+              <span class="sch-what" role="cell">
+                <span class="travel-day-rail" aria-hidden="true">
+                  <span class="travel-day-mode is-pin"><svg width="12" height="12"><use href="#icon-pin"/></svg></span>
+                  <span class="travel-day-track"></span>
+                  <span class="travel-day-mode is-train"><svg width="14" height="14"><use href="#icon-train"/></svg></span>
+                  <span class="travel-day-track"></span>
+                  <span class="travel-day-mode is-bus"><svg width="16" height="10"><use href="#icon-bus"/></svg></span>
+                </span>
+                <span class="sch-what-text" data-i18n-html="index.program.nl.row.travel.programme"><span class="type-pill type-bus">Travel</span> Meet <a href="https://maps.app.goo.gl/iVmWjbJtJS8Xv3MV6" target="_blank" rel="noopener noreferrer">here</a> <strong>20:45</strong> · train Aarhus · Kolding · FlixBus → Sloterdijk <strong>09:35</strong></span>
+              </span>
             </div>
             <div class="schedule-row is-nl is-arrive" role="row" data-type="arrive">
               <span class="sch-place" role="cell"><span class="place-badge place-nl"><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>NL</span></span>
@@ -569,12 +616,20 @@
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.thursday">Thursday</span>
               <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.d12.programme"><span class="type-pill type-school">School</span> Ter AA — last school day / closing · FlixBus Sloterdijk <strong>20:55</strong> → Kolding</span>
             </div>
-            <div class="schedule-row is-bus" role="row" data-type="bus">
+            <div class="schedule-row is-bus is-travel-day is-travel-home" role="row" data-type="bus">
               <span class="sch-place" role="cell"><span class="place-badge place-bus place-travel"><svg width="16" height="10"><use href="#icon-bus"/></svg><svg width="14" height="14"><use href="#icon-train"/></svg></span></span>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="13">Day 13</span>
               <span class="sch-date" role="cell">27 Nov</span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.friday">Friday</span>
-              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.d13.programme"><span class="type-pill type-bus">Travel</span> Kolding <strong>05:55</strong> · train → Viborg · times TBA</span>
+              <span class="sch-what" role="cell">
+                <span class="travel-day-rail" aria-hidden="true">
+                  <span class="travel-day-mode is-bus"><svg width="16" height="10"><use href="#icon-bus"/></svg></span>
+                  <span class="travel-day-track"></span>
+                  <span class="travel-day-mode is-train"><svg width="14" height="14"><use href="#icon-train"/></svg></span>
+                  <span class="travel-day-mode is-home"><span class="flag-mark flag-mark-dk"><i></i><i></i></span></span>
+                </span>
+                <span class="sch-what-text" data-i18n-html="index.program.nl.row.d13.programme"><span class="type-pill type-bus">Travel</span> Kolding <strong>05:55</strong> · train → Viborg · times TBA</span>
+              </span>
             </div>
           </div>
         </div>
@@ -582,6 +637,31 @@
 
       <section class="section program-section program-dk" id="program-dk" aria-labelledby="dk-title">
         <div class="section-pattern pattern-dk" aria-hidden="true"></div>
+        <div class="program-landmarks program-landmarks-dk" aria-hidden="true">
+          <svg class="landmark landmark-tower" viewBox="0 0 70 120" width="58" height="100">
+            <path fill="#c8102e" d="M18 120V28l17-16 17 16v92H18z"/>
+            <rect x="32" y="8" width="6" height="14" fill="#c8102e"/>
+            <polygon points="35,2 28,12 42,12" fill="#c8102e"/>
+            <rect x="30" y="48" width="10" height="14" fill="#f7e8ea"/>
+            <rect x="30" y="72" width="10" height="14" fill="#f7e8ea"/>
+            <rect x="31" y="98" width="8" height="22" fill="#3d2818"/>
+          </svg>
+          <svg class="landmark landmark-houses-dk" viewBox="0 0 140 80" width="120" height="68">
+            <path fill="#e8c84a" d="M4 80V42l14-16 14 16v38H4z"/>
+            <path fill="#b83a2e" d="M30 80V34l16-20 16 20v46H30z"/>
+            <path fill="#d8e0e6" d="M60 80V48h24v32H60z"/>
+            <path fill="#4a7a8a" d="M86 80V44l14-14 14 14v36H86z"/>
+            <rect x="12" y="54" width="7" height="9" fill="#fff8e0"/>
+            <rect x="40" y="48" width="7" height="9" fill="#f5e6d3"/>
+            <rect x="68" y="56" width="7" height="8" fill="#eef4f8"/>
+            <rect x="98" y="52" width="7" height="8" fill="#e0eef2"/>
+          </svg>
+          <svg class="landmark landmark-bike" viewBox="0 0 80 48" width="70" height="42">
+            <circle cx="16" cy="34" r="11" fill="none" stroke="#c8102e" stroke-width="3"/>
+            <circle cx="62" cy="34" r="11" fill="none" stroke="#c8102e" stroke-width="3"/>
+            <path d="M16 34 L32 14 H48 L62 34 M40 14 V26 M32 26 H52" fill="none" stroke="#14212b" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
         <div class="section-inner">
           <div class="program-header">
             <div class="program-title-row">
@@ -611,12 +691,19 @@
               <span role="columnheader" data-i18n="shared.schedule.col.programme">Programme</span>
             </div>
 
-            <div class="schedule-row is-bus" role="row" data-type="bus">
-              <span class="sch-place" role="cell"><span class="place-badge place-bus"><svg width="18" height="12"><use href="#icon-bus"/></svg>BUS</span></span>
+            <div class="schedule-row is-bus is-travel-day is-travel-out" role="row" data-type="bus">
+              <span class="sch-place" role="cell"><span class="place-badge place-bus place-travel"><svg width="16" height="10"><use href="#icon-bus"/></svg><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span></span></span>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.travel">Travel</span>
               <span class="sch-date" role="cell">28 Nov</span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.saturday">Saturday</span>
-              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.travel.programme"><span class="type-pill type-bus">Bus</span> Departure Netherlands (overnight bus)</span>
+              <span class="sch-what" role="cell">
+                <span class="travel-day-rail" aria-hidden="true">
+                  <span class="travel-day-mode is-bus"><svg width="16" height="10"><use href="#icon-bus"/></svg></span>
+                  <span class="travel-day-track"></span>
+                  <span class="travel-day-mode is-home"><span class="flag-mark flag-mark-dk"><i></i><i></i></span></span>
+                </span>
+                <span class="sch-what-text" data-i18n-html="index.program.dk.row.travel.programme"><span class="type-pill type-bus">Bus</span> Departure Netherlands (overnight bus)</span>
+              </span>
             </div>
             <div class="schedule-row is-dk is-arrive" role="row" data-type="arrive">
               <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
@@ -702,12 +789,21 @@
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.thursday">Thursday</span>
               <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d12.programme"><span class="type-pill type-school">School</span> Datahouse Mercantec — last school day / closing · 08:30–14:30</span>
             </div>
-            <div class="schedule-row is-bus" role="row" data-type="bus">
-              <span class="sch-place" role="cell"><span class="place-badge place-bus"><svg width="18" height="12"><use href="#icon-bus"/></svg>BUS</span></span>
+            <div class="schedule-row is-bus is-travel-day is-travel-home" role="row" data-type="bus">
+              <span class="sch-place" role="cell"><span class="place-badge place-bus place-travel"><svg width="16" height="10"><use href="#icon-bus"/></svg><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span></span></span>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="13">Day 13</span>
               <span class="sch-date" role="cell">11 Dec</span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.friday">Friday</span>
-              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d13.programme"><span class="type-pill type-bus">Bus</span> Return journey to the Netherlands</span>
+              <span class="sch-what" role="cell">
+                <span class="travel-day-rail" aria-hidden="true">
+                  <span class="travel-day-mode is-home"><span class="flag-mark flag-mark-dk"><i></i><i></i></span></span>
+                  <span class="travel-day-track"></span>
+                  <span class="travel-day-mode is-bus"><svg width="16" height="10"><use href="#icon-bus"/></svg></span>
+                  <span class="travel-day-track"></span>
+                  <span class="travel-day-mode is-home"><span class="flag-mark flag-mark-nl"><span></span><span></span><span></span></span></span>
+                </span>
+                <span class="sch-what-text" data-i18n-html="index.program.dk.row.d13.programme"><span class="type-pill type-bus">Bus</span> Return journey to the Netherlands</span>
+              </span>
             </div>
           </div>
         </div>
@@ -949,7 +1045,7 @@
     </div>
   </footer>
 
-  <script src="i18n.js?v=20261031c"></script>
+  <script src="i18n.js?v=20261031d"></script>
   <script src="script.js?v=20261017k"></script>
 </body>
 </html>

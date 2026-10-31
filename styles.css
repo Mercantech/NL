@@ -1276,7 +1276,10 @@ body.nav-open .menu-bars::after {
   position: absolute;
   right: 0.75rem;
   bottom: 0.5rem;
-  opacity: 0.35;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.35rem;
+  opacity: 0.38;
   color: var(--ink);
   pointer-events: none;
 }
@@ -1292,9 +1295,12 @@ body.nav-open .menu-bars::after {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.75rem;
+  gap: 0.25rem;
+  width: auto;
+  min-width: 3.4rem;
   height: 2.75rem;
-  border-radius: 50%;
+  padding: 0 0.55rem;
+  border-radius: 999px;
   background: var(--bus);
   color: var(--white);
   animation: bus-nudge 2.2s ease-in-out infinite;
@@ -1363,6 +1369,7 @@ body.nav-open .menu-bars::after {
 
 /* —— Programme sections —— */
 .program-section {
+  position: relative;
   overflow: hidden;
 }
 
@@ -1628,6 +1635,127 @@ body.nav-open .menu-bars::after {
   font-weight: 600;
 }
 
+.schedule-row.is-travel-day {
+  position: relative;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+  border-left-width: 5px;
+  box-shadow: inset 0 0 0 1px rgba(44, 61, 79, 0.08);
+}
+
+.schedule-row.is-travel-day::after {
+  content: "";
+  position: absolute;
+  right: 0.75rem;
+  top: 0.55rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.12;
+  background:
+    radial-gradient(circle at 30% 30%, #fff 0 18%, transparent 19%),
+    radial-gradient(circle at 70% 45%, #fff 0 12%, transparent 13%),
+    radial-gradient(circle at 45% 70%, #fff 0 10%, transparent 11%),
+    linear-gradient(160deg, #1a2a3a, #2c3d4f);
+}
+
+.schedule-row.is-travel-out {
+  background:
+    linear-gradient(90deg, rgba(227, 111, 30, 0.12), transparent 42%),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(44, 61, 79, 0.04),
+      rgba(44, 61, 79, 0.04) 6px,
+      rgba(44, 61, 79, 0.09) 6px,
+      rgba(44, 61, 79, 0.09) 12px
+    );
+  border-left-color: #e36f1e;
+}
+
+.schedule-row.is-travel-home {
+  background:
+    linear-gradient(90deg, rgba(200, 16, 46, 0.1), transparent 42%),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(44, 61, 79, 0.04),
+      rgba(44, 61, 79, 0.04) 6px,
+      rgba(44, 61, 79, 0.09) 6px,
+      rgba(44, 61, 79, 0.09) 12px
+    );
+  border-left-color: var(--dk-red);
+}
+
+.schedule-row.is-travel-day .sch-what {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+}
+
+.travel-day-rail {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.28rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(20, 33, 43, 0.1);
+  box-shadow: 0 4px 12px rgba(20, 33, 43, 0.06);
+}
+
+.travel-day-mode {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 50%;
+  color: var(--bus);
+  background: rgba(44, 61, 79, 0.1);
+}
+
+.travel-day-mode.is-pin {
+  color: var(--nl-orange);
+  background: rgba(227, 111, 30, 0.14);
+}
+
+.travel-day-mode.is-train {
+  color: var(--sea-mid);
+  background: rgba(26, 95, 138, 0.12);
+}
+
+.travel-day-mode.is-bus {
+  color: var(--bus);
+  background: rgba(44, 61, 79, 0.12);
+  animation: bus-nudge 2.4s ease-in-out infinite;
+}
+
+.travel-day-mode.is-home {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.travel-day-mode .flag-mark {
+  width: 0.95rem;
+  height: 0.65rem;
+}
+
+.travel-day-track {
+  width: 1.1rem;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(44, 61, 79, 0.45) 0 3px,
+    transparent 3px 6px
+  );
+}
+
+.sch-what-text {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.55rem;
+}
+
 .schedule-row.is-nl.is-weekend,
 .schedule-row.is-dk.is-weekend {
   background: linear-gradient(90deg, rgba(26, 95, 138, 0.08), transparent 55%);
@@ -1688,6 +1816,114 @@ body.nav-open .menu-bars::after {
 
 .program-nl .section-lead {
   margin-bottom: 1.25rem;
+}
+
+.program-landmarks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.program-section > .section-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.landmark {
+  position: absolute;
+  opacity: 0.22;
+  filter: drop-shadow(0 8px 16px rgba(20, 33, 43, 0.08));
+}
+
+.program-landmarks-nl .landmark-mill {
+  right: 6%;
+  top: 1.5rem;
+  opacity: 0.28;
+}
+
+.program-landmarks-nl .landmark-blades {
+  transform-origin: 40px 40px;
+  animation: mill-spin 14s linear infinite;
+}
+
+.program-landmarks-nl .landmark-canal {
+  right: 2%;
+  top: 7.5rem;
+  opacity: 0.2;
+}
+
+.landmark-tulips {
+  position: absolute;
+  right: 14%;
+  top: 9.5rem;
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-end;
+  height: 2.4rem;
+}
+
+.lm-tulip {
+  width: 0.7rem;
+  height: 1.6rem;
+  border-radius: 999px 999px 2px 2px;
+  background: #e36f1e;
+  position: relative;
+  animation: tulip-sway 3.2s ease-in-out infinite;
+}
+
+.lm-tulip::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -0.7rem;
+  width: 2px;
+  height: 0.75rem;
+  background: #3d7a4a;
+  transform: translateX(-50%);
+}
+
+.lm-t2 {
+  height: 2rem;
+  background: #ae1c28;
+  animation-delay: 0.4s;
+}
+
+.lm-t3 {
+  height: 1.45rem;
+  background: #21468b;
+  animation-delay: 0.8s;
+}
+
+.program-landmarks-dk .landmark-tower {
+  right: 5%;
+  top: 1.2rem;
+  opacity: 0.26;
+}
+
+.program-landmarks-dk .landmark-houses-dk {
+  right: 1.5%;
+  top: 7rem;
+  opacity: 0.2;
+}
+
+.program-landmarks-dk .landmark-bike {
+  right: 12%;
+  top: 11rem;
+  opacity: 0.28;
+  animation: bike-roll 5.5s ease-in-out infinite;
+}
+
+@media (max-width: 899px) {
+  .program-landmarks {
+    opacity: 0.7;
+  }
+
+  .program-landmarks-nl .landmark-canal,
+  .program-landmarks-dk .landmark-houses-dk {
+    display: none;
+  }
 }
 
 /* —— Travel route strips (outbound / return) —— */
@@ -4749,6 +4985,25 @@ a.route-place:hover {
   }
 }
 
+@keyframes mill-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bike-roll {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(10px) rotate(-4deg);
+  }
+}
+
 @keyframes flag-wave {
   0%,
   100% {
@@ -4768,13 +5023,17 @@ a.route-place:hover {
   .wave-mid,
   .wave-front,
   .mill-blades,
+  .landmark-blades,
   .hero-clouds,
   .hero-copy,
   .place-bus,
   .connector-bus,
   .hero-bus,
   .tulip,
-  .flag-hero {
+  .lm-tulip,
+  .flag-hero,
+  .travel-day-mode.is-bus,
+  .program-landmarks-dk .landmark-bike {
     animation: none;
   }
 
