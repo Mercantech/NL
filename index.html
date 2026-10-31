@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261031d" />
+  <link rel="stylesheet" href="styles.css?v=20261031e" />
 </head>
 <body>
   <a class="skip-link" href="#content" data-i18n="shared.skipLink">Skip to content</a>
@@ -390,93 +390,142 @@
           <div class="travel-routes" data-i18n-attr="aria-label:index.travel.routes.aria" aria-label="Outbound and return travel">
             <article class="travel-route travel-route-out">
               <header class="travel-route-head">
-                <span class="travel-route-badge" aria-hidden="true">
-                  <svg width="18" height="18"><use href="#icon-train"/></svg>
-                  <svg width="18" height="12"><use href="#icon-bus"/></svg>
-                </span>
-                <div>
+                <div class="travel-route-flags" aria-hidden="true">
+                  <span class="flag-mark flag-mark-dk"><i></i><i></i></span>
+                  <span class="travel-route-arrow">→</span>
+                  <span class="flag-mark flag-mark-nl"><span></span><span></span><span></span></span>
+                </div>
+                <div class="travel-route-head-text">
                   <p class="travel-route-kicker" data-i18n="index.travel.out.kicker">Outbound</p>
                   <h3 class="travel-route-title" data-i18n="index.travel.out.title">14–15 November</h3>
                 </div>
+                <span class="travel-route-badge" aria-hidden="true">
+                  <svg width="16" height="16"><use href="#icon-train"/></svg>
+                  <svg width="16" height="11"><use href="#icon-bus"/></svg>
+                </span>
               </header>
-              <ol class="route-strip">
-                <li class="route-stop">
-                  <span class="route-icon route-icon-pin" aria-hidden="true"><svg width="16" height="16"><use href="#icon-pin"/></svg></span>
-                  <a class="route-place" href="https://maps.app.goo.gl/iVmWjbJtJS8Xv3MV6" target="_blank" rel="noopener noreferrer" data-i18n="index.travel.stop.meet">Meet</a>
-                  <span class="route-time">20:45</span>
+
+              <ol class="itinerary">
+                <li class="itinerary-stop">
+                  <span class="itinerary-dot itinerary-dot-pin" aria-hidden="true"><svg width="14" height="14"><use href="#icon-pin"/></svg></span>
+                  <div class="itinerary-body">
+                    <div class="itinerary-row">
+                      <a class="itinerary-place" href="https://maps.app.goo.gl/iVmWjbJtJS8Xv3MV6" target="_blank" rel="noopener noreferrer" data-i18n="index.travel.stop.meet">Meet</a>
+                      <time class="itinerary-time" datetime="20:45">20:45</time>
+                    </div>
+                    <p class="itinerary-meta" data-i18n="index.travel.out.meet.meta">Be there 15 min before the train</p>
+                  </div>
                 </li>
-                <li class="route-hop route-hop-train" aria-hidden="true">
-                  <span class="route-hop-line"></span>
-                  <span class="route-hop-mode"><svg width="18" height="18"><use href="#icon-train"/></svg></span>
-                  <span class="route-hop-line"></span>
+                <li class="itinerary-leg itinerary-leg-train" aria-hidden="true">
+                  <span class="itinerary-leg-line"></span>
+                  <span class="itinerary-leg-chip"><svg width="14" height="14"><use href="#icon-train"/></svg><span data-i18n="index.travel.mode.train">Train</span></span>
                 </li>
-                <li class="route-stop">
-                  <span class="route-icon route-icon-train" aria-hidden="true"><svg width="16" height="16"><use href="#icon-train"/></svg></span>
-                  <span class="route-place">Aarhus</span>
-                  <span class="route-time">21:00 → 22:50</span>
+                <li class="itinerary-stop">
+                  <span class="itinerary-dot itinerary-dot-train" aria-hidden="true"><svg width="14" height="14"><use href="#icon-train"/></svg></span>
+                  <div class="itinerary-body">
+                    <div class="itinerary-row">
+                      <span class="itinerary-place">Aarhus</span>
+                      <span class="itinerary-times">
+                        <time datetime="21:00">21:00</time>
+                        <span class="itinerary-times-sep">→</span>
+                        <time datetime="22:50">22:50</time>
+                      </span>
+                    </div>
+                    <p class="itinerary-meta" data-i18n="index.travel.out.aarhus.meta">Arrive · change · depart</p>
+                  </div>
                 </li>
-                <li class="route-hop route-hop-train" aria-hidden="true">
-                  <span class="route-hop-line"></span>
-                  <span class="route-hop-mode"><svg width="18" height="18"><use href="#icon-train"/></svg></span>
-                  <span class="route-hop-line"></span>
+                <li class="itinerary-leg itinerary-leg-train" aria-hidden="true">
+                  <span class="itinerary-leg-line"></span>
+                  <span class="itinerary-leg-chip"><svg width="14" height="14"><use href="#icon-train"/></svg><span data-i18n="index.travel.mode.train">Train</span></span>
                 </li>
-                <li class="route-stop">
-                  <span class="route-icon route-icon-train" aria-hidden="true"><svg width="16" height="16"><use href="#icon-train"/></svg></span>
-                  <span class="route-place">Kolding</span>
-                  <span class="route-time">00:07</span>
+                <li class="itinerary-stop">
+                  <span class="itinerary-dot itinerary-dot-train" aria-hidden="true"><svg width="14" height="14"><use href="#icon-train"/></svg></span>
+                  <div class="itinerary-body">
+                    <div class="itinerary-row">
+                      <span class="itinerary-place">Kolding Rutebilstation</span>
+                      <time class="itinerary-time" datetime="00:07">00:07</time>
+                    </div>
+                    <p class="itinerary-meta" data-i18n="index.travel.out.kolding.meta">Train arrive · FlixBus depart 00:35</p>
+                  </div>
                 </li>
-                <li class="route-hop route-hop-bus" aria-hidden="true">
-                  <span class="route-hop-line"></span>
-                  <span class="route-hop-mode"><svg width="20" height="13"><use href="#icon-bus"/></svg></span>
-                  <span class="route-hop-line"></span>
+                <li class="itinerary-leg itinerary-leg-bus itinerary-leg-night" aria-hidden="true">
+                  <span class="itinerary-leg-line"></span>
+                  <span class="itinerary-leg-chip"><svg width="16" height="10"><use href="#icon-bus"/></svg><span data-i18n="index.travel.mode.flixNight">FlixBus · overnight</span></span>
                 </li>
-                <li class="route-stop route-stop-end">
-                  <span class="route-icon route-icon-bus" aria-hidden="true"><svg width="18" height="12"><use href="#icon-bus"/></svg></span>
-                  <span class="route-place">Amsterdam Sloterdijk</span>
-                  <span class="route-time">00:35 → 09:35</span>
+                <li class="itinerary-stop itinerary-stop-end">
+                  <span class="itinerary-dot itinerary-dot-nl" aria-hidden="true"><span class="flag-mark flag-mark-nl"><span></span><span></span><span></span></span></span>
+                  <div class="itinerary-body">
+                    <div class="itinerary-row">
+                      <span class="itinerary-place">Amsterdam Sloterdijk</span>
+                      <span class="itinerary-times">
+                        <time datetime="00:35">00:35</time>
+                        <span class="itinerary-times-sep">→</span>
+                        <time class="itinerary-time-arrive" datetime="09:35">09:35</time>
+                      </span>
+                    </div>
+                    <p class="itinerary-meta" data-i18n="index.travel.out.sloterdijk.meta">Sunday morning arrival</p>
+                  </div>
                 </li>
               </ol>
             </article>
 
             <article class="travel-route travel-route-home">
               <header class="travel-route-head">
-                <span class="travel-route-badge" aria-hidden="true">
-                  <svg width="18" height="12"><use href="#icon-bus"/></svg>
-                  <svg width="18" height="18"><use href="#icon-train"/></svg>
-                </span>
-                <div>
+                <div class="travel-route-flags" aria-hidden="true">
+                  <span class="flag-mark flag-mark-nl"><span></span><span></span><span></span></span>
+                  <span class="travel-route-arrow">→</span>
+                  <span class="flag-mark flag-mark-dk"><i></i><i></i></span>
+                </div>
+                <div class="travel-route-head-text">
                   <p class="travel-route-kicker" data-i18n="index.travel.home.kicker">Return</p>
                   <h3 class="travel-route-title" data-i18n="index.travel.home.title">26–27 November</h3>
                 </div>
+                <span class="travel-route-badge" aria-hidden="true">
+                  <svg width="16" height="11"><use href="#icon-bus"/></svg>
+                  <svg width="16" height="16"><use href="#icon-train"/></svg>
+                </span>
               </header>
-              <ol class="route-strip">
-                <li class="route-stop">
-                  <span class="route-icon route-icon-bus" aria-hidden="true"><svg width="18" height="12"><use href="#icon-bus"/></svg></span>
-                  <span class="route-place">Amsterdam Sloterdijk</span>
-                  <span class="route-time">20:55</span>
+
+              <ol class="itinerary">
+                <li class="itinerary-stop">
+                  <span class="itinerary-dot itinerary-dot-nl" aria-hidden="true"><span class="flag-mark flag-mark-nl"><span></span><span></span><span></span></span></span>
+                  <div class="itinerary-body">
+                    <div class="itinerary-row">
+                      <span class="itinerary-place">Amsterdam Sloterdijk</span>
+                      <time class="itinerary-time" datetime="20:55">20:55</time>
+                    </div>
+                    <p class="itinerary-meta" data-i18n="index.travel.home.sloterdijk.meta">Thursday evening departure</p>
+                  </div>
                 </li>
-                <li class="route-hop route-hop-bus" aria-hidden="true">
-                  <span class="route-hop-line"></span>
-                  <span class="route-hop-mode"><svg width="20" height="13"><use href="#icon-bus"/></svg></span>
-                  <span class="route-hop-line"></span>
+                <li class="itinerary-leg itinerary-leg-bus itinerary-leg-night" aria-hidden="true">
+                  <span class="itinerary-leg-line"></span>
+                  <span class="itinerary-leg-chip"><svg width="16" height="10"><use href="#icon-bus"/></svg><span data-i18n="index.travel.mode.flixNight">FlixBus · overnight</span></span>
                 </li>
-                <li class="route-stop">
-                  <span class="route-icon route-icon-bus" aria-hidden="true"><svg width="18" height="12"><use href="#icon-bus"/></svg></span>
-                  <span class="route-place">Kolding</span>
-                  <span class="route-time">05:55</span>
+                <li class="itinerary-stop">
+                  <span class="itinerary-dot itinerary-dot-bus" aria-hidden="true"><svg width="16" height="10"><use href="#icon-bus"/></svg></span>
+                  <div class="itinerary-body">
+                    <div class="itinerary-row">
+                      <span class="itinerary-place">Kolding Rutebilstation</span>
+                      <time class="itinerary-time itinerary-time-arrive" datetime="05:55">05:55</time>
+                    </div>
+                    <p class="itinerary-meta" data-i18n="index.travel.home.kolding.meta">Friday morning</p>
+                  </div>
                 </li>
-                <li class="route-hop route-hop-train" aria-hidden="true">
-                  <span class="route-hop-line"></span>
-                  <span class="route-hop-mode"><svg width="18" height="18"><use href="#icon-train"/></svg></span>
-                  <span class="route-hop-line"></span>
+                <li class="itinerary-leg itinerary-leg-train" aria-hidden="true">
+                  <span class="itinerary-leg-line"></span>
+                  <span class="itinerary-leg-chip"><svg width="14" height="14"><use href="#icon-train"/></svg><span data-i18n="index.travel.mode.train">Train</span></span>
                 </li>
-                <li class="route-stop route-stop-end route-stop-tba">
-                  <span class="route-icon route-icon-train" aria-hidden="true"><svg width="16" height="16"><use href="#icon-train"/></svg></span>
-                  <span class="route-place">Viborg</span>
-                  <span class="route-time" data-i18n="index.travel.home.viborg.time">Times TBA</span>
+                <li class="itinerary-stop itinerary-stop-end itinerary-stop-tba">
+                  <span class="itinerary-dot itinerary-dot-dk" aria-hidden="true"><span class="flag-mark flag-mark-dk"><i></i><i></i></span></span>
+                  <div class="itinerary-body">
+                    <div class="itinerary-row">
+                      <span class="itinerary-place">Viborg</span>
+                      <span class="itinerary-tba" data-i18n="index.travel.home.viborg.time">Times TBA</span>
+                    </div>
+                    <p class="itinerary-meta" data-i18n="index.travel.home.note">Train onwards from Kolding to Viborg — exact departure still to be confirmed.</p>
+                  </div>
                 </li>
               </ol>
-              <p class="travel-route-note" data-i18n="index.travel.home.note">Train onwards from Kolding to Viborg — exact departure still to be confirmed.</p>
             </article>
           </div>
 
@@ -1045,7 +1094,7 @@
     </div>
   </footer>
 
-  <script src="i18n.js?v=20261031d"></script>
+  <script src="i18n.js?v=20261031e"></script>
   <script src="script.js?v=20261017k"></script>
 </body>
 </html>
