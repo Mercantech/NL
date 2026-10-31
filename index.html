@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261017p" />
+  <link rel="stylesheet" href="styles.css?v=20261031c" />
 </head>
 <body>
   <a class="skip-link" href="#content" data-i18n="shared.skipLink">Skip to content</a>
@@ -23,6 +23,14 @@
       <circle cx="6" cy="13" r="2" fill="currentColor"/>
       <circle cx="15" cy="13" r="2" fill="currentColor"/>
       <rect x="19" y="5" width="4" height="5" rx="1" fill="currentColor"/>
+    </symbol>
+    <symbol id="icon-train" viewBox="0 0 24 24">
+      <rect x="5" y="3" width="14" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path fill="none" stroke="currentColor" stroke-width="2" d="M5 10h14M9 17l-2 3M15 17l2 3M8 14h.01M16 14h.01"/>
+      <path fill="currentColor" d="M8 6.5h8v2H8z"/>
+    </symbol>
+    <symbol id="icon-pin" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1114.5 9 2.5 2.5 0 0112 11.5z"/>
     </symbol>
     <symbol id="icon-school" viewBox="0 0 24 24">
       <path fill="currentColor" d="M12 3L2 8l10 5 8-4v6h2V8L12 3zm-6 9.2V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.8l-6 3-6-3z"/>
@@ -265,7 +273,7 @@
               <div class="journey-body">
                 <span class="journey-meta" data-i18n="index.overview.journey.nl.meta">14–27 November · Weeks 46–48</span>
                 <strong data-i18n="index.overview.journey.nl.heading">Denmark → Helmond</strong>
-                <p data-i18n-html="index.overview.journey.nl.body">Train + FlixBus Saturday evening via Aarhus and Kolding — Amsterdam Sloterdijk Sunday <strong>09:35</strong>. Return Thursday <strong>26 Nov</strong> evening, arrive Kolding Friday <strong>27 Nov</strong> morning.</p>
+                <p data-i18n-html="index.overview.journey.nl.body">Train + FlixBus Saturday evening via Aarhus and Kolding — Amsterdam Sloterdijk Sunday <strong>09:35</strong>. Return Thursday <strong>26 Nov</strong> evening → Kolding Friday <strong>05:55</strong>, then train to Viborg (times TBA).</p>
                 <span class="journey-cta" data-i18n="index.overview.journey.nl.cta">Open NL programme →</span>
               </div>
               <div class="journey-deco" aria-hidden="true">
@@ -341,6 +349,99 @@
             <p class="section-lead" data-i18n-html="index.program.nl.lead">Train + FlixBus via Aarhus and Kolding, arrival Amsterdam Sloterdijk, hotel in Helmond with school days, a weekend and the trip home. Daily meeting times in Helmond: <strong>TBA</strong>.</p>
           </div>
 
+          <div class="travel-routes" data-i18n-attr="aria-label:index.travel.routes.aria" aria-label="Outbound and return travel">
+            <article class="travel-route travel-route-out">
+              <header class="travel-route-head">
+                <span class="travel-route-badge" aria-hidden="true">
+                  <svg width="18" height="18"><use href="#icon-train"/></svg>
+                  <svg width="18" height="12"><use href="#icon-bus"/></svg>
+                </span>
+                <div>
+                  <p class="travel-route-kicker" data-i18n="index.travel.out.kicker">Outbound</p>
+                  <h3 class="travel-route-title" data-i18n="index.travel.out.title">14–15 November</h3>
+                </div>
+              </header>
+              <ol class="route-strip">
+                <li class="route-stop">
+                  <span class="route-icon route-icon-pin" aria-hidden="true"><svg width="16" height="16"><use href="#icon-pin"/></svg></span>
+                  <a class="route-place" href="https://maps.app.goo.gl/iVmWjbJtJS8Xv3MV6" target="_blank" rel="noopener noreferrer" data-i18n="index.travel.stop.meet">Meet</a>
+                  <span class="route-time">20:45</span>
+                </li>
+                <li class="route-hop route-hop-train" aria-hidden="true">
+                  <span class="route-hop-line"></span>
+                  <span class="route-hop-mode"><svg width="18" height="18"><use href="#icon-train"/></svg></span>
+                  <span class="route-hop-line"></span>
+                </li>
+                <li class="route-stop">
+                  <span class="route-icon route-icon-train" aria-hidden="true"><svg width="16" height="16"><use href="#icon-train"/></svg></span>
+                  <span class="route-place">Aarhus</span>
+                  <span class="route-time">21:00 → 22:50</span>
+                </li>
+                <li class="route-hop route-hop-train" aria-hidden="true">
+                  <span class="route-hop-line"></span>
+                  <span class="route-hop-mode"><svg width="18" height="18"><use href="#icon-train"/></svg></span>
+                  <span class="route-hop-line"></span>
+                </li>
+                <li class="route-stop">
+                  <span class="route-icon route-icon-train" aria-hidden="true"><svg width="16" height="16"><use href="#icon-train"/></svg></span>
+                  <span class="route-place">Kolding</span>
+                  <span class="route-time">00:07</span>
+                </li>
+                <li class="route-hop route-hop-bus" aria-hidden="true">
+                  <span class="route-hop-line"></span>
+                  <span class="route-hop-mode"><svg width="20" height="13"><use href="#icon-bus"/></svg></span>
+                  <span class="route-hop-line"></span>
+                </li>
+                <li class="route-stop route-stop-end">
+                  <span class="route-icon route-icon-bus" aria-hidden="true"><svg width="18" height="12"><use href="#icon-bus"/></svg></span>
+                  <span class="route-place">Amsterdam Sloterdijk</span>
+                  <span class="route-time">00:35 → 09:35</span>
+                </li>
+              </ol>
+            </article>
+
+            <article class="travel-route travel-route-home">
+              <header class="travel-route-head">
+                <span class="travel-route-badge" aria-hidden="true">
+                  <svg width="18" height="12"><use href="#icon-bus"/></svg>
+                  <svg width="18" height="18"><use href="#icon-train"/></svg>
+                </span>
+                <div>
+                  <p class="travel-route-kicker" data-i18n="index.travel.home.kicker">Return</p>
+                  <h3 class="travel-route-title" data-i18n="index.travel.home.title">26–27 November</h3>
+                </div>
+              </header>
+              <ol class="route-strip">
+                <li class="route-stop">
+                  <span class="route-icon route-icon-bus" aria-hidden="true"><svg width="18" height="12"><use href="#icon-bus"/></svg></span>
+                  <span class="route-place">Amsterdam Sloterdijk</span>
+                  <span class="route-time">20:55</span>
+                </li>
+                <li class="route-hop route-hop-bus" aria-hidden="true">
+                  <span class="route-hop-line"></span>
+                  <span class="route-hop-mode"><svg width="20" height="13"><use href="#icon-bus"/></svg></span>
+                  <span class="route-hop-line"></span>
+                </li>
+                <li class="route-stop">
+                  <span class="route-icon route-icon-bus" aria-hidden="true"><svg width="18" height="12"><use href="#icon-bus"/></svg></span>
+                  <span class="route-place">Kolding</span>
+                  <span class="route-time">05:55</span>
+                </li>
+                <li class="route-hop route-hop-train" aria-hidden="true">
+                  <span class="route-hop-line"></span>
+                  <span class="route-hop-mode"><svg width="18" height="18"><use href="#icon-train"/></svg></span>
+                  <span class="route-hop-line"></span>
+                </li>
+                <li class="route-stop route-stop-end route-stop-tba">
+                  <span class="route-icon route-icon-train" aria-hidden="true"><svg width="16" height="16"><use href="#icon-train"/></svg></span>
+                  <span class="route-place">Viborg</span>
+                  <span class="route-time" data-i18n="index.travel.home.viborg.time">Times TBA</span>
+                </li>
+              </ol>
+              <p class="travel-route-note" data-i18n="index.travel.home.note">Train onwards from Kolding to Viborg — exact departure still to be confirmed.</p>
+            </article>
+          </div>
+
           <div class="staff-weeks" data-i18n-attr="aria-label:shared.staffWeek.aria" aria-label="Danish teachers in Helmond">
             <article class="staff-week">
               <p class="staff-week-kicker" data-i18n="shared.staffWeek.kicker1">Week 1 · 14–20 Nov</p>
@@ -378,11 +479,11 @@
             </div>
 
             <div class="schedule-row is-bus" role="row" data-type="bus">
-              <span class="sch-place" role="cell"><span class="place-badge place-bus"><svg width="18" height="12"><use href="#icon-bus"/></svg>BUS</span></span>
+              <span class="sch-place" role="cell"><span class="place-badge place-bus place-travel"><svg width="14" height="14"><use href="#icon-train"/></svg><svg width="16" height="10"><use href="#icon-bus"/></svg></span></span>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.travel">Travel</span>
               <span class="sch-date" role="cell">14 Nov</span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.saturday">Saturday</span>
-              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.travel.programme"><span class="type-pill type-bus">Travel</span> Meet <a href="https://maps.app.goo.gl/iVmWjbJtJS8Xv3MV6" target="_blank" rel="noopener noreferrer">here</a> at <strong>20:45</strong> (train <strong>21:00</strong> to Aarhus) · Aarhus <strong>22:50</strong> → Kolding <strong>00:07</strong> · FlixBus Kolding Rutebilstation <strong>00:35</strong> → Amsterdam Sloterdijk <strong>09:35</strong></span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.travel.programme"><span class="type-pill type-bus">Travel</span> Meet <a href="https://maps.app.goo.gl/iVmWjbJtJS8Xv3MV6" target="_blank" rel="noopener noreferrer">here</a> <strong>20:45</strong> · train Aarhus · Kolding · FlixBus → Sloterdijk <strong>09:35</strong></span>
             </div>
             <div class="schedule-row is-nl is-arrive" role="row" data-type="arrive">
               <span class="sch-place" role="cell"><span class="place-badge place-nl"><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>NL</span></span>
@@ -466,14 +567,14 @@
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="12">Day 12</span>
               <span class="sch-date" role="cell">26 Nov</span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.thursday">Thursday</span>
-              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.d12.programme"><span class="type-pill type-school">School</span> Ter AA — last school day / closing · evening FlixBus Amsterdam Sloterdijk <strong>20:55</strong> → Kolding</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.d12.programme"><span class="type-pill type-school">School</span> Ter AA — last school day / closing · FlixBus Sloterdijk <strong>20:55</strong> → Kolding</span>
             </div>
             <div class="schedule-row is-bus" role="row" data-type="bus">
-              <span class="sch-place" role="cell"><span class="place-badge place-bus"><svg width="18" height="12"><use href="#icon-bus"/></svg>BUS</span></span>
+              <span class="sch-place" role="cell"><span class="place-badge place-bus place-travel"><svg width="16" height="10"><use href="#icon-bus"/></svg><svg width="14" height="14"><use href="#icon-train"/></svg></span></span>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="13">Day 13</span>
               <span class="sch-date" role="cell">27 Nov</span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.friday">Friday</span>
-              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.d13.programme"><span class="type-pill type-bus">Bus</span> Arrive Kolding Rutebilstation <strong>05:55</strong></span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.nl.row.d13.programme"><span class="type-pill type-bus">Travel</span> Kolding <strong>05:55</strong> · train → Viborg · times TBA</span>
             </div>
           </div>
         </div>
@@ -848,7 +949,7 @@
     </div>
   </footer>
 
-  <script src="i18n.js?v=20261031b"></script>
+  <script src="i18n.js?v=20261031c"></script>
   <script src="script.js?v=20261017k"></script>
 </body>
 </html>
