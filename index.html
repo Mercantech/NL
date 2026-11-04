@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261031e" />
+  <link rel="stylesheet" href="styles.css?v=20261104a" />
 </head>
 <body>
   <a class="skip-link" href="#content" data-i18n="shared.skipLink">Skip to content</a>
@@ -411,41 +411,59 @@
                   <div class="itinerary-body">
                     <div class="itinerary-row">
                       <a class="itinerary-place" href="https://maps.app.goo.gl/iVmWjbJtJS8Xv3MV6" target="_blank" rel="noopener noreferrer" data-i18n="index.travel.stop.meet">Viborg Station</a>
-                      <time class="itinerary-time" datetime="20:45">20:45</time>
+                      <time class="itinerary-time" datetime="19:45">19:45</time>
                     </div>
-                    <p class="itinerary-meta" data-i18n="index.travel.out.meet.meta">At the tracks · be there 15 min before the train</p>
+                    <p class="itinerary-meta" data-i18n="index.travel.out.meet.meta">At the tracks · be there 15 min before the 20:00 train</p>
                   </div>
                 </li>
                 <li class="itinerary-leg itinerary-leg-train" aria-hidden="true">
                   <span class="itinerary-leg-line"></span>
-                  <span class="itinerary-leg-chip"><svg width="14" height="14"><use href="#icon-train"/></svg><span data-i18n="index.travel.mode.train">Train</span></span>
+                  <span class="itinerary-leg-chip"><svg width="14" height="14"><use href="#icon-train"/></svg><span>RA 5488</span></span>
                 </li>
                 <li class="itinerary-stop">
                   <span class="itinerary-dot itinerary-dot-train" aria-hidden="true"><svg width="14" height="14"><use href="#icon-train"/></svg></span>
                   <div class="itinerary-body">
                     <div class="itinerary-row">
-                      <span class="itinerary-place">Aarhus</span>
+                      <span class="itinerary-place">Aarhus H</span>
                       <span class="itinerary-times">
-                        <time datetime="21:00">21:00</time>
+                        <time datetime="21:06">21:06</time>
                         <span class="itinerary-times-sep">→</span>
-                        <time datetime="22:50">22:50</time>
+                        <time datetime="21:50">21:50</time>
                       </span>
                     </div>
-                    <p class="itinerary-meta" data-i18n="index.travel.out.aarhus.meta">Arrive · change · depart</p>
+                    <p class="itinerary-meta" data-i18n="index.travel.out.aarhus.meta">44 min transfer · depart track 5</p>
                   </div>
                 </li>
                 <li class="itinerary-leg itinerary-leg-train" aria-hidden="true">
                   <span class="itinerary-leg-line"></span>
-                  <span class="itinerary-leg-chip"><svg width="14" height="14"><use href="#icon-train"/></svg><span data-i18n="index.travel.mode.train">Train</span></span>
+                  <span class="itinerary-leg-chip"><svg width="14" height="14"><use href="#icon-train"/></svg><span>IC 70176</span></span>
                 </li>
                 <li class="itinerary-stop">
                   <span class="itinerary-dot itinerary-dot-train" aria-hidden="true"><svg width="14" height="14"><use href="#icon-train"/></svg></span>
                   <div class="itinerary-body">
                     <div class="itinerary-row">
-                      <span class="itinerary-place">Kolding Rutebilstation</span>
-                      <time class="itinerary-time" datetime="00:07">00:07</time>
+                      <span class="itinerary-place">Fredericia St.</span>
+                      <span class="itinerary-times">
+                        <time datetime="22:51">22:51</time>
+                        <span class="itinerary-times-sep">→</span>
+                        <time datetime="23:12">23:12</time>
+                      </span>
                     </div>
-                    <p class="itinerary-meta" data-i18n="index.travel.out.kolding.meta">Train arrive · FlixBus depart 00:35</p>
+                    <p class="itinerary-meta" data-i18n="index.travel.out.fredericia.meta">21 min transfer · arrive track 9 · depart track 4</p>
+                  </div>
+                </li>
+                <li class="itinerary-leg itinerary-leg-train" aria-hidden="true">
+                  <span class="itinerary-leg-line"></span>
+                  <span class="itinerary-leg-chip"><svg width="14" height="14"><use href="#icon-train"/></svg><span>IC 2376</span></span>
+                </li>
+                <li class="itinerary-stop">
+                  <span class="itinerary-dot itinerary-dot-train" aria-hidden="true"><svg width="14" height="14"><use href="#icon-train"/></svg></span>
+                  <div class="itinerary-body">
+                    <div class="itinerary-row">
+                      <span class="itinerary-place">Kolding St.</span>
+                      <time class="itinerary-time itinerary-time-arrive" datetime="23:25">23:25</time>
+                    </div>
+                    <p class="itinerary-meta" data-i18n="index.travel.out.kolding.meta">Arrive track 1 · walk to bus station · FlixBus 00:35</p>
                   </div>
                 </li>
                 <li class="itinerary-leg itinerary-leg-bus itinerary-leg-night" aria-hidden="true">
@@ -578,7 +596,7 @@
                   <span class="travel-day-track"></span>
                   <span class="travel-day-mode is-bus"><svg width="16" height="10"><use href="#icon-bus"/></svg></span>
                 </span>
-                <span class="sch-what-text" data-i18n-html="index.program.nl.row.travel.programme"><span class="type-pill type-bus">Travel</span> <a href="https://maps.app.goo.gl/iVmWjbJtJS8Xv3MV6" target="_blank" rel="noopener noreferrer">Viborg Station</a> <strong>20:45</strong> · train Aarhus · Kolding · FlixBus → Sloterdijk <strong>09:35</strong></span>
+                <span class="sch-what-text" data-i18n-html="index.program.nl.row.travel.programme"><span class="type-pill type-bus">Travel</span> <a href="https://maps.app.goo.gl/iVmWjbJtJS8Xv3MV6" target="_blank" rel="noopener noreferrer">Viborg Station</a> <strong>19:45</strong> · train <strong>20:00</strong> → Aarhus → Fredericia → Kolding <strong>23:25</strong> · FlixBus <strong>00:35</strong> → Sloterdijk <strong>09:35</strong></span>
               </span>
             </div>
             <div class="schedule-row is-nl is-arrive" role="row" data-type="arrive">
@@ -1094,7 +1112,7 @@
     </div>
   </footer>
 
-  <script src="i18n.js?v=20261031f"></script>
+  <script src="i18n.js?v=20261104a"></script>
   <script src="script.js?v=20261017k"></script>
 </body>
 </html>
