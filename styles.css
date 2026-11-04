@@ -2116,9 +2116,9 @@ body.nav-open .menu-bars::after {
 .itinerary-row {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 0.35rem 0.75rem;
+  gap: 0.45rem 0.85rem;
 }
 
 .itinerary-place {
@@ -2129,6 +2129,7 @@ body.nav-open .menu-bars::after {
   line-height: 1.25;
   color: var(--ink);
   text-decoration: none;
+  padding-top: 0.15rem;
 }
 
 a.itinerary-place:hover {
@@ -2136,33 +2137,85 @@ a.itinerary-place:hover {
   text-decoration: underline;
 }
 
-.itinerary-time,
-.itinerary-times {
+.itinerary-clock {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.4rem;
+}
+
+.itinerary-clock-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.08rem;
+  min-width: 3.6rem;
+  padding: 0.28rem 0.5rem;
+  border-radius: 8px;
+  background: rgba(20, 33, 43, 0.05);
+  border: 1px solid rgba(20, 33, 43, 0.06);
+}
+
+.itinerary-clock-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1;
+}
+
+.itinerary-clock-item time {
   font-family: var(--font-body);
-  font-size: 0.92rem;
+  font-size: 1rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.01em;
   color: var(--ink);
-  white-space: nowrap;
+  line-height: 1.15;
 }
 
-.itinerary-times {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.28rem;
+.itinerary-clock-item.is-arrive {
+  background: rgba(26, 95, 138, 0.08);
+  border-color: rgba(26, 95, 138, 0.12);
 }
 
-.itinerary-times-sep {
-  color: var(--muted);
-  font-weight: 600;
+.itinerary-clock-item.is-arrive .itinerary-clock-label {
+  color: var(--sea-mid);
 }
 
-.itinerary-time-arrive {
+.itinerary-clock-item.is-depart {
+  background: rgba(227, 111, 30, 0.12);
+  border-color: rgba(227, 111, 30, 0.2);
+  box-shadow: 0 0 0 1px rgba(227, 111, 30, 0.08);
+}
+
+.itinerary-clock-item.is-depart .itinerary-clock-label {
   color: #b45812;
 }
 
-.travel-route-home .itinerary-time-arrive {
+.itinerary-clock-item.is-depart time {
+  color: #9a4a0f;
+  font-size: 1.08rem;
+}
+
+.travel-route-home .itinerary-clock-item.is-depart {
+  background: rgba(200, 16, 46, 0.1);
+  border-color: rgba(200, 16, 46, 0.18);
+  box-shadow: none;
+}
+
+.travel-route-home .itinerary-clock-item.is-depart .itinerary-clock-label,
+.travel-route-home .itinerary-clock-item.is-depart time {
+  color: var(--dk-red);
+}
+
+.travel-route-home .itinerary-clock-item.is-arrive {
+  background: rgba(200, 16, 46, 0.07);
+  border-color: rgba(200, 16, 46, 0.12);
+}
+
+.travel-route-home .itinerary-clock-item.is-arrive .itinerary-clock-label {
   color: var(--dk-red);
 }
 
@@ -2215,6 +2268,20 @@ a.itinerary-place:hover {
     rgba(26, 95, 138, 0.4) 0 5px,
     transparent 5px 9px
   );
+}
+
+.itinerary-leg-walk .itinerary-leg-line {
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(61, 122, 74, 0.4) 0 4px,
+    transparent 4px 8px
+  );
+}
+
+.itinerary-leg-walk .itinerary-leg-chip {
+  color: #2f6b3c;
+  background: rgba(61, 122, 74, 0.12);
+  border-color: rgba(61, 122, 74, 0.18);
 }
 
 .itinerary-leg-bus .itinerary-leg-line {
