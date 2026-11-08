@@ -1,3 +1,5 @@
+import { groupTicketsByJourney } from "./ticket-journeys.mjs?v=20261108c";
+
 (() => {
   "use strict";
 
@@ -182,27 +184,37 @@
       fragment.append(element("p", "tickets-empty", text("tickets.empty")));
     }
     directions.forEach((direction) => {
-      const group = tickets.filter((ticket) => ticket.direction === direction);
-      if (!group.length) return;
+      const journeys = groupTicketsByJourney(tickets.filter((ticket) => ticket.direction === direction));
+      if (!journeys.length) return;
       const section = element("section", "tickets-section");
       const heading = element("h2", "", text(`tickets.section.${direction}`));
       heading.id = `tickets-${direction}`;
       section.setAttribute("aria-labelledby", heading.id);
       section.append(heading);
       const grid = element("div", "tickets-grid");
-      group.forEach((ticket) => {
+      journeys.forEach((journey) => {
         const card = element("article", "ticket-card");
         const meta = element("div", "ticket-meta");
-        meta.append(element("span", "ticket-kind", text(`tickets.kind.${ticket.kind}`)));
-        meta.append(element("span", "", text("tickets.meta.passengers", { n: ticket.passengers })));
-        const title = localized(ticket.title);
-        const link = element("a", "btn btn-primary tickets-download", text("tickets.download"));
-        link.href = `/api/tickets/files/${encodeURIComponent(ticket.filename)}`;
-        link.download = ticket.filename;
-        link.setAttribute("aria-label", `${text("tickets.download")}: ${title}`);
-        link.addEventListener("click", (event) => downloadTicket(event, ticket));
-        card.append(meta, element("h3", "ticket-title", title),
-          element("p", "ticket-description", localized(ticket.description)), link);
+        meta.append(element("strong", "ticket-total", text("tickets.journey.total", { n: journey.passengers })));
+        meta.append(element("span", "ticket-kind", text("tickets.journey.files", { n: journey.tickets.length })));
+        card.append(meta, element("h3", "ticket-title", text(`tickets.journey.${direction}.title`)),
+          element("p", "ticket-description", text(`tickets.journey.${direction}.description`)));
+        const documents = element("ul", "ticket-documents");
+        journey.tickets.forEach((ticket) => {
+          const document = element("li", "ticket-document");
+          const copy = element("div", "ticket-document-copy");
+          const title = localized(ticket.title);
+          copy.append(element("h4", "ticket-document-title", title),
+            element("p", "ticket-document-description", localized(ticket.description)));
+          const link = element("a", "btn btn-primary tickets-download", text("tickets.download"));
+          link.href = `/api/tickets/files/${encodeURIComponent(ticket.filename)}`;
+          link.download = ticket.filename;
+          link.setAttribute("aria-label", `${text("tickets.download")}: ${title}`);
+          link.addEventListener("click", (event) => downloadTicket(event, ticket));
+          document.append(copy, link);
+          documents.append(document);
+        });
+        card.append(documents);
         grid.append(card);
       });
       section.append(grid);

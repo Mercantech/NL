@@ -131,7 +131,6 @@
 
 .tickets-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
   gap: 1rem;
 }
 
@@ -177,7 +176,61 @@
 
 .tickets-download {
   align-self: start;
-  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.ticket-total {
+  color: var(--ink);
+  font-size: 1.05rem;
+}
+
+.ticket-documents {
+  display: grid;
+  gap: 0;
+  padding: 0;
+  margin: 0.25rem 0 0;
+  list-style: none;
+}
+
+.ticket-document {
+  display: flex;
+  align-items: start;
+  gap: 1.25rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid rgba(20, 33, 43, 0.12);
+}
+
+.ticket-document-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.ticket-document-title {
+  margin: 0 0 0.3rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.ticket-document-description {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.y26-stat.y26-stat-cyber strong {
+  color: #6b37a8;
+}
+
+.y26-tag.y26-tag-cyber {
+  background: #efe6fc;
+  color: #542581;
+}
+
+@media (max-width: 560px) {
+  .ticket-document {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
 }
 
 .tickets-empty {

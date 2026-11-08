@@ -3,7 +3,7 @@ FROM nginx:1.27-alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY index.html qa.html pakkeliste.html previous-years.html learning-objectives.html 2026.html styles.css script.js i18n.js favicon.png favicon-32.png apple-touch-icon.png /usr/share/nginx/html/
 COPY media /usr/share/nginx/html/media
-COPY billetter.html billetter.js /usr/share/nginx/html/
+COPY billetter.html billetter.js ticket-journeys.mjs /usr/share/nginx/html/
 
 # wget is available in alpine nginx image for healthchecks
 RUN apk add --no-cache wget
