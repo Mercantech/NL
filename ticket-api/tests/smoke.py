@@ -19,10 +19,12 @@ DLL = PROJECT / "bin/Release/net10.0/TicketApi.dll"
 ORIGIN = "https://tickets.example.test"
 
 
-def make_archive(corrupt_hash=False, unsafe_name=False, replacement=False):
+def make_archive(corrupt_hash=False, unsafe_name=False, replacement=False, ticket_count=10,
+                 include_journeys=False, unlisted_file=False, inconsistent_journey=False,
+                 duplicate_journey=False, invalid_journey_date=False):
     files = {}
     tickets = []
-    for number in range(10):
+    for number in range(ticket_count):
         name = f"2026-11-14-test-ticket-{number}.pdf"
         payload = b"%PDF-1.7\n" + f"test {number} replacement={replacement}".encode()
         files[name] = payload
@@ -33,12 +35,30 @@ def make_archive(corrupt_hash=False, unsafe_name=False, replacement=False):
             "direction": "outbound", "kind": "ticket", "passengers": 1,
             "sha256": hashlib.sha256(payload).hexdigest(),
         })
+        if include_journeys:
+            tickets[-1]["journeys"] = [{"id": "train-outbound", "direction": "outbound",
+                                        "date": "2026-11-14", "mode": "train"}]
+    if include_journeys and tickets:
+        # One original PDF can be linked to both bus journeys without being duplicated in storage.
+        tickets[-1]["direction"] = "roundtrip"
+        tickets[-1]["journeys"] = [
+            {"id": "bus-outbound", "direction": "outbound", "date": "2026-11-15", "mode": "bus"},
+            {"id": "bus-return", "direction": "return", "date": "2026-11-26", "mode": "bus"},
+        ]
+    if inconsistent_journey:
+        tickets[1]["journeys"][0]["date"] = "2026-11-15"
+    if duplicate_journey:
+        tickets[0]["journeys"].append(dict(tickets[0]["journeys"][0]))
+    if invalid_journey_date:
+        tickets[0]["journeys"][0]["date"] = "2026-02-30"
     if corrupt_hash:
         tickets[0]["sha256"] = "0" * 64
     if unsafe_name:
         payload = files.pop(tickets[0]["filename"])
         tickets[0]["filename"] = "../escape.pdf"
         files["../escape.pdf"] = payload
+    if unlisted_file:
+        files["unlisted.pdf"] = b"%PDF-1.7\nnot listed"
     stream = io.BytesIO()
     with zipfile.ZipFile(stream, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         archive.writestr("manifest.json", json.dumps({"tickets": tickets}))
@@ -138,15 +158,37 @@ def main():
             assert request("/api/tickets/files/missing.pdf", cookie=cookie)[0] == 404
             for path in ["/api/tickets/files/..%2factive-generation", "/api/tickets/files/%2e%2e%252factive-generation"]:
                 assert request(path, cookie=cookie)[0] == 404
-            for invalid_archive in [b"not-a-zip", make_archive(corrupt_hash=True)[0], make_archive(unsafe_name=True)[0]]:
+            for invalid_archive in [b"not-a-zip", make_archive(corrupt_hash=True)[0],
+                                    make_archive(unsafe_name=True)[0], make_archive(unlisted_file=True)[0],
+                                    make_archive(ticket_count=0)[0], make_archive(ticket_count=51)[0],
+                                    make_archive(include_journeys=True, inconsistent_journey=True)[0],
+                                    make_archive(include_journeys=True, duplicate_journey=True)[0],
+                                    make_archive(include_journeys=True, invalid_journey_date=True)[0]]:
                 assert request("/api/tickets/admin/import", "POST", invalid_archive, upload_headers)[0] == 400
             assert request("/api/tickets/files/" + next(iter(files)), cookie=cookie)[2] == next(iter(files.values()))
 
-            replacement, replacement_files = make_archive(replacement=True)
+            # Existing ten-file generations remain readable after a restart with the extended schema.
+            stop()
+            start()
+            legacy_manifest = json.loads(request("/api/tickets/manifest", cookie=cookie)[2])
+            assert len(legacy_manifest["tickets"]) == 10
+            assert all("journeys" not in ticket for ticket in legacy_manifest["tickets"])
+
+            for count in [1, 50]:
+                boundary_archive, _ = make_archive(ticket_count=count)
+                status, _, body = request("/api/tickets/admin/import", "POST", boundary_archive, upload_headers)
+                assert status == 200 and json.loads(body) == {"imported": count}
+                assert len(json.loads(request("/api/tickets/manifest", cookie=cookie)[2])["tickets"]) == count
+
+            replacement, replacement_files = make_archive(replacement=True, ticket_count=12, include_journeys=True)
             assert request("/api/tickets/admin/import", "POST", replacement, upload_headers)[0] == 200
             stop()
             start()
-            assert len(json.loads(request("/api/tickets/manifest", cookie=cookie)[2])["tickets"]) == 10
+            extended_manifest = json.loads(request("/api/tickets/manifest", cookie=cookie)[2])
+            assert len(extended_manifest["tickets"]) == 12
+            assert len(extended_manifest["tickets"][-1]["journeys"]) == 2
+            assert extended_manifest["tickets"][-1]["journeys"][1] == {
+                "id": "bus-return", "direction": "return", "date": "2026-11-26", "mode": "bus"}
             filename = next(iter(replacement_files))
             assert request("/api/tickets/files/" + filename, cookie=cookie)[2] == replacement_files[filename]
             assert request("/api/tickets/lock", "POST", cookie=cookie, origin="https://other.example")[0] == 403
@@ -172,7 +214,7 @@ def main():
             environment["TICKETS_ACCESS_CODE"] = secrets.token_hex(12)
             start()
             assert not json.loads(request("/api/tickets/session", cookie=cookie)[2])["authenticated"]
-            print("PASS: authorization, origins, signed cookies, protected downloads, atomic import, hashes, traversal, restart, logout and per-client rate limit")
+            print("PASS: authorization, origins, signed cookies, protected downloads, 1-50 file atomic import, legacy restart, 12-file journey metadata, unlisted-file rejection, hashes, traversal, logout and per-client rate limit")
         finally:
             stop()
 

@@ -56,11 +56,18 @@ Git eller webroden. Kvitteringer indgår ikke i billetkataloget.
 
 Billetter importeres samlet via `POST /api/tickets/admin/import` med en separat
 Bearer-administrationsnøgle og `Content-Type: application/zip`. ZIP-filen skal
-indeholde `manifest.json` og de 10 PDF'er med filnavne i roden. Manifestet har
+indeholde `manifest.json` og 1-50 PDF'er med filnavne i roden. ZIP-indholdet skal
+svare præcist til de filer, der er anført i manifestet; den samlede størrelse må
+højst være 10 MiB både komprimeret og udpakket. Manifestet har
 formen `{ "tickets": [...] }`; hver post indeholder `filename`, `title` og
 `description` (begge med `da`, `en`, `nl`), `direction` (`outbound`, `return` eller
 `roundtrip`), `kind` (`ticket` eller `reservation`), `passengers` og `sha256`.
 Importen kontrollerer filnavne, PDF-signaturer og hashes, før kataloget aktiveres.
+En valgfri `journeys`-liste på hver billet knytter den til konkrete rejser med
+`id`, `direction` (`outbound` eller `return`), `date` (`yyyy-MM-dd`) og `mode`
+(`train` eller `bus`). En tur/retur-PDF kan være knyttet til begge retninger,
+så den vises på begge rejsekort uden at kopiere eller ændre filen. Ældre
+manifestfiler uden `journeys` understøttes fortsat.
 
 Brug HTTPS også ved test af kodeadgangen, da adgangscookien altid er `Secure`.
 Rejseplanen og resten af siden er fortsat offentlige.

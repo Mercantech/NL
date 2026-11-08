@@ -29,7 +29,7 @@ Alle API-svar bruger `Cache-Control: private, no-store` og `X-Content-Type-Optio
 | `POST /api/tickets/lock` | Praecis `Origin`; sletter adgangscookien. |
 | `GET /api/tickets/manifest` | Kraever gyldig cookie; returnerer billetoversigten, ellers 401. Ingen importeret generation giver 503. |
 | `GET /api/tickets/files/{filename}` | Kraever gyldig cookie og et filnavn fra den aktive oversigt. Leverer PDF som download. Ukendt/ugyldigt filnavn giver 404. |
-| `POST /api/tickets/admin/import` | Kraever `Authorization: Bearer ...` med admin-token samt `Content-Type: application/zip`. Ingen cookie eller Origin er noedvendig for denne serveradministrative operation. Returnerer `{ "imported": 10 }`. |
+| `POST /api/tickets/admin/import` | Kraever `Authorization: Bearer ...` med admin-token samt `Content-Type: application/zip`. Ingen cookie eller Origin er noedvendig for denne serveradministrative operation. Returnerer det importerede antal, fx `{ "imported": 12 }`. |
 
 Adgangscookien er signeret med en noegle afledt af baade sessionhemmelighed og faelles kode. Rotation af en af dem ugyldiggoer eksisterende cookies.
 
@@ -37,7 +37,7 @@ Fejlgraensen bruger klient-IP'en i `X-Ticket-Client-IP`. Nginx skal altid oversk
 
 ## Billetimport
 
-ZIP-filen maa hoejst vaere 10 MiB baade komprimeret og udpakket. Den skal have praecis 11 filer direkte i roden: `manifest.json` og 10 PDF'er. Mapper, symlinks, dubletter og andre filer afvises. PDF-filnavne maa kun indeholde smaa ASCII-bogstaver, cifre og bindestreger samt endelsen `.pdf`.
+ZIP-filen maa hoejst vaere 10 MiB baade komprimeret og udpakket. Den skal have `manifest.json` og mellem 1 og 50 PDF'er direkte i roden. Filindholdet skal svare praecist til oversigten: alle anfoerte PDF'er skal findes, og ekstra filer afvises. Mapper, symlinks og dubletter afvises ogsaa. PDF-filnavne maa kun indeholde smaa ASCII-bogstaver, cifre og bindestreger samt endelsen `.pdf`.
 
 Oversigten har denne struktur:
 
@@ -51,7 +51,10 @@ Oversigten har denne struktur:
       "direction": "outbound",
       "kind": "ticket",
       "passengers": 8,
-      "sha256": "64 hextegn for den originale PDF"
+      "sha256": "64 hextegn for den originale PDF",
+      "journeys": [
+        { "id": "train-outbound", "direction": "outbound", "date": "2026-11-14", "mode": "train" }
+      ]
     }
   ]
 }
@@ -59,10 +62,20 @@ Oversigten har denne struktur:
 
 `direction` er `outbound`, `return` eller `roundtrip`; `kind` er `ticket` eller `reservation`. Alle tre sprog skal vaere udfyldt. PDF-signatur og SHA-256 valideres foer publicering. En ny generation aktiveres atomisk, saa en afbrudt/ugyldig import ikke overskriver den eksisterende samling. Tidligere generationer beholdes i det private volume, saa samtidige downloads ikke brydes.
 
+`journeys` er valgfri, saa tidligere oversigter uden feltet fortsat kan indlaeses.
+Hvis feltet er angivet, skal hver PDF have 1-4 forskellige rejsereferencer.
+Hver reference har `id` (1-80 smaa ASCII-bogstaver, cifre eller bindestreger),
+`direction` (`outbound` eller `return`), `date` (en gyldig dato i formatet
+`yyyy-MM-dd`) og `mode` (`train` eller `bus`). Samme `id` skal altid have samme
+retning, dato og transportform paa tvaers af PDF'erne. Rejsereferencens retning
+skal matche billettens `direction`, medmindre billetten er `roundtrip`.
+En tur/retur-PDF kan dermed referere til baade busudrejsen og bushjemrejsen,
+mens den originale fil kun lagres en gang.
+
 ## Lokal kontrol
 
 ```powershell
 python ticket-api/tests/smoke.py
 ```
 
-Testen bygger servicen og koerer rigtig lokal Kestrel med midlertidige hemmeligheder og testfiler. Den kontrollerer adgang, Origin, cookies, alle 10 downloads, importrettigheder, checksums, path traversal, atomisk udskiftning, genstart, logout, rotation af kode og fejlbegraensning. Den bruger ingen produktionsbilletter eller produktionshemmeligheder.
+Testen bygger servicen og koerer rigtig lokal Kestrel med midlertidige hemmeligheder og testfiler. Den kontrollerer adgang, Origin, cookies, beskyttede downloads, importrettigheder, checksums, path traversal, atomisk udskiftning, genstart, logout, rotation af kode og fejlbegraensning. Den tester ogsaa importgraenserne 1 og 50 PDF'er, tidligere 10-filoversigter, 12 PDF'er med rejsereferencer samt afvisning af ekstra filer og modstridende/ugyldige rejsedata. Den bruger ingen produktionsbilletter eller produktionshemmeligheder.

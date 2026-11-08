@@ -1,9 +1,11 @@
 using System.Collections.Concurrent;
+using System.Globalization;
 using System.IO.Compression;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 
 const int MaxArchiveBytes = 10 * 1024 * 1024;
@@ -199,13 +201,16 @@ sealed class FailedAttempts
 
 sealed record TicketManifest(List<TicketEntry> Tickets);
 sealed record TicketEntry(string Filename, Dictionary<string, string> Title,
-    Dictionary<string, string> Description, string Direction, string Kind, int Passengers, string Sha256);
+    Dictionary<string, string> Description, string Direction, string Kind, int Passengers, string Sha256,
+    [property: JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] List<TicketJourneyLink>? Journeys = null);
+sealed record TicketJourneyLink(string Id, string Direction, string Date, string Mode);
 sealed record TicketSnapshot(string Directory, TicketManifest Manifest, HashSet<string> Files);
 
 sealed class TicketStore
 {
     public static readonly JsonSerializerOptions JsonOptions = new(JsonSerializerDefaults.Web);
     private const int Limit = 10 * 1024 * 1024;
+    private const int MaxTickets = 50;
     private readonly string root;
     private readonly SemaphoreSlim importLock = new(1, 1);
     private TicketSnapshot? current;
@@ -235,7 +240,7 @@ sealed class TicketStore
     public async Task<int> Import(Stream stream, CancellationToken cancellationToken)
     {
         using var archive = new ZipArchive(stream, ZipArchiveMode.Read, leaveOpen: true);
-        if (archive.Entries.Count != 11 || archive.Entries.Sum(entry => entry.Length) > Limit)
+        if (archive.Entries.Count is < 2 or > MaxTickets + 1 || archive.Entries.Sum(entry => entry.Length) > Limit)
             throw new InvalidDataException("Invalid archive size.");
         var entries = new Dictionary<string, ZipArchiveEntry>(StringComparer.Ordinal);
         foreach (var entry in archive.Entries)
@@ -250,6 +255,10 @@ sealed class TicketStore
         var manifest = JsonSerializer.Deserialize<TicketManifest>(manifestBytes, JsonOptions)
             ?? throw new InvalidDataException("Missing manifest.");
         ValidateManifest(manifest);
+        var expectedFiles = manifest.Tickets.Select(ticket => ticket.Filename).ToHashSet(StringComparer.Ordinal);
+        if (entries.Count != expectedFiles.Count + 1 ||
+            entries.Keys.Any(filename => filename != "manifest.json" && !expectedFiles.Contains(filename)))
+            throw new InvalidDataException("Archive contents do not match the manifest.");
 
         var validated = new Dictionary<string, byte[]>(StringComparer.Ordinal);
         foreach (var ticket in manifest.Tickets)
@@ -302,8 +311,10 @@ sealed class TicketStore
 
     private static void ValidateManifest(TicketManifest manifest)
     {
-        if (manifest.Tickets is null || manifest.Tickets.Count != 10) throw new InvalidDataException("Expected ten tickets.");
+        if (manifest.Tickets is null || manifest.Tickets.Count is < 1 or > MaxTickets)
+            throw new InvalidDataException("Expected between one and fifty tickets.");
         var names = new HashSet<string>(StringComparer.Ordinal);
+        var journeys = new Dictionary<string, TicketJourneyLink>(StringComparer.Ordinal);
         foreach (var ticket in manifest.Tickets)
         {
             if (ticket is null || !ValidFilename(ticket.Filename) || !names.Add(ticket.Filename) ||
@@ -312,6 +323,22 @@ sealed class TicketStore
                 ticket.Sha256 is null || !Regex.IsMatch(ticket.Sha256, "^[a-fA-F0-9]{64}$", RegexOptions.CultureInvariant) ||
                 !ValidLocalized(ticket.Title, 300) || !ValidLocalized(ticket.Description, 2000))
                 throw new InvalidDataException("Invalid ticket metadata.");
+            if (ticket.Journeys is null) continue;
+            if (ticket.Journeys.Count is < 1 or > 4) throw new InvalidDataException("Invalid journey links.");
+            var ticketJourneyIds = new HashSet<string>(StringComparer.Ordinal);
+            foreach (var journey in ticket.Journeys)
+            {
+                if (journey is null || journey.Id is null || journey.Id.Length > 80 ||
+                    !Regex.IsMatch(journey.Id, "^[a-z0-9][a-z0-9-]*$", RegexOptions.CultureInvariant) ||
+                    !ticketJourneyIds.Add(journey.Id) || journey.Direction is not ("outbound" or "return") ||
+                    journey.Mode is not ("train" or "bus") ||
+                    !DateOnly.TryParseExact(journey.Date, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out _) ||
+                    (ticket.Direction != "roundtrip" && ticket.Direction != journey.Direction))
+                    throw new InvalidDataException("Invalid journey metadata.");
+                if (journeys.TryGetValue(journey.Id, out var existing) && existing != journey)
+                    throw new InvalidDataException("Conflicting journey metadata.");
+                journeys[journey.Id] = journey;
+            }
         }
     }
 

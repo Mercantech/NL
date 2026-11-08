@@ -1,4 +1,4 @@
-import { groupTicketsByJourney } from "./ticket-journeys.mjs?v=20261108c";
+import { groupTicketsByJourney } from "./ticket-journeys.mjs?v=20261108g";
 
 (() => {
   "use strict";
@@ -114,6 +114,7 @@ import { groupTicketsByJourney } from "./ticket-journeys.mjs?v=20261108c";
   function validateTickets(value) {
     if (!value || !Array.isArray(value.tickets) || value.tickets.length > 100) return null;
     const filenames = new Set();
+    const journeys = new Map();
     for (const ticket of value.tickets) {
       if (!ticket || typeof ticket.filename !== "string" ||
           !/^[a-z0-9][a-z0-9._-]*\.pdf$/.test(ticket.filename) ||
@@ -124,6 +125,21 @@ import { groupTicketsByJourney } from "./ticket-journeys.mjs?v=20261108c";
           !validLocalized(ticket.title, 300) || !validLocalized(ticket.description, 1500) ||
           typeof ticket.sha256 !== "string" || !/^[a-f0-9]{64}$/.test(ticket.sha256)) {
         return null;
+      }
+      if (ticket.journeys != null) {
+        if (!Array.isArray(ticket.journeys) || ticket.journeys.length < 1 || ticket.journeys.length > 4) return null;
+        const ids = new Set();
+        for (const journey of ticket.journeys) {
+          if (!journey || typeof journey.id !== "string" || !/^[a-z0-9][a-z0-9-]{0,79}$/.test(journey.id) ||
+              ids.has(journey.id) || !["outbound", "return"].includes(journey.direction) ||
+              !["train", "bus"].includes(journey.mode) || typeof journey.date !== "string" ||
+              !/^\d{4}-\d{2}-\d{2}$/.test(journey.date) || !Number.isFinite(Date.parse(journey.date)) ||
+              new Date(journey.date).toISOString().slice(0, 10) !== journey.date) return null;
+          const signature = JSON.stringify([journey.direction, journey.date, journey.mode]);
+          if (journeys.has(journey.id) && journeys.get(journey.id) !== signature) return null;
+          journeys.set(journey.id, signature);
+          ids.add(journey.id);
+        }
       }
       filenames.add(ticket.filename);
     }
@@ -184,7 +200,7 @@ import { groupTicketsByJourney } from "./ticket-journeys.mjs?v=20261108c";
       fragment.append(element("p", "tickets-empty", text("tickets.empty")));
     }
     directions.forEach((direction) => {
-      const journeys = groupTicketsByJourney(tickets.filter((ticket) => ticket.direction === direction));
+      const journeys = groupTicketsByJourney(tickets).filter((journey) => journey.direction === direction);
       if (!journeys.length) return;
       const section = element("section", "tickets-section");
       const heading = element("h2", "", text(`tickets.section.${direction}`));
@@ -197,8 +213,11 @@ import { groupTicketsByJourney } from "./ticket-journeys.mjs?v=20261108c";
         const meta = element("div", "ticket-meta");
         meta.append(element("strong", "ticket-total", text("tickets.journey.total", { n: journey.passengers })));
         meta.append(element("span", "ticket-kind", text(journey.tickets.length === 1 ? "tickets.journey.file" : "tickets.journey.files", { n: journey.tickets.length })));
-        card.append(meta, element("h3", "ticket-title", text(`tickets.journey.${direction}.title`)),
-          element("p", "ticket-description", text(`tickets.journey.${direction}.description`)));
+        const label = journey.mode === "bus" && direction !== "roundtrip" ? `bus.${direction}` : direction;
+        card.dataset.mode = journey.mode;
+        card.dataset.direction = direction;
+        card.append(meta, element("h3", "ticket-title", text(`tickets.journey.${label}.title`)),
+          element("p", "ticket-description", text(`tickets.journey.${label}.description`)));
         const documents = element("ul", "ticket-documents");
         journey.tickets.forEach((ticket) => {
           const document = element("li", "ticket-document");

@@ -30,3 +30,30 @@ test("journeys on different dates are kept apart and reservations alone add no t
     ticket("2026-11-21", "second", 5), ticket("2026-11-26", "seats", 3, "reservation")]);
   assert.deepEqual(journeys.map(({ passengers }) => passengers), [8, 5, 0]);
 });
+
+test("one roundtrip supplement contributes two people to each bus journey, while trains stay separate", () => {
+  const outbound = { id: "bus-outbound-2026-11-15", direction: "outbound", date: "2026-11-15", mode: "bus" };
+  const home = { id: "bus-return-2026-11-26", direction: "return", date: "2026-11-26", mode: "bus" };
+  const supplement = { ...ticket("2026-11-15", "supplement", 2, "ticket", "roundtrip"), journeys: [outbound, home] };
+  const files = [ticket("2026-11-14", "train-outbound", 20),
+    ticket("2026-11-27", "train-home", 17, "ticket", "return"), supplement,
+    { ...ticket("2026-11-15", "main-bus-outbound", 18), journeys: [outbound] },
+    { ...ticket("2026-11-26", "main-bus-home", 15, "ticket", "return"), journeys: [home] }];
+  const journeys = groupTicketsByJourney(files);
+  assert.equal(journeys.length, 4);
+  const buses = journeys.filter(({ mode }) => mode === "bus");
+  assert.deepEqual(buses.map(({ passengers }) => passengers), [20, 17]);
+  assert.deepEqual(buses.map(({ tickets }) => tickets.length), [2, 2]);
+  for (const bus of buses) {
+    assert.equal(bus.tickets.filter(({ filename }) => filename === supplement.filename).length, 1);
+    assert.ok(bus.tickets[0].passengers > 2, "main booking should appear before the supplement");
+  }
+  assert.deepEqual(journeys.filter(({ mode }) => mode === "train").map(({ passengers }) => passengers), [20, 17]);
+});
+
+test("a repeated journey reference cannot double count a passenger or a PDF", () => {
+  const journey = { id: "same-bus", direction: "outbound", date: "2026-11-15", mode: "bus" };
+  const [group] = groupTicketsByJourney([{ ...ticket("2026-11-15", "extra", 2), journeys: [journey, journey] }]);
+  assert.equal(group.passengers, 2);
+  assert.equal(group.tickets.length, 1);
+});
