@@ -45,6 +45,8 @@ Sæt evt. `FRONTEND_DOMAIN` i miljøet (se `.env.example`). Router-navn: `mercan
 `ticket-api/` er en intern .NET-tjeneste. Nginx proxyer kun `/api/tickets/*` til
 `ticket-api:8080` på det private Compose-netværk. API'en har ingen offentlig port
 og er ikke tilsluttet `dokploy-network`.
+`NL_PRIVATE_SUBNET` vælger et lille, ledigt subnet til dette private netværk,
+så deploy ikke afhænger af serverens opbrugte standardpulje.
 
 Sæt `TICKETS_ACCESS_CODE`, `TICKETS_ADMIN_TOKEN`, `TICKETS_SESSION_SECRET` og
 `TICKETS_PUBLIC_ORIGIN` i Dokploy eller en lokal, ignoreret `.env`. Koden er fælles

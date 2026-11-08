@@ -51,6 +51,10 @@ services:
       - ticket-data:/data/tickets
 
 networks:
+  default:
+    ipam:
+      config:
+        - subnet: ${NL_PRIVATE_SUBNET:?Set an unused small subnet in Dokploy}
   dokploy-network:
     external: true
 
