@@ -196,7 +196,7 @@ import { groupTicketsByJourney } from "./ticket-journeys.mjs?v=20261108c";
         const card = element("article", "ticket-card");
         const meta = element("div", "ticket-meta");
         meta.append(element("strong", "ticket-total", text("tickets.journey.total", { n: journey.passengers })));
-        meta.append(element("span", "ticket-kind", text("tickets.journey.files", { n: journey.tickets.length })));
+        meta.append(element("span", "ticket-kind", text(journey.tickets.length === 1 ? "tickets.journey.file" : "tickets.journey.files", { n: journey.tickets.length })));
         card.append(meta, element("h3", "ticket-title", text(`tickets.journey.${direction}.title`)),
           element("p", "ticket-description", text(`tickets.journey.${direction}.description`)));
         const documents = element("ul", "ticket-documents");
