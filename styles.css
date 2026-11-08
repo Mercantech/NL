@@ -17,6 +17,173 @@
   --max: 1120px;
 }
 
+/* Protected travel documents */
+.travel-tickets-link {
+  margin: 0 0 2rem;
+}
+
+.travel-tickets-link p {
+  margin: 0.6rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.tickets-hero {
+  padding: 4rem 0 2rem;
+}
+
+.tickets-hero h1 {
+  margin: 0.4rem 0 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  line-height: 1.12;
+}
+
+.page-tickets [hidden] {
+  display: none !important;
+}
+
+.tickets-access {
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  background: var(--white);
+  border: 1px solid rgba(20, 33, 43, 0.12);
+  border-radius: 1rem;
+  box-shadow: 0 14px 35px rgba(20, 33, 43, 0.06);
+}
+
+.tickets-access h2 {
+  margin-top: 0;
+  font-family: var(--font-display);
+}
+
+.tickets-form {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1.3rem;
+}
+
+.tickets-field {
+  display: grid;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+
+.tickets-field input {
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0.75rem 0.9rem;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid #8799a6;
+  border-radius: 0.5rem;
+  font: inherit;
+}
+
+.tickets-field input:focus-visible,
+.page-tickets button:focus-visible,
+.page-tickets a:focus-visible {
+  outline: 3px solid var(--sea-mid);
+  outline-offset: 3px;
+}
+
+.tickets-form .btn {
+  justify-self: start;
+}
+
+.tickets-form button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.tickets-status {
+  max-width: 48rem;
+  margin: 1rem auto;
+  padding: 0.8rem 1rem;
+  color: var(--ink);
+  background: var(--white);
+  border-left: 4px solid var(--nl-orange);
+  border-radius: 0.35rem;
+}
+
+.tickets-status:empty {
+  display: none;
+}
+
+.tickets-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.tickets-toolbar h2,
+.tickets-section h2 {
+  font-family: var(--font-display);
+}
+
+.tickets-section + .tickets-section {
+  margin-top: 2.5rem;
+}
+
+.tickets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  gap: 1rem;
+}
+
+.ticket-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.4rem;
+  background: var(--white);
+  border: 1px solid rgba(20, 33, 43, 0.12);
+  border-radius: 0.9rem;
+  box-shadow: 0 7px 22px rgba(20, 33, 43, 0.04);
+}
+
+.ticket-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.ticket-kind {
+  padding: 0.2rem 0.55rem;
+  border-radius: 1rem;
+  background: var(--foam);
+  color: var(--sea);
+  font-weight: 600;
+}
+
+.ticket-title {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.45;
+}
+
+.ticket-description {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.tickets-download {
+  align-self: start;
+  margin-top: auto;
+}
+
+.tickets-empty {
+  color: var(--muted);
+}
+
 *,
 *::before,
 *::after {

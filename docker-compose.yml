@@ -5,7 +5,7 @@
 #   2. Tunnel ingress: *.mercantec.tech → http://localhost:80
 #   3. Traefik (Dokploy): Host(`nl.mercantec.tech`) → container-port 80
 #
-# Statisk site — kun frontend eksponeret via Traefik.
+# Kun frontend eksponeres via Traefik. Billetter leveres af en privat API.
 #
 # Lokal udvikling med host-porte:
 #   docker compose -f docker-compose.local.yml up --build
@@ -16,7 +16,10 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
+    depends_on:
+      - ticket-api
     networks:
+      - default
       - dokploy-network
     labels:
       - traefik.enable=true
@@ -32,6 +35,24 @@ services:
       retries: 6
       start_period: 10s
 
+  ticket-api:
+    build:
+      context: ./ticket-api
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      TICKETS_ACCESS_CODE: ${TICKETS_ACCESS_CODE:?Set TICKETS_ACCESS_CODE in Dokploy}
+      TICKETS_ADMIN_TOKEN: ${TICKETS_ADMIN_TOKEN:?Set TICKETS_ADMIN_TOKEN in Dokploy}
+      TICKETS_SESSION_SECRET: ${TICKETS_SESSION_SECRET:?Set TICKETS_SESSION_SECRET in Dokploy}
+      TICKETS_PUBLIC_ORIGIN: ${TICKETS_PUBLIC_ORIGIN:?Set TICKETS_PUBLIC_ORIGIN in Dokploy}
+      TICKETS_DATA_PATH: /data/tickets
+    volumes:
+      - ticket-data:/data/tickets
+
 networks:
   dokploy-network:
     external: true
+
+volumes:
+  ticket-data:

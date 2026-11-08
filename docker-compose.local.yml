@@ -12,6 +12,8 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
+    depends_on:
+      - ticket-api
     ports:
       - "${LOCAL_PORT:-8080}:80"
     healthcheck:
@@ -20,3 +22,21 @@ services:
       timeout: 5s
       retries: 6
       start_period: 10s
+
+  ticket-api:
+    build:
+      context: ./ticket-api
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      TICKETS_ACCESS_CODE: ${TICKETS_ACCESS_CODE:?Set TICKETS_ACCESS_CODE in .env}
+      TICKETS_ADMIN_TOKEN: ${TICKETS_ADMIN_TOKEN:?Set TICKETS_ADMIN_TOKEN in .env}
+      TICKETS_SESSION_SECRET: ${TICKETS_SESSION_SECRET:?Set TICKETS_SESSION_SECRET in .env}
+      TICKETS_PUBLIC_ORIGIN: ${TICKETS_PUBLIC_ORIGIN:?Set the HTTPS origin in .env}
+      TICKETS_DATA_PATH: /data/tickets
+    volumes:
+      - ticket-data:/data/tickets
+
+volumes:
+  ticket-data:

@@ -10,3 +10,7 @@ Dockerfile
 *.md
 .DS_Store
 Thumbs.db
+**/bin
+**/obj
+private-data
+ticket-import*.zip
