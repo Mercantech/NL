@@ -1,4 +1,4 @@
-import { groupTicketsByJourney } from "./ticket-journeys.mjs?v=20261108g";
+import { groupTicketsByJourney } from "./ticket-journeys.mjs?v=20261108h";
 
 (() => {
   "use strict";
@@ -15,6 +15,11 @@ import { groupTicketsByJourney } from "./ticket-journeys.mjs?v=20261108g";
   const retryButton = document.querySelector("[data-tickets-retry]");
   const list = document.querySelector("[data-tickets-list]");
   const directions = ["outbound", "return", "roundtrip"];
+  const routeLabels = new Map([
+    ["train-viborg-kolding", "train.viborgKolding"],
+    ["train-aarhus-kolding", "train.aarhusKolding"],
+    ["train-aarhus-kolding-seat-reservations", "train.aarhusKoldingSeats"],
+  ]);
   const downloadUrls = new Set();
 
   let tickets = [];
@@ -211,11 +216,15 @@ import { groupTicketsByJourney } from "./ticket-journeys.mjs?v=20261108g";
       journeys.forEach((journey) => {
         const card = element("article", "ticket-card");
         const meta = element("div", "ticket-meta");
-        meta.append(element("strong", "ticket-total", text("tickets.journey.total", { n: journey.passengers })));
+        const reservationsOnly = journey.tickets.every((ticket) => ticket.kind === "reservation");
+        meta.append(element("strong", "ticket-total", text(reservationsOnly ? "tickets.journey.seats" : "tickets.journey.total",
+          { n: reservationsOnly ? journey.reservedSeats : journey.passengers })));
         meta.append(element("span", "ticket-kind", text(journey.tickets.length === 1 ? "tickets.journey.file" : "tickets.journey.files", { n: journey.tickets.length })));
-        const label = journey.mode === "bus" && direction !== "roundtrip" ? `bus.${direction}` : direction;
+        const route = journey.id.replace(/-\d{4}-\d{2}-\d{2}$/, "");
+        const label = routeLabels.get(route) || (journey.mode === "bus" && direction !== "roundtrip" ? `bus.${direction}` : direction);
         card.dataset.mode = journey.mode;
         card.dataset.direction = direction;
+        card.dataset.journey = journey.id;
         card.append(meta, element("h3", "ticket-title", text(`tickets.journey.${label}.title`)),
           element("p", "ticket-description", text(`tickets.journey.${label}.description`)));
         const documents = element("ul", "ticket-documents");

@@ -13,12 +13,13 @@ export function groupTicketsByJourney(tickets) {
     }];
     for (const link of links) {
       if (!groups.has(link.id)) {
-        groups.set(link.id, { ...link, tickets: [], passengers: 0 });
+        groups.set(link.id, { ...link, tickets: [], passengers: 0, reservedSeats: 0 });
       }
       const journey = groups.get(link.id);
       if (journey.tickets.some((item) => item.filename === ticket.filename)) continue;
       journey.tickets.push(ticket);
       if (ticket.kind === "ticket") journey.passengers += ticket.passengers;
+      else if (ticket.kind === "reservation") journey.reservedSeats += ticket.passengers;
     }
   }
   return [...groups.values()].map((journey) => ({

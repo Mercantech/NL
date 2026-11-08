@@ -57,3 +57,29 @@ test("a repeated journey reference cannot double count a passenger or a PDF", ()
   assert.equal(group.passengers, 2);
   assert.equal(group.tickets.length, 1);
 });
+
+test("Viborg tickets form one 17-person card with exactly three PDFs, apart from Aarhus and seat reservations", () => {
+  const journey = (route) => ({ id: `train-${route}-2026-11-14`, direction: "outbound", date: "2026-11-14", mode: "train" });
+  const viborg = journey("viborg-kolding");
+  const aarhus = journey("aarhus-kolding");
+  const seats = journey("aarhus-kolding-seat-reservations");
+  const files = [
+    { ...ticket("2026-11-14", "viborg-group-1", 8), journeys: [viborg] },
+    { ...ticket("2026-11-14", "viborg-group-2", 8), journeys: [viborg] },
+    { ...ticket("2026-11-14", "viborg-extra", 1), journeys: [viborg] },
+    { ...ticket("2026-11-14", "aarhus", 3), journeys: [aarhus] },
+    { ...ticket("2026-11-14", "seats-15", 15, "reservation"), journeys: [seats] },
+    { ...ticket("2026-11-14", "seats-1", 1, "reservation"), journeys: [seats] },
+  ];
+  const journeys = groupTicketsByJourney(files);
+  const groupedViborg = journeys.find(({ id }) => id === viborg.id);
+  assert.equal(groupedViborg.passengers, 17);
+  assert.equal(groupedViborg.tickets.length, 3);
+  assert.deepEqual(groupedViborg.tickets.map(({ filename }) => filename), files.slice(0, 3).map(({ filename }) => filename));
+  assert.equal(journeys.find(({ id }) => id === aarhus.id).passengers, 3);
+  const groupedSeats = journeys.find(({ id }) => id === seats.id);
+  assert.equal(groupedSeats.passengers, 0);
+  assert.equal(groupedSeats.reservedSeats, 16);
+  assert.equal(groupedSeats.tickets.length, 2);
+  assert.equal(journeys.reduce((sum, group) => sum + group.passengers, 0), 20);
+});
