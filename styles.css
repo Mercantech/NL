@@ -1285,6 +1285,16 @@ body.nav-open .menu-bars::after {
   gap: 0.75rem;
 }
 
+[data-pwa-install][hidden] {
+  display: none;
+}
+
+.pwa-note {
+  max-width: 34rem;
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;

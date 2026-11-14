@@ -84,6 +84,10 @@
 
   var STRINGS = {
     en:     {
+      "pwa.install": "Install app",
+      "pwa.instructions": "On iPhone, open the Share menu and choose Add to Home Screen, then Open as Web App. In Chrome or Edge, use Install app in the browser menu.",
+      "pwa.ready": "Travel information is ready offline.",
+      "pwa.tickets": "Download your ticket PDFs before you go offline. Open the downloaded files from your device during the trip.",
       "tickets.meta.title": "Tickets — NL ↔ DK Exchange",
       "tickets.meta.description": "Download travel tickets and seat reservations for the Helmond exchange.",
       "shared.nav.tickets": "Tickets",
@@ -562,6 +566,10 @@
       "years.year.label": "Exchange",
     },
     da:     {
+      "pwa.install": "Installér appen",
+      "pwa.instructions": "På iPhone vælger du Føj til hjemmeskærm i Del-menuen og slår Åbn som webapp til. I Chrome eller Edge vælger du Installér appen i browserens menu.",
+      "pwa.ready": "Rejseinformationen er klar til brug offline.",
+      "pwa.tickets": "Hent dine billetter som PDF, mens du har net. Under rejsen kan du åbne de hentede filer direkte fra din enhed.",
       "tickets.meta.title": "Billetter — NL ↔ DK Udveksling",
       "tickets.meta.description": "Hent rejsebilletter og pladsreservationer til Helmond-turen.",
       "shared.nav.tickets": "Billetter",
@@ -1040,6 +1048,10 @@
       "years.year.label": "Udveksling",
     },
     nl:     {
+      "pwa.install": "App installeren",
+      "pwa.instructions": "Kies op iPhone in het deelmenu Zet op beginscherm en schakel Open als webapp in. Kies in Chrome of Edge App installeren in het browsermenu.",
+      "pwa.ready": "De reisinformatie is offline beschikbaar.",
+      "pwa.tickets": "Download je tickets als pdf voordat je offline gaat. Open de gedownloade bestanden onderweg op je apparaat.",
       "tickets.meta.title": "Tickets — NL ↔ DK Uitwisseling",
       "tickets.meta.description": "Download reistickets en zitplaatsreserveringen voor de Helmond-uitwisseling.",
       "shared.nav.tickets": "Tickets",
