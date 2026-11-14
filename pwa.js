@@ -37,7 +37,7 @@
     window.addEventListener("appinstalled", hideInstall);
   }
 
-  navigator.serviceWorker.register("/service-worker.js")
+  navigator.serviceWorker.register("/service-worker.js?app=nl-exchange")
     .then(() => navigator.serviceWorker.ready)
     .then(() => { if (offlineReady) offlineReady.hidden = false; })
     .catch((error) => console.warn("Offline setup failed", error));
