@@ -17,6 +17,8 @@ const assets = new Set([
   "/pwa.js",
   "/billetter.js",
   "/ticket-journeys.mjs",
+  "/helmond-program.mjs",
+  "/helmond-program-data.mjs",
   "/manifest.webmanifest",
   "/favicon.png",
   "/favicon-32.png",
