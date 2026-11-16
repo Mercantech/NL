@@ -1,9 +1,10 @@
-import { helmondDays } from "./helmond-program-data.mjs?v=20261116a";
+import { helmondDays } from "./helmond-program-data.mjs?v=20261116b";
 
 const interfaceText = {
   da: {
     now: "Lige nu", next: "Næste aktivitet", noCurrent: "Ingen aktivitet med fast tid lige nu",
-    noNext: "Ingen flere aktiviteter med fast tid i dette ugeprogram", meeting: "Mødetid",
+    noNext: "Ingen flere aktiviteter med fast tid i dette ugeprogram",
+    show: "Vis aktiviteter", hide: "Skjul aktiviteter",
     unknown: "Tidspunkt ikke fastlagt", evening: "Aften", afternoonEvening: "Eftermiddag/aften", freeFrom: "Fra",
     empty: "Ingen planlagte aktiviteter.", breaks: "Faste pauser", breakNames: ["Formiddagspause", "Frokostpause", "Eftermiddagspause"],
     school: "Undervisning", project: "Projektarbejde", travel: "Transport", social: "Social aktivitet", free: "Fritid",
@@ -11,7 +12,8 @@ const interfaceText = {
   },
   en: {
     now: "Now", next: "Next activity", noCurrent: "No timed activity right now",
-    noNext: "No more timed activities in this week's programme", meeting: "Meeting time",
+    noNext: "No more timed activities in this week's programme",
+    show: "Show activities", hide: "Hide activities",
     unknown: "Time to be confirmed", evening: "Evening", afternoonEvening: "Afternoon/evening", freeFrom: "From",
     empty: "No planned activities.", breaks: "Regular breaks", breakNames: ["Morning break", "Lunch break", "Afternoon break"],
     school: "Lessons", project: "Project work", travel: "Transport", social: "Social activity", free: "Free time",
@@ -19,7 +21,8 @@ const interfaceText = {
   },
   nl: {
     now: "Nu", next: "Volgende activiteit", noCurrent: "Op dit moment geen activiteit met een vaste tijd",
-    noNext: "Geen verdere activiteiten met een vaste tijd in dit weekprogramma", meeting: "Verzameltijd",
+    noNext: "Geen verdere activiteiten met een vaste tijd in dit weekprogramma",
+    show: "Toon activiteiten", hide: "Verberg activiteiten",
     unknown: "Tijdstip nog niet vastgesteld", evening: "Avond", afternoonEvening: "Middag/avond", freeFrom: "Vanaf",
     empty: "Geen geplande activiteiten.", breaks: "Vaste pauzes", breakNames: ["Ochtendpauze", "Lunchpauze", "Middagpauze"],
     school: "Onderwijs", project: "Projectwerk", travel: "Vervoer", social: "Sociale activiteit", free: "Vrije tijd",
@@ -84,68 +87,79 @@ function activityRow(activity, language, text) {
 }
 
 const programme = document.querySelector("[data-helmond-programme]");
+const breaks = document.querySelector("[data-helmond-breaks]");
+const toggles = new Map(Array.from(document.querySelectorAll("[data-helmond-toggle]"),
+  (button) => [button.getAttribute("aria-controls"), button]));
 let refreshStatus;
+
+function formatDate(day, options) {
+  return new Intl.DateTimeFormat(window.SiteI18n.getLang(), { ...options, timeZone: "UTC" })
+    .format(new Date(day + "T00:00:00Z"));
+}
+
+function setExpanded(panel, expanded) {
+  const button = toggles.get(panel.id);
+  const text = interfaceText[window.SiteI18n.getLang()];
+  const label = expanded ? text.hide : text.show;
+  const date = panel.id.slice("helmond-".length);
+  button.setAttribute("aria-expanded", String(expanded));
+  button.setAttribute("aria-label", label + " · " + formatDate(date, { day: "numeric", month: "long" }));
+  button.textContent = label;
+  panel.hidden = !expanded;
+}
+
+function openActivityLink(hash) {
+  const target = document.getElementById(hash.slice(1));
+  const panel = target?.closest(".helmond-day");
+  if (!panel) return;
+  setExpanded(panel, true);
+  target.scrollIntoView({ block: "start" });
+}
 
 function renderProgramme() {
   const language = window.SiteI18n.getLang();
   const text = interfaceText[language];
-  const dateLabel = new Intl.DateTimeFormat(language, { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" });
-  const dateShort = new Intl.DateTimeFormat(language, { day: "numeric", month: "short", timeZone: "UTC" });
-  const date = (value, formatter) => formatter.format(new Date(value + "T00:00:00Z"));
   const status = element("div", "helmond-status");
   const now = element("div");
   const next = element("div");
   status.append(now, next);
-  const jumps = element("div", "helmond-jumps");
-  const days = document.createDocumentFragment();
   const timed = [];
 
   for (const day of helmondDays) {
-    const section = element("article", "helmond-day");
-    section.id = "helmond-" + day.date;
-    const jump = element("a", "", date(day.date, dateShort));
-    jump.href = "#" + section.id;
-    jumps.append(jump);
-
-    const header = element("header");
-    const title = element("h4", "", day.title[language]);
-    title.id = section.id + "-title";
-    section.setAttribute("aria-labelledby", title.id);
-    header.append(element("p", "helmond-date", date(day.date, dateLabel)), title);
-    if (day.meeting) {
-      header.append(element("p", "helmond-meeting", text.meeting + " " + day.meeting));
-    }
-    section.append(header);
-    if (day.detail) section.append(element("p", "helmond-day-note", day.detail[language]));
+    const panel = document.getElementById("helmond-" + day.date);
+    const content = panel.firstElementChild;
+    content.replaceChildren();
+    if (day.detail) content.append(element("p", "helmond-day-note", day.detail[language]));
     if (day.activities.length === 0) {
-      section.append(element("p", "helmond-day-note", text.empty));
+      content.append(element("p", "helmond-day-note", text.empty));
     } else {
       const list = element("ol", "helmond-activities");
       for (const [index, activity] of day.activities.entries()) {
         const row = activityRow(activity, language, text);
-        row.id = section.id + "-aktivitet-" + (index + 1);
+        row.id = panel.id + "-aktivitet-" + (index + 1);
         if (activity.time) {
           timed.push({ day: day.date, activity, row, start: day.date + "T" + activity.time });
         }
         list.append(row);
       }
-      section.append(list);
+      content.append(list);
     }
-    days.append(section);
+    setExpanded(panel, !panel.hidden);
+    toggles.get(panel.id).hidden = false;
   }
 
-  const breaks = element("div", "helmond-breaks");
   const breakList = element("ul");
   breakTimes.forEach((time, index) => breakList.append(element("li", "", time + " · " + text.breakNames[index])));
-  breaks.append(element("h4", "", text.breaks), breakList);
-  programme.replaceChildren(status, jumps, breaks, days);
+  breaks.replaceChildren(element("summary", "", text.breaks), breakList);
+  breaks.hidden = false;
+  programme.replaceChildren(status);
   timed.sort((a, b) => a.start.localeCompare(b.start));
 
   function showStatus(panel, label, empty, entries, includeDate) {
     panel.replaceChildren(element("h4", "", label));
     if (!entries.length) panel.append(element("p", "", empty));
     for (const { day, activity, row } of entries) {
-      const prefix = includeDate ? date(day, dateShort) + " · " : "";
+      const prefix = includeDate ? formatDate(day, { day: "numeric", month: "short" }) + " · " : "";
       const link = element("a", "", prefix + activityTime(activity, text) + " · " + activity.title[language]);
       link.href = "#" + row.id;
       panel.append(link);
@@ -178,13 +192,21 @@ function renderProgramme() {
 }
 
 renderProgramme();
+for (const [id, button] of toggles) {
+  const panel = document.getElementById(id);
+  button.addEventListener("click", () => setExpanded(panel, panel.hidden));
+}
+programme.addEventListener("click", (event) => {
+  const link = event.target.closest("a[href^='#helmond-']");
+  if (!link || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  // Also reopen the panel when the fragment is already in the address bar.
+  openActivityLink(link.hash);
+});
+window.addEventListener("hashchange", () => openActivityLink(window.location.hash));
 document.addEventListener("site:langchange", renderProgramme);
 document.addEventListener("visibilitychange", () => {
   if (!document.hidden) refreshStatus();
 });
 window.setInterval(() => refreshStatus(), 15_000);
 
-const initialHash = window.location.hash.slice(1);
-if (initialHash.startsWith("helmond-2026-")) {
-  document.getElementById(initialHash)?.scrollIntoView();
-}
+openActivityLink(window.location.hash);

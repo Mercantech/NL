@@ -3,8 +3,6 @@ const text = (da, en, nl) => ({ da, en, nl });
 export const helmondDays = [
   {
     date: "2026-11-16",
-    title: text("Velkomst", "Welcome", "Welkom"),
-    meeting: "08:30",
     activities: [
       {
         time: "08:30",
@@ -48,8 +46,6 @@ export const helmondDays = [
   },
   {
     date: "2026-11-17",
-    title: text("Projektpitch og flipperturnering", "Project pitches and pinball", "Projectpitches en flipperen"),
-    meeting: "08:30",
     activities: [
       {
         time: "08:30",
@@ -108,8 +104,6 @@ export const helmondDays = [
   },
   {
     date: "2026-11-18",
-    title: text("Projektarbejde", "Project work", "Projectwerk"),
-    meeting: "08:30",
     activities: [
       {
         time: "08:30",
@@ -145,8 +139,6 @@ export const helmondDays = [
   },
   {
     date: "2026-11-19",
-    title: text("Virksomhedsmesse", "Company fair", "Bedrijvenmarkt"),
-    meeting: "08:30",
     detail: text(
       "Virksomhedsmessen og projektarbejdet overlapper kl. 10.45–11.00 i det udsendte program.",
       "The company fair and project work overlap from 10:45 to 11:00 in the programme.",
@@ -191,7 +183,6 @@ export const helmondDays = [
   },
   {
     date: "2026-11-20",
-    title: text("Studietur", "Study trip", "Studiebezoek"),
     detail: text("Den præcise rækkefølge af besøgene skal bekræftes.", "The exact order of the visits is still to be confirmed.", "De precieze volgorde van de bezoeken moet nog worden bevestigd."),
     activities: [
       {
@@ -228,7 +219,6 @@ export const helmondDays = [
   },
   {
     date: "2026-11-21",
-    title: text("Fritid", "Free time", "Vrije tijd"),
     detail: text("Eleverne kan være med til at vælge dagens aktiviteter.", "Students can help choose the day's activities.", "Studenten kunnen meebeslissen over de activiteiten van de dag."),
     activities: [
       {
@@ -253,7 +243,6 @@ export const helmondDays = [
   },
   {
     date: "2026-11-22",
-    title: text("Fridag", "Day off", "Vrije dag"),
     activities: [],
   },
 ];

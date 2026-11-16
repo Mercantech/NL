@@ -5493,7 +5493,7 @@ a.itinerary-place:hover {
   }
 }
 
-/* Detailed programme in Helmond */
+/* Expandable days in the Helmond schedule */
 .helmond-week,
 .helmond-day,
 .helmond-activity {
@@ -5501,19 +5501,15 @@ a.itinerary-place:hover {
 }
 
 .helmond-week {
-  margin-top: 2.5rem;
-}
-
-.helmond-week h3,
-.helmond-day h4 {
-  margin: 0;
-  color: var(--sea);
-  font-family: var(--font-display);
-  line-height: 1.2;
+  margin-block: 2rem 1.25rem;
 }
 
 .helmond-week h3 {
-  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin: 0 0 0.65rem;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3vw, 1.7rem);
+  line-height: 1.2;
 }
 
 .helmond-week-link,
@@ -5533,53 +5529,93 @@ a.itinerary-place:hover {
 .helmond-status {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
-  margin-block: 1rem;
+  gap: 0.55rem;
 }
 
 .helmond-status > * {
   min-width: 0;
-  padding: 0.85rem 1rem;
-  border: 1px solid #cbdde7;
-  border-radius: 0.65rem;
-  background: var(--foam);
+  padding: 0.7rem 0.8rem;
+  border-inline-start: 4px solid var(--nl-orange);
+  border-radius: 0 6px 6px 0;
+  background: linear-gradient(90deg, rgba(227, 111, 30, 0.08), transparent 75%);
+  font-size: 0.9rem;
 }
 
-.helmond-status p {
+.helmond-status h4 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
+.helmond-status p,
+.helmond-status a {
   margin: 0.25rem 0 0;
 }
 
 .helmond-status a {
   display: block;
-  margin-top: 0.25rem;
 }
 
-.helmond-jumps {
+.helmond-toggle.chip {
+  display: inline-flex;
+  min-height: 2rem;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.65rem;
+  color: var(--ink);
+}
+
+.helmond-toggle.chip[aria-expanded="true"] {
+  border-color: var(--nl-orange);
+  background: rgba(227, 111, 30, 0.13);
+}
+
+.helmond-toggle::after {
+  width: 0.42rem;
+  height: 0.42rem;
+  margin-top: -0.22rem;
+  border: solid currentColor;
+  border-width: 0 2px 2px 0;
+  content: "";
+  transform: rotate(45deg);
+}
+
+.helmond-toggle[aria-expanded="true"]::after {
+  margin-top: 0.22rem;
+  transform: rotate(-135deg);
+}
+
+.helmond-toggle[hidden],
+.helmond-day[hidden] {
+  display: none;
+}
+
+.helmond-breaks {
+  margin-top: 0.65rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.helmond-breaks summary {
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.35rem 0;
+  color: var(--ink);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.helmond-breaks ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-block: 1rem 1.25rem;
+  gap: 0.25rem 1.2rem;
+  margin: 0.25rem 0 0;
+  padding-inline-start: 1.15rem;
 }
 
-.helmond-jumps a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.75rem;
-  padding-inline: 0.8rem;
-  border: 1px solid #cbdde7;
-  border-radius: 999px;
-  background: var(--white);
-  color: var(--sea);
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.helmond-jumps a:hover {
-  background: var(--foam);
-}
-
-.helmond-jumps a:focus-visible,
+.helmond-toggle:focus-visible,
+.helmond-breaks summary:focus-visible,
 .helmond-status a:focus-visible,
 .helmond-map:focus-visible,
 .helmond-week-link:focus-visible {
@@ -5588,52 +5624,22 @@ a.itinerary-place:hover {
 }
 
 .helmond-day {
-  margin-block: 1rem;
-  border: 1px solid #d6e1e7;
-  border-radius: 0.75rem;
-  background: var(--white);
-}
-
-.helmond-day > header {
-  padding: 1rem;
+  margin-inline: -0.35rem;
+  border-bottom: 1px solid rgba(20, 33, 43, 0.07);
   border-inline-start: 4px solid var(--nl-orange);
-  border-radius: 0.7rem 0.7rem 0 0;
-  background: var(--foam);
+  border-radius: 0 0 6px 0;
+  background: rgba(255, 255, 255, 0.65);
 }
 
-.helmond-day h4 {
-  font-size: clamp(1.2rem, 3vw, 1.55rem);
-}
-
-.helmond-date {
-  display: block;
-  margin: 0 0 0.25rem;
-  color: var(--muted);
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.helmond-meeting,
-.helmond-day-note,
-.helmond-breaks {
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.helmond-meeting {
-  margin: 0.45rem 0 0;
+.helmond-day-content {
+  padding: 0.2rem 0.65rem 0.3rem;
 }
 
 .helmond-day-note {
   margin: 0;
-  padding: 0.8rem 1rem;
-}
-
-.helmond-breaks {
-  margin-block: 1rem;
-  padding: 0.75rem 1rem;
-  border-inline-start: 3px solid var(--sea-mid);
-  background: var(--foam);
+  padding: 0.6rem 0.75rem;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .helmond-activities {
@@ -5644,21 +5650,17 @@ a.itinerary-place:hover {
 
 .helmond-activity {
   display: grid;
-  grid-template-columns: minmax(10rem, 1fr) minmax(0, 4fr);
+  grid-template-columns: minmax(9rem, 1fr) minmax(0, 4fr);
   align-items: start;
-  gap: 0.4rem 1rem;
-  padding: 0.85rem 1rem;
-  border-top: 1px solid #e3ebef;
-  border-inline-start: 4px solid transparent;
-}
-
-.helmond-activity:last-child {
-  border-radius: 0 0 0.7rem 0.7rem;
+  gap: 0.25rem 0.9rem;
+  padding: 0.65rem 0.75rem;
+  border-top: 1px solid rgba(20, 33, 43, 0.07);
+  border-inline-start: 3px solid transparent;
 }
 
 .helmond-activity.is-next {
   border-inline-start-color: var(--nl-orange);
-  background: #fff7ed;
+  background: rgba(227, 111, 30, 0.08);
 }
 
 .helmond-activity[aria-current="true"] {
@@ -5686,40 +5688,37 @@ a.itinerary-place:hover {
 }
 
 .helmond-tag {
-  display: inline-block;
-  padding: 0.12rem 0.45rem;
-  border-radius: 0.25rem;
-  background: #f0f3f5;
+  display: inline-flex;
+  padding: 0.18rem 0.4rem;
+  border-radius: 3px;
+  background: rgba(20, 33, 43, 0.08);
   color: var(--muted);
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .helmond-tag.is-school,
-.helmond-tag.is-required {
-  background: var(--foam);
+.helmond-tag.is-project {
+  background: rgba(26, 95, 138, 0.12);
   color: var(--sea);
 }
 
-.helmond-tag.is-project {
-  background: #ece9f8;
-  color: #4a3775;
-}
-
 .helmond-tag.is-travel {
-  background: #e5ebef;
+  background: rgba(44, 61, 79, 0.15);
   color: var(--bus);
 }
 
 .helmond-tag.is-social,
 .helmond-tag.is-unconfirmed {
-  background: #fff0dd;
+  background: rgba(227, 111, 30, 0.15);
   color: #78451d;
 }
 
 .helmond-tag.is-free,
 .helmond-tag.is-optional {
-  background: #e6f3e9;
+  background: rgba(61, 122, 74, 0.14);
   color: #285d35;
 }
 
@@ -5731,13 +5730,26 @@ a.itinerary-place:hover {
 
 .helmond-map {
   display: inline-block;
+  max-width: 100%;
   margin-top: 0.35rem;
   font-size: 0.85rem;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 860px) {
+  .helmond-day-content {
+    padding-inline-start: 6.3rem;
+  }
 }
 
 @media (max-width: 600px) {
   .helmond-status,
   .helmond-activity {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .helmond-activity,
+  .helmond-day-note {
+    padding-inline: 0.5rem;
   }
 }
