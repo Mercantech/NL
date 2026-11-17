@@ -73,6 +73,7 @@
  *   qa.19.a.p1
  *   qa.19.a.p2
  *   qa.empty
+ *   shared.dk.schoolBreaks
  *   shared.wa.leadBoth
  *   shared.wa.leadCheck
  *   y26.countNote
@@ -374,7 +375,8 @@
       "qa.12.a": "Yes, you are <strong>insured through the school</strong>. You still need to bring your <strong>EU health insurance card</strong>.",
       "qa.12.q": "Am I insured — and do I need my EU health card?",
       "qa.13.a": "<strong>Netherlands / Helmond:</strong> See the <a href=\"#skoletider-helmond\">school hours at Ter AA</a> and the <a href=\"index.html#helmond-week\">detailed programme for 16–22 November</a>. <strong>Denmark / Viborg:</strong> Standard school day is <strong>09:00–14:30</strong>.",
-      "qa.13.q": "When do we meet for school?",
+      "qa.13.q": "When do we meet for school, and when are the breaks?",
+      "shared.dk.schoolBreaks": "In Viborg, break times are flexible. The usual breaks are <strong>09:30–10:00</strong>, <strong>11:30–12:00</strong> and <strong>13:30–13:45</strong>. Ask the Danish students when your group is taking a break.",
       "qa.14.a": "All students must bring a <strong>laptop + charger</strong>. <strong>H3 students must also bring their own Arduino device.</strong> Pack clothes for school and outings, rain gear, any medicine you need, <strong>passport</strong> and <strong>EU health insurance card</strong>. Departure 14 Nov is late evening — dress for an overnight journey. The hotel provides towels and bedding — you don't need to pack those. Open the full packing checklist →",
       "qa.14.q": "What should I pack?",
       "qa.15.a": "Yes — evenings are <strong>free</strong>. If you go farther away, <strong>tell the group</strong> (WhatsApp) so everyone knows where you are.",
@@ -858,7 +860,8 @@
       "qa.12.a": "Ja, I er <strong>forsikret gennem skolen</strong>. Du skal alligevel have dit <strong>EU-sygesikringskort</strong> med.",
       "qa.12.q": "Er jeg forsikret — og skal jeg have EU-sygesikring med?",
       "qa.13.a": "<strong>Holland / Helmond:</strong> Se <a href=\"#skoletider-helmond\">skoletiderne på Ter AA</a> og <a href=\"index.html#helmond-week\">det detaljerede program for 16.–22. november</a>. <strong>Danmark / Viborg:</strong> Standard skoledag er <strong>09:00–14:30</strong>.",
-      "qa.13.q": "Hvornår møder vi ind til skole?",
+      "qa.13.q": "Hvornår møder vi, og hvornår holder vi pause?",
+      "shared.dk.schoolBreaks": "I Viborg er vi fleksible med pauserne. De ligger typisk kl. <strong>09:30–10:00</strong>, <strong>11:30–12:00</strong> og <strong>13:30–13:45</strong>. Spørg de danske elever, hvornår I holder pause.",
       "qa.14.a": "Alle elever skal medbringe <strong>laptop + oplader</strong>. <strong>H3-elever skal også medbringe deres egen Arduino-enhed.</strong> Pak tøj til skole og udflugter, regntøj, den medicin du skal bruge, <strong>pas</strong> og <strong>EU-sygesikringskort</strong>. Afgang d. 14. nov. er sent om aftenen — klæd dig på til natrejse. Hotellet har håndklæder og sengetøj — det behøver du ikke at tage med. Åbn den fulde pakkeliste (checkliste) →",
       "qa.14.q": "Hvad skal jeg pakke?",
       "qa.15.a": "Ja — aftenerne er <strong>frie</strong>. Hvis I går længere væk, skal det <strong>kommunikeres til gruppen</strong> (WhatsApp), så alle ved hvor I er.",
@@ -1342,7 +1345,8 @@
       "qa.12.a": "Ja, jullie zijn <strong>verzekerd via school</strong>. Je moet toch je <strong>Europese zorgverzekeringspas</strong> meenemen.",
       "qa.12.q": "Ben ik verzekerd — en moet ik mijn EU-zorgverzekeringspas meenemen?",
       "qa.13.a": "<strong>Nederland / Helmond:</strong> Bekijk de <a href=\"#skoletider-helmond\">schooltijden bij Ter AA</a> en het <a href=\"index.html#helmond-week\">uitgebreide programma van 16–22 november</a>. <strong>Denemarken / Viborg:</strong> Standaard schooldag is <strong>09:00–14:30</strong>.",
-      "qa.13.q": "Wanneer melden we ons voor school?",
+      "qa.13.q": "Hoe laat begint school en wanneer zijn de pauzes?",
+      "shared.dk.schoolBreaks": "In Viborg gaan we flexibel om met pauzes. Meestal houden we pauze van <strong>09:30–10:00</strong>, <strong>11:30–12:00</strong> en <strong>13:30–13:45</strong>. Vraag de Deense studenten wanneer jullie pauze nemen.",
       "qa.14.a": "Alle leerlingen moeten een <strong>laptop + oplader</strong> meenemen. <strong>H3-leerlingen moeten ook hun eigen Arduino meenemen.</strong> Pak kleding voor school en uitstapjes, regenkleding, medicijnen die je nodig hebt, <strong>paspoort</strong> en <strong>Europese zorgverzekeringspas</strong> in. Vertrek 14 nov. is laat op de avond — kleed je voor nachtreis. Het hotel heeft handdoeken en beddengoed — die hoef je niet mee te nemen. Open de volledige paklijst (checklist) →",
       "qa.14.q": "Wat moet ik inpakken?",
       "qa.15.a": "Ja — avonden zijn <strong>vrij</strong>. Ga je verder weg, <strong>laat het de groep weten</strong> (WhatsApp), zodat iedereen weet waar je bent.",
