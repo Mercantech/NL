@@ -251,7 +251,7 @@
       <div class="hero-copy">
         <p class="brand" data-i18n="index.hero.brand">NL ↔ DK Exchange</p>
         <h1 id="hero-title" data-i18n="index.hero.title">Across the North Sea</h1>
-        <p class="hero-lead" data-i18n="index.hero.lead">Two weeks in Helmond, two weeks in Denmark — school, hotel &amp; dorm stays and overnight buses connecting both shores.</p>
+        <p class="hero-lead" data-i18n="index.hero.lead">Two weeks in Helmond, two weeks in Denmark, with school, hotel and dorm stays and travel by train and bus.</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#program-nl" data-i18n="index.hero.cta.programme">See the programme</a>
           <a class="btn btn-ghost" href="2026.html" data-i18n="index.hero.cta.2026">2026</a>
@@ -310,7 +310,7 @@
               <div class="journey-body">
                 <span class="journey-meta" data-i18n="index.overview.journey.dk.meta">28 Nov – 11 Dec · Weeks 49–50</span>
                 <strong data-i18n="index.overview.journey.dk.heading">Netherlands → Denmark</strong>
-                <p data-i18n="index.overview.journey.dk.body">Dutch guests arrive — school weeks with dorm accommodation, weekend plans and farewell.</p>
+                <p data-i18n="index.overview.journey.dk.body">The Dutch group travels to Viborg by train. The stay includes school, dorm accommodation and a visit to Aarhus.</p>
                 <span class="journey-cta" data-i18n="index.overview.journey.dk.cta">Open DK programme →</span>
               </div>
               <div class="journey-deco" aria-hidden="true">
@@ -905,11 +905,29 @@
             <p class="section-lead" data-i18n-html="shared.dk.schoolBreaks">In Viborg, break times are flexible. The usual breaks are <strong>09:30–10:00</strong>, <strong>11:30–12:00</strong> and <strong>13:30–13:45</strong>. Ask the Danish students when your group is taking a break.</p>
           </div>
 
-          <div class="filter-chips" role="group" aria-label="Highlight days" data-filter-group="dk">
-            <button type="button" class="chip is-active" data-filter="all">All days</button>
-            <button type="button" class="chip" data-filter="bus">Bus</button>
-            <button type="button" class="chip" data-filter="school">School</button>
-            <button type="button" class="chip" data-filter="weekend">Weekend</button>
+          <h3 class="staff-week-title" id="dk-teachers-title" data-i18n="index.program.dk.staff.title">Ter AA teachers in Viborg</h3>
+          <div class="staff-weeks" role="group" aria-labelledby="dk-teachers-title">
+            <div class="staff-week">
+              <h4 class="staff-week-title" data-i18n="index.program.dk.staff.week1">Week 1</h4>
+              <ul class="staff-week-list">
+                <li>Tracy Barnes</li>
+                <li>Thomas Sprong</li>
+              </ul>
+            </div>
+            <div class="staff-week">
+              <h4 class="staff-week-title" data-i18n="index.program.dk.staff.week2">Week 2</h4>
+              <ul class="staff-week-list">
+                <li>Stijn van Gemert</li>
+                <li>Rico van Dooren</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="filter-chips" role="group" data-i18n-attr="aria-label:shared.schedule.filter.aria" aria-label="Highlight days" data-filter-group="dk">
+            <button type="button" class="chip is-active" data-filter="all" data-i18n="shared.schedule.chip.all">All days</button>
+            <button type="button" class="chip" data-filter="travel" data-i18n="shared.schedule.day.travel">Travel</button>
+            <button type="button" class="chip" data-filter="school" data-i18n="shared.schedule.chip.school">School</button>
+            <button type="button" class="chip" data-filter="weekend" data-i18n="shared.schedule.chip.weekend">Weekend</button>
           </div>
 
           <div class="schedule" role="table" data-i18n-attr="aria-label:index.program.dk.schedule.aria" aria-label="Denmark programme" data-schedule="dk">
@@ -921,18 +939,19 @@
               <span role="columnheader" data-i18n="shared.schedule.col.programme">Programme</span>
             </div>
 
-            <div class="schedule-row is-bus is-travel-day is-travel-out" role="row" data-type="bus">
-              <span class="sch-place" role="cell"><span class="place-badge place-bus place-travel"><svg width="16" height="10"><use href="#icon-bus"/></svg><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span></span></span>
+            <div class="schedule-row is-bus is-travel-day is-travel-out" role="row" data-type="travel">
+              <span class="sch-place" role="cell"><span class="place-badge place-bus place-travel"><svg width="16" height="14"><use href="#icon-train"/></svg><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span></span></span>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.travel">Travel</span>
               <span class="sch-date" role="cell">28 Nov</span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.saturday">Saturday</span>
               <span class="sch-what" role="cell">
                 <span class="travel-day-rail" aria-hidden="true">
-                  <span class="travel-day-mode is-bus"><svg width="16" height="10"><use href="#icon-bus"/></svg></span>
+                  <span class="travel-day-mode is-train"><svg width="16" height="14"><use href="#icon-train"/></svg></span>
                   <span class="travel-day-track"></span>
                   <span class="travel-day-mode is-home"><span class="flag-mark flag-mark-dk"><i></i><i></i></span></span>
                 </span>
-                <span class="sch-what-text" data-i18n-html="index.program.dk.row.travel.programme"><span class="type-pill type-bus">Bus</span> Departure Netherlands (overnight bus)</span>
+                <span class="sch-what-text" data-i18n-html="index.program.dk.row.travel.programme"><span class="type-pill type-bus">Train</span> The Dutch group departs for Viborg. Departure and arrival times to be confirmed.</span>
+                <span class="itinerary-meta" data-i18n="index.program.dk.train.note">One group ticket covers everyone. Stay together and check the departure boards for last-minute platform or timetable changes.</span>
               </span>
             </div>
             <div class="schedule-row is-dk is-arrive" role="row" data-type="arrive">
@@ -970,26 +989,26 @@
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.thursday">Thursday</span>
               <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d5.programme"><span class="type-pill type-school">School</span> Datahouse Mercantec · 09:00–14:30 — board game café 14:00–20:00</span>
             </div>
-            <div class="schedule-row is-dk" role="row" data-type="school">
+            <div class="schedule-row is-dk" role="row" data-type="travel">
               <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="6">Day 6</span>
               <span class="sch-date" role="cell">4 Dec</span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.friday">Friday</span>
-              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d6.programme"><span class="type-pill type-school">School</span> Datahouse Mercantec — school · 09:00–14:30</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d6.programme"><span class="type-pill type-arrive">Trip</span> Visit to Aarhus · Briefing in Viborg. Time and exact meeting point to be confirmed.</span>
             </div>
             <div class="schedule-row is-dk is-weekend" role="row" data-type="weekend">
               <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="7">Day 7</span>
               <span class="sch-date" role="cell">5 Dec</span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.saturday">Saturday</span>
-              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d7.programme"><span class="type-pill type-weekend">Weekend</span> Planned weekend activity</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d7.programme"><span class="type-pill type-weekend">Weekend</span> Visit to Aarhus. Accommodation is being arranged.</span>
             </div>
             <div class="schedule-row is-dk is-weekend" role="row" data-type="weekend">
               <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="8">Day 8</span>
               <span class="sch-date" role="cell">6 Dec</span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.sunday">Sunday</span>
-              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d8.programme"><span class="type-pill type-weekend">Weekend</span> Free weekend day</span>
+              <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d8.programme"><span class="type-pill type-weekend">Weekend</span> Return from Aarhus to Viborg. Time to be confirmed.</span>
             </div>
             <div class="schedule-row is-dk" role="row" data-type="school">
               <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
@@ -1019,7 +1038,7 @@
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.thursday">Thursday</span>
               <span class="sch-what" role="cell" data-i18n-html="index.program.dk.row.d12.programme"><span class="type-pill type-school">School</span> Datahouse Mercantec — last school day / closing · 09:00–14:30</span>
             </div>
-            <div class="schedule-row is-bus is-travel-day is-travel-home" role="row" data-type="bus">
+            <div class="schedule-row is-bus is-travel-day is-travel-home" role="row" data-type="travel">
               <span class="sch-place" role="cell"><span class="place-badge place-bus place-travel"><svg width="16" height="10"><use href="#icon-bus"/></svg><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span></span></span>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="13">Day 13</span>
               <span class="sch-date" role="cell">11 Dec</span>
@@ -1275,7 +1294,7 @@
     </div>
   </footer>
 
-  <script src="i18n.js?v=20261117d"></script>
+  <script src="i18n.js?v=20261117e"></script>
   <script src="/pwa.js?v=20261114b" defer></script>
   <script type="module" src="helmond-program.mjs?v=20261117d"></script>
   <script src="script.js?v=20261017k"></script>
