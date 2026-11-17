@@ -5,7 +5,7 @@ export const helmondDays = [
     date: "2026-11-16",
     activities: [
       {
-        time: "08:30",
+        time: "09:00",
         category: "social",
         status: "required",
         title: text("Velkomst med kaffe og småkager", "Welcome with coffee and cookies", "Welkom met koffie en koekjes"),
@@ -48,7 +48,7 @@ export const helmondDays = [
     date: "2026-11-17",
     activities: [
       {
-        time: "08:30",
+        time: "09:00",
         category: "project",
         status: "required",
         title: text("Opstart og gennemgang af opgaver", "Kickoff and task briefing", "Kick-off en uitleg van de opdrachten"),
@@ -109,7 +109,7 @@ export const helmondDays = [
     date: "2026-11-18",
     activities: [
       {
-        time: "08:30",
+        time: "09:00",
         category: "project",
         status: "required",
         title: text("Præsentation af projektpitch", "Project pitch presentations", "Presentaties van de projectpitches"),
@@ -155,7 +155,7 @@ export const helmondDays = [
     ),
     activities: [
       {
-        time: "08:30",
+        time: "09:00",
         category: "project",
         status: "required",
         title: text("Kort statusmøde og projektarbejde", "Stand-up and project work", "Stand-up en projectwerk"),
