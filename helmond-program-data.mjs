@@ -133,14 +133,14 @@ export const helmondDays = [
         title: text("Projektarbejde i grupper", "Group project work", "Projectwerk in groepen"),
       },
       {
-        time: "16:30",
+        time: "18:55",
         category: "social",
         status: "planned",
         title: text("Mød i hotellobbyen til spil hos Barkeet", "Meet in the hotel lobby for games at Barkeet", "Verzamelen in de hotellobby voor spellen bij Barkeet"),
         detail: text(
-          "Vi går til Barkeet på Steenweg 18, lige over for hotellet.",
-          "We'll walk to Barkeet at Steenweg 18, across from the hotel.",
-          "We lopen naar Barkeet aan de Steenweg 18, tegenover het hotel.",
+          "Vi går til Barkeet på Steenweg 18, lige over for hotellet. Barkeet åbner kl. 19.00. Overvej at spise aftensmad inden vi mødes.",
+          "We'll walk to Barkeet at Steenweg 18, across from the hotel. Barkeet opens at 19:00. Consider having dinner before we meet.",
+          "We lopen naar Barkeet aan de Steenweg 18, tegenover het hotel. Barkeet gaat om 19.00 uur open. Overweeg om voor die tijd alvast te eten.",
         ),
         location: "hotel",
       },

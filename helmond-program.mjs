@@ -1,4 +1,4 @@
-import { helmondDays } from "./helmond-program-data.mjs?v=20261117b";
+import { helmondDays } from "./helmond-program-data.mjs?v=20261117d";
 
 const interfaceText = {
   da: {
