@@ -1,4 +1,4 @@
-import { helmondDays } from "./helmond-program-data.mjs?v=20261116b";
+import { helmondDays } from "./helmond-program-data.mjs?v=20261117a";
 
 const interfaceText = {
   da: {
@@ -6,7 +6,8 @@ const interfaceText = {
     noNext: "Ingen flere aktiviteter med fast tid i dette ugeprogram",
     show: "Vis aktiviteter", hide: "Skjul aktiviteter",
     unknown: "Tidspunkt ikke fastlagt", evening: "Aften", afternoonEvening: "Eftermiddag/aften", freeFrom: "Fra",
-    empty: "Ingen planlagte aktiviteter.", breaks: "Faste pauser", breakNames: ["Formiddagspause", "Frokostpause", "Eftermiddagspause"],
+    empty: "Ingen planlagte aktiviteter.", breaks: "Faste skolepauser",
+    breakNames: ["Formiddagspause", "Frokostpause (16., 18. og 19. november)", "Eftermiddagspause"],
     school: "Undervisning", project: "Projektarbejde", travel: "Transport", social: "Social aktivitet", free: "Fritid",
     required: "Obligatorisk", optional: "Valgfri", suggested: "Forslag", planned: "Planlagt", unconfirmed: "Ikke bekræftet",
   },
@@ -15,7 +16,8 @@ const interfaceText = {
     noNext: "No more timed activities in this week's programme",
     show: "Show activities", hide: "Hide activities",
     unknown: "Time to be confirmed", evening: "Evening", afternoonEvening: "Afternoon/evening", freeFrom: "From",
-    empty: "No planned activities.", breaks: "Regular breaks", breakNames: ["Morning break", "Lunch break", "Afternoon break"],
+    empty: "No planned activities.", breaks: "Regular school breaks",
+    breakNames: ["Morning break", "Lunch break (16, 18 and 19 November)", "Afternoon break"],
     school: "Lessons", project: "Project work", travel: "Transport", social: "Social activity", free: "Free time",
     required: "Required", optional: "Optional", suggested: "Suggestion", planned: "Scheduled", unconfirmed: "Unconfirmed",
   },
@@ -24,7 +26,8 @@ const interfaceText = {
     noNext: "Geen verdere activiteiten met een vaste tijd in dit weekprogramma",
     show: "Toon activiteiten", hide: "Verberg activiteiten",
     unknown: "Tijdstip nog niet vastgesteld", evening: "Avond", afternoonEvening: "Middag/avond", freeFrom: "Vanaf",
-    empty: "Geen geplande activiteiten.", breaks: "Vaste pauzes", breakNames: ["Ochtendpauze", "Lunchpauze", "Middagpauze"],
+    empty: "Geen geplande activiteiten.", breaks: "Vaste schoolpauzes",
+    breakNames: ["Ochtendpauze", "Lunchpauze (16, 18 en 19 november)", "Middagpauze"],
     school: "Onderwijs", project: "Projectwerk", travel: "Vervoer", social: "Sociale activiteit", free: "Vrije tijd",
     required: "Verplicht", optional: "Optioneel", suggested: "Voorstel", planned: "Gepland", unconfirmed: "Onbevestigd",
   },
@@ -36,10 +39,8 @@ const locations = {
   station: "Station Helmond · Stationsplein, Helmond",
   eindhoven: "Eindhoven",
   strijp: "Strijp-S, Eindhoven",
-  philips: "Philips Museum · Emmasingel 31, 5611 AZ Eindhoven",
-  vught: "Nationaal Monument Kamp Vught · Lunettenlaan 600, 5263 NT Vught",
-  bic: "Brainport Industries Campus · BIC 1, 5657 BX Eindhoven",
-  stratum: "Stratumseind, Eindhoven",
+  hotel: "Golden Tulip West Ende · Steenweg 1, 5707 CD Helmond",
+  efteling: "Efteling, Kaatsheuvel",
 };
 
 const breakTimes = ["10:30–10:45", "12:45–13:15", "14:45–15:00"];
@@ -55,14 +56,17 @@ function element(tag, className, text) {
   return node;
 }
 
-function mapLink(location) {
-  const label = locations[location];
-  const query = locations[location === "itSquare" ? "terAA" : location].replace(" · ", ", ");
+function externalLink(url, label) {
   const link = element("a", "helmond-map", label);
-  link.href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(query);
+  link.href = url;
   link.target = "_blank";
   link.rel = "noopener noreferrer";
   return link;
+}
+
+function mapLink(location) {
+  const query = locations[location === "itSquare" ? "terAA" : location].replace(" · ", ", ");
+  return externalLink("https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(query), locations[location]);
 }
 
 function activityTime(activity, text) {
@@ -82,6 +86,11 @@ function activityRow(activity, language, text) {
   info.append(element("strong", "", activity.title[language]), tags);
   if (activity.detail) info.append(element("p", "helmond-detail", activity.detail[language]));
   if (activity.location) info.append(mapLink(activity.location));
+  if (activity.link) {
+    const reference = element("div");
+    reference.append(externalLink(activity.link, activity.linkLabel[language]));
+    info.append(reference);
+  }
   row.append(element("span", "helmond-time", activityTime(activity, text)), info);
   return row;
 }
@@ -130,9 +139,10 @@ function renderProgramme() {
     const content = panel.firstElementChild;
     content.replaceChildren();
     if (day.detail) content.append(element("p", "helmond-day-note", day.detail[language]));
-    if (day.activities.length === 0) {
+    if (day.activities.length === 0 && !day.detail) {
       content.append(element("p", "helmond-day-note", text.empty));
-    } else {
+    }
+    if (day.activities.length) {
       const list = element("ol", "helmond-activities");
       for (const [index, activity] of day.activities.entries()) {
         const row = activityRow(activity, language, text);
