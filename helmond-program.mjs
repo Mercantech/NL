@@ -1,4 +1,4 @@
-import { helmondDays } from "./helmond-program-data.mjs?v=20261117d";
+import { helmondDays } from "./helmond-program-data.mjs?v=20261118x";
 
 const interfaceText = {
   da: {
@@ -7,7 +7,7 @@ const interfaceText = {
     show: "Vis aktiviteter", hide: "Skjul aktiviteter",
     unknown: "Tidspunkt ikke fastlagt", evening: "Aften", afternoonEvening: "Eftermiddag/aften", freeFrom: "Fra",
     empty: "Ingen planlagte aktiviteter.", breaks: "Faste skolepauser",
-    breakNames: ["Formiddagspause", "Frokostpause (16., 18. og 19. november)", "Eftermiddagspause"],
+    breakNames: ["Formiddagspause", "Frokostpause (16., 18. og 19. november)", "Eftermiddagspause (onsdag den 18. slutter skoledagen kl. 14:45)"],
     school: "Undervisning", project: "Projektarbejde", travel: "Transport", social: "Social aktivitet", free: "Fritid",
     required: "Obligatorisk", optional: "Valgfri", suggested: "Forslag", planned: "Planlagt", unconfirmed: "Ikke bekræftet",
   },
@@ -17,7 +17,7 @@ const interfaceText = {
     show: "Show activities", hide: "Hide activities",
     unknown: "Time to be confirmed", evening: "Evening", afternoonEvening: "Afternoon/evening", freeFrom: "From",
     empty: "No planned activities.", breaks: "Regular school breaks",
-    breakNames: ["Morning break", "Lunch break (16, 18 and 19 November)", "Afternoon break"],
+    breakNames: ["Morning break", "Lunch break (16, 18 and 19 November)", "Afternoon break (school ends at 14:45 on Wednesday 18 November)"],
     school: "Lessons", project: "Project work", travel: "Transport", social: "Social activity", free: "Free time",
     required: "Required", optional: "Optional", suggested: "Suggestion", planned: "Scheduled", unconfirmed: "Unconfirmed",
   },
@@ -27,7 +27,7 @@ const interfaceText = {
     show: "Toon activiteiten", hide: "Verberg activiteiten",
     unknown: "Tijdstip nog niet vastgesteld", evening: "Avond", afternoonEvening: "Middag/avond", freeFrom: "Vanaf",
     empty: "Geen geplande activiteiten.", breaks: "Vaste schoolpauzes",
-    breakNames: ["Ochtendpauze", "Lunchpauze (16, 18 en 19 november)", "Middagpauze"],
+    breakNames: ["Ochtendpauze", "Lunchpauze (16, 18 en 19 november)", "Middagpauze (woensdag 18 november eindigt de schooldag om 14:45)"],
     school: "Onderwijs", project: "Projectwerk", travel: "Vervoer", social: "Sociale activiteit", free: "Vrije tijd",
     required: "Verplicht", optional: "Optioneel", suggested: "Voorstel", planned: "Gepland", unconfirmed: "Onbevestigd",
   },

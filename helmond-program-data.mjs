@@ -110,27 +110,39 @@ export const helmondDays = [
     activities: [
       {
         time: "09:00",
+        end: "11:00",
         category: "project",
         status: "required",
-        title: text("Præsentation af projektpitch", "Project pitch presentations", "Presentaties van de projectpitches"),
-      },
-      {
-        category: "school",
-        status: "required",
-        title: text("Gennemgang af ugens program", "Review of the week's programme", "Bespreking van het weekprogramma"),
-      },
-      {
-        category: "school",
-        status: "planned",
-        title: text("Rundvisning på skolen", "School tour", "Rondleiding op school"),
+        title: text("Forbered jeres pitch", "Prepare your pitch", "Bereid jullie pitch voor"),
         location: "terAA",
       },
       {
-        time: "10:45",
+        time: "11:00",
+        end: "12:45",
+        category: "project",
+        status: "required",
+        title: text("Præsenter jeres idéer i grupper", "Pitch your ideas in groups", "Presenteer jullie ideeën in groepjes"),
+      },
+      {
+        time: "12:45",
+        end: "13:15",
+        category: "free",
+        status: "planned",
+        title: text("Frokostpause", "Lunch break", "Lunchpauze"),
+      },
+      {
+        time: "13:15",
         end: "14:45",
         category: "project",
         status: "required",
         title: text("Projektarbejde i grupper", "Group project work", "Projectwerk in groepen"),
+      },
+      {
+        time: "14:45",
+        end: "18:55",
+        category: "free",
+        status: "planned",
+        title: text("Fri efter skole", "Free time after school", "Vrije tijd na school"),
       },
       {
         time: "18:55",
