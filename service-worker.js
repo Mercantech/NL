@@ -22,6 +22,7 @@ const assets = new Set([
   "/helmond-program-data.mjs",
   "/projekter-2026.mjs",
   "/projekter-2026-data.mjs",
+  "/github-invertocat.svg",
   "/manifest.webmanifest",
   "/favicon.png",
   "/favicon-32.png",

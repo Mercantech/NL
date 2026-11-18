@@ -21,6 +21,7 @@ for (const entry of entries) {
     if (!/^https?:\/\//i.test(url) || !Object.hasOwn(linkKeys, type)) continue;
     const link = document.createElement("a");
     link.href = url;
+    if (type === "github") link.classList.add("project-github");
     if (label) link.textContent = label;
     else {
       link.dataset.i18n = linkKeys[type];

@@ -5898,6 +5898,20 @@ a.itinerary-place:hover {
 .project-links-label { font-weight: 600; color: var(--sea); }
 .project-pending { color: var(--muted); }
 .project-links a { color: var(--sea-mid); text-underline-offset: 0.18em; }
+.project-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.project-github::before {
+  content: "";
+  flex: none;
+  width: 1.2rem;
+  aspect-ratio: 98 / 96;
+  background: url("github-invertocat.svg") center / contain no-repeat;
+}
 
 @media (max-width: 740px) {
   .project-register { grid-template-columns: minmax(0, 1fr); }

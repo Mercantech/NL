@@ -5,12 +5,12 @@ COPY index.html qa.html pakkeliste.html previous-years.html learning-objectives.
 COPY media /usr/share/nginx/html/media
 COPY billetter.html billetter.js ticket-journeys.mjs /usr/share/nginx/html/
 COPY helmond-program.mjs helmond-program-data.mjs /usr/share/nginx/html/
-COPY projekter-2026.html projekter-2026.mjs projekter-2026-data.mjs /usr/share/nginx/html/
+COPY projekter-2026.html projekter-2026.mjs projekter-2026-data.mjs github-invertocat.svg /usr/share/nginx/html/
 COPY manifest.webmanifest service-worker.js pwa.js app-icon-192.png app-icon-512.png /usr/share/nginx/html/
 
 # Invalidate the offline cache whenever the app shell changes.
 RUN cd /usr/share/nginx/html \
-    && revision="$(sha256sum *.html *.js *.mjs *.css *.png *.webmanifest | sha256sum | cut -d ' ' -f 1)" \
+    && revision="$(sha256sum *.html *.js *.mjs *.css *.png *.svg *.webmanifest | sha256sum | cut -d ' ' -f 1)" \
     && sed -i "s/__PWA_REVISION__/${revision}/" service-worker.js
 
 # wget is available in alpine nginx image for healthchecks
