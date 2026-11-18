@@ -5788,3 +5788,112 @@ a.itinerary-place:hover {
     padding-inline: 0.5rem;
   }
 }
+
+.projects-main {
+  padding-block: clamp(2.5rem, 6vw, 5rem) 3rem;
+}
+
+.projects-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 3px solid var(--sea);
+}
+
+.projects-heading h1 {
+  margin: 0 0 0.5rem;
+  color: var(--sea);
+  font: 700 clamp(2.5rem, 6vw, 4rem)/1.08 var(--font-display);
+  letter-spacing: -0.035em;
+}
+
+.projects-heading .section-lead {
+  max-width: 38rem;
+  margin: 0;
+}
+
+.project-search {
+  display: grid;
+  gap: 0.4rem;
+  width: min(100%, 18rem);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.project-search input {
+  width: 100%;
+  min-height: 2.75rem;
+  border: 1px solid var(--muted);
+  border-radius: 0.45rem;
+  padding: 0.5rem 0.7rem;
+  font: inherit;
+  font-size: 1rem;
+  background: var(--white);
+  color: var(--ink);
+}
+
+.page-projects :is(a, button, input):focus-visible {
+  outline: 3px solid var(--sea-mid);
+  outline-offset: 3px;
+}
+
+.project-register {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 2.5rem;
+}
+
+.project-entry {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(0.65rem, 1.8vw, 1.3rem);
+  padding: 1.65rem 0;
+  border-bottom: 1px solid var(--sea-mid);
+  scroll-margin-top: 5rem;
+}
+
+.page-projects [hidden] { display: none !important; }
+
+.project-number {
+  color: var(--sea-mid);
+  font: 500 1.6rem/1.2 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+
+.project-body { display: flex; flex-direction: column; }
+.project-body h2 {
+  margin: 0;
+  color: var(--ink);
+  font: 700 clamp(1.35rem, 2.4vw, 1.75rem)/1.16 var(--font-display);
+  overflow-wrap: break-word;
+}
+
+.project-team {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.95rem;
+  margin: 1rem 0 1.2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.project-member { display: inline-flex; align-items: center; gap: 0.4rem; }
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.65rem;
+  margin-top: auto;
+  font-size: 0.86rem;
+}
+.project-links-label { font-weight: 600; color: var(--sea); }
+.project-pending { color: var(--muted); }
+.project-links a { color: var(--sea-mid); text-underline-offset: 0.18em; }
+
+@media (max-width: 740px) {
+  .project-register { grid-template-columns: minmax(0, 1fr); }
+  .project-search { width: 100%; }
+}

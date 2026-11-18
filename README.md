@@ -11,8 +11,23 @@ Info- og programsite for Helmond–Viborg-udvekslingen. Live: **https://nl.merca
 - `previous-years.html` — photos & videos from 2023 and 2024
 - `learning-objectives.html` — learning objectives (EN/DA toggle)
 - `2026.html` — year-specific info for the 2026 exchange
+- `projekter-2026.html` — projektgrupper, deltagere og projektlinks
 - `media/2023/` and `media/2024/` — drop files here, update HTML placeholders
 - `qa.html` / `pakkeliste.html` — Danish pages for DK students
+
+## Links til projekterne
+
+Tilføj links i `projekter-2026-data.mjs` under projektets ID. Hver liste kan indeholde flere links.
+Brug typen `github`, `docs` eller `site` og en fuld HTTP(S)-adresse. Et valgfrit `label`
+giver linket en mere præcis titel. Standardtitlerne vises på sidens valgte sprog.
+
+```js
+"warehouse": [
+  { type: "docs", url: "https://example.org/warehouse/guide", label: "API reference" },
+],
+```
+
+Gruppenavne og flag findes i HTML-siden og kan også læses uden JavaScript.
 
 ## Lokal uden Docker
 

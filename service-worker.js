@@ -4,6 +4,7 @@ const CACHE = CACHE_PREFIX + "__PWA_REVISION__";
 const pages = new Set([
   "/index.html",
   "/2026.html",
+  "/projekter-2026.html",
   "/qa.html",
   "/pakkeliste.html",
   "/learning-objectives.html",
@@ -19,6 +20,8 @@ const assets = new Set([
   "/ticket-journeys.mjs",
   "/helmond-program.mjs",
   "/helmond-program-data.mjs",
+  "/projekter-2026.mjs",
+  "/projekter-2026-data.mjs",
   "/manifest.webmanifest",
   "/favicon.png",
   "/favicon-32.png",
