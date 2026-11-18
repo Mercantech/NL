@@ -5701,6 +5701,11 @@ a.itinerary-place:hover {
   font-variant-numeric: tabular-nums;
 }
 
+.helmond-info {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 .helmond-info > strong {
   display: block;
   color: var(--ink);
