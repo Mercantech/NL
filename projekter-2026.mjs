@@ -1,4 +1,4 @@
-import { projectLinks } from "./projekter-2026-data.mjs?v=20261118v";
+import { projectLinks } from "./projekter-2026-data.mjs?v=20261118w";
 
 const entries = [...document.querySelectorAll("[data-project]")];
 const search = document.querySelector("#project-search");
