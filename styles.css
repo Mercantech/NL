@@ -5566,6 +5566,41 @@ a.itinerary-place:hover {
   color: var(--ink);
 }
 
+.schedule-disclosure {
+  width: 100%;
+  min-width: 0;
+}
+
+.schedule-disclosure > summary {
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.35rem 0;
+  cursor: pointer;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.schedule-disclosure > summary::marker {
+  color: var(--sea-mid);
+}
+
+.schedule-disclosure > summary:focus-visible {
+  outline: 2px solid var(--sea);
+  outline-offset: 3px;
+}
+
+.schedule-disclosure-body {
+  display: grid;
+  justify-items: start;
+  gap: 0.55rem;
+  margin-top: 0.4rem;
+  padding: 0.7rem 0.9rem;
+  border-inline-start: 2px solid var(--sea-mid);
+  background: var(--white);
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+
 .helmond-toggle.chip[aria-expanded="true"] {
   border-color: var(--nl-orange);
   background: rgba(227, 111, 30, 0.13);
