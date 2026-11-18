@@ -1,8 +1,8 @@
 export const projectLinks = {
   "warehouse": [{ type: "github", label: "GitHub: FishNShip-h3", url: "https://github.com/Mercantec-GHC/FishNShip-h3" }],
-  "dmx": [],
+  "dmx": [{ type: "github", label: "GitHub: crystal-glow", url: "https://github.com/rensj2206/crystal-glow" }],
   "railway": [],
-  "projection": [],
+  "projection": [{ type: "github", label: "GitHub: Lumibeam", url: "https://github.com/mathewtale/Lumibeam" }],
   "sumo": [{ type: "github", label: "GitHub: Sumoos", url: "https://github.com/JeroenMarkusVermeulen/Sumoos" }],
   "emo": [{ type: "github", label: "GitHub: ESIR", url: "https://github.com/Mercantec-GHC/ESIR" }],
   "car": [{ type: "github", label: "GitHub: NL-Selfdriving-Car", url: "https://github.com/Mercantec-GHC/NL-Selfdriving-Car" }],
