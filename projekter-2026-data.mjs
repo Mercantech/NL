@@ -3,7 +3,7 @@ export const projectLinks = {
   "dmx": [],
   "railway": [],
   "projection": [],
-  "sumo": [],
+  "sumo": [{ type: "github", label: "GitHub: Sumoos", url: "https://github.com/JeroenMarkusVermeulen/Sumoos" }],
   "emo": [{ type: "github", label: "GitHub: ESIR", url: "https://github.com/Mercantec-GHC/ESIR" }],
   "car": [{ type: "github", label: "GitHub: NL-Selfdriving-Car", url: "https://github.com/Mercantec-GHC/NL-Selfdriving-Car" }],
   "arcade": [{ type: "github", label: "GitHub: BEAM", url: "https://github.com/Mercantec-GHC/BEAM" }],
