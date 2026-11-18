@@ -5650,7 +5650,7 @@ a.itinerary-place:hover {
 
 .helmond-activity {
   display: grid;
-  grid-template-columns: minmax(9rem, 1fr) minmax(0, 4fr);
+  grid-template-columns: 8.5rem minmax(0, 1fr);
   align-items: start;
   gap: 0.25rem 0.9rem;
   padding: 0.65rem 0.75rem;
@@ -5668,9 +5668,35 @@ a.itinerary-place:hover {
   background: var(--foam);
 }
 
+.helmond-clock {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 0.15rem;
+  border-inline-end: 1px solid rgba(20, 33, 43, 0.14);
+  align-self: stretch;
+  padding-inline-end: 0.45rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.helmond-clock-note {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.helmond-marker:not(:empty) {
+  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
 .helmond-time {
   color: var(--sea);
-  font-size: 0.9rem;
+  font-size: 1.25rem;
+  line-height: 1.15;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
@@ -5743,9 +5769,13 @@ a.itinerary-place:hover {
 }
 
 @media (max-width: 600px) {
-  .helmond-status,
-  .helmond-activity {
+  .helmond-status {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .helmond-activity {
+    grid-template-columns: 5.6rem minmax(0, 1fr);
+    column-gap: 0.6rem;
   }
 
   .helmond-activity,

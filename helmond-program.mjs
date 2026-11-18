@@ -83,7 +83,7 @@ function activityRow(activity, language, text) {
     element("span", "helmond-tag is-" + activity.category, text[activity.category]),
     element("span", "helmond-tag is-" + activity.status, text[activity.status]),
   );
-  info.append(element("strong", "", activity.title[language]), tags);
+  info.append(element("strong", "", activity.title[language]));
   if (activity.detail) info.append(element("p", "helmond-detail", activity.detail[language]));
   if (activity.location) info.append(mapLink(activity.location));
   if (activity.link) {
@@ -91,7 +91,23 @@ function activityRow(activity, language, text) {
     reference.append(externalLink(activity.link, activity.linkLabel[language]));
     info.append(reference);
   }
-  row.append(element("span", "helmond-time", activityTime(activity, text)), info);
+  info.append(tags);
+  const clock = element("div", "helmond-clock");
+  if (activity.time) {
+    if (activity.period === "freeFrom") clock.append(element("span", "helmond-clock-note", text.freeFrom));
+    const start = element("time", "helmond-time", activity.time);
+    start.dateTime = activity.time;
+    clock.append(start);
+    if (activity.end) {
+      const end = element("time", "helmond-clock-note", "– " + activity.end);
+      end.dateTime = activity.end;
+      clock.append(end);
+    }
+    clock.append(element("span", "helmond-marker"));
+  } else {
+    clock.append(element("span", "helmond-clock-note", activityTime(activity, text)));
+  }
+  row.append(clock, info);
   return row;
 }
 
@@ -194,6 +210,7 @@ function renderProgramme() {
       if (current.includes(entry)) entry.row.setAttribute("aria-current", "true");
       else entry.row.removeAttribute("aria-current");
       entry.row.classList.toggle("is-next", upcoming.includes(entry));
+      entry.row.querySelector(".helmond-marker").textContent = current.includes(entry) ? text.now : upcoming.includes(entry) ? text.next : "";
     }
     showStatus(now, text.now, text.noCurrent, current, false);
     showStatus(next, text.next, text.noNext, upcoming, true);
