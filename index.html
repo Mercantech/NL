@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261118y" />
+  <link rel="stylesheet" href="styles.css?v=20261119a" />
 </head>
 <body>
   <a class="skip-link" href="#content" data-i18n="shared.skipLink">Skip to content</a>
@@ -391,7 +391,7 @@
                 <h2 id="nl-title" data-i18n="index.program.nl.title">Programme in the Netherlands</h2>
               </div>
             </div>
-            <p class="section-lead" data-i18n-html="index.program.nl.lead">Train + FlixBus via Aarhus and Kolding, arrival Amsterdam Sloterdijk, hotel in Helmond with school days, a weekend and the trip home. In week 2, school days at Ter AA normally run from <strong>09:00</strong> to <strong>14:30</strong>.</p>
+            <p class="section-lead" data-i18n-html="index.program.nl.lead">Train and FlixBus via Aarhus and Kolding, with a stay in Helmond and school days at Ter AA. Open each day for the programme and meeting times.</p>
             <a class="helmond-week-link" href="#helmond-week" data-i18n="index.program.nl.week.details">Detailed programme, 16–22 November</a>
           </div>
 
@@ -557,6 +557,21 @@
               </header>
 
               <ol class="itinerary">
+                <li class="itinerary-stop">
+                  <span class="itinerary-dot itinerary-dot-nl" aria-hidden="true"><span class="flag-mark flag-mark-nl"><span></span><span></span><span></span></span></span>
+                  <div class="itinerary-body">
+                    <div class="itinerary-row">
+                      <span class="itinerary-place">Amsterdam Centraal</span>
+                      <div class="itinerary-clock">
+                        <span class="itinerary-clock-item">
+                          <span class="itinerary-clock-label" data-i18n="index.travel.label.meet">Meet</span>
+                          <time datetime="19:45">19:45</time>
+                        </span>
+                      </div>
+                    </div>
+                    <p class="itinerary-meta" data-i18n="index.travel.home.centraal.meta">Thursday evening. From Centraal, we travel together to Amsterdam Sloterdijk.</p>
+                  </div>
+                </li>
                 <li class="itinerary-stop">
                   <span class="itinerary-dot itinerary-dot-nl" aria-hidden="true"><span class="flag-mark flag-mark-nl"><span></span><span></span><span></span></span></span>
                   <div class="itinerary-body">
@@ -836,9 +851,9 @@
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.monday">Monday</span>
               <div class="sch-what" role="cell">
                 <details class="schedule-disclosure">
-                  <summary data-i18n="index.program.summary.nl.d9">School at Ter AA</summary>
+                  <summary id="helmond-2026-11-23" data-i18n="index.program.summary.nl.d9">Project work and games at Ter AA</summary>
                   <div class="schedule-disclosure-body">
-                    <span class="sch-what-text" data-i18n-html="index.program.nl.row.d9.programme"><span class="type-pill type-school">School</span> Ter AA <strong>09:00–14:30</strong></span>
+                    <div data-i18n-html="index.program.nl.row.d9.programme"><ul class="schedule-day-plan"><li><strong>09:00–13:00</strong> Project work for the Danish students at Ter AA. Dutch students have lessons until <strong>16:00</strong>.</li><li><strong>Around 16:30</strong> Danish students meet back in the classroom for games and snacks. Dutch students can join a little later if they need a longer break.</li><li>Bring your gaming devices. There will also be board games. We play and eat together, then head back to the hotel when we’ve had enough.</li></ul></div>
                   </div>
                 </details>
               </div>
@@ -850,9 +865,9 @@
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.tuesday">Tuesday</span>
               <div class="sch-what" role="cell">
                 <details class="schedule-disclosure">
-                  <summary data-i18n="index.program.summary.nl.d10">School and Helmond Castle</summary>
+                  <summary data-i18n="index.program.summary.nl.d10">School and Brainport Eindhoven</summary>
                   <div class="schedule-disclosure-body">
-                    <span class="sch-what-text" data-i18n-html="index.program.nl.row.d10.programme"><span class="type-pill type-school">School</span> Ter AA <strong>09:00–14:30</strong> · Visit to Helmond Castle</span>
+                    <div data-i18n-html="index.program.nl.row.d10.programme"><ul class="schedule-day-plan"><li><strong>09:00</strong> School starts at Ter AA.</li><li><strong>13:15</strong> Leave the school together.</li><li><strong>13:46</strong> Train to Eindhoven.</li><li><strong>14:30–16:30</strong> Visit to <a href="https://brainporteindhoven.com/en/">Brainport Eindhoven</a>.</li></ul></div>
                   </div>
                 </details>
               </div>
@@ -864,23 +879,23 @@
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.wednesday">Wednesday</span>
               <div class="sch-what" role="cell">
                 <details class="schedule-disclosure">
-                  <summary data-i18n="index.program.summary.nl.d11">Project presentations and a games evening</summary>
+                  <summary data-i18n="index.program.summary.nl.d11">Project presentations and HomeComputerMuseum</summary>
                   <div class="schedule-disclosure-body">
-                    <span class="sch-what-text" data-i18n-html="index.program.nl.row.d11.programme"><span class="type-pill type-school">School</span> Ter AA <strong>09:00–14:30</strong> · Project presentations (time to be confirmed) · Cooking and games evening</span>
+                    <div data-i18n-html="index.program.nl.row.d11.programme"><ul class="schedule-day-plan"><li><strong>09:00</strong> School starts at Ter AA. The time for the project presentations is still to be confirmed.</li><li>After the presentations, we walk together from school to the museum.</li><li><strong>16:00</strong> Visit to <a href="https://www.homecomputermuseum.nl/#intro">HomeComputerMuseum</a> in Helmond. Dutch students are welcome.</li><li><strong>19:00–23:00</strong> Barkeet is open for anyone who wants to go and play.</li></ul></div>
                   </div>
                 </details>
               </div>
             </div>
-            <div class="schedule-row is-nl is-highlight" role="row" data-type="school">
+            <div class="schedule-row is-nl is-highlight" role="row" data-type="bus">
               <span class="sch-place" role="cell"><span class="place-badge place-nl"><span class="flag-mark flag-mark-nl" aria-hidden="true"><span></span><span></span><span></span></span>NL</span></span>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="12">Day 12</span>
               <span class="sch-date" role="cell">26 Nov</span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.thursday">Thursday</span>
               <div class="sch-what" role="cell">
                 <details class="schedule-disclosure">
-                  <summary data-i18n="index.program.summary.nl.d12">Last school day and departure for Denmark</summary>
+                  <summary data-i18n="index.program.summary.nl.d12">Amsterdam and the journey home</summary>
                   <div class="schedule-disclosure-body">
-                    <span class="sch-what-text" data-i18n-html="index.program.nl.row.d12.programme"><span class="type-pill type-school">School</span> Ter AA <strong>09:00–14:30</strong> — last school day / closing · FlixBus Sloterdijk <strong>20:55</strong> → Kolding</span>
+                    <div data-i18n-html="index.program.nl.row.d12.programme"><ul class="schedule-day-plan"><li><strong>By 09:30</strong> Check out of Golden Tulip West Ende.</li><li><strong>10:00</strong> Train to Amsterdam. Plan your day in Amsterdam and coordinate on WhatsApp.</li><li><strong>19:45</strong> Meet at <strong>Amsterdam Centraal</strong>. From there we travel together to Amsterdam Sloterdijk.</li><li><strong>20:55</strong> FlixBus departs from <strong>Amsterdam Sloterdijk</strong> for Kolding.</li></ul></div>
                   </div>
                 </details>
               </div>
@@ -892,7 +907,7 @@
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.friday">Friday</span>
               <div class="sch-what" role="cell">
                 <details class="schedule-disclosure">
-                  <summary data-i18n="index.program.summary.nl.d13">Home to Viborg</summary>
+                  <summary data-i18n="index.program.summary.nl.d13">Arrival in Viborg</summary>
                   <div class="schedule-disclosure-body">
                     <span class="travel-day-rail" aria-hidden="true">
                       <span class="travel-day-mode is-bus"><svg width="16" height="10"><use href="#icon-bus"/></svg></span>
@@ -900,7 +915,7 @@
                       <span class="travel-day-mode is-train"><svg width="14" height="14"><use href="#icon-train"/></svg></span>
                       <span class="travel-day-mode is-home"><span class="flag-mark flag-mark-dk"><i></i><i></i></span></span>
                     </span>
-                    <span class="sch-what-text" data-i18n-html="index.program.nl.row.d13.programme"><span class="type-pill type-bus">Travel</span> Kolding <strong>05:50</strong> · train <strong>06:53</strong> → Aarhus <strong>08:08 / 08:30</strong> → Viborg <strong>09:37</strong></span>
+                    <div data-i18n-html="index.program.nl.row.d13.programme"><ul class="schedule-day-plan"><li><strong>05:50</strong> Arrival at Kolding Rutebilstation. Walk to Kolding Station.</li><li><strong>06:53</strong> Train from Kolding. Arrive at Aarhus H at <strong>08:08</strong> and change to the train at <strong>08:30</strong>.</li><li><strong>09:37</strong> Arrival at Viborg Station. The group has the day off school in Viborg.</li></ul></div>
                   </div>
                 </details>
               </div>
@@ -1444,7 +1459,7 @@
     </div>
   </footer>
 
-  <script src="i18n.js?v=20261118y"></script>
+  <script src="i18n.js?v=20261119a"></script>
   <script src="/pwa.js?v=20261114b" defer></script>
   <script type="module" src="helmond-program.mjs?v=20261118x"></script>
   <script src="script.js?v=20261017k"></script>

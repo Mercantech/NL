@@ -5601,6 +5601,15 @@ a.itinerary-place:hover {
   overflow-wrap: anywhere;
 }
 
+.schedule-day-plan {
+  margin: 0;
+  padding-inline-start: 1.25rem;
+}
+
+.schedule-day-plan li + li {
+  margin-block-start: 0.4rem;
+}
+
 .helmond-toggle.chip[aria-expanded="true"] {
   border-color: var(--nl-orange);
   background: rgba(227, 111, 30, 0.13);
