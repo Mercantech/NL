@@ -39,7 +39,8 @@
   line-height: 1.12;
 }
 
-.page-tickets [hidden] {
+.page-tickets [hidden],
+.return-seats [hidden] {
   display: none !important;
 }
 
@@ -2188,6 +2189,65 @@ body.nav-open .menu-bars::after {
     radial-gradient(ellipse 70% 45% at 100% 0%, rgba(200, 16, 46, 0.14), transparent 55%),
     linear-gradient(165deg, rgba(255, 255, 255, 0.97), rgba(255, 246, 248, 0.92));
 }
+
+.return-seats {
+  margin: 0 1.05rem 1.2rem;
+  padding-top: 1.05rem;
+  border-top: 1px dashed rgba(200, 16, 46, 0.3);
+  scroll-margin-top: calc(var(--header-h) + 1rem);
+}
+
+.return-seats h4 {
+  margin: 0;
+  font: 700 1.2rem/1.25 var(--font-display);
+}
+
+.return-seats .tickets-form {
+  max-width: 24rem;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}
+
+.return-seats .tickets-form p {
+  margin: 0 0 0.25rem;
+}
+
+.return-seats-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: 1rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+.return-seats-content img {
+  width: min(100%, 16rem);
+  height: auto;
+  padding: 0.5rem;
+  background: var(--white);
+  border: 1px solid rgba(20, 33, 43, 0.12);
+  border-radius: 0.5rem;
+  image-rendering: pixelated;
+}
+
+.return-seats table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.return-seats th, .return-seats td {
+  padding: 0.45rem 0.4rem;
+  border-bottom: 1px solid rgba(20, 33, 43, 0.12);
+  overflow-wrap: anywhere;
+}
+
+.return-seats th { color: var(--muted); }
+.return-seats tr > :last-child { text-align: right; }
+.return-seats td:last-child { font-weight: 700; font-variant-numeric: tabular-nums; }
+.return-seats-status { color: var(--ink); font-size: 0.9rem; }
+.return-seats-status:empty { margin: 0; }
 
 .travel-route-head {
   display: flex;

@@ -1,4 +1,5 @@
 using System.Collections.Concurrent;
+using System.Buffers.Binary;
 using System.Globalization;
 using System.IO.Compression;
 using System.Net;
@@ -7,6 +8,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Http.Features;
 
 const int MaxArchiveBytes = 10 * 1024 * 1024;
 const string CookieName = "__Secure-nl_tickets";
@@ -71,6 +73,31 @@ api.MapGet("/manifest", (HttpContext context) =>
     return snapshot is null ? Results.StatusCode(503) : Results.Json(snapshot.Manifest, TicketStore.JsonOptions);
 });
 
+api.MapGet("/return-seats", (HttpContext context) =>
+{
+    if (!IsUnlocked(context)) return Results.Unauthorized();
+    var file = store.OpenReturnSeats();
+    return file is null ? Results.NotFound() : Results.File(file, "application/json");
+});
+
+api.MapPut("/admin/return-seats", async (HttpContext context) =>
+{
+    if (!IsAdmin(context)) return Results.Unauthorized();
+    if (!context.Request.HasJsonContentType()) return Results.StatusCode(StatusCodes.Status415UnsupportedMediaType);
+    const int maxBytes = 512 * 1024;
+    if (context.Request.ContentLength > maxBytes) return Results.StatusCode(413);
+    var limit = context.Features.Get<IHttpMaxRequestBodySizeFeature>();
+    if (limit is { IsReadOnly: false }) limit.MaxRequestBodySize = maxBytes;
+    try
+    {
+        var details = await context.Request.ReadFromJsonAsync<ReturnSeats>(context.RequestAborted);
+        if (details is null || !details.IsValid()) return Results.BadRequest(new { error = "invalid_return_seats" });
+        await store.SaveReturnSeats(details, context.RequestAborted);
+        return Results.NoContent();
+    }
+    catch (JsonException) { return Results.BadRequest(new { error = "invalid_return_seats" }); }
+});
+
 api.MapGet("/files/{filename}", (string filename, HttpContext context) =>
 {
     if (!IsUnlocked(context)) return Results.Unauthorized();
@@ -85,9 +112,7 @@ api.MapGet("/files/{filename}", (string filename, HttpContext context) =>
 
 api.MapPost("/admin/import", async (HttpContext context) =>
 {
-    var authorization = context.Request.Headers.Authorization.ToString();
-    if (!authorization.StartsWith("Bearer ", StringComparison.Ordinal) ||
-        !SecretEquals(authorization[7..], settings.AdminToken)) return Results.Unauthorized();
+    if (!IsAdmin(context)) return Results.Unauthorized();
     if (!string.Equals(context.Request.ContentType?.Split(';')[0].Trim(), "application/zip", StringComparison.OrdinalIgnoreCase))
         return Results.StatusCode(StatusCodes.Status415UnsupportedMediaType);
     if (context.Request.ContentLength > MaxArchiveBytes) return Results.StatusCode(413);
@@ -115,6 +140,12 @@ api.MapPost("/admin/import", async (HttpContext context) =>
 app.Run();
 
 bool IsUnlocked(HttpContext context) => sessions.Validate(context.Request.Cookies[CookieName]);
+bool IsAdmin(HttpContext context)
+{
+    var authorization = context.Request.Headers.Authorization.ToString();
+    return authorization.StartsWith("Bearer ", StringComparison.Ordinal) &&
+        SecretEquals(authorization[7..], settings.AdminToken);
+}
 bool IsSameOrigin(HttpContext context) => string.Equals(context.Request.Headers.Origin.ToString(), settings.PublicOrigin, StringComparison.Ordinal);
 static bool SecretEquals(string? provided, string expected) => provided is not null &&
     provided.Length <= 512 && CryptographicOperations.FixedTimeEquals(
@@ -206,6 +237,44 @@ sealed record TicketEntry(string Filename, Dictionary<string, string> Title,
 sealed record TicketJourneyLink(string Id, string Direction, string Date, string Mode);
 sealed record TicketSnapshot(string Directory, TicketManifest Manifest, HashSet<string> Files);
 
+sealed record ReturnSeat(string FirstName, string Seat);
+sealed record ReturnSeats(byte[] QrPng, List<ReturnSeat> Seats)
+{
+    public bool IsValid()
+    {
+        if (QrPng is not { Length: >= 57 and <= 256 * 1024 } || !IsPng(QrPng) ||
+            Seats is not { Count: >= 1 and <= 100 }) return false;
+
+        var assigned = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        return Seats.All(row => row is not null && row.FirstName is { Length: >= 1 and <= 80 } &&
+            Regex.IsMatch(row.FirstName, @"\A\p{L}[\p{L}\p{M}]*(?:[- '’]\p{L}[\p{L}\p{M}]*)*\z") &&
+            row.Seat is { Length: >= 1 and <= 12 } && Regex.IsMatch(row.Seat, @"\A[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*\z") &&
+            assigned.Add(row.Seat));
+    }
+
+    private static bool IsPng(ReadOnlySpan<byte> png)
+    {
+        ReadOnlySpan<byte> signature = [137, 80, 78, 71, 13, 10, 26, 10];
+        if (!png.StartsWith(signature) || BinaryPrimitives.ReadUInt32BigEndian(png[8..]) != 13 ||
+            !png.Slice(12, 4).SequenceEqual("IHDR"u8) ||
+            BinaryPrimitives.ReadUInt32BigEndian(png[16..]) is 0 or > 4096 ||
+            BinaryPrimitives.ReadUInt32BigEndian(png[20..]) is 0 or > 4096) return false;
+
+        var chunks = png[33..];
+        bool hasImageData = false;
+        while (chunks.Length >= 12)
+        {
+            var length = BinaryPrimitives.ReadUInt32BigEndian(chunks);
+            if (length > chunks.Length - 12) return false;
+            var type = chunks.Slice(4, 4);
+            if (type.SequenceEqual("IEND"u8)) return hasImageData && length == 0 && chunks.Length == 12;
+            if (type.SequenceEqual("IDAT"u8) && length > 0) hasImageData = true;
+            chunks = chunks[((int)length + 12)..];
+        }
+        return false;
+    }
+}
+
 sealed class TicketStore
 {
     public static readonly JsonSerializerOptions JsonOptions = new(JsonSerializerDefaults.Web);
@@ -236,6 +305,25 @@ sealed class TicketStore
 
     public static bool ValidFilename(string? filename) => filename is not null && filename.Length <= 180 &&
         Regex.IsMatch(filename, "^[a-z0-9][a-z0-9-]*\\.pdf$", RegexOptions.CultureInvariant);
+
+    public FileStream? OpenReturnSeats()
+    {
+        try { return File.Open(Path.Combine(root, "return-seats.json"), FileMode.Open, FileAccess.Read, FileShare.Read | FileShare.Delete); }
+        catch (FileNotFoundException) { return null; }
+    }
+
+    public async Task SaveReturnSeats(ReturnSeats details, CancellationToken cancellationToken)
+    {
+        var path = Path.Combine(root, "return-seats.json");
+        var temporary = path + "." + Guid.NewGuid().ToString("N") + ".tmp";
+        try
+        {
+            await using (var file = File.Create(temporary))
+                await JsonSerializer.SerializeAsync(file, details, JsonOptions, cancellationToken);
+            File.Move(temporary, path, overwrite: true);
+        }
+        finally { File.Delete(temporary); }
+    }
 
     public async Task<int> Import(Stream stream, CancellationToken cancellationToken)
     {
