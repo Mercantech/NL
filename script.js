@@ -39,11 +39,11 @@
       const multiple = tickets.length > 1;
       const seatOrder = new Intl.Collator("en", { numeric: true, sensitivity: "base" });
       const codes = content.querySelector(".return-ticket-codes");
-      const allSeats = [];
+      const allSeats = tickets.flatMap(ticket => ticket.seats).sort((a, b) => seatOrder.compare(a.seat, b.seat));
+      const total = content.querySelector("caption");
       const labels = tickets.map((ticket, index) => {
         const number = index + 1;
         const seats = [...ticket.seats].sort((a, b) => seatOrder.compare(a.seat, b.seat));
-        for (const seat of seats) allSeats.push({ ...seat, number });
         const figure = document.createElement("figure");
         const caption = document.createElement("figcaption");
         const title = document.createElement("strong");
@@ -59,6 +59,7 @@
 
       function translateLabels() {
         const { t, getLang } = window.SiteI18n;
+        total.textContent = t(allSeats.length === 1 ? "tickets.journey.totalOne" : "tickets.journey.total", { n: allSeats.length });
         const names = new Intl.ListFormat(getLang(), { type: "conjunction" });
         for (const { number, seats, title, passengers, qr } of labels) {
           title.textContent = multiple ? t("index.returnSeats.ticketNumber", { n: number }) : t("index.returnSeats.ticket");
@@ -70,16 +71,13 @@
       }
 
       const rows = document.createDocumentFragment();
-      allSeats.sort((a, b) => seatOrder.compare(a.seat, b.seat));
-      for (const { seat, firstName, number } of allSeats) {
+      for (const { seat, firstName } of allSeats) {
         const row = document.createElement("tr");
         row.insertCell().textContent = seat;
         row.insertCell().textContent = firstName;
-        if (multiple) row.insertCell().textContent = number;
         rows.append(row);
       }
       content.querySelector("tbody").replaceChildren(rows);
-      content.querySelector('th[data-i18n="index.returnSeats.ticket"]').hidden = !multiple;
       content.classList.toggle("has-multiple-tickets", multiple);
       translateLabels();
       document.addEventListener("site:langchange", translateLabels);

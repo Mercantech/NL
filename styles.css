@@ -2263,6 +2263,12 @@ body.nav-open .menu-bars::after {
   text-align: left;
 }
 
+.return-seats caption {
+  padding-bottom: 0.45rem;
+  text-align: left;
+  font-weight: 700;
+}
+
 .return-seats th, .return-seats td {
   padding: 0.45rem 0.4rem;
   border-bottom: 1px solid rgba(20, 33, 43, 0.12);
@@ -2272,7 +2278,6 @@ body.nav-open .menu-bars::after {
 .return-seats th { color: var(--muted); }
 .return-seats tr > :first-child { width: 1%; padding-inline-end: 1.5rem; white-space: nowrap; }
 .return-seats td:first-child { font-weight: 700; font-variant-numeric: tabular-nums; }
-.return-seats .has-multiple-tickets tr > :last-child { text-align: right; }
 .return-seats-status { color: var(--ink); font-size: 0.9rem; }
 .return-seats-status:empty { margin: 0; }
 
