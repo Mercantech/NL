@@ -164,8 +164,24 @@ def main():
                 assert request(seats_admin_url, "PUT", invalid_seats, headers=upload_headers)[0] == 400
             status, headers, body = request(seats_url)
             assert status == 200 and json.loads(body) == seats_data and "no-store" in headers["Cache-Control"]
-            seats_data["seats"][0]["seat"] = "4B"
+            second_ticket = {
+                "qrPng": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACklEQVR4nGNgAAAAAgABSK+kcQAAAABJRU5ErkJggg==",
+                "seats": [{"firstName": "Alex", "seat": "4A"}, {"firstName": "Sam", "seat": "4B"}],
+            }
+            seats_data = {**seats_data, "additionalTickets": [second_ticket]}
             assert request(seats_admin_url, "PUT", seats_data, headers=upload_headers)[0] == 204
+            assert json.loads(request(seats_url)[2]) == seats_data
+            for invalid_tickets in [
+                [{**second_ticket, "seats": [{"firstName": "Alex", "seat": "3a"}]}],
+                [{**second_ticket, "qrPng": "YWJj"}],
+                [{**second_ticket, "seats": []}],
+                [None],
+                [{**second_ticket, "seats": [{"firstName": "Alex", "seat": str(i)}]} for i in range(8)],
+                [{**second_ticket, "seats": [{"firstName": "Alex", "seat": str(i)} for i in range(100)]}],
+            ]:
+                invalid = {**seats_data, "additionalTickets": invalid_tickets}
+                assert request(seats_admin_url, "PUT", invalid, headers=upload_headers)[0] == 400
+            assert json.loads(request(seats_url)[2]) == seats_data
             assert request("/api/tickets/admin/import", "POST", archive, {"Content-Type": "application/zip"})[0] == 401
             assert request("/api/tickets/admin/import", "POST", archive, {**upload_headers, "Authorization": "Bearer wrong"})[0] == 401
             assert request("/api/tickets/admin/import", "POST", archive, {**upload_headers, "Content-Type": "text/plain"})[0] == 415
@@ -241,7 +257,7 @@ def main():
             start()
             assert not json.loads(request("/api/tickets/session", cookie=cookie)[2])["authenticated"]
             assert json.loads(request(seats_url, cookie=cookie)[2]) == seats_data
-            print("PASS: authorization, origins, signed cookies, protected downloads, public return seats, 1-50 file atomic import, legacy restart, 12-file journey metadata, unlisted-file rejection, hashes, traversal, logout and per-client rate limit")
+            print("PASS: authorization, origins, signed cookies, protected downloads, single- and multi-ticket public return seats, 1-50 file atomic import, legacy restart, 12-file journey metadata, unlisted-file rejection, hashes, traversal, logout and per-client rate limit")
         finally:
             stop()
 

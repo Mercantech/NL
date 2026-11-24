@@ -2218,7 +2218,35 @@ body.nav-open .menu-bars::after {
   margin-top: 1rem;
 }
 
+.return-seats-content.has-multiple-tickets {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.return-ticket-codes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: 1rem;
+}
+
+.return-ticket-codes figure {
+  margin: 0;
+  min-width: 0;
+}
+
+.return-ticket-codes figcaption {
+  margin-bottom: 0.4rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.return-ticket-codes figcaption strong {
+  display: block;
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
 .return-seats-content img {
+  display: block;
   width: min(100%, 16rem);
   height: auto;
   padding: 0.5rem;
@@ -2244,6 +2272,7 @@ body.nav-open .menu-bars::after {
 .return-seats th { color: var(--muted); }
 .return-seats tr > :first-child { width: 1%; padding-inline-end: 1.5rem; white-space: nowrap; }
 .return-seats td:first-child { font-weight: 700; font-variant-numeric: tabular-nums; }
+.return-seats .has-multiple-tickets tr > :last-child { text-align: right; }
 .return-seats-status { color: var(--ink); font-size: 0.9rem; }
 .return-seats-status:empty { margin: 0; }
 

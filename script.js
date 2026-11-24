@@ -29,6 +29,63 @@
       retry.hidden = !allowRetry;
     }
 
+    function validTicket(ticket) {
+      return typeof ticket?.qrPng === "string" && ticket.qrPng.startsWith("iVBORw0KGgo") &&
+        Array.isArray(ticket.seats) && ticket.seats.length > 0 &&
+        ticket.seats.every(row => row && typeof row.firstName === "string" && typeof row.seat === "string");
+    }
+
+    function renderTickets(tickets) {
+      const multiple = tickets.length > 1;
+      const seatOrder = new Intl.Collator("en", { numeric: true, sensitivity: "base" });
+      const codes = content.querySelector(".return-ticket-codes");
+      const allSeats = [];
+      const labels = tickets.map((ticket, index) => {
+        const number = index + 1;
+        const seats = [...ticket.seats].sort((a, b) => seatOrder.compare(a.seat, b.seat));
+        for (const seat of seats) allSeats.push({ ...seat, number });
+        const figure = document.createElement("figure");
+        const caption = document.createElement("figcaption");
+        const title = document.createElement("strong");
+        const passengers = document.createElement("span");
+        const qr = document.createElement("img");
+        qr.width = qr.height = 256;
+        qr.src = "data:image/png;base64," + ticket.qrPng;
+        caption.append(title, passengers);
+        figure.append(caption, qr);
+        codes.append(figure);
+        return { number, seats, title, passengers, qr };
+      });
+
+      function translateLabels() {
+        const { t, getLang } = window.SiteI18n;
+        const names = new Intl.ListFormat(getLang(), { type: "conjunction" });
+        for (const { number, seats, title, passengers, qr } of labels) {
+          title.textContent = multiple ? t("index.returnSeats.ticketNumber", { n: number }) : t("index.returnSeats.ticket");
+          passengers.textContent = seats.length <= 3
+            ? names.format(seats.map(seat => seat.firstName))
+            : t("tickets.meta.passengers", { n: seats.length });
+          qr.alt = title.textContent + ". " + t("index.returnSeats.qr");
+        }
+      }
+
+      const rows = document.createDocumentFragment();
+      allSeats.sort((a, b) => seatOrder.compare(a.seat, b.seat));
+      for (const { seat, firstName, number } of allSeats) {
+        const row = document.createElement("tr");
+        row.insertCell().textContent = seat;
+        row.insertCell().textContent = firstName;
+        if (multiple) row.insertCell().textContent = number;
+        rows.append(row);
+      }
+      content.querySelector("tbody").replaceChildren(rows);
+      content.querySelector('th[data-i18n="index.returnSeats.ticket"]').hidden = !multiple;
+      content.classList.toggle("has-multiple-tickets", multiple);
+      translateLabels();
+      document.addEventListener("site:langchange", translateLabels);
+      content.hidden = false;
+    }
+
     async function loadSeats() {
       if (!day.open || loading || !content.hidden) return;
       loading = true;
@@ -44,24 +101,12 @@
           return;
         }
         const ticket = await response.json();
-        if (typeof ticket?.qrPng !== "string" || !ticket.qrPng.startsWith("iVBORw0KGgo") ||
-            !Array.isArray(ticket.seats) || ticket.seats.length === 0 ||
-            !ticket.seats.every(row => row && typeof row.firstName === "string" && typeof row.seat === "string")) {
+        const additional = ticket?.additionalTickets ?? [];
+        if (!validTicket(ticket) || !Array.isArray(additional) || !additional.every(validTicket)) {
           setStatus("tickets.status.invalidData", true);
           return;
         }
-        const seatOrder = new Intl.Collator("en", { numeric: true, sensitivity: "base" });
-        ticket.seats.sort((a, b) => seatOrder.compare(a.seat, b.seat));
-        const fragment = document.createDocumentFragment();
-        for (const { firstName, seat } of ticket.seats) {
-          const row = document.createElement("tr");
-          row.insertCell().textContent = seat;
-          row.insertCell().textContent = firstName;
-          fragment.append(row);
-        }
-        content.querySelector("tbody").replaceChildren(fragment);
-        content.querySelector("img").src = "data:image/png;base64," + ticket.qrPng;
-        content.hidden = false;
+        renderTickets([ticket, ...additional]);
         setStatus("");
       } catch {
         setStatus("tickets.status.network", true);

@@ -83,7 +83,7 @@ api.MapPut("/admin/return-seats", async (HttpContext context) =>
 {
     if (!IsAdmin(context)) return Results.Unauthorized();
     if (!context.Request.HasJsonContentType()) return Results.StatusCode(StatusCodes.Status415UnsupportedMediaType);
-    const int maxBytes = 512 * 1024;
+    const int maxBytes = 3 * 1024 * 1024;
     if (context.Request.ContentLength > maxBytes) return Results.StatusCode(413);
     var limit = context.Features.Get<IHttpMaxRequestBodySizeFeature>();
     if (limit is { IsReadOnly: false }) limit.MaxRequestBodySize = maxBytes;
@@ -237,14 +237,25 @@ sealed record TicketJourneyLink(string Id, string Direction, string Date, string
 sealed record TicketSnapshot(string Directory, TicketManifest Manifest, HashSet<string> Files);
 
 sealed record ReturnSeat(string FirstName, string Seat);
-sealed record ReturnSeats(byte[] QrPng, List<ReturnSeat> Seats)
+sealed record ReturnSeats(byte[] QrPng, List<ReturnSeat> Seats,
+    [property: JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] List<ReturnTicket>? AdditionalTickets = null)
+    : ReturnTicket(QrPng, Seats)
 {
     public bool IsValid()
     {
-        if (QrPng is not { Length: >= 57 and <= 256 * 1024 } || !IsPng(QrPng) ||
-            Seats is not { Count: >= 1 and <= 100 }) return false;
-
         var assigned = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        return AdditionalTickets is not { Count: > 7 } && IsValidTicket(assigned) &&
+            (AdditionalTickets is null || AdditionalTickets.All(ticket => ticket is not null && ticket.IsValidTicket(assigned)));
+    }
+}
+
+record ReturnTicket(byte[] QrPng, List<ReturnSeat> Seats)
+{
+    public bool IsValidTicket(HashSet<string> assigned)
+    {
+        if (QrPng is not { Length: >= 57 and <= 256 * 1024 } || !IsPng(QrPng) ||
+            Seats is not { Count: >= 1 } || Seats.Count > 100 - assigned.Count) return false;
+
         return Seats.All(row => row is not null && row.FirstName is { Length: >= 1 and <= 80 } &&
             Regex.IsMatch(row.FirstName, @"\A\p{L}[\p{L}\p{M}]*(?:[- '’]\p{L}[\p{L}\p{M}]*)*\z") &&
             row.Seat is { Length: >= 1 and <= 12 } && Regex.IsMatch(row.Seat, @"\A[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*\z") &&
