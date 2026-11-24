@@ -2242,8 +2242,8 @@ body.nav-open .menu-bars::after {
 }
 
 .return-seats th { color: var(--muted); }
-.return-seats tr > :last-child { text-align: right; }
-.return-seats td:last-child { font-weight: 700; font-variant-numeric: tabular-nums; }
+.return-seats tr > :first-child { width: 1%; padding-inline-end: 1.5rem; white-space: nowrap; }
+.return-seats td:first-child { font-weight: 700; font-variant-numeric: tabular-nums; }
 .return-seats-status { color: var(--ink); font-size: 0.9rem; }
 .return-seats-status:empty { margin: 0; }
 

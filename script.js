@@ -50,11 +50,13 @@
           setStatus("tickets.status.invalidData", true);
           return;
         }
+        const seatOrder = new Intl.Collator("en", { numeric: true, sensitivity: "base" });
+        ticket.seats.sort((a, b) => seatOrder.compare(a.seat, b.seat));
         const fragment = document.createDocumentFragment();
         for (const { firstName, seat } of ticket.seats) {
           const row = document.createElement("tr");
-          row.insertCell().textContent = firstName;
           row.insertCell().textContent = seat;
+          row.insertCell().textContent = firstName;
           fragment.append(row);
         }
         content.querySelector("tbody").replaceChildren(fragment);
