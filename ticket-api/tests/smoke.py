@@ -150,8 +150,8 @@ def main():
                 "qrPng": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=",
                 "seats": [{"firstName": "Anne-Marie", "seat": "3A"}],
             }
-            assert request(seats_url)[0] == 401
-            assert request(seats_url, cookie=cookie)[0] == 404
+            assert request(seats_url)[0] == 404
+            assert request(seats_admin_url, "PUT", seats_data)[0] == 401
             assert request(seats_admin_url, "PUT", seats_data, cookie=cookie)[0] == 401
             assert request(seats_admin_url, "PUT", seats_data, headers=upload_headers)[0] == 204
             assert request(seats_admin_url, "PUT", b"invalid", headers=upload_headers)[0] == 415
@@ -162,9 +162,8 @@ def main():
                 {**seats_data, "seats": [{"firstName": "", "seat": "4A"}]},
             ]:
                 assert request(seats_admin_url, "PUT", invalid_seats, headers=upload_headers)[0] == 400
-            status, headers, body = request(seats_url, cookie=cookie)
+            status, headers, body = request(seats_url)
             assert status == 200 and json.loads(body) == seats_data and "no-store" in headers["Cache-Control"]
-            assert request(seats_url)[0] == 401
             seats_data["seats"][0]["seat"] = "4B"
             assert request(seats_admin_url, "PUT", seats_data, headers=upload_headers)[0] == 204
             assert request("/api/tickets/admin/import", "POST", archive, {"Content-Type": "application/zip"})[0] == 401
@@ -209,7 +208,9 @@ def main():
             stop()
             start()
             extended_manifest = json.loads(request("/api/tickets/manifest", cookie=cookie)[2])
-            assert json.loads(request(seats_url, cookie=cookie)[2]) == seats_data
+            assert json.loads(request(seats_url)[2]) == seats_data
+            assert request("/api/tickets/manifest")[0] == 401
+            assert request("/api/tickets/files/" + next(iter(replacement_files)))[0] == 401
             assert len(extended_manifest["tickets"]) == 12
             assert len(extended_manifest["tickets"][-1]["journeys"]) == 2
             assert extended_manifest["tickets"][-1]["journeys"][1] == {
@@ -239,8 +240,8 @@ def main():
             environment["TICKETS_ACCESS_CODE"] = secrets.token_hex(12)
             start()
             assert not json.loads(request("/api/tickets/session", cookie=cookie)[2])["authenticated"]
-            assert request(seats_url, cookie=cookie)[0] == 401
-            print("PASS: authorization, origins, signed cookies, protected downloads and return seats, 1-50 file atomic import, legacy restart, 12-file journey metadata, unlisted-file rejection, hashes, traversal, logout and per-client rate limit")
+            assert json.loads(request(seats_url, cookie=cookie)[2]) == seats_data
+            print("PASS: authorization, origins, signed cookies, protected downloads, public return seats, 1-50 file atomic import, legacy restart, 12-file journey metadata, unlisted-file rejection, hashes, traversal, logout and per-client rate limit")
         finally:
             stop()
 

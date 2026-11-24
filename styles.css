@@ -2191,9 +2191,11 @@ body.nav-open .menu-bars::after {
 }
 
 .return-seats {
-  margin: 0 1.05rem 1.2rem;
-  padding-top: 1.05rem;
-  border-top: 1px dashed rgba(200, 16, 46, 0.3);
+  width: 100%;
+  min-width: 0;
+  margin-top: 0.4rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(20, 33, 43, 0.12);
   scroll-margin-top: calc(var(--header-h) + 1rem);
 }
 
@@ -2202,14 +2204,10 @@ body.nav-open .menu-bars::after {
   font: 700 1.2rem/1.25 var(--font-display);
 }
 
-.return-seats .tickets-form {
-  max-width: 24rem;
-  margin-top: 1rem;
-  gap: 0.5rem;
-}
-
-.return-seats .tickets-form p {
-  margin: 0 0 0.25rem;
+@media (max-width: 540px) {
+  .schedule-row:has(.return-seats):has(details[open]) .sch-what {
+    grid-column: 1 / -1;
+  }
 }
 
 .return-seats-content {

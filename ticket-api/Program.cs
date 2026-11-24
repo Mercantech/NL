@@ -73,9 +73,8 @@ api.MapGet("/manifest", (HttpContext context) =>
     return snapshot is null ? Results.StatusCode(503) : Results.Json(snapshot.Manifest, TicketStore.JsonOptions);
 });
 
-api.MapGet("/return-seats", (HttpContext context) =>
+api.MapGet("/return-seats", () =>
 {
-    if (!IsUnlocked(context)) return Results.Unauthorized();
     var file = store.OpenReturnSeats();
     return file is null ? Results.NotFound() : Results.File(file, "application/json");
 });

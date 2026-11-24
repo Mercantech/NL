@@ -17,15 +17,11 @@
 
   const returnSeats = document.getElementById("hjemtur-saeder");
   if (returnSeats) {
-    const form = returnSeats.querySelector("form");
-    const code = form.querySelector("input");
-    const submit = form.querySelector("button");
+    const day = returnSeats.closest("details");
     const status = returnSeats.querySelector('[role="status"]');
     const retry = returnSeats.querySelector("[data-return-retry]");
     const content = returnSeats.querySelector(".return-seats-content");
-    const qr = content.querySelector("img");
-    const rows = content.querySelector("tbody");
-    let activeRequest;
+    let loading = false;
 
     function setStatus(key, allowRetry = false) {
       status.dataset.i18n = key;
@@ -33,111 +29,58 @@
       retry.hidden = !allowRetry;
     }
 
-    function clearSeats() {
-      content.hidden = true;
-      qr.removeAttribute("src");
-      rows.replaceChildren();
-    }
-
-    function displaySeats(ticket) {
-      if (!ticket || typeof ticket.qrPng !== "string" || !ticket.qrPng.startsWith("iVBORw0KGgo") ||
-          !Array.isArray(ticket.seats) || ticket.seats.length === 0 ||
-          !ticket.seats.every(row => row && typeof row.firstName === "string" && typeof row.seat === "string")) {
-        setStatus("tickets.status.invalidData", true);
-        return;
-      }
-      const fragment = document.createDocumentFragment();
-      for (const { firstName, seat } of ticket.seats) {
-        const row = document.createElement("tr");
-        row.insertCell().textContent = firstName;
-        row.insertCell().textContent = seat;
-        fragment.append(row);
-      }
-      rows.replaceChildren(fragment);
-      qr.src = "data:image/png;base64," + ticket.qrPng;
-      form.hidden = true;
-      content.hidden = false;
-      setStatus("");
-    }
-
-    async function loadSeats(unlockCode) {
-      if (activeRequest) return;
-      const controller = new AbortController();
-      activeRequest = controller;
-      const timeout = setTimeout(() => controller.abort(), 20000);
-      const options = { signal: controller.signal, credentials: "same-origin", cache: "no-store" };
-      const unlocking = typeof unlockCode === "string";
-      clearSeats();
-      code.disabled = submit.disabled = true;
-      code.removeAttribute("aria-invalid");
-      setStatus(unlocking ? "tickets.access.unlocking" : "tickets.status.checking");
+    async function loadSeats() {
+      if (!day.open || loading || !content.hidden) return;
+      loading = true;
+      setStatus("tickets.status.loading");
       try {
-        if (unlocking) {
-          const unlocked = await fetch("/api/tickets/unlock", {
-            ...options,
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ code: unlockCode }),
-          });
-          if (!unlocked.ok) {
-            if (unlocked.status === 401) {
-              code.setAttribute("aria-invalid", "true");
-              setStatus("tickets.status.wrongCode");
-            } else if (unlocked.status === 429) {
-              setStatus("tickets.status.rateLimited");
-            } else {
-              setStatus("tickets.status.unavailable", true);
-            }
-            return;
-          }
-        }
-        const response = await fetch("/api/tickets/return-seats", options);
-        if (response.status === 401) {
-          form.hidden = false;
-          setStatus(unlocking ? "tickets.status.sessionExpired" : "");
-          return;
-        }
-        form.hidden = true;
+        const response = await fetch("/api/tickets/return-seats", {
+          credentials: "omit",
+          cache: "no-store",
+          signal: AbortSignal.timeout(20000),
+        });
         if (!response.ok) {
           setStatus("tickets.status.unavailable", true);
           return;
         }
         const ticket = await response.json();
-        if (activeRequest !== controller) return;
-        displaySeats(ticket);
-        if (unlocking && !content.hidden) returnSeats.querySelector("h4").focus();
-      } catch {
-        if (activeRequest === controller) setStatus("tickets.status.network", true);
-      } finally {
-        clearTimeout(timeout);
-        if (activeRequest === controller) {
-          activeRequest = null;
-          code.disabled = submit.disabled = false;
-          if (unlocking && !form.hidden) code.focus();
+        if (typeof ticket?.qrPng !== "string" || !ticket.qrPng.startsWith("iVBORw0KGgo") ||
+            !Array.isArray(ticket.seats) || ticket.seats.length === 0 ||
+            !ticket.seats.every(row => row && typeof row.firstName === "string" && typeof row.seat === "string")) {
+          setStatus("tickets.status.invalidData", true);
+          return;
         }
+        const fragment = document.createDocumentFragment();
+        for (const { firstName, seat } of ticket.seats) {
+          const row = document.createElement("tr");
+          row.insertCell().textContent = firstName;
+          row.insertCell().textContent = seat;
+          fragment.append(row);
+        }
+        content.querySelector("tbody").replaceChildren(fragment);
+        content.querySelector("img").src = "data:image/png;base64," + ticket.qrPng;
+        content.hidden = false;
+        setStatus("");
+      } catch {
+        setStatus("tickets.status.network", true);
+      } finally {
+        loading = false;
       }
     }
 
-    form.addEventListener("submit", event => {
-      event.preventDefault();
-      const value = code.value;
-      code.value = "";
-      loadSeats(value);
-    });
-    retry.addEventListener("click", () => loadSeats());
-    window.addEventListener("pagehide", () => {
-      activeRequest?.abort();
-      activeRequest = null;
-      code.value = "";
-      clearSeats();
-    });
-    window.addEventListener("pageshow", event => {
-      if (event.persisted) loadSeats();
-    });
-    document.addEventListener("visibilitychange", () => {
-      if (!document.hidden && !content.hidden) loadSeats();
-    });
-    loadSeats();
+    function revealLinkedSeats() {
+      if (location.hash !== "#" + returnSeats.id) return;
+      for (let parent = day; parent; parent = parent.parentElement.closest("details")) {
+        parent.open = true;
+      }
+      returnSeats.scrollIntoView({ block: "start", behavior: "instant" });
+    }
+
+    day.addEventListener("toggle", loadSeats);
+    retry.addEventListener("click", loadSeats);
+    window.addEventListener("hashchange", revealLinkedSeats);
+    revealLinkedSeats();
+    if (day.open) loadSeats();
   }
 
   // Reveal schedule rows

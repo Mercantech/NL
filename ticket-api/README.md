@@ -29,7 +29,7 @@ Alle API-svar bruger `Cache-Control: private, no-store` og `X-Content-Type-Optio
 | `POST /api/tickets/lock` | Praecis `Origin`; sletter adgangscookien. |
 | `GET /api/tickets/manifest` | Kraever gyldig cookie; returnerer billetoversigten, ellers 401. Ingen importeret generation giver 503. |
 | `GET /api/tickets/files/{filename}` | Kraever gyldig cookie og et filnavn fra den aktive oversigt. Leverer PDF som download. Ukendt/ugyldigt filnavn giver 404. |
-| `GET /api/tickets/return-seats` | Giver QR-koden og sædelisten til hjemrejsen med en gyldig billetcookie. Manglende adgang giver 401. En tom oversigt giver 404. |
+| `GET /api/tickets/return-seats` | Offentlig. Giver hjemrejsens QR-kode som `qrPng` og sædelisten som `seats` med fornavn og sæde. Giver 404, indtil oversigten er lagt ind. |
 | `PUT /api/tickets/admin/return-seats` | Kræver samme admin-token som billetimporten. Send JSON med `qrPng` (base64-kodet PNG) og `seats` (en liste med `firstName` og `seat`). En gyldig opdatering erstatter hjemrejsens oversigt i det private volume og giver 204. |
 | `POST /api/tickets/admin/import` | Kraever `Authorization: Bearer ...` med admin-token samt `Content-Type: application/zip`. Ingen cookie eller Origin er noedvendig for denne serveradministrative operation. Returnerer det importerede antal, fx `{ "imported": 12 }`. |
 
