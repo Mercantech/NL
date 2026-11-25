@@ -5979,27 +5979,38 @@ a.itinerary-place:hover {
 .project-register {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 2.5rem;
+  gap: clamp(1.25rem, 3vw, 2rem);
 }
 
 .project-entry {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: clamp(0.65rem, 1.8vw, 1.3rem);
-  padding: 1.65rem 0;
-  border-bottom: 1px solid var(--sea-mid);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--white);
+  border: 1px solid color-mix(in srgb, var(--sea) 17%, var(--white));
+  border-radius: 1rem;
+  box-shadow: 0 5px 18px color-mix(in srgb, var(--sea) 6%, transparent);
   scroll-margin-top: 5rem;
 }
 
 .page-projects [hidden] { display: none !important; }
 
-.project-number {
-  color: var(--sea-mid);
-  font: 500 1.6rem/1.2 var(--font-display);
-  font-variant-numeric: tabular-nums;
+.project-cover {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: calc(1rem - 1px) calc(1rem - 1px) 0 0;
+  background: var(--foam);
 }
 
-.project-body { display: flex; flex-direction: column; }
+.project-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: clamp(1rem, 2.3vw, 1.5rem);
+}
+
 .project-room {
   margin: 0.6rem 0 0;
   color: var(--muted);
@@ -6026,14 +6037,20 @@ a.itinerary-place:hover {
 .project-links {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   gap: 0.25rem 0.65rem;
   margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--foam);
   font-size: 0.86rem;
 }
-.project-links-label { font-weight: 600; color: var(--sea); }
 .project-pending { color: var(--muted); }
-.project-links a { color: var(--sea-mid); text-underline-offset: 0.18em; }
+.project-links a {
+  padding-block: 0.25rem;
+  color: var(--sea-mid);
+  font-weight: 600;
+  text-underline-offset: 0.18em;
+}
 .project-github {
   display: inline-flex;
   align-items: center;
