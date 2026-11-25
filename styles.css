@@ -5930,13 +5930,7 @@ a.itinerary-place:hover {
 }
 
 .projects-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  padding-bottom: 1.75rem;
-  border-bottom: 3px solid var(--sea);
+  margin-bottom: 1.5rem;
 }
 
 .projects-heading h1 {
@@ -5950,6 +5944,53 @@ a.itinerary-place:hover {
   max-width: 38rem;
   margin: 0;
 }
+
+.projects-portrait {
+  position: relative;
+  margin: 0 0 clamp(1.5rem, 4vw, 3rem);
+}
+
+.projects-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+
+.projects-portrait figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  padding-top: 0.5rem;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.projects-portrait a {
+  padding-block: 0.3rem;
+  color: var(--sea-mid);
+  font-weight: 600;
+  text-underline-offset: 0.18em;
+}
+
+.projects-portrait a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  cursor: zoom-in;
+}
+
+.projects-tools {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 18rem);
+  align-items: end;
+  gap: 1.25rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.projects-tools .y26-count-note { margin: 0; }
 
 .project-search {
   display: grid;
@@ -6067,6 +6108,7 @@ a.itinerary-place:hover {
 }
 
 @media (max-width: 740px) {
+  .projects-tools,
   .project-register { grid-template-columns: minmax(0, 1fr); }
   .project-search { width: 100%; }
 }

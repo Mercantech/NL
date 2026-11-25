@@ -11,6 +11,8 @@ Prefer JPG/WebP for photos and MP4 for video (browser-friendly).
 
 ## 2026 project cards
 
+`projects-2026/gruppebillede.webp` is an AI-generated group illustration showing all eight projects at a shared exhibition. The students in the illustration are fictional.
+
 The 960 × 540 WebP covers in `projects-2026/` use the following project material.
 
 | Cover | Source |

@@ -22,6 +22,7 @@ const assets = new Set([
   "/helmond-program-data.mjs",
   "/projekter-2026.mjs",
   "/projekter-2026-data.mjs",
+  "/media/projects-2026/gruppebillede.webp",
   "/media/projects-2026/warehouse.webp",
   "/media/projects-2026/dmx.webp",
   "/media/projects-2026/railway.webp",
@@ -71,7 +72,8 @@ self.addEventListener("fetch", (event) => {
   if (request.method !== "GET" || url.origin !== self.location.origin) return;
 
   // Only public app files can use the offline cache. Ticket API requests pass through.
-  const navigation = request.mode === "navigate";
+  // A link to the full-size image is a navigation to a cached asset.
+  const navigation = request.mode === "navigate" && !assets.has(url.pathname);
   const path = navigation ? pagePath(url.pathname) : url.pathname;
   if (!(navigation ? pages : assets).has(path)) return;
 
