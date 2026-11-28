@@ -6419,12 +6419,6 @@ a.itinerary-place:hover {
   font: 600 1rem/1.2 var(--font-display);
 }
 
-.viborg-place-pair {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(.45rem, 2vw, 1rem);
-}
-
 .page-viborg .viborg-lesson {
   color: #294c42;
   background: #eaf0e7;
@@ -6502,5 +6496,4 @@ a.itinerary-place:hover {
     padding-block: 1.5rem;
   }
   .page-viborg .sch-what { align-self: start; margin: 0 0 0 1rem; }
-  .page-viborg .viborg-aarhus-day { grid-template-areas: "day date weekday what" "place place place place"; }
 }

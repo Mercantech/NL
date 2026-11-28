@@ -13,7 +13,9 @@ Prefer JPG/WebP for photos and MP4 for video (browser-friendly).
 
 `2026/viborg-velkomst.webp` is an AI-generated postcard illustration of the lakeside and Viborg Cathedral for the Danish exchange welcome page.
 
-The eight place illustrations in `2026/` are AI-generated postcards for the exchange programme. Official references for the locations are listed below.
+Each of the 13 days in the Viborg programme has a 900 × 450 WebP postcard. The six activity illustrations show the late arrival at the dorm, board games at Datahouse, Friday café, a possible photo hunt, bowling as a free-time option and the farewell. All were generated in the same painted winter style as the place illustrations.
+
+The place postcards use the following location references.
 
 | Postcard | Location |
 | --- | --- |
