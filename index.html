@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261128h" />
+  <link rel="stylesheet" href="styles.css?v=20261128i" />
 </head>
 <body class="page-viborg">
   <a class="skip-link" href="#content" data-i18n="shared.skipLink">Skip to content</a>
@@ -96,11 +96,6 @@
               <a class="btn btn-primary" href="#program-dk" data-i18n="index.hero.cta.programme">See the programme</a>
               <a class="btn btn-ghost" href="#practical" data-i18n="viborg.cta.practical">Practical information</a>
             </div>
-            <div class="viborg-app-tools">
-              <button type="button" data-pwa-install data-i18n="pwa.install" aria-expanded="false" aria-controls="pwa-instructions" hidden>Install app</button>
-              <span class="pwa-note" role="status" data-pwa-ready data-i18n="viborg.offline" hidden>The programme is ready offline.</span>
-            </div>
-            <p class="pwa-note" id="pwa-instructions" data-pwa-instructions data-i18n="pwa.instructions" hidden>On iPhone, open the Share menu and choose Add to Home Screen, then Open as Web App. In Chrome or Edge, use Install app in the browser menu.</p>
           </div>
           <div class="viborg-postcard">
             <img src="media/2026/viborg-velkomst.webp" width="1200" height="800" fetchpriority="high"
@@ -110,32 +105,6 @@
       </header>
 
       <section class="section program-section program-dk" id="program-dk" aria-labelledby="dk-title">
-        <div class="section-pattern pattern-dk" aria-hidden="true"></div>
-        <div class="program-landmarks program-landmarks-dk" aria-hidden="true">
-          <svg class="landmark landmark-tower" viewBox="0 0 70 120" width="58" height="100">
-            <path fill="#c8102e" d="M18 120V28l17-16 17 16v92H18z"/>
-            <rect x="32" y="8" width="6" height="14" fill="#c8102e"/>
-            <polygon points="35,2 28,12 42,12" fill="#c8102e"/>
-            <rect x="30" y="48" width="10" height="14" fill="#f7e8ea"/>
-            <rect x="30" y="72" width="10" height="14" fill="#f7e8ea"/>
-            <rect x="31" y="98" width="8" height="22" fill="#3d2818"/>
-          </svg>
-          <svg class="landmark landmark-houses-dk" viewBox="0 0 140 80" width="120" height="68">
-            <path fill="#e8c84a" d="M4 80V42l14-16 14 16v38H4z"/>
-            <path fill="#b83a2e" d="M30 80V34l16-20 16 20v46H30z"/>
-            <path fill="#d8e0e6" d="M60 80V48h24v32H60z"/>
-            <path fill="#4a7a8a" d="M86 80V44l14-14 14 14v36H86z"/>
-            <rect x="12" y="54" width="7" height="9" fill="#fff8e0"/>
-            <rect x="40" y="48" width="7" height="9" fill="#f5e6d3"/>
-            <rect x="68" y="56" width="7" height="8" fill="#eef4f8"/>
-            <rect x="98" y="52" width="7" height="8" fill="#e0eef2"/>
-          </svg>
-          <svg class="landmark landmark-bike" viewBox="0 0 80 48" width="70" height="42">
-            <circle cx="16" cy="34" r="11" fill="none" stroke="#c8102e" stroke-width="3"/>
-            <circle cx="62" cy="34" r="11" fill="none" stroke="#c8102e" stroke-width="3"/>
-            <path d="M16 34 L32 14 H48 L62 34 M40 14 V26 M32 26 H52" fill="none" stroke="#14212b" stroke-width="3" stroke-linecap="round"/>
-          </svg>
-        </div>
         <div class="section-inner">
           <div class="program-header">
             <div class="program-title-row">
@@ -145,11 +114,17 @@
                 <h2 id="dk-title" data-i18n="index.program.dk.title">Programme in Denmark</h2>
               </div>
             </div>
-            <p class="section-lead" data-i18n-html="viborg.school">Standard school hours in Viborg are <strong>09:00–14:30</strong>.</p>
-            <p class="section-lead" data-i18n-html="projects.room.routine"><strong>09:00</strong> – Morning meeting on the third floor, followed by time for a daily stand-up with your project group.<br><strong>11:30</strong> – Lunch together.<br><strong>14:15</strong> – On regular school days, we meet again to wrap up.</p>
-            <p class="section-lead" data-i18n-html="viborg.theory.online">Theory starts at <strong>10:00</strong> on the first four school days, 30 November–3 December. You can join the theory sessions online.</p>
-            <p class="section-lead" data-i18n-html="shared.dk.projectRooms"><strong>Project work:</strong> The railway, DMX lightshow and projection mapping groups stay on the third floor. All other groups work in Datahouse.</p>
-            <p class="section-lead" data-i18n-html="shared.dk.schoolBreaks">Lunch is from <strong>11:30 to 12:00</strong>. The other breaks are flexible, usually <strong>09:30–10:00</strong> and <strong>13:30–13:45</strong>. Ask the Danish students when your group will take those breaks.</p>
+            <div class="viborg-school-guide">
+              <div>
+                <p class="section-lead" data-i18n-html="viborg.school">Standard school hours in Viborg are <strong>09:00–14:30</strong>.</p>
+                <p class="section-lead" data-i18n-html="projects.room.routine"><strong>09:00</strong> – Morning meeting on the third floor, followed by time for a daily stand-up with your project group.<br><strong>11:30</strong> – Lunch together.<br><strong>14:15</strong> – On regular school days, we meet again to wrap up.</p>
+                <p class="section-lead" data-i18n-html="viborg.theory.online">Theory starts at <strong>10:00</strong> on the first four school days, 30 November–3 December. You can join the theory sessions online.</p>
+              </div>
+              <div>
+                <p class="section-lead" data-i18n-html="shared.dk.projectRooms"><strong>Project work:</strong> The railway, DMX lightshow and projection mapping groups stay on the third floor. All other groups work in Datahouse.</p>
+                <p class="section-lead" data-i18n-html="shared.dk.schoolBreaks">Lunch is from <strong>11:30 to 12:00</strong>. The other breaks are flexible, usually <strong>09:30–10:00</strong> and <strong>13:30–13:45</strong>. Ask the Danish students when your group will take those breaks.</p>
+              </div>
+            </div>
           </div>
 
           <h3 class="staff-week-title" id="dk-teachers-title" data-i18n="index.program.dk.staff.title">Ter AA teachers in Viborg</h3>
@@ -177,7 +152,7 @@
           </div>
 
           <div class="schedule" role="table" data-i18n-attr="aria-label:index.program.dk.schedule.aria" aria-label="Denmark programme" data-schedule="dk">
-            <div class="schedule-head" role="row">
+            <div class="schedule-head visually-hidden" role="row">
               <span role="columnheader" data-i18n="shared.schedule.col.where">Where</span>
               <span role="columnheader" data-i18n="shared.schedule.col.day">Day</span>
               <span role="columnheader" data-i18n="shared.schedule.col.date">Date</span>
@@ -186,7 +161,7 @@
             </div>
 
             <div class="schedule-row is-dk is-arrive" role="row" data-type="weekend">
-              <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
+              <span class="sch-place visually-hidden" role="cell">DK</span>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="1">Day 1</span>
               <span class="sch-date" role="cell"><time datetime="2026-11-29">29 Nov</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.sunday">Sunday</span>
@@ -196,7 +171,14 @@
               </div>
             </div>
             <div class="schedule-row is-dk" role="row" data-type="school">
-              <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
+              <div class="sch-place" role="cell">
+                <span class="visually-hidden">DK</span>
+                <figure class="viborg-place-card">
+                  <img src="media/2026/borgvold.webp" width="900" height="450" loading="lazy" decoding="async"
+                       alt="Skaters glide across the outdoor rink at Borgvold with the lake behind them." data-i18n-attr="alt:viborg.place.borgvold" />
+                  <figcaption>Borgvold</figcaption>
+                </figure>
+              </div>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="2">Day 2</span>
               <span class="sch-date" role="cell"><time datetime="2026-11-30">30 Nov</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.monday">Monday</span>
@@ -214,7 +196,14 @@
               </div>
             </div>
             <div class="schedule-row is-dk" role="row" data-type="school">
-              <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
+              <div class="sch-place" role="cell">
+                <span class="visually-hidden">DK</span>
+                <figure class="viborg-place-card">
+                  <img src="media/2026/nytorv.webp" width="900" height="450" loading="lazy" decoding="async"
+                       alt="Visitors gather around the Christmas tree beneath the lights of the market canopy on Nytorv." data-i18n-attr="alt:viborg.place.nytorv" />
+                  <figcaption data-i18n="viborg.place.nytorvName">Nytorv Christmas market</figcaption>
+                </figure>
+              </div>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="3">Day 3</span>
               <span class="sch-date" role="cell"><time datetime="2026-12-01">1 Dec</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.tuesday">Tuesday</span>
@@ -232,7 +221,14 @@
               </div>
             </div>
             <div class="schedule-row is-dk" role="row" data-type="school">
-              <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
+              <div class="sch-place" role="cell">
+                <span class="visually-hidden">DK</span>
+                <figure class="viborg-place-card">
+                  <img src="media/2026/space-jump.webp" width="900" height="450" loading="lazy" decoding="async"
+                       alt="One student jumps while another rests beside the colourful trampolines at Space Jump." data-i18n-attr="alt:viborg.place.space-jump" />
+                  <figcaption>Space Jump</figcaption>
+                </figure>
+              </div>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="4">Day 4</span>
               <span class="sch-date" role="cell"><time datetime="2026-12-02">2 Dec</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.wednesday">Wednesday</span>
@@ -250,7 +246,7 @@
               </div>
             </div>
             <div class="schedule-row is-dk is-highlight" role="row" data-type="school">
-              <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
+              <span class="sch-place visually-hidden" role="cell">DK</span>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="5">Day 5</span>
               <span class="sch-date" role="cell"><time datetime="2026-12-03">3 Dec</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.thursday">Thursday</span>
@@ -268,7 +264,7 @@
               </div>
             </div>
             <div class="schedule-row is-dk" role="row" data-type="free">
-              <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
+              <span class="sch-place visually-hidden" role="cell">DK</span>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="6">Day 6</span>
               <span class="sch-date" role="cell"><time datetime="2026-12-04">4 Dec</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.friday">Friday</span>
@@ -278,8 +274,20 @@
                 <p class="viborg-day-detail" data-i18n-html="viborg.day6.body">The Dutch group leaves for Aarhus in the afternoon.</p>
               </div>
             </div>
-            <div class="schedule-row is-dk is-weekend" role="row" data-type="weekend">
-              <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
+            <div class="schedule-row viborg-aarhus-day is-dk is-weekend" role="row" data-type="weekend">
+              <div class="sch-place viborg-place-pair" role="cell">
+                <span class="visually-hidden">DK</span>
+                <figure class="viborg-place-card">
+                  <img src="media/2026/den-gamle-by.webp" width="900" height="450" loading="lazy" decoding="async"
+                       alt="Three visitors cross a cobbled square lined with half-timbered houses in Den Gamle By." data-i18n-attr="alt:viborg.place.den-gamle-by" />
+                  <figcaption>Den Gamle By</figcaption>
+                </figure>
+                <figure class="viborg-place-card">
+                  <img src="media/2026/aarhus-street-food.webp" width="900" height="450" loading="lazy" decoding="async"
+                       alt="Diners share long tables under strings of lights beside the stalls at Aarhus Street Food." data-i18n-attr="alt:viborg.place.aarhus-street-food" />
+                  <figcaption>Aarhus Street Food</figcaption>
+                </figure>
+              </div>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="7">Day 7</span>
               <span class="sch-date" role="cell"><time datetime="2026-12-05">5 Dec</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.saturday">Saturday</span>
@@ -289,7 +297,7 @@
               </div>
             </div>
             <div class="schedule-row is-dk is-weekend" role="row" data-type="weekend">
-              <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
+              <span class="sch-place visually-hidden" role="cell">DK</span>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="8">Day 8</span>
               <span class="sch-date" role="cell"><time datetime="2026-12-06">6 Dec</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.sunday">Sunday</span>
@@ -299,7 +307,7 @@
               </div>
             </div>
             <div class="schedule-row is-dk" role="row" data-type="school">
-              <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
+              <span class="sch-place visually-hidden" role="cell">DK</span>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="9">Day 9</span>
               <span class="sch-date" role="cell"><time datetime="2026-12-07">7 Dec</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.monday">Monday</span>
@@ -313,7 +321,7 @@
               </div>
             </div>
             <div class="schedule-row is-dk" role="row" data-type="school">
-              <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
+              <span class="sch-place visually-hidden" role="cell">DK</span>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="10">Day 10</span>
               <span class="sch-date" role="cell"><time datetime="2026-12-08">8 Dec</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.tuesday">Tuesday</span>
@@ -327,7 +335,14 @@
               </div>
             </div>
             <div class="schedule-row is-dk is-highlight" role="row" data-type="school">
-              <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
+              <div class="sch-place" role="cell">
+                <span class="visually-hidden">DK</span>
+                <figure class="viborg-place-card">
+                  <img src="media/2026/oelluminati.webp" width="900" height="450" loading="lazy" decoding="async"
+                       alt="Young adults play a board game over soft drinks at a wooden table at Ølluminati." data-i18n-attr="alt:viborg.place.oelluminati" />
+                  <figcaption>Ølluminati</figcaption>
+                </figure>
+              </div>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="11">Day 11</span>
               <span class="sch-date" role="cell"><time datetime="2026-12-09">9 Dec</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.wednesday">Wednesday</span>
@@ -345,7 +360,14 @@
               </div>
             </div>
             <div class="schedule-row is-dk is-highlight" role="row" data-type="school">
-              <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
+              <div class="sch-place" role="cell">
+                <span class="visually-hidden">DK</span>
+                <figure class="viborg-place-card">
+                  <img src="media/2026/paletten.webp" width="900" height="450" loading="lazy" decoding="async"
+                       alt="A bassist, drummer and guitarist play for a small audience at Paletten." data-i18n-attr="alt:viborg.place.paletten" />
+                  <figcaption>Paletten</figcaption>
+                </figure>
+              </div>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="12">Day 12</span>
               <span class="sch-date" role="cell"><time datetime="2026-12-10">10 Dec</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.thursday">Thursday</span>
@@ -355,11 +377,11 @@
                 <p class="viborg-school-time" data-i18n-html="viborg.school.wrap"><strong>14:15</strong> · Meet again on the third floor to wrap up</p>
                 <p class="viborg-school-end" data-i18n-html="viborg.school.end"><strong>14:30</strong> · End of the school day</p>
                 <strong data-i18n="viborg.day12.title">Jam Night</strong>
-                <p class="viborg-day-detail" data-i18n-html="viborg.day12.body"><a href="https://paletten.dk/event/jam-night-26-vol-6/">Jam Night at Paletten</a> starts at <strong>19:00</strong>.</p>
+                <p class="viborg-day-detail" data-i18n-html="viborg.day12.body">Doors open at <strong>19:00</strong> for <a href="https://paletten.dk/event/jam-night-26-vol-6/">Jam Night at Paletten</a>. The music starts at <strong>20:00</strong>.</p>
               </div>
             </div>
             <div class="schedule-row is-dk" role="row" data-type="departure">
-              <span class="sch-place" role="cell"><span class="place-badge place-dk"><span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>DK</span></span>
+              <span class="sch-place visually-hidden" role="cell">DK</span>
               <span class="sch-day" role="cell" data-i18n="shared.schedule.day.n" data-i18n-n="13">Day 13</span>
               <span class="sch-date" role="cell"><time datetime="2026-12-11">11 Dec</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.friday">Friday</span>
@@ -377,67 +399,56 @@
           <p class="eyebrow" data-i18n="index.practical.eyebrow">Good to know</p>
           <h2 id="practical-title" data-i18n="index.practical.title">Practical information</h2>
 
-          <div class="stay-block" aria-labelledby="stay-title">
-            <div class="stay-intro">
-              <h3 id="stay-title" data-i18n="index.practical.sleep.title">Where we sleep</h3>
+          <div class="viborg-addresses">
+            <div class="stay-block" aria-labelledby="stay-title">
+              <div class="stay-intro">
+                <h3 id="stay-title" data-i18n="index.practical.sleep.title">Where we sleep</h3>
+              </div>
+              <div class="stay-grid">
+                <article class="stay-card stay-dk">
+                  <div class="stay-flag">
+                    <div class="flag flag-dk flag-md" aria-hidden="true"><span class="dk-cross-h"></span><span class="dk-cross-v"></span></div>
+                  </div>
+                  <h4>Mercantec Kollegiet</h4>
+                  <p class="stay-type" data-i18n="shared.stayType.dorm">Student dormitory · Viborg</p>
+                  <p class="stay-address">H. C. Andersens Vej 7B, 8800 Viborg</p>
+                  <p class="stay-meals" data-i18n-html="viborg.meals">Breakfast at the dorm is <strong>06:50–08:00</strong> and dinner is <strong>17:00–18:30</strong>.</p>
+                  <a class="map-link" href="https://maps.app.goo.gl/rQypDLh8qF4tXtZXA" target="_blank" rel="noopener noreferrer" data-i18n="shared.map.openGoogleMaps">Open in Google Maps</a>
+                </article>
+              </div>
             </div>
-            <div class="stay-grid">
-              <article class="stay-card stay-dk">
-                <div class="stay-flag">
-                  <div class="flag flag-dk flag-md" aria-hidden="true"><span class="dk-cross-h"></span><span class="dk-cross-v"></span></div>
-                  <span class="place-badge place-dk">
-                    <span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>
-                    DK
-                  </span>
-                </div>
-                <div class="stay-icon" aria-hidden="true">
-                  <svg viewBox="0 0 64 48" width="64" height="48">
-                    <path d="M8 40V18l12-10 12 10v22H8z" fill="currentColor" opacity="0.9"/>
-                    <path d="M32 40V22l12-8 12 8v18H32z" fill="currentColor" opacity="0.75"/>
-                    <rect x="14" y="26" width="6" height="8" rx="1" fill="#fff" opacity="0.85"/>
-                    <rect x="38" y="28" width="6" height="8" rx="1" fill="#fff" opacity="0.85"/>
-                    <rect x="18" y="36" width="5" height="4" fill="#fff" opacity="0.6"/>
-                    <rect x="42" y="36" width="5" height="4" fill="#fff" opacity="0.6"/>
-                  </svg>
-                </div>
-                <h4>Mercantec Kollegiet</h4>
-                <p class="stay-type" data-i18n="shared.stayType.dorm">Student dormitory · Viborg</p>
-                <p class="stay-address">H. C. Andersens Vej 7B, 8800 Viborg</p>
-                <p class="stay-meals" data-i18n-html="viborg.meals">Breakfast at the dorm is <strong>06:50–08:00</strong> and dinner is <strong>17:00–18:30</strong>.</p>
-                <a class="map-link" href="https://maps.app.goo.gl/rQypDLh8qF4tXtZXA" target="_blank" rel="noopener noreferrer" data-i18n="shared.map.openGoogleMaps">Open in Google Maps</a>
-              </article>
+
+            <div class="stay-block schools-block" aria-labelledby="schools-title">
+              <div class="stay-intro">
+                <h3 id="schools-title" data-i18n="index.practical.schools.title">Where we go to school</h3>
+              </div>
+              <div class="stay-grid">
+                <article class="stay-card stay-dk stay-school">
+                  <div class="stay-flag">
+                    <div class="flag flag-dk flag-md" aria-hidden="true"><span class="dk-cross-h"></span><span class="dk-cross-v"></span></div>
+                  </div>
+                  <h4>Datahouse Mercantec</h4>
+                  <p class="stay-type" data-i18n="shared.stayType.schoolDk">School · Viborg</p>
+                  <p class="stay-address">H. C. Andersens Vej 9, 8800 Viborg</p>
+                  <a class="map-link" href="https://maps.app.goo.gl/RLo7yGLakAiXaxRr7" target="_blank" rel="noopener noreferrer" data-i18n="shared.map.openGoogleMaps">Open in Google Maps</a>
+                </article>
+              </div>
             </div>
           </div>
 
-          <div class="stay-block schools-block" aria-labelledby="schools-title">
-            <div class="stay-intro">
-              <h3 id="schools-title" data-i18n="index.practical.schools.title">Where we go to school</h3>
-            </div>
-            <div class="stay-grid">
-              <article class="stay-card stay-dk stay-school">
-                <div class="stay-flag">
-                  <div class="flag flag-dk flag-md" aria-hidden="true"><span class="dk-cross-h"></span><span class="dk-cross-v"></span></div>
-                  <span class="place-badge place-dk">
-                    <span class="flag-mark flag-mark-dk" aria-hidden="true"><i></i><i></i></span>
-                    DK
-                  </span>
-                </div>
-                <h4>Datahouse Mercantec</h4>
-                <p class="stay-type" data-i18n="shared.stayType.schoolDk">School · Viborg</p>
-                <p class="stay-address">H. C. Andersens Vej 9, 8800 Viborg</p>
-                <a class="map-link" href="https://maps.app.goo.gl/RLo7yGLakAiXaxRr7" target="_blank" rel="noopener noreferrer" data-i18n="shared.map.openGoogleMaps">Open in Google Maps</a>
-              </article>
+          <div class="viborg-free-time">
+            <figure class="viborg-place-card">
+              <img src="media/2026/domkirke.webp" width="900" height="450" loading="lazy" decoding="async"
+                   alt="Viborg Cathedral’s twin granite towers rise above Gammeltorv." data-i18n-attr="alt:viborg.place.domkirke" />
+              <figcaption data-i18n="viborg.place.cathedralName">Viborg Cathedral</figcaption>
+            </figure>
+            <div>
+              <h3 data-i18n="viborg.spare.title">In your free time</h3>
+              <p data-i18n-html="viborg.spare.body">See <a href="https://vierviborg.dk/da/jul-i-viborg">Christmas in Viborg</a> for a map and activities at Nytorv, including the Christmas market and free concerts. You can also visit <a href="https://www.viborgdomkirke.dk/">Viborg Cathedral</a>.</p>
             </div>
           </div>
 
           <div class="practical-grid">
-            <div class="practical-item">
-              <span class="practical-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M6 7V6a6 6 0 0112 0v1h2a1 1 0 011 1v12a2 2 0 01-2 2H5a2 2 0 01-2-2V8a1 1 0 011-1h2zm2 0h8V6a4 4 0 00-8 0v1zm1 4v2h2v-2H9zm6 0v2h2v-2h-2z"/></svg>
-              </span>
-              <h3 data-i18n="viborg.spare.title">In your free time</h3>
-              <p data-i18n-html="viborg.spare.body">See <a href="https://vierviborg.dk/da/jul-i-viborg">Christmas in Viborg</a> for a map and activities at Nytorv, including the Christmas market and free concerts. You can also visit <a href="https://www.viborgdomkirke.dk/">Viborg Cathedral</a>.</p>
-            </div>
             <div class="practical-item">
               <span class="practical-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M17 4H7a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3zm-1 9H8v-2h8v2z"/></svg>
@@ -572,7 +583,7 @@
     </div>
   </footer>
 
-  <script src="i18n.js?v=20261128h"></script>
+  <script src="i18n.js?v=20261128i"></script>
   <script src="/pwa.js?v=20261114b" defer></script>
   <script src="script.js?v=20261128a"></script>
 </body>

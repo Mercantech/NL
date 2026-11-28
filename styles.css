@@ -6212,34 +6212,6 @@ a.itinerary-place:hover {
   color: var(--postcard-red-dark);
 }
 
-.viborg-app-tools {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: .2rem .85rem;
-  margin-top: .75rem;
-}
-
-.viborg-app-tools button {
-  border: 0;
-  padding: .25rem 0;
-  background: transparent;
-  color: var(--print-ink);
-  font: inherit;
-  font-size: .8rem;
-  text-decoration: underline;
-  text-underline-offset: .18em;
-  cursor: pointer;
-}
-
-.viborg-hero .pwa-note {
-  color: var(--print-muted);
-}
-
-.viborg-app-tools .pwa-note {
-  margin: 0;
-  font-size: .8rem;
-}
 
 .viborg-hero :is(a, button):focus-visible {
   outline: 3px solid var(--print-ink);
@@ -6359,4 +6331,176 @@ a.itinerary-place:hover {
 
 .stay-meals {
   margin: 0 0 0.6rem;
+}
+
+/* The Viborg programme reads like a set of dated travel postcards. */
+.page-viborg {
+  --ink: var(--print-ink);
+  --muted: var(--print-muted);
+}
+
+.viborg-school-guide {
+  display: grid;
+  gap: 1rem 2rem;
+  margin: 1rem 0 1.75rem;
+  padding-block: 1.2rem;
+  border-block: 1px solid var(--paper-edge);
+}
+
+.viborg-school-guide .section-lead {
+  max-width: 62ch;
+  margin: 0 0 .7rem;
+  font-size: .96rem;
+}
+
+.viborg-school-guide .section-lead:last-child { margin: 0; }
+
+.page-viborg .chip.is-active {
+  background: var(--postcard-red);
+  border-color: var(--postcard-red);
+}
+
+.page-viborg .schedule { border-top: 2px solid var(--postcard-red); }
+.page-viborg .schedule-head { display: flex; }
+
+.page-viborg .schedule-row {
+  position: relative;
+  grid-template-columns: max-content max-content minmax(0, 1fr);
+  grid-template-areas: "day date weekday" "what what what" "place place place";
+  align-items: baseline;
+  gap: 0 .8rem;
+  margin: 0;
+  padding: 1.15rem .15rem;
+  border: 0;
+  border-bottom: 1px solid var(--paper-edge);
+  border-radius: 0;
+  background: var(--paper-light);
+}
+
+.page-viborg .sch-day {
+  grid-area: day;
+  justify-self: start;
+  align-self: baseline;
+  padding: .18rem .4rem;
+  color: var(--postcard-red-dark);
+  background: #f6e6d9;
+  font-size: .7rem;
+  white-space: nowrap;
+}
+
+.page-viborg .sch-date {
+  grid-area: date;
+  font: 700 clamp(1.15rem, 2vw, 1.48rem)/1.2 var(--font-display);
+}
+
+.page-viborg .sch-weekday { grid-area: weekday; font-size: .88rem; }
+.page-viborg .sch-place { grid-area: place; padding: 0; }
+.page-viborg .sch-what { grid-area: what; margin-top: .8rem; font-weight: 400; }
+.page-viborg .sch-what > strong { font: 700 1.23rem/1.25 var(--font-display); }
+
+.viborg-place-card {
+  min-width: 0;
+  margin: .95rem 0 0;
+  padding: .35rem .35rem 0;
+  background: var(--paper-light);
+  border: 1px solid var(--paper-edge);
+  box-shadow: 0 2px 5px #44362413;
+}
+
+.viborg-place-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.viborg-place-card figcaption {
+  padding: .45rem .25rem .52rem;
+  color: var(--postcard-red-dark);
+  font: 600 1rem/1.2 var(--font-display);
+}
+
+.viborg-place-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(.45rem, 2vw, 1rem);
+}
+
+.page-viborg .viborg-lesson {
+  color: #294c42;
+  background: #eaf0e7;
+  border-color: #527765;
+}
+
+.page-viborg .viborg-school-end { border-color: var(--paper-edge); }
+.page-viborg .viborg-school-end strong { color: var(--postcard-red-dark); }
+.page-viborg .viborg-school-time strong { color: var(--print-ink); }
+.page-viborg :is(.viborg-day-detail, .viborg-free-time) a { color: var(--postcard-red-dark); }
+
+.page-viborg .practical-section {
+  background: var(--paper);
+  border-top: 1px solid var(--paper-edge);
+}
+
+.page-viborg .practical-section .eyebrow,
+.page-viborg .practical-icon { color: var(--postcard-red); }
+
+.viborg-addresses {
+  display: grid;
+  gap: 1.15rem;
+  margin: 1.6rem 0;
+}
+
+.viborg-addresses .stay-block { display: flex; flex-direction: column; margin: 0; }
+.viborg-addresses .stay-intro { margin: 0 0 .45rem; }
+.viborg-addresses .stay-grid { flex: 1; grid-template-columns: minmax(0, 1fr); }
+.viborg-addresses .stay-card {
+  color: var(--print-ink);
+  background: var(--paper-light);
+  border: 1px solid var(--paper-edge);
+  border-top: 3px solid var(--postcard-red);
+  border-radius: 2px;
+}
+.viborg-addresses :is(.stay-type, .map-link) { color: var(--postcard-red-dark); }
+
+.viborg-free-time {
+  display: grid;
+  gap: 1rem 2rem;
+  align-items: center;
+  margin: 2rem 0;
+  padding-block: 1.4rem;
+  border-block: 1px solid var(--paper-edge);
+}
+
+.viborg-free-time .viborg-place-card { margin: 0; }
+.viborg-free-time h3 { margin: 0 0 .45rem; font: 700 1.55rem/1.2 var(--font-display); }
+.viborg-free-time p { margin: 0; max-width: 54ch; }
+
+.page-viborg .wa-panel {
+  background: var(--paper-light);
+  border: 1px solid var(--paper-edge);
+  border-radius: .4rem;
+  box-shadow: none;
+}
+
+.page-viborg .contact-section { background: var(--print-ink); color: var(--paper-light); }
+.page-viborg .contact-section .eyebrow { color: #f6c7a0; }
+.page-viborg .contact-label { opacity: .9; }
+.page-viborg .site-footer { background: #192923; }
+
+@media (min-width: 640px) {
+  .viborg-school-guide, .viborg-addresses, .page-viborg .practical-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .viborg-free-time { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+}
+
+@media (min-width: 800px) {
+  .page-viborg .schedule-row {
+    grid-template-columns: 3.65rem 5.35rem minmax(5rem, .63fr) minmax(0, 1.37fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "day date weekday what" "place place place what";
+    padding-block: 1.5rem;
+  }
+  .page-viborg .sch-what { align-self: start; margin: 0 0 0 1rem; }
+  .page-viborg .viborg-aarhus-day { grid-template-areas: "day date weekday what" "place place place place"; }
 }

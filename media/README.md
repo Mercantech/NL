@@ -13,6 +13,19 @@ Prefer JPG/WebP for photos and MP4 for video (browser-friendly).
 
 `2026/viborg-velkomst.webp` is an AI-generated postcard illustration of the lakeside and Viborg Cathedral for the Danish exchange welcome page.
 
+The eight place illustrations in `2026/` are AI-generated postcards for the exchange programme. Official references for the locations are listed below.
+
+| Postcard | Location |
+| --- | --- |
+| `borgvold.webp` | [Viborg Kommune’s skating rink at Borgvold](https://viborg.dk/oplevelser-og-fritid/aktiviteter-og-faellesskaber/fritidsaktiviteter/idraet-motion-og-kultur/viborg-skoejtebane/) |
+| `nytorv.webp` | [Vi er Viborg’s Christmas market on Nytorv](https://vierviborg.dk/da/jul-i-viborg/julemarked-pa-nytorv) |
+| `space-jump.webp` | [SpaceJump Viborg](https://spacejump.dk/viborg/) |
+| `den-gamle-by.webp` | [Den Gamle By](https://www.dengamleby.dk/) |
+| `aarhus-street-food.webp` | [Aarhus Street Food](https://www.aarhusstreetfood.com/) |
+| `paletten.webp` | [Jam Night at Paletten](https://paletten.dk/event/jam-night-26-vol-6/) |
+| `oelluminati.webp` | [Ølluminati](https://oelluminati.dk/) |
+| `domkirke.webp` | [Viborg Cathedral](https://www.viborgdomkirke.dk/) |
+
 `projects-2026/gruppebillede.webp` is an AI-generated group illustration showing all eight projects at a shared exhibition. The students in the illustration are fictional.
 
 The 960 × 540 WebP covers in `projects-2026/` use the following project material.
