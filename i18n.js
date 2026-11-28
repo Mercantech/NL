@@ -87,7 +87,6 @@
 
   var STRINGS = {
     en:     {
-      "viborg.day12.school": "<strong>Project presentations during the school day</strong><br>See the <a href=\"projekter-2026.html\">project groups</a>.",
       "viborg.school.end": "<strong>14:30</strong> · End of the school day",
       "viborg.day11.presentations": "<strong>12:00 · Joint presentations on the third floor</strong><br>All project groups take part. Presentations continue until <strong>14:30</strong>.",
       "viborg.theory.online": "Theory starts at <strong>10:00</strong> on the first four school days, 30 November–3 December. You can join the theory sessions online.",
@@ -682,7 +681,6 @@
       "years.year.label": "Exchange",
     },
     da:     {
-      "viborg.day12.school": "<strong>Projektfremlæggelser i løbet af skoledagen</strong><br>Se <a href=\"projekter-2026.html\">projektgrupperne</a>.",
       "viborg.school.end": "<strong>14:30</strong> · Den faglige del slutter",
       "viborg.day11.presentations": "<strong>12:00 · Fælles fremlæggelser på 3. sal</strong><br>Alle projektgrupper deltager. Fremlæggelserne fortsætter til kl. <strong>14:30</strong>.",
       "viborg.theory.online": "De første fire skoledage, 30. november–3. december, er der teori kl. <strong>10:00</strong>. Du kan deltage online i teoriundervisningen.",
@@ -1277,7 +1275,6 @@
       "years.year.label": "Udveksling",
     },
     nl:     {
-      "viborg.day12.school": "<strong>Projectpresentaties tijdens de schooldag</strong><br>Bekijk de <a href=\"projekter-2026.html\">projectgroepen</a>.",
       "viborg.school.end": "<strong>14:30</strong> · Einde van de schooldag",
       "viborg.day11.presentations": "<strong>12:00 · Gezamenlijke presentaties op de derde verdieping</strong><br>Alle projectgroepen doen mee. De presentaties duren tot <strong>14:30</strong>.",
       "viborg.theory.online": "Op de eerste vier schooldagen, van 30 november t/m 3 december, begint de theorie om <strong>10:00</strong>. Je kunt de theorielessen online volgen.",
