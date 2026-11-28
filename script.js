@@ -1,4 +1,10 @@
 (() => {
+  if (/^\/(?:index\.html)?$/.test(location.pathname) &&
+      /^(?:#overview|#program-nl|#helmond-week|#helmond-2026-11-\d{2}|#hjemtur-saeder)$/.test(location.hash)) {
+    location.replace("2026.html" + location.search + location.hash);
+    return;
+  }
+
   const body = document.body;
   const toggle = document.querySelector("[data-menu-toggle]");
   const nav = document.getElementById("main-nav");

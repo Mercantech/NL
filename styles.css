@@ -5228,6 +5228,7 @@ a.itinerary-place:hover {
 
 .y26-tracks {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.75rem;
   margin-bottom: 2rem;
 }
@@ -6111,4 +6112,33 @@ a.itinerary-place:hover {
   .projects-tools,
   .project-register { grid-template-columns: minmax(0, 1fr); }
   .project-search { width: 100%; }
+}
+
+.viborg-hero .y26-hero-inner {
+  max-width: var(--max);
+}
+
+.viborg-hero .pwa-note {
+  color: var(--muted);
+}
+
+.program-dk .sch-what {
+  display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.viborg-day-detail {
+  margin: 0.3rem 0 0;
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.viborg-day-detail a {
+  color: var(--sea-mid);
+  text-underline-offset: 0.16em;
+}
+
+.stay-meals {
+  margin: 0 0 0.6rem;
 }
