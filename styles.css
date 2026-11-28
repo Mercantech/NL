@@ -6114,12 +6114,177 @@ a.itinerary-place:hover {
   .project-search { width: 100%; }
 }
 
-.viborg-hero .y26-hero-inner {
-  max-width: var(--max);
+.page-viborg {
+  --paper: #fcf5e8;
+  --paper-light: #fffcf5;
+  --paper-edge: #d9cbb6;
+  --postcard-red: #9b302b;
+  --postcard-red-dark: #70201e;
+  --print-ink: #263934;
+  --print-muted: #535b50;
+  background: var(--paper-light);
+}
+
+.page-viborg .site-header {
+  background: var(--paper-light);
+  border-bottom-color: var(--paper-edge);
+}
+
+.page-viborg .nav a.is-active {
+  border-bottom-color: var(--postcard-red);
+}
+
+.viborg-hero {
+  padding: clamp(2.25rem, 5vw, 4.5rem) 0;
+  background: radial-gradient(ellipse at 82% 55%, #f1dfbc, transparent 57%), var(--paper);
+  color: var(--print-ink);
+}
+
+.viborg-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 8px;
+  background: repeating-linear-gradient(90deg, #9b302b50 0 8px, transparent 8px 16px),
+              repeating-linear-gradient(0deg, #9b302b50 0 4px, transparent 4px 8px);
+}
+
+.viborg-welcome {
+  display: grid;
+  grid-template-columns: minmax(0, .94fr) minmax(0, 1.06fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.viborg-welcome-date {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin: 0 0 1.15rem;
+  font-size: .86rem;
+  font-weight: 600;
+  color: var(--postcard-red-dark);
+}
+
+.viborg-hero h1 {
+  margin: 0;
+  font-size: clamp(3.35rem, 5.8vw, 5.1rem);
+  line-height: .99;
+  letter-spacing: -.05em;
+  color: var(--print-ink);
+}
+
+.viborg-hero h1 span {
+  display: block;
+  color: var(--postcard-red);
+}
+
+.viborg-welcome-message {
+  margin: 1.15rem 0 1.4rem;
+  max-width: 44ch;
+  font-size: clamp(1rem, 1.35vw, 1.13rem);
+  line-height: 1.6;
+}
+
+.viborg-hero .btn {
+  min-height: 44px;
+  padding: .65rem 1rem;
+  border-radius: .45rem;
+  box-shadow: none;
+}
+
+.viborg-hero .btn-primary {
+  background: var(--postcard-red);
+}
+
+.viborg-hero .btn-primary:hover {
+  background: var(--postcard-red-dark);
+}
+
+.viborg-hero .btn-ghost {
+  color: var(--print-ink);
+  border: 1px solid #a09483;
+  background: var(--paper-light);
+}
+
+.viborg-hero .btn-ghost:hover {
+  border-color: var(--postcard-red);
+  color: var(--postcard-red-dark);
+}
+
+.viborg-app-tools {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: .2rem .85rem;
+  margin-top: .75rem;
+}
+
+.viborg-app-tools button {
+  border: 0;
+  padding: .25rem 0;
+  background: transparent;
+  color: var(--print-ink);
+  font: inherit;
+  font-size: .8rem;
+  text-decoration: underline;
+  text-underline-offset: .18em;
+  cursor: pointer;
 }
 
 .viborg-hero .pwa-note {
-  color: var(--muted);
+  color: var(--print-muted);
+}
+
+.viborg-app-tools .pwa-note {
+  margin: 0;
+  font-size: .8rem;
+}
+
+.viborg-hero :is(a, button):focus-visible {
+  outline: 3px solid var(--print-ink);
+  outline-offset: 3px;
+}
+
+.viborg-postcard {
+  padding: clamp(.4rem, .8vw, .65rem);
+  background: var(--paper-light);
+  border: 1px solid var(--paper-edge);
+  box-shadow: 0 10px 24px #45331e26, 0 2px 4px #45331e19;
+  transform: rotate(1.5deg);
+}
+
+.viborg-postcard img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.page-viborg .program-dk {
+  border-top: 0;
+  background: var(--paper-light);
+}
+
+.page-viborg .staff-week {
+  border-color: var(--paper-edge);
+  background: var(--paper);
+}
+
+.page-viborg .staff-week-list li::before {
+  background: var(--postcard-red);
+}
+
+@media (max-width: 740px) {
+  .viborg-welcome {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.6rem;
+  }
+
+  .viborg-welcome-date { margin-bottom: .75rem; }
+  .viborg-hero h1 { font-size: clamp(2.7rem, 9vw, 3.8rem); }
+  .viborg-hero h1 span { display: inline; }
+  .viborg-welcome-message { margin: .75rem 0 1rem; }
+  .viborg-postcard { width: min(100%, 31rem); justify-self: center; }
 }
 
 .program-dk .sch-what {

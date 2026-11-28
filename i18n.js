@@ -87,6 +87,10 @@
 
   var STRINGS = {
     en:     {
+      "viborg.welcome.dates": "29 November – 11 December 2026",
+      "viborg.welcome.title": "Welcome to <span>Viborg!</span>",
+      "viborg.welcome.message": "It’s our turn to show you around! We’re looking forward to working together, skating by Borgvold and getting to know each other at the Friday café.",
+      "viborg.welcome.image": "Four students walk along the lake with Viborg Cathedral, red rooftops and a Danish flag across the water.",
       "viborg.school.morning": "<strong>09:00</strong> · Morning meeting on the third floor, then daily stand-up in your project group",
       "viborg.school.lunch": "<strong>11:30</strong> · Lunch together",
       "viborg.school.wrap": "<strong>14:15</strong> · Meet again on the third floor to wrap up",
@@ -685,6 +689,10 @@
       "years.year.label": "Exchange",
     },
     da:     {
+      "viborg.welcome.dates": "29. november – 11. december 2026",
+      "viborg.welcome.title": "Velkommen til <span>Viborg!</span>",
+      "viborg.welcome.message": "Nu er det vores tur til at vise jer rundt! Vi glæder os til at bygge videre på projekterne sammen, stå på skøjter ved Borgvold og hygge os til fredagscaféen.",
+      "viborg.welcome.image": "Fire elever går langs søen med udsigt til Viborg Domkirkes to tårne, røde tage og Dannebrog.",
       "viborg.school.morning": "<strong>09:00</strong> · Fælles morgenmøde på 3. sal, derefter daily standup i projektgrupperne",
       "viborg.school.lunch": "<strong>11:30</strong> · Fælles frokost",
       "viborg.school.wrap": "<strong>14:15</strong> · Fælles afslutning på 3. sal",
@@ -1283,6 +1291,10 @@
       "years.year.label": "Udveksling",
     },
     nl:     {
+      "viborg.welcome.dates": "29 november – 11 december 2026",
+      "viborg.welcome.title": "Welkom in <span>Viborg!</span>",
+      "viborg.welcome.message": "Nu is het onze beurt om jullie rond te leiden! We kijken ernaar uit om samen aan de projecten te werken, te schaatsen bij Borgvold en bij te praten in het vrijdagcafé.",
+      "viborg.welcome.image": "Vier leerlingen wandelen langs het meer met uitzicht op de domkerk van Viborg, rode daken en de Deense vlag.",
       "viborg.school.morning": "<strong>09:00</strong> · Gezamenlijke dagstart op de derde verdieping, daarna daily stand-up in je projectgroep",
       "viborg.school.lunch": "<strong>11:30</strong> · Samen lunchen",
       "viborg.school.wrap": "<strong>14:15</strong> · Gezamenlijke afsluiting op de derde verdieping",

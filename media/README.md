@@ -9,7 +9,9 @@ Files use clean names (`photo-01.webp`, `video-01.mp4`). Update `previous-years.
 
 Prefer JPG/WebP for photos and MP4 for video (browser-friendly).
 
-## 2026 project cards
+## 2026 welcome and project cards
+
+`2026/viborg-velkomst.webp` is an AI-generated postcard illustration of the lakeside and Viborg Cathedral for the Danish exchange welcome page.
 
 `projects-2026/gruppebillede.webp` is an AI-generated group illustration showing all eight projects at a shared exhibition. The students in the illustration are fictional.
 

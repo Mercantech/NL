@@ -22,6 +22,7 @@ const assets = new Set([
   "/helmond-program-data.mjs",
   "/projekter-2026.mjs",
   "/projekter-2026-data.mjs",
+  "/media/2026/viborg-velkomst.webp",
   "/media/projects-2026/gruppebillede.webp",
   "/media/projects-2026/warehouse.webp",
   "/media/projects-2026/dmx.webp",
