@@ -13,10 +13,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261128a" />
+  <link rel="stylesheet" href="styles.css?v=20261128c" />
 </head>
 <body>
   <a class="skip-link" href="#content" data-i18n="shared.skipLink">Skip to content</a>
+
+  <svg width="0" height="0" hidden aria-hidden="true">
+    <symbol id="viborg-icon-lesson" viewBox="0 0 24 24">
+      <path d="M12 6C9 4 6 4 3 5v14c3-1 6-1 9 1 3-2 6-2 9-1V5c-3-1-6-1-9 1Zm0 0v14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
 
   <header class="site-header">
     <div class="header-inner">
@@ -184,7 +190,11 @@
               <span class="sch-date" role="cell"><time datetime="2026-11-30">30 Nov</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.monday">Monday</span>
               <div class="sch-what" role="cell">
-                <p class="viborg-day-detail" data-i18n-html="viborg.day2.theory"><strong>10:00 · Unit testing</strong> in C# with xUnit or NUnit. We cover assertions, Arrange–Act–Assert and mocking.</p>
+                <div class="viborg-lesson">
+                  <svg class="viborg-lesson-icon" width="20" height="20" aria-hidden="true"><use href="#viborg-icon-lesson"/></svg>
+                  <p data-i18n-html="viborg.day2.theory"><strong>10:00 · Unit testing in C#</strong><br>We compare unit, integration and end-to-end tests, then write a small test in xUnit or NUnit using Arrange–Act–Assert. We look at how a mock replaces a dependency so the test can focus on one behaviour.</p>
+                </div>
+                <p class="viborg-school-end" data-i18n-html="viborg.school.end"><strong>14:30</strong> · End of the school day</p>
                 <strong data-i18n="viborg.day2.title">Ice skating near Borgvold</strong>
                 <p class="viborg-day-detail" data-i18n-html="viborg.day2.body"><strong>14:30</strong> Walk together from school to the ice rink near Borgvold. Return before dinner.</p>
               </div>
@@ -195,7 +205,11 @@
               <span class="sch-date" role="cell"><time datetime="2026-12-01">1 Dec</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.tuesday">Tuesday</span>
               <div class="sch-what" role="cell">
-                <p class="viborg-day-detail" data-i18n-html="viborg.day3.theory"><strong>10:00 · Integration testing</strong> to check how parts of an application work together.</p>
+                <div class="viborg-lesson">
+                  <svg class="viborg-lesson-icon" width="20" height="20" aria-hidden="true"><use href="#viborg-icon-lesson"/></svg>
+                  <p data-i18n-html="viborg.day3.theory"><strong>10:00 · Integration testing</strong><br>We test how components work together. For example, we can send a request to an API, let it read or save data in a test database and check the response.</p>
+                </div>
+                <p class="viborg-school-end" data-i18n-html="viborg.school.end"><strong>14:30</strong> · End of the school day</p>
                 <strong data-i18n="viborg.day3.title">Free afternoon</strong>
                 <p class="viborg-day-detail" data-i18n-html="viborg.day3.body">Visit the <a href="https://vierviborg.dk/da/jul-i-viborg">Christmas market at Nytorv</a> until <strong>19:00</strong>, play board games at school, watch a film together or go to a café or bar. Make plans on WhatsApp.</p>
               </div>
@@ -206,8 +220,11 @@
               <span class="sch-date" role="cell"><time datetime="2026-12-02">2 Dec</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.wednesday">Wednesday</span>
               <div class="sch-what" role="cell">
-                <p class="viborg-day-detail" data-i18n-html="viborg.day4.theory"><strong>10:00 · End-to-end testing with Bruno.</strong> Build an API test collection to check responses, authentication and error cases.</p>
-                <p class="viborg-day-detail" data-i18n-html="viborg.day4.presentations"><strong>12:00 · Joint presentations on the third floor</strong> until the end of the school day.</p>
+                <div class="viborg-lesson">
+                  <svg class="viborg-lesson-icon" width="20" height="20" aria-hidden="true"><use href="#viborg-icon-lesson"/></svg>
+                  <p data-i18n-html="viborg.day4.theory"><strong>10:00 · End-to-end testing with Bruno</strong><br>We build an API test collection around a complete flow, such as signing in and calling a protected endpoint. We check successful responses and error cases, then look at how the team can share and rerun the tests.</p>
+                </div>
+                <p class="viborg-school-end" data-i18n-html="viborg.school.end"><strong>14:30</strong> · End of the school day</p>
                 <strong data-i18n="viborg.day4.title">Space Jump</strong>
                 <p class="viborg-day-detail" data-i18n-html="viborg.day4.body">Meet downstairs at Mercantec Kollegiet at <strong>14:45</strong>. Trampolines and arcade from <strong>16:00 to 19:00</strong>. Cost <strong>DKK 30 per person</strong>. Alternatively, meet other students at Ølluminati from around <strong>16:00</strong> for non-alcoholic drinks and board games too.</p>
               </div>
@@ -218,7 +235,11 @@
               <span class="sch-date" role="cell"><time datetime="2026-12-03">3 Dec</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.thursday">Thursday</span>
               <div class="sch-what" role="cell">
-                <p class="viborg-day-detail" data-i18n-html="viborg.day5.theory"><strong>10:00 · GitHub Actions.</strong> Set up a CI/CD pipeline that builds the project and runs tests automatically.</p>
+                <div class="viborg-lesson">
+                  <svg class="viborg-lesson-icon" width="20" height="20" aria-hidden="true"><use href="#viborg-icon-lesson"/></svg>
+                  <p data-i18n-html="viborg.day5.theory"><strong>10:00 · GitHub Actions</strong><br>We look at where continuous integration and deployment fit into CI/CD. We set up a workflow that builds the project and runs tests automatically, then use the status and logs to find out why a check failed.</p>
+                </div>
+                <p class="viborg-school-end" data-i18n-html="viborg.school.end"><strong>14:30</strong> · End of the school day</p>
                 <strong data-i18n="viborg.day5.title">Beer Walk and board games</strong>
                 <p class="viborg-day-detail" data-i18n-html="viborg.day5.body">The <a href="https://vierviborg.dk/en/attractions/viborg-beer-walk">Viborg Beer Walk</a> costs <strong>DKK 150 per person</strong> for six small beers and a glass to keep. Route to follow. Ølluminati is a possible meeting point before or after. Board games at Datahouse around <strong>14:00–20:00</strong>.</p>
               </div>
@@ -229,8 +250,10 @@
               <span class="sch-date" role="cell"><time datetime="2026-12-04">4 Dec</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.friday">Friday</span>
               <div class="sch-what" role="cell">
-                <strong data-i18n="viborg.day6.title">Friday café and departure for Aarhus</strong>
-                <p class="viborg-day-detail" data-i18n-html="viborg.day6.body">Friday café on the third floor with snacks, games and drinks. <strong>Around 10:30</strong>, time to be confirmed. The Dutch group leaves for Aarhus in the afternoon.</p>
+                <p class="viborg-day-detail viborg-daytime-note" data-i18n-html="viborg.day6.cafe">Friday café on the third floor with snacks, games and drinks. <strong>Around 10:30</strong>, time to be confirmed.</p>
+                <p class="viborg-school-end" data-i18n-html="viborg.school.end"><strong>14:30</strong> · End of the school day</p>
+                <strong data-i18n="viborg.day6.title">Departure for Aarhus</strong>
+                <p class="viborg-day-detail" data-i18n-html="viborg.day6.body">The Dutch group leaves for Aarhus in the afternoon.</p>
               </div>
             </div>
             <div class="schedule-row is-dk is-weekend" role="row" data-type="weekend">
@@ -259,6 +282,7 @@
               <span class="sch-date" role="cell"><time datetime="2026-12-07">7 Dec</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.monday">Monday</span>
               <div class="sch-what" role="cell">
+                <p class="viborg-school-end" data-i18n-html="viborg.school.end"><strong>14:30</strong> · End of the school day</p>
                 <strong data-i18n="viborg.day9.title">Possible after-school activities</strong>
                 <p class="viborg-day-detail" data-i18n-html="viborg.day9.body">Ideas for the afternoon include a football match in Viborg (possibly 10 tickets), a photo scavenger hunt or cooking Christmas food together. Activity still to be decided.</p>
               </div>
@@ -269,6 +293,7 @@
               <span class="sch-date" role="cell"><time datetime="2026-12-08">8 Dec</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.tuesday">Tuesday</span>
               <div class="sch-what" role="cell">
+                <p class="viborg-school-end" data-i18n-html="viborg.school.end"><strong>14:30</strong> · End of the school day</p>
                 <strong data-i18n="viborg.day10.title">Free afternoon</strong>
                 <p class="viborg-day-detail" data-i18n-html="viborg.day10.body"><a href="https://vierviborg.dk/da/jul-i-viborg">Christmas market at Nytorv</a> until <strong>19:00</strong>, board games, a film, bowling or laser tag. Make plans on WhatsApp.</p>
               </div>
@@ -279,6 +304,11 @@
               <span class="sch-date" role="cell"><time datetime="2026-12-09">9 Dec</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.wednesday">Wednesday</span>
               <div class="sch-what" role="cell">
+                <div class="viborg-lesson">
+                  <svg class="viborg-lesson-icon" width="20" height="20" aria-hidden="true"><use href="#viborg-icon-lesson"/></svg>
+                  <p data-i18n-html="viborg.day11.presentations"><strong>12:00 · Joint presentations on the third floor</strong><br>All project groups take part. Presentations continue until <strong>14:30</strong>.</p>
+                </div>
+                <p class="viborg-school-end" data-i18n-html="viborg.school.end"><strong>14:30</strong> · End of the school day</p>
                 <strong data-i18n="viborg.day11.title">Optional meet-up at Ølluminati</strong>
                 <p class="viborg-day-detail" data-i18n-html="viborg.day11.body">Suggestion: meet other Mercantec students at Ølluminati around <strong>16:00</strong>.</p>
               </div>
@@ -289,8 +319,13 @@
               <span class="sch-date" role="cell"><time datetime="2026-12-10">10 Dec</time></span>
               <span class="sch-weekday" role="cell" data-i18n="shared.weekday.thursday">Thursday</span>
               <div class="sch-what" role="cell">
-                <strong data-i18n="viborg.day12.title">Project presentations and Jam Night</strong>
-                <p class="viborg-day-detail" data-i18n-html="viborg.day12.body">Project presentations during the school day. See the <a href="projekter-2026.html">project groups</a>. <a href="https://paletten.dk/event/jam-night-26-vol-6/">Jam Night at Paletten</a> starts at <strong>19:00</strong>.</p>
+                <div class="viborg-lesson">
+                  <svg class="viborg-lesson-icon" width="20" height="20" aria-hidden="true"><use href="#viborg-icon-lesson"/></svg>
+                  <p data-i18n-html="viborg.day12.school"><strong>Project presentations during the school day</strong><br>See the <a href="projekter-2026.html">project groups</a>.</p>
+                </div>
+                <p class="viborg-school-end" data-i18n-html="viborg.school.end"><strong>14:30</strong> · End of the school day</p>
+                <strong data-i18n="viborg.day12.title">Jam Night</strong>
+                <p class="viborg-day-detail" data-i18n-html="viborg.day12.body"><a href="https://paletten.dk/event/jam-night-26-vol-6/">Jam Night at Paletten</a> starts at <strong>19:00</strong>.</p>
               </div>
             </div>
             <div class="schedule-row is-dk" role="row" data-type="departure">
@@ -507,7 +542,7 @@
     </div>
   </footer>
 
-  <script src="i18n.js?v=20261128b"></script>
+  <script src="i18n.js?v=20261128c"></script>
   <script src="/pwa.js?v=20261114b" defer></script>
   <script src="script.js?v=20261128a"></script>
 </body>

@@ -6139,6 +6139,46 @@ a.itinerary-place:hover {
   text-underline-offset: 0.16em;
 }
 
+.viborg-daytime-note {
+  margin-block: 0 0.65rem;
+}
+
+.viborg-lesson {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 0.65rem;
+  margin-bottom: 0.75rem;
+  padding: 0.65rem 0.75rem;
+  border-inline-start: 3px solid var(--sea-mid);
+  border-radius: 0.35rem;
+  background: var(--foam);
+  color: var(--sea);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.viborg-lesson p {
+  margin: 0;
+}
+
+.viborg-lesson-icon {
+  margin-top: 0.13rem;
+}
+
+.viborg-school-end {
+  margin: 0 0 0.55rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--foam);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.viborg-school-end strong {
+  color: var(--sea);
+  font-variant-numeric: tabular-nums;
+}
+
 .stay-meals {
   margin: 0 0 0.6rem;
 }
