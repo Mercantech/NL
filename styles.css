@@ -6166,14 +6166,27 @@ a.itinerary-place:hover {
   margin-top: 0.13rem;
 }
 
+.viborg-school-time,
 .viborg-school-end {
-  margin: 0 0 0.55rem;
-  padding-bottom: 0.55rem;
-  border-bottom: 1px solid var(--foam);
   color: var(--muted);
   font-size: 0.875rem;
 }
 
+.viborg-school-time {
+  margin: 0 0 0.35rem;
+}
+
+.viborg-school-time + .viborg-lesson {
+  margin-top: 0.6rem;
+}
+
+.viborg-school-end {
+  margin: 0 0 0.55rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--foam);
+}
+
+.viborg-school-time strong,
 .viborg-school-end strong {
   color: var(--sea);
   font-variant-numeric: tabular-nums;

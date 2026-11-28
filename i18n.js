@@ -87,6 +87,10 @@
 
   var STRINGS = {
     en:     {
+      "viborg.school.morning": "<strong>09:00</strong> · Morning meeting on the third floor, then daily stand-up in your project group",
+      "viborg.school.lunch": "<strong>11:30</strong> · Lunch together",
+      "viborg.school.wrap": "<strong>14:15</strong> · Meet again on the third floor to wrap up",
+      "viborg.school.presentationsContinue": "<strong>14:15</strong> · Presentations continue on the third floor",
       "viborg.school.end": "<strong>14:30</strong> · End of the school day",
       "viborg.day11.presentations": "<strong>12:00 · Joint presentations on the third floor</strong><br>All project groups take part. Presentations continue until <strong>14:30</strong>.",
       "viborg.theory.online": "Theory starts at <strong>10:00</strong> on the first four school days, 30 November–3 December. You can join the theory sessions online.",
@@ -681,6 +685,10 @@
       "years.year.label": "Exchange",
     },
     da:     {
+      "viborg.school.morning": "<strong>09:00</strong> · Fælles morgenmøde på 3. sal, derefter daily standup i projektgrupperne",
+      "viborg.school.lunch": "<strong>11:30</strong> · Fælles frokost",
+      "viborg.school.wrap": "<strong>14:15</strong> · Fælles afslutning på 3. sal",
+      "viborg.school.presentationsContinue": "<strong>14:15</strong> · Fremlæggelserne fortsætter på 3. sal",
       "viborg.school.end": "<strong>14:30</strong> · Den faglige del slutter",
       "viborg.day11.presentations": "<strong>12:00 · Fælles fremlæggelser på 3. sal</strong><br>Alle projektgrupper deltager. Fremlæggelserne fortsætter til kl. <strong>14:30</strong>.",
       "viborg.theory.online": "De første fire skoledage, 30. november–3. december, er der teori kl. <strong>10:00</strong>. Du kan deltage online i teoriundervisningen.",
@@ -1275,6 +1283,10 @@
       "years.year.label": "Udveksling",
     },
     nl:     {
+      "viborg.school.morning": "<strong>09:00</strong> · Gezamenlijke dagstart op de derde verdieping, daarna daily stand-up in je projectgroep",
+      "viborg.school.lunch": "<strong>11:30</strong> · Samen lunchen",
+      "viborg.school.wrap": "<strong>14:15</strong> · Gezamenlijke afsluiting op de derde verdieping",
+      "viborg.school.presentationsContinue": "<strong>14:15</strong> · De presentaties gaan verder op de derde verdieping",
       "viborg.school.end": "<strong>14:30</strong> · Einde van de schooldag",
       "viborg.day11.presentations": "<strong>12:00 · Gezamenlijke presentaties op de derde verdieping</strong><br>Alle projectgroepen doen mee. De presentaties duren tot <strong>14:30</strong>.",
       "viborg.theory.online": "Op de eerste vier schooldagen, van 30 november t/m 3 december, begint de theorie om <strong>10:00</strong>. Je kunt de theorielessen online volgen.",
